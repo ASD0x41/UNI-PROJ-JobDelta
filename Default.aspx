@@ -9,6 +9,11 @@
             <p><a href="http://www.asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
         </section>
 
+        <%--Test Grid:--%>
+        <asp:GridView ID="ItemGrid" runat="server">
+
+        </asp:GridView>
+
         <div class="row">
             <section class="col-md-4" aria-labelledby="gettingStartedTitle">
                 <h2 id="gettingStartedTitle">Getting started</h2>
