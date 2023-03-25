@@ -12,7 +12,7 @@ namespace JobDelta.Data_Access_Layer
     public class DAL
     {
         // Connection String for Use in Functions:
-        private static readonly string conString = System.Configuration.ConfigurationManager.ConnectionStrings["JobDelta_Data"].ConnectionString;
+        private static readonly string conString = System.Configuration.ConfigurationManager.ConnectionStrings["JobDeltaDB"].ConnectionString;
 
         // Test Function:
         public DataSet TestFunction()
