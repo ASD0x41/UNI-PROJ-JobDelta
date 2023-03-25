@@ -1,0 +1,236 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F7F7F7;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #1A1A1A;
+    box-shadow: 0px 0px 10px rgba(255, 69, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin-bottom: 10px;
+    justify-content: flex-end; 
+}
+
+.Heading_name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    margin-right: auto; 
+}
+
+    .Heading_name a {
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .Heading_name a:hover {
+            color: #FF4500;
+        }
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+    nav a:hover {
+        color: #FF4500;
+    }
+
+.profile {
+    position: relative;
+}
+
+    .profile img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-left: 10px;
+        cursor: pointer;
+        border: 2px solid #FF4500;
+    }
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    display: none;
+    background-color: #252525;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+    .dropdown a {
+        display: block;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+        .dropdown a:hover {
+            color: #fff;
+            background-color: #FF4500;
+        }
+
+.profile:hover .dropdown {
+    display: block;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 30px;
+    clear: both;
+    background-color: #1A1A1A;
+    padding: 50px 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-links a {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    .footer-links a:hover {
+        color: #FF4500;
+    }
+
+.footer-categories ul,
+.footer-services ul,
+.footer-company ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-categories li,
+.footer-services li,
+.footer-company li {
+    margin-bottom: 10px;
+}
+
+.footer-categories a,
+.footer-services a,
+.footer-company a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    .footer-categories a:hover,
+    .footer-services a:hover,
+    .footer-company a:hover {
+        color: #FF4500;
+    }
+
+.footer-newsletter form {
+    display: flex;
+}
+
+.footer-newsletter input[type ="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.footer-newsletter button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FF4500;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .footer-newsletter button:hover {
+        background-color: #fff;
+        color: #FF4500;
+    }
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+    .social-icons a {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 0 10px;
+        background-color: #666;
+        text-align: center;
+        line-height: 40px;
+        transition: background-color 0.3s ease;
+    }
+
+        .social-icons a:hover {
+            background-color: #FF4500;
+        }
+
+.fa {
+    font-size: 20px;
+    color: #FFF;
+}
+
+.footer-disclaimer {
+    margin-top: 30px;
+    margin-bottom: -50px;
+    background-color: #1A1A1A;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
