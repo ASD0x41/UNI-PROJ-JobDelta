@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <link href="Resources/StyleSheet2.css" rel="stylesheet" />
+    <link href="Resources/CSS/Master2.css" rel="stylesheet" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -23,17 +23,16 @@
                         </div>
                         <nav>
                           <ul>
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Wallet</a></li>
-                            <li><a href="#">Messages</a></li>
+                            <li><a href="F_Dashboard.aspx">Dashboard</a></li>
+                            <li><a href="Wallet.aspx">Wallet</a></li>
                           </ul>
                         </nav>
                         <div class="profile">
-                          <a href="#"><img src="image.jpg" alt="Profile"/></a>
+                          <a href="MyProfile.aspx"><img src="image.jpg" alt="Profile"/></a>
                           <div class="dropdown">
-                            <a href="#">My Profile</a>
-                            <a href="#">My Settings</a>
-                            <a href="#">Logout</a>
+                            <a href="MyProfile.aspx">My Profile</a>
+                            <a href="FeedBack.aspx">FeedBack</a>
+                            <a href="HomePage.aspx">Logout</a>
                           </div>
                         </div>
                       </div>
@@ -113,10 +112,6 @@
                     <p>© 2023 JOBDELTA. All rights reserved.</p>
               </div>
 </footer>
-
-<%-------------------------------------------------------------------------------------------------%> 
-
-
     
 <%-------------------------------------------------------------------------------------------------%> 
           </form>
