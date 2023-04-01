@@ -7,44 +7,33 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<!------------------------------------------------------------------------------------------------------------------->
-            <div class="Cover" style="background-image:url(https://images.pexels.com/photos/4069291/pexels-photo-4069291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)">
-			            <div class="container" id="container">
-				            <div class="form-container sign-up-container">
-					            <form action="#">
-						            <h1>Create Account</h1>
-						            <input type="text" placeholder="Name" />
-						            <input type="email" placeholder="Email" />
-						            <input type="password" placeholder="Password" />
-						            <button>Sign Up</button>
-					            </form>
-				            </div>
+    <div class="Cover" style="background-image:url(Resources/office3.jpg); background-size:cover;">
+                <div class="wrapper">
+                        <div class="signin_container" id="signin-container">
+                          <h2>Sign In</h2>
+                            <asp:TextBox ID="txtSignInUserName" runat="server" placeholder="UserName"></asp:TextBox>
+                            <asp:TextBox ID="txtSignInPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                            <a href="#">Forgot your password?</a>
+                            <br />
+                            <asp:Button CssClass="sp_button" ID="btnSignIn" runat="server" Text="Sign In" />
+                        </div>
 
-				            <div class="form-container sign-in-container">
-					            <form action="#">
-						            <h1>Sign in</h1>
-						            <input type="email" placeholder="Email" />
-						            <input type="password" placeholder="Password" />
-						            <a href="#">Forgot your password?</a>
-						            <button>Sign In</button>
-					            </form>
-				            </div>
-				            <div class="overlay-container">
-					            <div class="overlay">
-						            <div class="overlay-panel overlay-left">
-							            <h1 style="margin-right:70px">Welcome Back!</h1>
-							            <p style="margin-right:70px">To keep connected with us please login with your personal info</p>
-							            <button class="ghost" style="margin-right:60px;" id="signIn">Sign In</button>
-						            </div>
-						            <div class="overlay-panel overlay-right">
-							            <h1 style="margin-left:70px">Hello!</h1>
-							            <p style="margin-left:70px">Enter your personal details and start journey with us</p>
-							            <button class="ghost" style="margin-left:60px;" id="signUp">Sign Up</button>
-						            </div>
-					            </div>
-				            </div>
-			            </div>
-            </div>
+                        <div class="signup_container" id="signup-container">
+                          <h2>Sign Up</h2>
+                                <asp:TextBox ID="txtName" runat="server" placeholder="Name"></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" runat="server" placeholder="Email"></asp:TextBox>
+                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
+                                <br />
+                                <label for="account-type">Account Type:</label>
+                                <br />
+                                <asp:DropDownList ID="ddlAccountType" runat="server">
+                                    <asp:ListItem Value="freelancer">Freelancer</asp:ListItem>
+                                    <asp:ListItem Value="client">Client</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:Button CssClass="sp_button" ID="btnSignUp" runat="server" Text="Sign Up" />
+                          </div>
+                     </div>
+                </div>
 
 <!------------------------------------------------------------------------------------------------------------------->
 
@@ -156,11 +145,6 @@
             </ul>
           </div>
         </section>
-
-
-<!------------------------------------------------------------------------------------------------------------------->
-
-    <script src="Resources/Myjs.js"></script>
 
 <!------------------------------------------------------------------------------------------------------------------->
 
