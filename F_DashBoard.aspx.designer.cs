@@ -15,12 +15,21 @@ namespace JobDelta
     {
 
         /// <summary>
-        /// GridView1 control.
+        /// PostingGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView PostingGridView;
+
+        /// <summary>
+        /// PostGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PostGridView;
     }
 }
