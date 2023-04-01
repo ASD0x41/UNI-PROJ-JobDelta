@@ -14,7 +14,7 @@
 <%-------------------------------------------------------------------------------------------------%> 
 
 <body>  
-        
+        <form runat="server">
 <%-------------------------------------------------------------------------------------------------%> 
 
     <header>
@@ -90,10 +90,10 @@
                     </div>
                     <div class="footer-newsletter">
                       <h4>Join Our Newsletter</h4>
-                      <form>
+                      
                         <input type="email" placeholder="Enter your email address">
                         <button type="submit">Subscribe</button>
-                      </form>
+                      
                     </div>
                     <div class="footer-social">
                       <h4>Connect With Us</h4>
@@ -115,6 +115,6 @@
 
     
 <%-------------------------------------------------------------------------------------------------%> 
-
+         </form>
     </body>
 </html>
