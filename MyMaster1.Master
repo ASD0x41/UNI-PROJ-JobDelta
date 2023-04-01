@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link href="Resources/StyleSheet1.css" rel="stylesheet" />
+    <link href="Resources/CSS/Master1.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -13,21 +13,23 @@
 
 <%-------------------------------------------------------------------------------------------------%> 
 
-<body>  
-        <form runat="server">
+<body>
+    
+      <form runat="server"> 
 <%-------------------------------------------------------------------------------------------------%> 
 
-    <header>
+                 <header>
+
                       <div class="header-container">
                         <div class="Heading_name">
-                          <a href="#">JOB-DELTA</a>
+                          <a href="HomePage.aspx">JOB-DELTA</a>
                         </div>
                         <nav>
                           <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="HomePage.aspx">Home</a></li>
+                            <li><a href="About_Us.aspx">About Us</a></li>
                             <li><a href="#">Contact</a></li>
-                            <li><a href="#">FAQs</a></li>
+                            <li><a href="FAQs.aspx">FAQs</a></li>
                           </ul>
                         </nav>
                       </div>
@@ -90,10 +92,10 @@
                     </div>
                     <div class="footer-newsletter">
                       <h4>Join Our Newsletter</h4>
-                      
+                      <form>
                         <input type="email" placeholder="Enter your email address">
                         <button type="submit">Subscribe</button>
-                      
+                      </form>
                     </div>
                     <div class="footer-social">
                       <h4>Connect With Us</h4>
@@ -109,12 +111,10 @@
                     <p>© 2023 JOBDELTA. All rights reserved.</p>
               </div>
 </footer>
-
-<%-------------------------------------------------------------------------------------------------%> 
-
-
     
 <%-------------------------------------------------------------------------------------------------%> 
+
          </form>
+
     </body>
 </html>

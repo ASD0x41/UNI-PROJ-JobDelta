@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="Cover" style="background-image:url(Resources/office3.jpg); background-size:cover;">
+    <div class="Cover" style="background-image:url(Resources/Images/office3.jpg); background-size:cover;">
                 <div class="wrapper">
                         <div class="signin_container" id="signin-container">
                           <h2>Sign In</h2>
