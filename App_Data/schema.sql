@@ -187,7 +187,7 @@ drop table Users
 insert into Users (username, userpass, emailaddress, usertype) values ('webmaster', 'MASUMCorp.2023', 'webmaster@jobdelta.com', 0)
 
 
-
+drop table TestTable1
 
 
 

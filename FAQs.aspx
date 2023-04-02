@@ -12,62 +12,52 @@
         <%-----------------------------------------------------------------------------------------------%>
         <div class="faq">
             <div class="question">
-                <h3>What is the Meaning of Life?</h3>
+                <h3>Is my personal information safe?</h3>
                 
             </div>
             <div class="answer">
                 <p>
-                No one can tell the actual definition of the meaning of life. For some, it is all about happiness, building a family, and leading life as it is. For some, it is about accumulating wealth, whereas, for some, it is all about love.
-
-Many think about the meaning and purpose in life from a philosophical perspective, but the meaning in life is associated with better health, wellness, and perhaps longevity, suggests a new study.    
+               JobDelta takes the security and privacy of its users very seriously. The website employs a range of measures to protect your personal information, including encryption and secure servers. Additionally, JobDelta does not share your personal information with third parties without your consent. You can also control the information that is displayed on your profile and choose what you want to share with potential clients. However, it's always a good idea to exercise caution when sharing personal information online and to be mindful of who you are communicating with on the platform.  
                 </p>
             </div>
         </div>
         <%-----------------------------------------------------------------------------------------------%>
         <div class="faq">
             <div class="question">
-                <h3>Why do I have to suffer?</h3>
+                <h3>What kind of services can I find on JobDelta?</h3>
             </div>
             <div class="answer">
                 <p>
-                I’m still wondering this same thing… I’m so unhappy that it’s painful just to live. I cry a lot these days, have gone through depression many times. Every time I step out of my house, I seem to piss someone off by just walking by, labeled weird and all those mean words. It’s gotten to the point where I can’t even make eye contact with people or oncoming traffic. I hate myself. I hate my life. It won’t get better, only harder.    
+                On JobDelta, you can find a wide variety of freelance services offered by talented professionals from all around the world. These services include graphic design, web development, writing and translation, social media management, virtual assistance, marketing and advertising, and many more. You can browse through the available services and filter them based on your specific needs and preferences. Additionally, freelancers can offer custom services based on your unique requirements, so there are endless possibilities for the kind of services you can find on JobDelta.
+
+
+
+    
                 </p>
             </div>
         </div>
         <%-----------------------------------------------------------------------------------------------%>
         <div class="faq">
             <div class="question">
-                <h3>Is she ever coming back to me?</h3>
+                <h3>How do I know if a freelancer on JobDelta is reliable?</h3>
             </div>
             <div class="answer">
                 <p>
-                It takes 3 weeks for an average person to recover from a serious fight. Do not try to contact her. As she has blocked you from social networking sites, you have even lesser ways to try and contact her, which is a good thing.
-
-Concentrate on your life. I know it is difficult to concentrate when all you can think about is her. But do it anyway. Challenge yourself to gain/lose weight, start working out, start learning new things that interest you - music/dance/art.
-
-If you cannot think of anything else, binge watch TV series, plan weekend activities with friends, socialize. Keep yourself as busy as you can.
-
-Remember that she has your contact details. Whenever she wants to contact you, she can do that. So do not worry.   
+                JobDelta offers a number of features to help ensure the reliability of its freelancers. Freelancers are required to complete their profiles, which include their skills and experience, as well as reviews and ratings from previous clients. Employers can also communicate with freelancers before hiring them to discuss their project and ensure they are the right fit.  
                 </p>
             </div>
         </div>
         <%-----------------------------------------------------------------------------------------------%>
         <div class="faq">
             <div class="question">
-                <h3>Will i ever feel complete again?</h3>
+                <h3>How does JobDelta ensure quality work from its freelancers?</h3>
             </div>
             <div class="answer">
                 <p>
-                Yes you can feel whole again. Yes you will be loved again. No you are not so broken nobody wants you.
-
-That being said you do need to work on you. Take time to find yourself. Build up you self confidence as nothing is more sexy and can capture a man's attention like self confidence.
-
-Once you have self esteem, self awareness, self confidence, self love you will be unstoppable. The wonderful part about achieving all of those traits are once you are happy with yourself you will not need anyone to define you. Once you are happy and love yourself you realize that you yourself are enough and you wont pine after needing to have someone to make you complete. You will be complete just being you.
+                JobDelta takes quality control seriously and provides several features to ensure that employers receive high-quality work from its freelancers. Freelancers are required to complete their profiles, which include their skills and experience, as well as reviews and ratings from previous clients. Employers can also communicate with freelancers before hiring them to discuss their project and ensure they are the right fit. Additionally, JobDelta provides an optional arbitration service that can be used in case of disputes between employers and freelancers. Finally, employers can leave feedback and ratings for the freelancers they work with, which can help maintain accountability and encourage high-quality work.
                 </p>
             </div>
         </div>
-        <%-----------------------------------------------------------------------------------------------%>
-
         <br />
         <br />
 
