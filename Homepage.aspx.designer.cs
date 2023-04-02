@@ -33,13 +33,13 @@ namespace JobDelta
         protected global::System.Web.UI.WebControls.TextBox txtSignInPassword;
 
         /// <summary>
-        /// btnSignIn control.
+        /// BtnSignIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignIn;
+        protected global::System.Web.UI.WebControls.Button BtnSignIn;
 
         /// <summary>
         /// txtName control.
@@ -78,12 +78,12 @@ namespace JobDelta
         protected global::System.Web.UI.WebControls.DropDownList ddlAccountType;
 
         /// <summary>
-        /// btnSignUp control.
+        /// BtnSignUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignUp;
+        protected global::System.Web.UI.WebControls.Button BtnSignUp;
     }
 }

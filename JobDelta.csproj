@@ -104,8 +104,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="About_Us.aspx" />
-    <Content Include="App_Data\JobDelta_Data.mdf" />
-    <Content Include="App_Data\JobDelta_Log.ldf" />
     <Content Include="App_Data\JobDeltaDB.mdf" />
     <Content Include="App_Data\JobDeltaDBLog.ldf" />
     <Content Include="App_Data\schema.sql" />
