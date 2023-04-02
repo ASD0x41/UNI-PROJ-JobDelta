@@ -45,11 +45,11 @@ namespace JobDelta.Data_Access_Layer
 
         public int RegisterNewUser(string uname, string email, string pword, string utype)
         {
-            char atype = 'X';
+            int atype = -1;
             if (utype == "client")
-                atype = 'C';
-            else
-                atype = 'F';
+                atype = 2;
+            else if (utype == "freelancer")
+                atype = 1;
 
             int retval = -1;
 
@@ -65,7 +65,7 @@ namespace JobDelta.Data_Access_Layer
                 cmd.Parameters.Add("@_username", SqlDbType.VarChar, 16);
                 cmd.Parameters.Add("@_password", SqlDbType.VarChar, 16);
                 cmd.Parameters.Add("@_emailadd", SqlDbType.VarChar, 32);
-                cmd.Parameters.Add("@_usertype", SqlDbType.Char, 1);
+                cmd.Parameters.Add("@_usertype", SqlDbType.Int);
 
                 cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
 

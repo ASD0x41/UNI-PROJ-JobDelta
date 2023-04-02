@@ -12,7 +12,8 @@ namespace JobDelta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Application["currentUser"] = -1;
+            Application["currentUser"] = -1;
         }
 
         protected void BtnSignUp_Click(object sender, EventArgs e)
@@ -52,8 +53,8 @@ namespace JobDelta
                 Application["currentUser"] = logindetails.Item2;
                 Application["curUserType"] = logindetails.Item3;
 
-                int x = (int)Application["currentUser"];
-                int y = (int)Application["curUserType"];
+                //int x = (int)Application["currentUser"];
+                //int y = (int)Application["curUserType"];
             }
 
             switch (retval)
@@ -64,7 +65,7 @@ namespace JobDelta
                     else if (logindetails.Item3 == 2)
                         Response.Redirect("C_DashBoard.aspx");
                     else if (logindetails.Item3 == 0)
-                        Response.Redirect("A_Dashboard.aspx");
+                        Response.Redirect("A_DashBoard.aspx");
                     break;
                 case -1:
                     string script2 = "signinfailure1();";

@@ -15,7 +15,7 @@
 
         function signupfailure() {
             /*openPopup();*/
-            alert("Unable to sign up successfully! Username already exists!");
+            alert("Unable to sign up successfully: Username already exists!");
         }
 
         //function signinsuccess() {
@@ -24,43 +24,14 @@
 
         function signinfailure1() {
             /*openPopup();*/
-            alert("Unable to log in successfully! Invalid password!");
+            alert("Unable to log in successfully: Invalid password!");
         }
 
         function signinfailure2() {
             /*openPopup();*/
-            alert("Unable to log in successfully! Invalid username!");
+            /*document.getElementById("txtSignInUserName").value = "Invalid Username!";*/
+            alert("Unable to log in successfully: Invalid username!");
         }
-
-        // Get the popup container and close button elements
-        const popupContainer = document.querySelector('.popup-container');
-        const closeButton = document.querySelector('.close-button');
-
-        // Get the form element and add a submit event listener
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (event) => {
-            event.preventDefault(); // Prevent the default form submission behavior
-        });
-
-        // Function to open the popup
-        function openPopup() {
-            popupContainer.style.display = 'block';
-        }
-
-        // Function to close the popup
-        function closePopup() {
-            popupContainer.style.display = 'none';
-        }
-
-        // Add a click event listener to the close button to close the popup
-        closeButton.addEventListener('click', closePopup);
-
-        // Close the popup when the user clicks outside the popup
-        window.addEventListener('click', function (event) {
-            if (event.target == popupContainer) {
-                closePopup();
-            }
-        });
 
     </script>
 
@@ -85,7 +56,7 @@
                         <div class="signup_container" id="signup-container">
                           <h2>Sign Up</h2>
                             
-                                <asp:TextBox ID="txtName" runat="server" placeholder="Name"></asp:TextBox>
+                                <asp:TextBox ID="txtName" runat="server" placeholder="Username"></asp:TextBox>
                                 <asp:TextBox ID="txtEmail" runat="server" placeholder="Email"></asp:TextBox>
                                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                                 <br />
