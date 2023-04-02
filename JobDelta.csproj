@@ -110,6 +110,7 @@
     <Content Include="App_Data\storedprocs.sql" />
     <Content Include="A_DashBoard.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -135,9 +136,11 @@
     <Content Include="F_DashBoard.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Homepage.aspx" />
+    <Content Include="JobDetail.aspx" />
     <Content Include="MyProfile.aspx" />
     <Content Include="Resources\CSS\About_Us.css" />
     <Content Include="Resources\CSS\A_DashBoard.css" />
+    <Content Include="Resources\CSS\ContactUs.css" />
     <Content Include="Resources\CSS\C_DashBoard.css" />
     <Content Include="Resources\CSS\FAQs.css" />
     <Content Include="Resources\CSS\FeedBack.css" />
@@ -145,6 +148,7 @@
     <Content Include="Resources\CSS\HomePage.css" />
     <Content Include="How_it_works.aspx" />
     <Content Include="Resources\CSS\How it Works.css" />
+    <Content Include="Resources\CSS\JobDetail.css" />
     <Content Include="Resources\CSS\Master1.css" />
     <Content Include="Resources\CSS\Master2.css" />
     <Content Include="Resources\CSS\MyProfile.css" />
@@ -258,6 +262,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="C_DashBoard.aspx.cs">
       <DependentUpon>C_DashBoard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -303,6 +314,13 @@
     </Compile>
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobDetail.aspx.cs">
+      <DependentUpon>JobDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobDetail.aspx.designer.cs">
+      <DependentUpon>JobDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyMaster1.Master.cs">
       <DependentUpon>MyMaster1.Master</DependentUpon>

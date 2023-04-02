@@ -104,7 +104,7 @@
 
  <%-------------------------------------------------------------------------------------------------%> 
 
- <div class="slide2show-container" style="margin-top:5%;"> 
+ <div class="slide2show-container" style="margin-top:10%; margin-bottom:5%;"> 
               <div class="slide2">
                 <img src="https://source.unsplash.com/random/800x400" alt="Slide 1"/>
                 <div class="slide2-text">

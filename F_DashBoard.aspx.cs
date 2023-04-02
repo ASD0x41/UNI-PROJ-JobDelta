@@ -51,7 +51,7 @@ namespace JobDelta
             if (e.CommandName == "Edit")
             {
                 int postingId = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("PostDetail.aspx?PostingID=" + postingId);
+                Response.Redirect("JobDetail.aspx?PostingID=" + postingId);
             }
         }
 
