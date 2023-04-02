@@ -117,7 +117,7 @@
     </div>
   </section>
 
-<section class="our-services">
+<section class="our-services" style="margin-right:40px;">
   <ul>
     <li>
       <div class="service">
