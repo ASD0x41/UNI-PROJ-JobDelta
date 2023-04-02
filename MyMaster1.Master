@@ -28,7 +28,7 @@
                           <ul>
                             <li><a href="HomePage.aspx">Home</a></li>
                             <li><a href="About_Us.aspx">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="ContactUs.aspx">Contact</a></li>
                             <li><a href="FAQs.aspx">FAQs</a></li>
                           </ul>
                         </nav>

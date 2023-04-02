@@ -4,13 +4,10 @@
     padding: 0;
 }
 
-body {
-    /*background: #ccc;*/
+.C_body {
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    background-image: url('../image/contactus_background.jpg');
-    background-size: cover;
-    background-position: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #333;
     color: #fff;
 }
 
@@ -32,12 +29,12 @@ body {
 .contact-right {
     flex-basis: 40%;
     padding: 40px;
-    background: #1c00b5;
+    background: #ff6a00;
     color: #fff;
 }
 
-h1 {
-    color: #fff;
+.C_body h1 {
+    color: #ff6a00;
     margin-bottom: 10px;
 }
 
@@ -55,7 +52,7 @@ h1 {
         flex-basis: 45%;
     }
 
-input {
+.C_body input {
     width: 100%;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -63,7 +60,7 @@ input {
     padding-bottom: 5px;
 }
 
-textarea {
+.C_body textarea {
     width: 100%;
     border: 1px solid #ccc;
     outline: none;
@@ -71,14 +68,14 @@ textarea {
     box-sizing: border-box;
 }
 
-label {
+.C_body label {
     margin-bottom: 6px;
     display: block;
-    color: #1c00b5;
+    color: #ff6a00;
 }
 
-button {
-    background: #1c00b5;
+.C_body button {
+    background: #ff6a00;
     width: 100px;
     border: none;
     outline: none;
@@ -86,11 +83,10 @@ button {
     height: 35px;
     border-radius: 30px;
     margin-top: 20px;
-    box-shadow: 0px 5px 15px 0px rgba(28,8,181,6.3);
 }
 
 .contact-left h3 {
-    color: #1c00b5;
+    color: #ff6a00;
     font-weight: 600;
     margin-bottom: 30px;
 }
@@ -100,10 +96,135 @@ button {
     margin-bottom: 30px;
 }
 
-tr td:first-child {
+.C_body tr td:first-child {
     padding-right: 20px;
 }
 
-tr td {
+.C_body tr td {
     padding-top: 20px;
 }
+
+
+.OurTeam {
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .OurTeam h1 {
+        font-weight: bold;
+        color: #FF4500;
+        margin-bottom: 40px;
+    }
+
+    .OurTeam p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+
+/* Team sub-container styles */
+.Team_sub-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Teams styles */
+.teams {
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    margin-right: 32px;
+    margin-bottom: 50px;
+    border: solid;
+    background:#ff6a00;
+    box-shadow:10px 10px 5px black;
+}
+
+
+
+    .teams img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:#FFF;
+}
+
+.desig {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.T_about {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.email {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.Title_ContactUs {
+    text-align: center;
+    padding: 50px 0;
+}
+
+    .Title_ContactUs h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .Title_ContactUs p {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+
+.location-container {
+    margin-top: 50px;
+    margin-left:23px;
+    width: 95%;
+    padding:10px 10px 10px 10px;
+    background-color: #ff6a00;
+    box-shadow: 10px 10px 5px #000000;
+    text-align: center;
+}
+
+    .location-container h2 {
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .location-container p {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .location-container address {
+        font-style: normal;
+        margin-bottom: 20px;
+    }
+
+    .location-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+    }
+

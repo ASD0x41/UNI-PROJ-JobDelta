@@ -1,0 +1,110 @@
+﻿/* Set font family and default colors */
+body {
+    font-family: Arial, sans-serif;
+    color: #333; /*
+	background-color: #f2f2f2;*/
+    background-image: url('../images/office3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style for the job container */
+.job-container {
+    max-width: 600px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the job details section */
+.job-details {
+    margin-top: 20px;
+}
+
+    .job-details h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .job-details .row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .job-details .column {
+        flex-basis: 30%;
+        font-weight: bold;
+    }
+
+    .job-details .column2 {
+        flex-basis: 70%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        color: #888;
+    }
+
+        .job-details .column2:before {
+            /*content: "\\2192";*/
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .job-details .column2 span {
+            font-size: 18px;
+        }
+
+    /* Style for the job status */
+    .job-details .row.job-status {
+        color: #fff;
+        background-color: #28a745;
+    }
+
+        .job-details .row.job-status .column2 {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+            .job-details .row.job-status .column2:before {
+                content: "\\2714";
+                font-size: 20px;
+                margin-right: 10px;
+                color: #fff;
+            }
+
+            .job-details .row.job-status .column2 span {
+                color: #fff;
+            }
+
+    /* Style for the job type */
+    .job-details .row.job-type {
+        color: #fff;
+        background-color: #007bff;
+    }
+
+        .job-details .row.job-type .column2 {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+            .job-details .row.job-type .column2:before {
+                /*content: "\\2605";*/
+                font-size: 20px;
+                margin-right: 10px;
+                color: #fff;
+            }
+
+            .job-details .row.job-type .column2 span {
+                color: #fff;
+            }
