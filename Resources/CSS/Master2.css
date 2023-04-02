@@ -78,8 +78,7 @@ nav a {
 
 .dropdown {
     position: absolute;
-    top: 100%;
-    left: -20px;
+    margin:10px,10px,0px,20px;
     display: none;
     background-color: #252525;
     box-shadow: 0 2px 5px rgba(0,0,0,.1);
