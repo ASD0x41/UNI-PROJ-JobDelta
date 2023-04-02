@@ -25,13 +25,14 @@
                           <ul>
                             <li><a href="F_Dashboard.aspx">Dashboard</a></li>
                             <li><a href="Wallet.aspx">Wallet</a></li>
+                            <li><a href="MyProfile.aspx">My Profile</a></li>
+                            <li><a href="FeedBack.aspx">FeedBack</a></li>
+                            <li><a href="How_it_works.aspx">How it Works</a></li>
                           </ul>
                         </nav>
                         <div class="profile">
-                          <a href="MyProfile.aspx"><img src="image.jpg" alt="Profile"/></a>
-                          <div class="dropdown">
-                            <a href="MyProfile.aspx">My Profile</a>
-                            <a href="FeedBack.aspx">FeedBack</a>
+                          <a href="MyProfile.aspx"><img src="https://img.icons8.com/ios-filled/100/FFFFFF/user-male-circle.png"/></a>
+                          <div class="dropdown" style="margin-left:7px;">
                             <a href="HomePage.aspx">Logout</a>
                           </div>
                         </div>
