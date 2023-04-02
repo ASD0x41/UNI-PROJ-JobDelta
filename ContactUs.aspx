@@ -14,17 +14,21 @@
          <div class="contact-box">
             <div class="contact-left">
                 <h3>Send your request</h3>
+
                 <form>
+
                     <div class="input-row">
                         <div class="input-group">
                             <label>Name</label>
                             <input type="text" placeholder="Sultan Boi">
                         </div>
+
                         <div class="input-group">
                             <label>Phone No.</label>
                             <input type="text" placeholder="+92 300 1234 567">
                         </div>
                     </div>
+
 
                     <div class="input-row">
                         <div class="input-group">
@@ -37,14 +41,14 @@
                         </div>
                     </div>
 
+
                     <label>Messages</label>
                     <textarea rows="5" placeholder="Your Message"></textarea>
-
                     <button type="submit"> SEND</button>
-
                 </form>
-
             </div>
+
+
             <div class="contact-right">
                 <h3>Reach Us</h3>
                 <table>
@@ -64,9 +68,9 @@
                             </td>
                     </tr>
                 </table>
-
             </div>
-
          </div>
      </div>
+
+
 </asp:Content>
