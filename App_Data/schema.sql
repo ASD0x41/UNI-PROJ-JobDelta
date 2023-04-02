@@ -8,12 +8,12 @@ create table Users
 
 	username		varchar(16)		not null		unique,
 	userpass		varchar(16)		not null,
-	usertype		char(1)			not null,
+	usertype		int				not null,	--char(1)
 
-	fullname		varchar(64)		not null,
-	birthdate		date			not null,
-	gender			char(1)			not null,
-	CNIC			varchar(15)		not null		unique,
+	fullname		varchar(64)		,--not null,
+	birthdate		date			,--not null,
+	gender			char(1)			,--not null,
+	CNIC			varchar(15)		,--not null		unique,
 
 	picture			image,
 	aboutuser		text,
@@ -21,7 +21,7 @@ create table Users
 	phonenumber		varchar(14),
 	emailaddress	varchar(50)		not null,
 	workaddress		varchar(128),
-	bankaccount		varchar(34)		not null,
+	bankaccount		varchar(34)		,--not null,
 			-- International Bank Account Number (IBAN) may be up to 34 characters long
 
 	walletmoney		money			default 0,
@@ -31,7 +31,7 @@ create table Users
 	jobsongoing		int				default 0,
 	jobsdone		int				default 0,
 
-	check (usertype='C' or usertype='F' or usertype='A'),
+	check (usertype=2 or usertype=1 or usertype=0),
 			-- client (C), freelancer (F) or admin (A)
 	check (gender='M' or gender='F' or gender='O'),
 			-- male (M), female (F) or other (O)
@@ -165,6 +165,16 @@ select * from Requests
 
 
 
+
+
+
+
+
+
+EXEC sp_tables @table_type = "'TABLE'"
+
+select * from information_schema.routines where routine_type = 'Procedure'
+
 select * from Users
 select * from Jobs
 
@@ -172,3 +182,6 @@ insert into Jobs values (4,'My Job','Web Design',54,'Design a website for me.',g
 
 select * from Proposals
 insert into Proposals values (2,2,getdate(),'I will design best logo.','P', NULL)
+drop table Users
+
+insert into Users (username, userpass, emailaddress, usertype) values ('webmaster', 'MASUMCorp.2023', 'webmaster@jobdelta.com', 0)
