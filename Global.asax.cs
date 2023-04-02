@@ -17,8 +17,8 @@ namespace JobDelta
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Application["currentUser"] = 0;
-            Application["curUserType"] = 0;
+            Application["currentUser"] = -1;
+            Application["curUserType"] = -1;
         }
     }
 }
