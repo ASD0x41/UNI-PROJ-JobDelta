@@ -7,31 +7,68 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <script type="text/javascript">
+        
+        //function signupsuccess() {
+        //    alert("Signed Up Successfully!");
+        //}
+
+        function signupfailure() {
+            /*openPopup();*/
+            alert("Unable to sign up successfully: Username already exists!");
+        }
+
+        //function signinsuccess() {
+        //    alert("Logged In Successfully!");
+        //}
+
+        function signinfailure1() {
+            /*openPopup();*/
+            alert("Unable to log in successfully: Invalid password!");
+        }
+
+        function signinfailure2() {
+            /*openPopup();*/
+            /*document.getElementById("txtSignInUserName").value = "Invalid Username!";*/
+            alert("Unable to log in successfully: Invalid username!");
+        }
+
+    </script>
+
+
+    
+
+
+    <form action="#" runat="server">
     <div class="Cover" style="background-image:url(Resources/Images/office3.jpg); background-size:cover;">
                 <div class="wrapper">
                         <div class="signin_container" id="signin-container">
                           <h2>Sign In</h2>
+                            
                             <asp:TextBox ID="txtSignInUserName" runat="server" placeholder="UserName"></asp:TextBox>
                             <asp:TextBox ID="txtSignInPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                             <a href="#">Forgot your password?</a>
                             <br />
-                            <asp:Button CssClass="sp_button" ID="btnSignIn" runat="server" Text="Sign In" />
+                            <asp:Button CssClass="sp_button" ID="BtnSignIn" runat="server" Text="Sign In" onclick="BtnSignIn_Click"/>
+                                
                         </div>
 
                         <div class="signup_container" id="signup-container">
                           <h2>Sign Up</h2>
-                                <asp:TextBox ID="txtName" runat="server" placeholder="Name"></asp:TextBox>
+                            
+                                <asp:TextBox ID="txtName" runat="server" placeholder="Username"></asp:TextBox>
                                 <asp:TextBox ID="txtEmail" runat="server" placeholder="Email"></asp:TextBox>
                                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                                 <br />
-                                <label for="account-type">Account Type:</label>
+                                <label for="account-type" style="color:azure">Account Type:</label>
                                 <br />
                                 <asp:DropDownList ID="ddlAccountType" runat="server">
                                     <asp:ListItem Value="freelancer">Freelancer</asp:ListItem>
                                     <asp:ListItem Value="client">Client</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:Button CssClass="sp_button" ID="btnSignUp" runat="server" Text="Sign Up" />
-                          </div>
+                                <asp:Button CssClass="sp_button" ID="BtnSignUp" runat="server" Text="Sign Up" OnClick="BtnSignUp_Click"/>
+                           
+                         </div>
                      </div>
                 </div>
 
@@ -147,5 +184,5 @@
         </section>
 
 <!------------------------------------------------------------------------------------------------------------------->
-
+        </form>
 </asp:Content>
