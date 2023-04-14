@@ -14,13 +14,11 @@ const summaryElement = document.getElementById("summary");
 var personalInfoModal = document.getElementById("personal-info-modal");
 var summaryModal = document.getElementById("summary-modal");
 var jobModal = document.getElementById("job-modal");
-var educationModal = document.getElementById("education-editor");
 
 // Edit button elements
 var personalInfoBtn = document.getElementById("personal-info-btn");
 var summaryInfoBtn = document.getElementById("summary-info-btn");
 var jobEditBtn = document.getElementById("Job-info-btn");
-var educationEditBtn = document.getElementById("education-info-btn");
 
 // Close button elements
 var closeBtns = document.getElementsByClassName("close");
@@ -53,18 +51,12 @@ window.onclick = function (event) {
     if (event.target == jobModal) {
         jobModal.style.display = "none";
     }
-    if (event.target == educationModal) {
-        educationModal.style.display = "none";
-    }
 }
 
 jobEditBtn.addEventListener("click", function () {
     jobModal.style.display = "block";
 });
 
-educationEditBtn.addEventListener("click", function () {
-    educationModal.style.display = "block";
-});
 
 
 //------------------------------------------------------------------------------------------------------------------//
