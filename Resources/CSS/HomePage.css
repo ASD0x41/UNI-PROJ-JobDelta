@@ -393,3 +393,51 @@
 
 /*--------------------------------------------------------------------------------*/
 
+.slide2show-container {
+    position: relative;
+    width: 95%;
+    height: 300px;
+    margin-left: 27px;
+}
+
+.slide2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+    .slide2.active {
+        opacity: 1;
+    }
+
+    .slide2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.slide2-text {
+    position: absolute;
+    top: 34%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+    text-shadow: 1px 1px 2px black;
+}
+
+    .slide2-text h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .slide2-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
