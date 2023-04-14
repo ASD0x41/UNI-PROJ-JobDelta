@@ -28,6 +28,9 @@
                           <ul>
                             <li><a href="HomePage.aspx">Home</a></li>
                             <li><a href="About_Us.aspx">About Us</a></li>
+                            <li><a href="How_it_works.aspx">How it Works</a></li>
+                            <li><a href="Our_Services.aspx">Our Services</a></li>
+                            <li><a href="NewsFeed.aspx">NewsFeed</a></li>
                             <li><a href="ContactUs.aspx">Contact</a></li>
                             <li><a href="FAQs.aspx">FAQs</a></li>
                           </ul>
