@@ -20,12 +20,19 @@
               <div class="editable" id="name">
                 <h2>John Doe</h2>
               </div>
-              <div class="editable" id="occupation">
-                <h3>Web Developer</h3>
+              <div class="editable" id="Gender">
+                <p><b>Gender:</b> Male</p>
               </div>
               <div class="editable" id="email">
-                <p>Email: john.doe@example.com</p>
+                <p><b>Email:</b> john.doe@example.com</p>
               </div>
+               <div class="editable" id="Phone_Number">
+                <p><b>Phone_Number:</b> 0100-1234561 </p>
+              </div>
+                 <div class="editable" id="Adress">
+                <p><b>Address:</b> 3b Street New York City </p>
+              </div>
+
                  <br />
               <a class="edit-button" id="personal-info-btn">Edit</a>
              </div>
@@ -38,13 +45,31 @@
 
           <div class="editable" id="summary">
             <p>I'm a skilled web developer with experience in HTML, CSS, and JavaScript. I'm passionate about creating beautiful and responsive websites that provide a great user experience. I'm always learning and trying to improve my skills, and I love working with clients to bring their ideas to life.</p>
-            <a class="edit-button" id="summary-info-btn">Edit</a>
+            <br/>
+              <a class="edit-button" id="summary-info-btn">Edit</a>
           </div>
 
-          <hr>
+           <hr style="height: 6px;" />
 
-            <div class="editable" id="skills">
-              <h3 style="color: #f36c21;">Skills</h3>
+
+          <div class="editable" id="job">
+            <h3  style="color: #f36c21;">Skill-Set & Work-Experience</h3>
+
+              <h4 style="font-size:20px">Expertise</h4>
+              <hr style="width:30%; margin:-5px 0 0 0"/>
+              <div class="editable" id="Expertise">
+              <ul>
+                <li>Web development</li>
+                <li>Graphic design</li>
+              </ul>
+                <button class="edit-button">Add More</button>
+              </div>
+              <br/>
+              <br/>
+
+             <div class="editable" id="skills">
+              <h4 style="font-size:20px">Skills</h4>
+                 <hr style="width:30%; margin:-5px 0 0 0"/>
               <ul>
                 <li>HTML</li>
                 <li>CSS</li>
@@ -52,23 +77,9 @@
                 <li>Responsive Design</li>
                 <li>UI/UX Design</li>
               </ul>
-              <div class="Skill_dropdown">
-                <button class="add-skill-button">Add Skill</button>
-                <div class="Skill_dropdown-content">
-                  <a href="#">PHP</a>
-                  <a href="#">Python</a>
-                  <a href="#">Ruby</a>
-                  <a href="#">Java</a>
-                  <a href="#">Swift</a>
-                </div>
-              </div>
-            </div>
-
-
-          <hr>
-
-          <div class="editable" id="job">
-            <h3  style="color: #f36c21;">Work Experience</h3>
+                <button class="edit-button">Add Skill</button>
+        
+                 <hr/>
             <div class="job">
               <h4 id="job-title">Web Developer - XYZ Company</h4>
               <h5 id="job-duration">January 2020 - Present</h5>
@@ -82,18 +93,6 @@
             </div>
           </div>
 
-          <hr>
-
-          <div class="editable" id="education">
-            <h3  style="color: #f36c21;">Education</h3>
-            <div class="education">
-              <h4>Bachelor of Science in Computer Science - University of XYZ</h4>
-              <h5>September 2014 - June 2018</h5>
-              <p>GPA: 3.9</p>
-                <br/>
-              <a class="edit-button" id="education-info-btn">Edit</a>
-            </div>
-          </div>
 
         </div>
 
@@ -105,12 +104,15 @@
     <h2>Edit Personal Information</h2>
     <form>
       <label for="name">Name:</label>
-      <input type="text" id="Name_I" name="name" value="John Doe">
-      <label for="occupation">Occupation:</label>
-      <input type="text" id="Occupation_I" name="occupation" value="Web Developer">
+      <input type="text" style=" width: 40%;" id="Name_I" name="name" value="John Doe">
       <label for="email">Email:</label>
-      <input type="email" id="Email_I" name="email" value="john.doe@example.com">
-      <button style="margin-top:20px;" type="submit">Save</button>
+      <input type="text" id="Email_I" name="email" style=" width: 60%;" value="john.doe@example.com">
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" style=" width: 50%;" name="phone" value="XXXX-XXXXXXX" required="required"/>
+      <label for="address">Address</label>
+      <input type="text" style=" width: 60%;" id="address" name="address" value="XX-XXXX street" required="required" />
+
+      <button style="margin-top:55px;" type="submit">Save</button>
     </form>
   </div>
 </div>
@@ -152,29 +154,8 @@
 
 <%-- -------------------------------------------------------------------------------------------------------------------- --%>
 
-<div id="education-editor" class="modal">
-  <div class="modal-content">
-    <span class="close" >&times;</span>
-    <h2>Edit Education info</h2>
-    <form>
-      <label for="degree">Degree:</label>
-      <input type="text" id="degree" name="degree" value="Bachelor of Science in Computer Science">
+    </ div>
 
-      <label for="university">University:</label>
-      <input type="text" id="university" name="university" value="University of XYZ">
-
-      <label for="date">Date:</label>
-      <input type="text" id="date" name="date" value="September 2014 - June 2018">
-
-      <label for="gpa">GPA:</label>
-      <input type="text" id="gpa" name="gpa" value="3.9">
-
-      <button style="margin-top:55px;" type="submit">Save</button>
-    </form>
-  </div>
-</div>
-
-    
     <script src="Resources/JavaScript/MyProfile.js"></script>
 
 </asp:Content>

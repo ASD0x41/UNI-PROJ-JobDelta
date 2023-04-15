@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster2.Master" AutoEventWireup="true" CodeBehind="How_it_works.aspx.cs" Inherits="JobDelta.Resources.CSS.How_it_works" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster1.Master" AutoEventWireup="true" CodeBehind="How_it_works.aspx.cs" Inherits="JobDelta.Resources.CSS.How_it_works" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Resources/CSS/How%20it%20Works.css" rel="stylesheet" />

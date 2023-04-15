@@ -84,7 +84,7 @@
                <div class="help-center">
                   <p class="help-center-title">Still need help?</p>
                   <p class="help-center-body">We’re here for you.</p>
-                  <a href=# class="fit-button">
+                  <a href="ContactUs.aspx" class="fit-button">
                       Contact Support
                   </a>
                 </div>

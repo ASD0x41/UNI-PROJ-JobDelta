@@ -23,11 +23,11 @@
                         </div>
                         <nav>
                           <ul>
+                            <li><a href="Search.aspx">Search</a></li>
                             <li><a href="F_Dashboard.aspx">Dashboard</a></li>
                             <li><a href="Wallet.aspx">Wallet</a></li>
                             <li><a href="MyProfile.aspx">My Profile</a></li>
                             <li><a href="FeedBack.aspx">FeedBack</a></li>
-                            <li><a href="How_it_works.aspx">How it Works</a></li>
                           </ul>
                         </nav>
                         <div class="profile">
