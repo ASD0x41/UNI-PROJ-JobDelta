@@ -118,36 +118,48 @@
 <!------------------------------------------------------------------------------------------------------------------->
 
 	           <section class="random-information-section">
-                  <h2>Random Information and Stuff</h2>
+
+                  <h2>Explore</h2>
                   <ul>
                     <li>
                       <h3>Featured Project</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae purus velit. Donec vel semper nulla.</p>
+                      <p>Handpicked high-quality projects for freelancers to bid on, providing them with premium opportunities to find work. It offers a curated selection of projects that align with freelancers' skills and interests, helping them increase their chances of landing lucrative gigs.</p>
+
                       <a href="#">Learn More</a>
                     </li>
                     <li>
                       <h3>Latest News</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae purus velit. Donec vel semper nulla.</p>
+
+                      <p>Keep users updated on platform happenings, announcements, and updates. Provides timely news about new features, improvements, and promotions, helping users stay informed about important updates that may impact their freelancing experience.</p>
+
                       <a href="#">Read More</a>
                     </li>
                     <li>
                       <h3>Freelancer Spotlight</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae purus velit. Donec vel semper nulla.</p>
+
+                      <p>Highlights outstanding freelancers who excel on the platform, giving them increased visibility and recognition. It showcases their skills, experience, and performance, allowing clients to discover talented freelancers and helping freelancers build their professional brand.</p>
+
                       <a href="#">View Profile</a>
                     </li>
                     <li>
                       <h3>Testimonials</h3>
-                      <p>Curabitur euismod tellus non tellus lobortis, at lobortis mauris congue. Vestibulum id lectus libero.</p>
+
+                      <p>Feedback from clients and freelancers, sharing positive experiences and expressing satisfaction with services. Valuable insights for potential clients and help freelancers build their reputation. Maintains a dedicated section for testimonials, enhancing trust and transparency within the freelancing community.</p>
+
                       <a href="#">View All</a>
                     </li>
                     <li>
                       <h3>FAQ</h3>
-                      <p>Aliquam eget tincidunt quam. Praesent vitae lectus sapien. Quisque in tincidunt neque, ac interdum purus.</p>
+
+                      <p>Helpful resource for users to quickly access information about the platform's features, policies, and procedures. It saves users time by providing clear and concise answers to common questions, helping them navigate the site effectively, and make informed decisions about hiring freelancers or finding freelance gigs.</p>
+
                       <a href="#">Read More</a>
                     </li>
                      <li>
                       <h3>Upcoming Events</h3>
-                      <p>Nullam lacinia nulla sit amet nisi tempor, vel pellentesque mi dictum. Proin sodales ultrices ex.</p>
+
+                      <p>Be informed about relevant events related to freelancing and professional development. Information on upcoming events, such as dates, times, topics, and registration details, allows users to easily browse and register for events that align with their interests. Opportunities for users to learn, connect with fellow freelancers, and stay updated on industry trends and best practices.</p>
+
                       <a href="#">View All</a>
                     </li>
                   </ul>
