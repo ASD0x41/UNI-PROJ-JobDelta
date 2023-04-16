@@ -43,7 +43,7 @@ flowchart TB
   webforms --- data_access
   subgraph db["Database (~/App_Data/JobDelta_Data.mdf)"]
     direction TB
-      stored_procs["Stored Procedures (~/App_Data/schema.sql)"] --- schema["Schema (~/App_Data/storedprocs.sql)"]
+      stored_procs["Stored Procedures (~/App_Data/storedprocs.sql)"] --- schema["Schema (~/App_Data/schema.sql)"]
   end
   data_access --- db
  ```

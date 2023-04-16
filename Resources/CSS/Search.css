@@ -1,0 +1,107 @@
+﻿/* Style for container */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+    /* Style for h1 */
+    .container h1 {
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #333;
+        text-align: center;
+    }
+
+    /* Style for form */
+    .container form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    /* Style for select inputs */
+    .container select {
+        margin-right: 10px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #fff;
+        border: none;
+        font-size: 16px;
+        color: #333;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .container select:focus {
+            outline: none;
+            box-shadow: 0 0 3px #ffa07a;
+        }
+
+/* Style for search input */
+#search {
+    flex-grow: 1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+    #search:focus {
+        outline: none;
+        box-shadow: 0 0 3px #ffa07a;
+    }
+
+/* Style for submit button */
+.container button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ff6a00;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+    .container button[type="submit"]:hover {
+        background-color: #fff;
+        color: #ff6a00;
+    }
+
+/* Style for results section */
+#results {
+    margin-top: 20px;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 767px) {
+    .container {
+        padding: 20px;
+    }
+
+        .container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .container form {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .container select {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+}

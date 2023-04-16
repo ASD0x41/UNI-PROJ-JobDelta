@@ -1,0 +1,234 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.C_body {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #333;
+    color: #fff;
+    width:100%;
+    height:100%;
+    margin-top:-20px;
+    margin-bottom:-20px;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.contact-box {
+    background: #fff;
+    display: flex;
+}
+
+.contact-left {
+    flex-basis: 60%;
+    padding: 40px 60px;
+}
+
+.contact-right {
+    flex-basis: 40%;
+    padding: 40px;
+    background: #ff6a00;
+    color: #fff;
+}
+
+.C_body h1 {
+    color: #ff6a00;
+    margin-bottom: 10px;
+}
+
+.container p {
+    margin-bottom: 40px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    .input-row .input-group {
+        flex-basis: 45%;
+    }
+
+.C_body input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+}
+
+.C_body textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.C_body label {
+    margin-bottom: 6px;
+    display: block;
+    color: #ff6a00;
+}
+
+.C_body button {
+    background: #ff6a00;
+    width: 100px;
+    border: none;
+    outline: none;
+    color: #fff;
+    height: 35px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.contact-left h3 {
+    color: #ff6a00;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.contact-right h3 {
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.C_body tr td:first-child {
+    padding-right: 20px;
+}
+
+.C_body tr td {
+    padding-top: 20px;
+}
+
+
+.OurTeam {
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .OurTeam h1 {
+        font-weight: bold;
+        color: #FF4500;
+        margin-bottom: 40px;
+    }
+
+    .OurTeam p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+
+/* Team sub-container styles */
+.Team_sub-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Teams styles */
+.teams {
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    margin-right: 32px;
+    margin-bottom: 50px;
+    border: solid;
+    background:#ff6a00;
+    box-shadow:10px 10px 5px black;
+}
+
+
+
+    .teams img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:#FFF;
+}
+
+.desig {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.T_about {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.email {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.Title_ContactUs {
+    text-align: center;
+    padding: 50px 0;
+}
+
+    .Title_ContactUs h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .Title_ContactUs p {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+
+.location-container {
+    margin-top: 50px;
+    margin-left:23px;
+    width: 95%;
+    padding:10px 10px 10px 10px;
+    background-color: #ff6a00;
+    box-shadow: 10px 10px 5px #000000;
+    text-align: center;
+}
+
+    .location-container h2 {
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .location-container p {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .location-container address {
+        font-style: normal;
+        margin-bottom: 20px;
+    }
+
+    .location-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+    }
+
