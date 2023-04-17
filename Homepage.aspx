@@ -15,7 +15,7 @@
 
         function signupfailure() {
             /*openPopup();*/
-            alert("Unable to sign up successfully: Username already exists!");
+            alert("Unable to Sign Up Successfully: Username already exists!");
         }
 
         //function signinsuccess() {
