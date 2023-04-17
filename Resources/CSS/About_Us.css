@@ -1,0 +1,542 @@
+﻿
+:root {
+    --primary-color: #f36f21;
+    --secondary-color: #f2f2f2;
+    --text-color: #fff;
+    --dark-gray: #333;
+}
+
+.Cover {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+    .Cover body {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+    }
+
+.heading {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px auto;
+}
+
+    .heading h1 {
+        font-size: 50px;
+        color: var(--dark-gray);
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+        .heading h1::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            display: block;
+            margin: 0 auto;
+            background-color: var(--primary-color);
+        }
+
+    .heading p {
+        font-size: 18px;
+        color: var(--dark-gray);
+        margin-bottom: 35px;
+    }
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    margin-right: 40px;
+    overflow: hidden;
+}
+
+    .about-image img {
+        max-width: 580px;
+        height: auto;
+        display: block;
+        transition: 0.5s ease;
+    }
+
+    .about-image:hover img {
+        transform: scale(1.2);
+    }
+
+.about-content {
+    flex: 1;
+    text-align: justify;
+}
+
+    .about-content h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #f36f21;
+    }
+
+    .about-content p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: var(--dark-gray);
+    }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.philosophy {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.philosophy-image {
+    flex-basis: 50%;
+    padding-right: 30px;
+    text-align: right;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+    .philosophy-image img {
+        max-width: 580px;
+        height: auto;
+        display: block;
+        transition: 0.5s ease;
+    }
+
+    .philosophy-image:hover img {
+        transform: scale(1.2);
+    }
+
+.philosophy-content {
+    flex-basis: 50%;
+    padding-left: 20px;
+    text-align: justify;
+}
+
+    .philosophy-content h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #f36f21;
+    }
+
+    .philosophy-content p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: var(--dark-gray);
+    }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.how-it-works {
+    text-align: center;
+    margin-bottom: 50px;
+    background-color: #2d2d2d;
+    padding: 50px 0;
+}
+
+    .how-it-works h2 {
+        font-size: 40px;
+        margin-bottom: 50px;
+        color: #ff5f00;
+    }
+
+    .how-it-works .step {
+        margin-bottom: 40px;
+    }
+
+    .how-it-works img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        padding: 10px;
+    }
+
+    .how-it-works h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #f36f21;
+    }
+
+    .how-it-works p {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #ffffff;
+    }
+
+    .how-it-works .orange {
+        color: #ff7700;
+    }
+
+.S_button {
+    padding: 20px 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FF4500;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+    .S_button:hover {
+        background-color: #fff;
+        color: #FF4500;
+    }
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.mission {
+    padding: 50px 0;
+}
+
+    .mission h2 {
+        text-align: center;
+        margin-bottom: 50px;
+        color: #FF4500;
+    }
+
+    .mission h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .mission p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #666;
+    }
+
+.sub_container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.col-md-6 {
+    width: 50%;
+    padding: 0 15px;
+}
+
+.left-column {
+    order: 2;
+}
+
+.right-column {
+    order: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-6 {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .left-column, .right-column {
+        order: unset;
+    }
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.what-we-provide {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #252525;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.heading-2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
+
+.what-we-provide .services-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.what-we-provide .service {
+    flex-basis: 20%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: slide-up 1s;
+    background-color: #fff;
+    color: #252525;
+}
+
+    .what-we-provide .service img {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+
+.what-we-provide .heading-3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #FFA500;
+}
+
+.what-we-provide .service-description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.what-we-provide .service:hover {
+    background-color: #fff;
+    cursor: default;
+}
+
+    .what-we-provide .service:hover .service-title {
+        color: #ff5f00;
+    }
+
+    .what-we-provide .service:hover .service-description {
+        color: black;
+    }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.our-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    .our-services h2 {
+        font-size: 40px;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .our-services ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+.service {
+    flex: 1 0 300px;
+    margin: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.service-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+.service:hover {
+    background-color: #f60;
+    cursor: pointer;
+}
+
+    .service:hover .service-title,
+    .service:hover .service-description {
+        color: #fff;
+    }
+
+    .service:hover .service-title {
+        text-decoration: underline;
+    }
+
+/*-------------------------------------------------------------------------------------------------*/
+
+.OurTeam {
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .OurTeam h1 {
+        font-weight: bold;
+        color: #FF4500;
+        margin-bottom: 40px;
+    }
+
+    .OurTeam p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+
+/* Team sub-container styles */
+.Team_sub-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Teams styles */
+.teams {
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    margin-right: 32px;
+    margin-bottom: 50px;
+}
+
+    .teams img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.desig {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.T_about {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.sLinks {
+    display: flex;
+    justify-content: center;
+}
+
+    .sLinks a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: #333;
+        color: #fff;
+        font-size: 24px;
+        line-height: 40px;
+        text-align: center;
+        margin: 0 10px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+        .sLinks a:hover {
+            background-color: #FF4500;
+        }
+
+
+/*-------------------------------------------------------------------------------------------------*/
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}

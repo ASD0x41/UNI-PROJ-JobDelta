@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script type="text/javascript">
-        
+
         //function signupsuccess() {
         //    alert("Signed Up Successfully!");
         //}
@@ -123,32 +123,56 @@
                     <li>
                       <h3>Featured Project</h3>
                       <p>Handpicked high-quality projects for freelancers to bid on, providing them with premium opportunities to find work. It offers a curated selection of projects that align with freelancers' skills and interests, helping them increase their chances of landing lucrative gigs.</p>
+<<<<<<< Updated upstream
                       <a href="#">Learn More</a>
+=======
+                      <a href="https://www.fiverr.com/gigs/projects">Learn More</a>
+>>>>>>> Stashed changes
                     </li>
                     <li>
                       <h3>Latest News</h3>
                       <p>Keep users updated on platform happenings, announcements, and updates. Provides timely news about new features, improvements, and promotions, helping users stay informed about important updates that may impact their freelancing experience.</p>
+<<<<<<< Updated upstream
                       <a href="#">Read More</a>
+=======
+                      <a href="NewsFeed.aspx">Read More</a>
+>>>>>>> Stashed changes
                     </li>
                     <li>
                       <h3>Freelancer Spotlight</h3>
                       <p>Highlights outstanding freelancers who excel on the platform, giving them increased visibility and recognition. It showcases their skills, experience, and performance, allowing clients to discover talented freelancers and helping freelancers build their professional brand.</p>
+<<<<<<< Updated upstream
                       <a href="#">View Profile</a>
+=======
+                      <a href="https://freeup.net/blog/category/freelance-tips/freelancer-spotlights/">View Profile</a>
+>>>>>>> Stashed changes
                     </li>
                     <li>
                       <h3>Testimonials</h3>
                       <p>Feedback from clients and freelancers, sharing positive experiences and expressing satisfaction with services. Valuable insights for potential clients and help freelancers build their reputation. Maintains a dedicated section for testimonials, enhancing trust and transparency within the freelancing community.</p>
+<<<<<<< Updated upstream
                       <a href="#">View All</a>
+=======
+                      <a href="https://www.upwork.com/hire/testimonial-freelancers/">View All</a>
+>>>>>>> Stashed changes
                     </li>
                     <li>
                       <h3>FAQ</h3>
                       <p>Helpful resource for users to quickly access information about the platform's features, policies, and procedures. It saves users time by providing clear and concise answers to common questions, helping them navigate the site effectively, and make informed decisions about hiring freelancers or finding freelance gigs.</p>
+<<<<<<< Updated upstream
                       <a href="#">Read More</a>
+=======
+                      <a href="FAQs.aspx">Read More</a>
+>>>>>>> Stashed changes
                     </li>
                      <li>
                       <h3>Upcoming Events</h3>
                       <p>Be informed about relevant events related to freelancing and professional development. Information on upcoming events, such as dates, times, topics, and registration details, allows users to easily browse and register for events that align with their interests. Opportunities for users to learn, connect with fellow freelancers, and stay updated on industry trends and best practices.</p>
+<<<<<<< Updated upstream
                       <a href="#">View All</a>
+=======
+                      <a href="https://events.fiverr.com/">View All</a>
+>>>>>>> Stashed changes
                     </li>
                   </ul>
                 </section>
@@ -173,22 +197,22 @@
               <li style="margin-left:20px">
                 <h3>New Feature: Portfolio Showcase</h3>
                 <p>Showcase your best work and attract more clients with our new Portfolio feature! It's now available on your Job Delta profile.</p>
-                <a href="#">Learn More</a>
+                <a href="https://www.fiverr.com/support/articles/4413134063633-Using-My-Portfolio?segment=seller">Learn More</a>
               </li>
               <li style="margin-left:20px">
                 <h3>Announcement: Updated Payment System</h3>
                 <p>We're excited to announce that we've updated our payment system to make it even more secure and reliable. Check out our blog for more details.</p>
-                <a href="#">Read More</a>
+                <a href="https://www.fiverr.com/content/payments-terms-and-conditions">Read More</a>
               </li>
               <li style="margin-left:20px">
                 <h3>Expert Tips: How to Win More Projects on Job Delta</h3>
                 <p>Want to land more projects and earn more money on Job Delta? Check out our expert tips and tricks to improve your profile and stand out to clients.</p>
-                <a href="#">Read More</a>
+                <a href="https://www.fiverr.com/support/articles/360010708757-Best-practices-for-new-Fiverr-sellers-Tips?segment=seller">Read More</a>
               </li>
               <li style="margin-left:20px">
                 <h3>New Freelancers on Job Delta</h3>
                 <p>Welcome to our newest freelancers on Job Delta! Check out their profiles and portfolios to see their skills and experience.</p>
-                <a href="#">View Profiles</a>
+                <a href="https://freeup.net/blog/category/freelance-tips/freelancer-spotlights/">View Profiles</a>
               </li>
             </ul>
           </div>
