@@ -118,12 +118,17 @@
 <!------------------------------------------------------------------------------------------------------------------->
 
 	           <section class="random-information-section">
+
                   <h2>Explore</h2>
                   <ul>
                     <li>
                       <h3>Featured Project</h3>
                       <p>Handpicked high-quality projects for freelancers to bid on, providing them with premium opportunities to find work. It offers a curated selection of projects that align with freelancers' skills and interests, helping them increase their chances of landing lucrative gigs.</p>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+>>>>>>> a95f65ad93a510aa7aef6530c44bd0d4cb6235c4
                       <a href="#">Learn More</a>
 =======
                       <a href="https://www.fiverr.com/gigs/projects">Learn More</a>
@@ -131,8 +136,13 @@
                     </li>
                     <li>
                       <h3>Latest News</h3>
+
                       <p>Keep users updated on platform happenings, announcements, and updates. Provides timely news about new features, improvements, and promotions, helping users stay informed about important updates that may impact their freelancing experience.</p>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+>>>>>>> a95f65ad93a510aa7aef6530c44bd0d4cb6235c4
                       <a href="#">Read More</a>
 =======
                       <a href="NewsFeed.aspx">Read More</a>
@@ -140,8 +150,13 @@
                     </li>
                     <li>
                       <h3>Freelancer Spotlight</h3>
+
                       <p>Highlights outstanding freelancers who excel on the platform, giving them increased visibility and recognition. It showcases their skills, experience, and performance, allowing clients to discover talented freelancers and helping freelancers build their professional brand.</p>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+>>>>>>> a95f65ad93a510aa7aef6530c44bd0d4cb6235c4
                       <a href="#">View Profile</a>
 =======
                       <a href="https://freeup.net/blog/category/freelance-tips/freelancer-spotlights/">View Profile</a>
@@ -149,8 +164,13 @@
                     </li>
                     <li>
                       <h3>Testimonials</h3>
+
                       <p>Feedback from clients and freelancers, sharing positive experiences and expressing satisfaction with services. Valuable insights for potential clients and help freelancers build their reputation. Maintains a dedicated section for testimonials, enhancing trust and transparency within the freelancing community.</p>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+>>>>>>> a95f65ad93a510aa7aef6530c44bd0d4cb6235c4
                       <a href="#">View All</a>
 =======
                       <a href="https://www.upwork.com/hire/testimonial-freelancers/">View All</a>
@@ -158,8 +178,13 @@
                     </li>
                     <li>
                       <h3>FAQ</h3>
+
                       <p>Helpful resource for users to quickly access information about the platform's features, policies, and procedures. It saves users time by providing clear and concise answers to common questions, helping them navigate the site effectively, and make informed decisions about hiring freelancers or finding freelance gigs.</p>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+>>>>>>> a95f65ad93a510aa7aef6530c44bd0d4cb6235c4
                       <a href="#">Read More</a>
 =======
                       <a href="FAQs.aspx">Read More</a>
@@ -167,8 +192,13 @@
                     </li>
                      <li>
                       <h3>Upcoming Events</h3>
+
                       <p>Be informed about relevant events related to freelancing and professional development. Information on upcoming events, such as dates, times, topics, and registration details, allows users to easily browse and register for events that align with their interests. Opportunities for users to learn, connect with fellow freelancers, and stay updated on industry trends and best practices.</p>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+
+>>>>>>> a95f65ad93a510aa7aef6530c44bd0d4cb6235c4
                       <a href="#">View All</a>
 =======
                       <a href="https://events.fiverr.com/">View All</a>

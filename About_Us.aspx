@@ -189,7 +189,9 @@
                 <img src="Resources/Images/mehdy.jpeg" />
                 <div class="name">Mehdy</div>
                 <div class="desig">Developer</div>
+
                 <div class="T_about">Experienced developer with a track record of delivering innovative solutions. Proficient in programming languages, frameworks, and tools. Strong analytical and problem-solving skills. Passionate about staying updated with latest technologies.</div>
+
 
                 <div class="sLinks">
                     <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
@@ -219,7 +221,9 @@
                 <img src="Resources/Images/sultan.png" />
                 <div class="name">Sultan Ahmed </div>
                 <div class="desig">Manager</div>
+
                 <div class="T_about">Experienced manager with a proven track record of success in leading teams and achieving organizational goals. Strategic mindset, strong leadership skills, and effective implementation of processes. Excellent communication and collaboration abilities, coupled with keen business acumen.</div>
+
 
                 <div class="sLinks">
                     <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
@@ -234,7 +238,9 @@
                 <img src="Resources/Images/mudesser.png" />
                 <div class="name">Mudesser </div>
                 <div class="desig">Designer</div>
+
                 <div class="T_about">Experienced designer with expertise in graphic design, UX/UI design, and branding. Keen eye for aesthetics and strong ability to create visually stunning designs. Creative approach, attention to detail, and proficiency in design software. Committed to staying updated with design trends and continuously refining skills for exceptional results.</div>
+
 
                 <div class="sLinks">
                     <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
@@ -248,8 +254,10 @@
             <div class="teams">
                 <img src="Resources/Images/asad.png" />
                 <div class="name">M. Asad Tariq</div>
+
                 <div class="desig">Programmer</div>
                 <div class="T_about">Programmer with extensive experience in designing, developing, testing, and debugging software applications using various programming languages and frameworks. Proficient in coding concepts and possesses strong analytical skills. Skilled in resolving complex issues efficiently and meeting project requirements and deadlines. Detail-oriented, collaborative team player with a keen problem-solving mindset</div>
+
 
                 <div class="sLinks">
                     <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>

@@ -263,9 +263,9 @@ ServiceFabricBackup/
 
 # SQL Server files
 *.mdf
-!JobDelta_Data.mdf
+!JobDeltaDB.mdf
 *.ldf
-!JobDelta_Log.ldf
+!JobDeltaDBLog.ldf
 *.ndf
 
 # Business Intelligence projects

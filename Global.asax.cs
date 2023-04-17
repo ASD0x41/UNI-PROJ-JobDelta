@@ -16,6 +16,9 @@ namespace JobDelta
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Application["currentUser"] = -1;
+            Application["curUserType"] = -1;
         }
     }
 }

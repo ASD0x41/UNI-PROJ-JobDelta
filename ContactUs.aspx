@@ -24,35 +24,45 @@
                 <img src="Resources/Images/mehdy.jpeg"/>
                 <div class="name">Mehdy</div>
                 <div class="desig">Developer</div>
+
                 <div class="email">l211784@lhr.nu.edu.pk</div>
+
             </div>
 
             <div class="teams">
                 <img src="Resources/Images/me.jpg"/>
                 <div class="name">Umair Bin Asim </div>
                 <div class="desig">Web Developer</div>
+
                 <div class="email">l211847@lhr.nu.edu.pk</div>
+
             </div>
 
             <div class="teams">
                 <img src="Resources/Images/sultan.png"/>
                 <div class="name">Sultan Ahmed </div>
                 <div class="desig">Manager</div>
+
                 <div class="email">l217560@lhr.nu.edu.pk</div>
+
             </div>
 
             <div class="teams">
                 <img src="Resources/Images/mudesser.png" />
                 <div class="name">Mudesser </div>
                 <div class="desig">Designer</div>
+
                 <div class="email">l215387@lhr.nu.edu.pk</div>
+
             </div>
 
             <div class="teams">
                 <img src="Resources/Images/asad.png" />
                 <div class="name">M. Asad Tariq</div>
                 <div class="desig">Designer</div>
+
                  <div class="email">l215266@lhr.nu.edu.pk</div>
+
                 </div>
             </div>
         </div>
@@ -83,7 +93,9 @@
                     <div class="input-row">
                         <div class="input-group">
                             <label>Name</label>
+
                             <input type="text" placeholder="Sultan Ahmed">
+
                         </div>
 
                         <div class="input-group">

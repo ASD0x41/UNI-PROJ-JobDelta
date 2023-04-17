@@ -1,0 +1,152 @@
+﻿section {
+    min-height: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+}
+
+.faq {
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+    color: #fff;
+}
+
+.question h3, .answer h3 {
+    font-size: 1.5rem;
+}
+
+.answer p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.question, .answer {
+    padding: 1rem;
+}
+
+.question {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #ff6a00;
+    color: #fff;
+}
+
+    .question:hover {
+        background-color: #fff;
+        color: #ff6a00;
+    }
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+}
+
+.question:focus + .answer,
+.question:hover + .answer {
+    max-height: 100vh;
+    background-color: #333;
+    color: #fff;
+}
+
+.side-section-container {
+    flex: 1;
+    order: 1;
+    width: 25%;
+    height: 100%;
+    background-color: #ff6a00;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    float: left;
+    margin-left: 20px;
+}
+
+.faq-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+    .faq-item img {
+        max-width: 100px;
+        margin-right: 30px;
+    }
+
+    .faq-item p {
+        margin: 0;
+        font-size: 1rem;
+        color: #fff;
+    }
+
+
+.container {
+    flex: 3;
+    order: 2;
+    width: 60%;
+    margin: 0 auto;
+    margin-right: 20px;
+    padding: 40px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    margin-bottom: 40px;
+    float: right;
+}
+
+.Qs {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff6a00;
+}
+
+
+.help-center {
+    background-color: #ff6a00;
+    color: #fff;
+    padding: 20px;
+    border-color: black;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.help-center-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: #fff;
+}
+
+.help-center-body {
+    font-size: 24px;
+    margin: 0 0 20px;
+    color: #fff;
+}
+
+.fit-button {
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .fit-button:hover {
+        background-color: #fff;
+        color: #ff8c00;
+    }
