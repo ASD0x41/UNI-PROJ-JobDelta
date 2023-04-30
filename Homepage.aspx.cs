@@ -13,7 +13,7 @@ namespace JobDelta
         protected void Page_Load(object sender, EventArgs e)
         {
             Application["currentUser"] = -1;
-            Application["currentUser"] = -1;
+            Application["curUserType"] = -1;
         }
 
         protected void BtnSignUp_Click(object sender, EventArgs e)
