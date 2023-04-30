@@ -1,0 +1,58 @@
+﻿section {
+    min-height: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+}
+
+.Job_type {
+    max-width: 80%;
+    margin-top: 5%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+    color: #fff;
+}
+
+.Type h3, .Detail h3 {
+    font-size: 1.5rem;
+    text-align:center;
+}
+
+.Detail p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.Type, .Detail {
+    padding: 1rem;
+}
+
+.Type{
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #ff6a00;
+    color: #fff;
+}
+
+    .Type:hover {
+        background-color: #fff;
+        color: #ff6a00;
+    }
+
+.Detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+}
+
+.Type:focus + .Detail,
+.Type:hover + .Detail {
+    max-height: 100vh;
+    background-color: #333;
+    color: #fff;
+}
+
