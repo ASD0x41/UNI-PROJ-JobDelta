@@ -110,7 +110,9 @@
         <br/><br/>
         <hr style="color: black; margin-top:-10px; background-color: black; height: 3px;" /><br />
    
-        <button class="sp_button">submit</button>
+        <button class="sp_button" style="margin-bottom:10%;">submit</button><br/>
+
+        <a href="Homepage.aspx"  class="sp_button" style="margin-left:30%; margin-right:10px; text-decoration:none;" >Homepage</a> <a href="F_DashBoard.aspx"  class="sp_button" style="text-decoration:none;">DashBoard</a>
 
 
     </form>

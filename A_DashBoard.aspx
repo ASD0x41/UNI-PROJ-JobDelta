@@ -64,14 +64,65 @@
                 <br />
                 <br />
                 <br />
-             <br />
+                <br />
+
+            <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Users</strong></div>
+            <br />
+
+            </div>
+   
+        <asp:GridView ID="UserGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
+        <asp:BoundField DataField="UserID" HeaderText="ID" />
+        <asp:BoundField DataField="UserName" HeaderText="Name" />
+        <asp:BoundField DataField="UserType" HeaderText="Type" />
+        <asp:BoundField DataField="UserGender" HeaderText="Gender" />
+        <asp:BoundField DataField="UserEmail" HeaderText="Email Address" />
+        <asp:TemplateField HeaderText="Delete">
+            <ItemTemplate>
+                <asp:LinkButton ID="lnkEdit" runat="server" Text="X" CommandName="IssueID"  />
+            </ItemTemplate>
+        </asp:TemplateField>
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
+
+
+
+        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Active Jobs</strong></div>
+            <br />
+
+        
+   
+        <asp:GridView ID="JobsGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
+        <asp:BoundField DataField="jobID" HeaderText="Job ID" />
+        <asp:BoundField DataField="clientID" HeaderText="Client ID" />
+        <asp:BoundField DataField="jobtitle" HeaderText="Name" />
+        <asp:BoundField DataField="lancerID" HeaderText="Freelancer ID" />
+        <asp:BoundField DataField="jobstatus" HeaderText="Status" />
+        <asp:TemplateField HeaderText="Delete">
+            <ItemTemplate>
+                <asp:LinkButton ID="lnkEdit" runat="server" Text="X" CommandName="IssueID"  />
+            </ItemTemplate>
+        </asp:TemplateField>
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
+
+
+
+
      <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Ongoing Issues</strong></div>
    <br />
 
-        </div>
-   
+       
         <asp:GridView ID="IssueGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-    <Columns>
+        <Columns>
         <asp:BoundField DataField="Type" HeaderText="Type" />
         <asp:BoundField DataField="ID" HeaderText="ID" />
         <asp:BoundField DataField="Description" HeaderText="Detail" />
@@ -82,24 +133,48 @@
                 <asp:LinkButton ID="lnkEdit" runat="server" Text="↩" CommandName="IssueID"  />
             </ItemTemplate>
         </asp:TemplateField>
-    </Columns>        
-</asp:GridView>
+        </Columns>        
+        </asp:GridView>
 
         <br />
         <br />
-     <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:43% "><strong>Feedback</strong></div>
-   <br />
+        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:43% "><strong>Feedback</strong></div>
+        <br />
 
-         <asp:GridView ID="FeebackGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-    <Columns>
+        <asp:GridView ID="FeebackGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
         <asp:BoundField DataField="Type" HeaderText="Type" />
         <asp:BoundField DataField="ID" HeaderText="ID" />
         <asp:BoundField DataField="Description" HeaderText="Feedback" />
         <asp:BoundField DataField="Date" HeaderText="Date" />
         <asp:BoundField DataField="Rating" HeaderText="Rating" />
         
-    </Columns>        
-</asp:GridView>
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
+
+
+
+        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Transactions</strong></div>
+            <br />
+
+        
+   
+        <asp:GridView ID="TransGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
+        <asp:BoundField DataField="transferID" HeaderText="Transfer ID" />
+        <asp:BoundField DataField="amount" HeaderText="Transaction Amount" />
+        <asp:BoundField DataField="jobID" HeaderText="Job ID" />
+        <asp:BoundField DataField="srcuser" HeaderText="From" />
+        <asp:BoundField DataField="dstuser" HeaderText="To" />
+        
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
 
 
  <%-------------------------------------------------------------------------------------------------%> 
@@ -130,66 +205,66 @@
 
 <%-------------------------------------------------------------------------------------------------%> 
 
-         <footer>
+        <footer>
 	             <div class="footer-container">
                     <div class="footer-links" style="font-weight:bold">
-                      <a href="#">Home</a>
-                      <a href="#">About Us</a>
-                      <a href="#">How It Works</a>
-                      <a href="#">Pricing</a>
-                      <a href="#">FAQ</a>
-                      <a href="#">Terms of Service</a>
-                      <a href="#">Privacy Policy</a>
-                      <a href="#">Blog</a>
-                      <a href="#">Contact Us</a>
+                      <a href="Homepage.aspx">Home</a>
+                      <a href="About_Us.aspx">About Us</a>
+                      <a href="How_it_works.aspx">How It Works</a>
+                      <a href="https://workspace.fiverr.com/pricing/">Pricing</a>
+                      <a href="FAQs.aspx">FAQ</a>
+                      <a href="Our_Services.aspx">Terms of Service</a>
+                      <a href="Privacy_Policy">Privacy Policy</a>
+                      <a href="NewsFeed.aspx">Blog</a>
+                      <a href="ContactUs.aspx">Contact Us</a>
                     </div>
                     <div class="footer-categories">
                       <h4>Categories</h4>
                       <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">Writing & Translation</a></li>
-                        <li><a href="#">Video & Animation</a></li>
-                        <li><a href="#">Music & Audio</a></li>
-                        <li><a href="#">Programming & Tech</a></li>
-                        <li><a href="#">Business</a></li>
+                        <li><a href="Job_Categories.aspx">Web Development</a></li>
+                        <li><a href="Job_Categories.aspx">Graphic Design</a></li>
+                        <li><a href="Job_Categories.aspx">Digital Marketing</a></li>
+                        <li><a href="Job_Categories.aspx">Writing & Translation</a></li>
+                        <li><a href="Job_Categories.aspx">Video & Animation</a></li>
+                        <li><a href="Job_Categories.aspx">Music & Audio</a></li>
+                        <li><a href="Job_Categories.aspx">Programming & Tech</a></li>
+                        <li><a href="Job_Categories.aspx">Business</a></li>
                       </ul>
                     </div>
                     <div class="footer-services">
                       <h4>Our Services</h4>
                       <ul>
-                        <li><a href="#">Freelance Services</a></li>
-                        <li><a href="#">Managed Services</a></li>
-                        <li><a href="#">Project Management</a></li>
-                        <li><a href="#">Enterprise Solutions</a></li>
-                        <li><a href="#">Talent Sourcing</a></li>
+                        <li><a href="https://www.fiverr.com/">Freelance Services</a></li>
+                        <li><a href="https://www.fiverr.com/gigs/management">Managed Services</a></li>
+                        <li><a href="https://www.fiverr.com/categories/business/project-management">Project Management</a></li>
+                        <li><a href="https://www.fiverr.com/gigs/enterprise">Enterprise Solutions</a></li>
+                        <li><a href="https://www.fiverr.com/categories/business/hr-consulting/recruiting">Talent Sourcing</a></li>
                       </ul>
                     </div>
                     <div class="footer-company">
                       <h4>Company</h4>
                       <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Affiliates</a></li>
-                        <li><a href="#">Investors</a></li>
+                        <li><a href="About_Us.aspx">About Us</a></li>
+                        <li><a href="https://www.fiverr.com/jobs?source=footer">Careers</a></li>
+                        <li><a href="https://www.fiverr.com/news/press-releases?source=footer">Press</a></li>
+                        <li><a href="https://affiliates.fiverr.com/">Affiliates</a></li>
+                        <li><a href="https://investors.fiverr.com/investor-overview/default.aspx">Investors</a></li>
                       </ul>
                     </div>
                     <div class="footer-newsletter">
                       <h4>Join Our Newsletter</h4>
-                      
-                        <input type="email" placeholder="Enter your email address"/>
+                      <form>
+                        <input type="email" placeholder="Enter your email address">
                         <button type="submit">Subscribe</button>
-                      
+                      </form>
                     </div>
                     <div class="footer-social">
                       <h4>Connect With Us</h4>
                       <div class="social-icons">
-                       <a href="#"><img src="https://img.icons8.com/ios-filled/30/null/facebook-new.png" style="margin-top:5px;" /></a>
-					   <a href="#"><img src="https://img.icons8.com/material-sharp/30/null/twitter.png" style="margin-top:5px;" /></a>
-					   <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/null/linkedin.png" style="margin-top:5px;" /></a>
-					   <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/null/instagram-new.png" style="margin-top:5px;" /></a>
+                       <a href="https://www.facebook.com/Fiverr/"><img src="https://img.icons8.com/ios-filled/30/null/facebook-new.png" style="margin-top:5px;" /></a>
+					   <a href="https://twitter.com/fiverr"><img src="https://img.icons8.com/material-sharp/30/null/twitter.png" style="margin-top:5px;" /></a>
+					   <a href="https://www.linkedin.com/company/fiverr-com"><img src="https://img.icons8.com/ios-glyphs/30/null/linkedin.png" style="margin-top:5px;" /></a>
+					   <a href="https://www.instagram.com/fiverr/"><img src="https://img.icons8.com/ios-glyphs/30/null/instagram-new.png" style="margin-top:5px;" /></a>
                       </div>
                     </div>
                   </div>
