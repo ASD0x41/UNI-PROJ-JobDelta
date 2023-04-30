@@ -74,9 +74,13 @@
                           <h6>Earnings</h6>
                           <p>$50,000</p>
                           <br />
+
                         </li>
                       </ul>
+                           <div style="display: flex; justify-content: center; align-items: center;"> <button class ="Chat_Button" onclick="redirect()">Chat</button></div>
                     </div>
+
+                    
 
                              
 
@@ -217,6 +221,7 @@
 
 <%-------------------------------------------------------------------------------------------------%> 
     <script src="Resources/JavaScript/F_DashBoard.js"></script>
+    <script src="Resources/JavaScript/chatApp.js"></script>
 <%-------------------------------------------------------------------------------------------------%> 
 
 </asp:Content>
