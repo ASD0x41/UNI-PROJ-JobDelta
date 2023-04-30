@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script type="text/javascript">
-        
+
         //function signupsuccess() {
         //    alert("Signed Up Successfully!");
         //}
@@ -110,7 +110,7 @@
                       </div>
                     </div>
                     <p>Join our community of freelancers and start discovering new opportunities today!</p>
-                    <a href="#">Learn More</a>
+                    <a href="About_Us.aspx">Learn More</a>
                   </div>
                 </section>
 
@@ -118,37 +118,37 @@
 <!------------------------------------------------------------------------------------------------------------------->
 
 	           <section class="random-information-section">
-                  <h2>Random Information and Stuff</h2>
+                  <h2>Explore</h2>
                   <ul>
                     <li>
                       <h3>Featured Project</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae purus velit. Donec vel semper nulla.</p>
-                      <a href="#">Learn More</a>
+                      <p>Handpicked high-quality projects for freelancers to bid on, providing them with premium opportunities to find work. It offers a curated selection of projects that align with freelancers' skills and interests, helping them increase their chances of landing lucrative gigs.</p>
+                      <a href="https://www.fiverr.com/gigs/projects">Learn More</a>
                     </li>
                     <li>
                       <h3>Latest News</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae purus velit. Donec vel semper nulla.</p>
-                      <a href="#">Read More</a>
+                      <p>Keep users updated on platform happenings, announcements, and updates. Provides timely news about new features, improvements, and promotions, helping users stay informed about important updates that may impact their freelancing experience.</p>
+                      <a href="NewsFeed.aspx">Read More</a>
                     </li>
                     <li>
                       <h3>Freelancer Spotlight</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae purus velit. Donec vel semper nulla.</p>
-                      <a href="#">View Profile</a>
+                      <p>Highlights outstanding freelancers who excel on the platform, giving them increased visibility and recognition. It showcases their skills, experience, and performance, allowing clients to discover talented freelancers and helping freelancers build their professional brand.</p>
+                      <a href="https://freeup.net/blog/category/freelance-tips/freelancer-spotlights/">View Profile</a>
                     </li>
                     <li>
                       <h3>Testimonials</h3>
-                      <p>Curabitur euismod tellus non tellus lobortis, at lobortis mauris congue. Vestibulum id lectus libero.</p>
-                      <a href="#">View All</a>
+                      <p>Feedback from clients and freelancers, sharing positive experiences and expressing satisfaction with services. Valuable insights for potential clients and help freelancers build their reputation. Maintains a dedicated section for testimonials, enhancing trust and transparency within the freelancing community.</p>
+                      <a href="https://www.upwork.com/hire/testimonial-freelancers/">View All</a>
                     </li>
                     <li>
                       <h3>FAQ</h3>
-                      <p>Aliquam eget tincidunt quam. Praesent vitae lectus sapien. Quisque in tincidunt neque, ac interdum purus.</p>
-                      <a href="#">Read More</a>
+                      <p>Helpful resource for users to quickly access information about the platform's features, policies, and procedures. It saves users time by providing clear and concise answers to common questions, helping them navigate the site effectively, and make informed decisions about hiring freelancers or finding freelance gigs.</p>
+                      <a href="FAQs.aspx">Read More</a>
                     </li>
                      <li>
                       <h3>Upcoming Events</h3>
-                      <p>Nullam lacinia nulla sit amet nisi tempor, vel pellentesque mi dictum. Proin sodales ultrices ex.</p>
-                      <a href="#">View All</a>
+                      <p>Be informed about relevant events related to freelancing and professional development. Information on upcoming events, such as dates, times, topics, and registration details, allows users to easily browse and register for events that align with their interests. Opportunities for users to learn, connect with fellow freelancers, and stay updated on industry trends and best practices.</p>
+                      <a href="https://events.fiverr.com/">View All</a>
                     </li>
                   </ul>
                 </section>
@@ -158,8 +158,8 @@
         <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
           <img src="https://media2.giphy.com/media/9xmjP6FkdINCA6Ucp4/giphy.gif?cid=ecf05e474pdb4r5mbuhr95i038czy60rkum5i1p7v1ajzo3q&rid=giphy.gif&ct=g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" alt="Freelancing GIF">
           <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-            <h2 style="color: azure; text-shadow:10px 10px 5px black; font-size: 3rem; font-weight: bold; margin: 0;">Welcome to my Freelancing Site!</h2>
-            <p style="color: azure; text-shadow:10px 10px 5px black; font-size: 1.6rem; margin: 1rem 0 0 0;">I'm a freelance developer who can help you build the website of your dreams. Let's work together!</p>
+            <h2 style="color: azure; text-shadow:10px 10px 5px black; font-size: 3rem; font-weight: bold; margin: 0;">Welcome to Job Delta!</h2>
+            <p style="color: azure; text-shadow:10px 10px 5px black; font-size: 1.6rem; margin: 1rem 0 0 0;">"Empowering freelancers, connecting businesses: Job Delta, where opportunity meets talent."</p>
           </div>
         </div>
 
@@ -173,22 +173,22 @@
               <li style="margin-left:20px">
                 <h3>New Feature: Portfolio Showcase</h3>
                 <p>Showcase your best work and attract more clients with our new Portfolio feature! It's now available on your Job Delta profile.</p>
-                <a href="#">Learn More</a>
+                <a href="https://www.fiverr.com/support/articles/4413134063633-Using-My-Portfolio?segment=seller">Learn More</a>
               </li>
               <li style="margin-left:20px">
                 <h3>Announcement: Updated Payment System</h3>
                 <p>We're excited to announce that we've updated our payment system to make it even more secure and reliable. Check out our blog for more details.</p>
-                <a href="#">Read More</a>
+                <a href="https://www.fiverr.com/content/payments-terms-and-conditions">Read More</a>
               </li>
               <li style="margin-left:20px">
                 <h3>Expert Tips: How to Win More Projects on Job Delta</h3>
                 <p>Want to land more projects and earn more money on Job Delta? Check out our expert tips and tricks to improve your profile and stand out to clients.</p>
-                <a href="#">Read More</a>
+                <a href="https://www.fiverr.com/support/articles/360010708757-Best-practices-for-new-Fiverr-sellers-Tips?segment=seller">Read More</a>
               </li>
               <li style="margin-left:20px">
                 <h3>New Freelancers on Job Delta</h3>
                 <p>Welcome to our newest freelancers on Job Delta! Check out their profiles and portfolios to see their skills and experience.</p>
-                <a href="#">View Profiles</a>
+                <a href="https://freeup.net/blog/category/freelance-tips/freelancer-spotlights/">View Profiles</a>
               </li>
             </ul>
           </div>
