@@ -53,6 +53,8 @@
                           <p>4.5</p>
                         </div>
                       </div>
+                        <div style="display: flex; justify-content: center; align-items: center;"><button onclick="redirect()" class="sp_button">Chat</button></div>
+
 
                     </div>
 
@@ -182,4 +184,5 @@
 
 
     <script src="Resources/JavaScript/C_Dashboard.js"></script>
+    <script src="Resources/JavaScript/chatApp.js"></script>
 </asp:Content>
