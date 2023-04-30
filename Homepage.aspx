@@ -110,7 +110,7 @@
                       </div>
                     </div>
                     <p>Join our community of freelancers and start discovering new opportunities today!</p>
-                    <a href="#">Learn More</a>
+                    <a href="About_Us.aspx">Learn More</a>
                   </div>
                 </section>
 
@@ -158,8 +158,8 @@
         <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
           <img src="https://media2.giphy.com/media/9xmjP6FkdINCA6Ucp4/giphy.gif?cid=ecf05e474pdb4r5mbuhr95i038czy60rkum5i1p7v1ajzo3q&rid=giphy.gif&ct=g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" alt="Freelancing GIF">
           <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-            <h2 style="color: azure; text-shadow:10px 10px 5px black; font-size: 3rem; font-weight: bold; margin: 0;">Welcome to my Freelancing Site!</h2>
-            <p style="color: azure; text-shadow:10px 10px 5px black; font-size: 1.6rem; margin: 1rem 0 0 0;">I'm a freelance developer who can help you build the website of your dreams. Let's work together!</p>
+            <h2 style="color: azure; text-shadow:10px 10px 5px black; font-size: 3rem; font-weight: bold; margin: 0;">Welcome to Job Delta!</h2>
+            <p style="color: azure; text-shadow:10px 10px 5px black; font-size: 1.6rem; margin: 1rem 0 0 0;">"Empowering freelancers, connecting businesses: Job Delta, where opportunity meets talent."</p>
           </div>
         </div>
 

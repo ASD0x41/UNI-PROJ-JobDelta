@@ -30,9 +30,6 @@
                 <p>
                 On JobDelta, you can find a wide variety of freelance services offered by talented professionals from all around the world. These services include graphic design, web development, writing and translation, social media management, virtual assistance, marketing and advertising, and many more. You can browse through the available services and filter them based on your specific needs and preferences. Additionally, freelancers can offer custom services based on your unique requirements, so there are endless possibilities for the kind of services you can find on JobDelta.
 
-
-
-    
                 </p>
             </div>
         </div>
