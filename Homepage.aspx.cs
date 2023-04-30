@@ -13,7 +13,7 @@ namespace JobDelta
         protected void Page_Load(object sender, EventArgs e)
         {
             Application["currentUser"] = -1;
-            Application["currentUser"] = -1;
+            Application["curUserType"] = -1;
         }
 
         protected void BtnSignUp_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace JobDelta
             switch(retval)
             {
                 case 0:
-                    Response.Redirect("MyProfile.aspx");
+                    Response.Redirect("Complete_Profile.aspx");
                     break;
                 case -1:
                     string script2 = "signupfailure();";
