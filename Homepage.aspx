@@ -10,12 +10,12 @@
     <script type="text/javascript">
 
         //function signupsuccess() {
-        //    alert("Signed Up Successfully!");
+        //    alert("Signed up successfully!");
         //}
 
         function signupfailure() {
             /*openPopup();*/
-            alert("Unable to sign up successfully: Username already exists!");
+            alert("Unable to Sign Up Successfully: Username already exists!");
         }
 
         //function signinsuccess() {

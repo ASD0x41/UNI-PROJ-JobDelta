@@ -64,14 +64,65 @@
                 <br />
                 <br />
                 <br />
-             <br />
+                <br />
+
+            <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Users</strong></div>
+            <br />
+
+            </div>
+   
+        <asp:GridView ID="UserGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
+        <asp:BoundField DataField="UserID" HeaderText="ID" />
+        <asp:BoundField DataField="UserName" HeaderText="Name" />
+        <asp:BoundField DataField="UserType" HeaderText="Type" />
+        <asp:BoundField DataField="UserGender" HeaderText="Gender" />
+        <asp:BoundField DataField="UserEmail" HeaderText="Email Address" />
+        <asp:TemplateField HeaderText="Delete">
+            <ItemTemplate>
+                <asp:LinkButton ID="lnkEdit" runat="server" Text="X" CommandName="IssueID"  />
+            </ItemTemplate>
+        </asp:TemplateField>
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
+
+
+
+        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Active Jobs</strong></div>
+            <br />
+
+        
+   
+        <asp:GridView ID="JobsGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
+        <asp:BoundField DataField="jobID" HeaderText="Job ID" />
+        <asp:BoundField DataField="clientID" HeaderText="Client ID" />
+        <asp:BoundField DataField="jobtitle" HeaderText="Name" />
+        <asp:BoundField DataField="lancerID" HeaderText="Freelancer ID" />
+        <asp:BoundField DataField="jobstatus" HeaderText="Status" />
+        <asp:TemplateField HeaderText="Delete">
+            <ItemTemplate>
+                <asp:LinkButton ID="lnkEdit" runat="server" Text="X" CommandName="IssueID"  />
+            </ItemTemplate>
+        </asp:TemplateField>
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
+
+
+
+
      <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Ongoing Issues</strong></div>
    <br />
 
-        </div>
-   
+       
         <asp:GridView ID="IssueGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-    <Columns>
+        <Columns>
         <asp:BoundField DataField="Type" HeaderText="Type" />
         <asp:BoundField DataField="ID" HeaderText="ID" />
         <asp:BoundField DataField="Description" HeaderText="Detail" />
@@ -82,24 +133,48 @@
                 <asp:LinkButton ID="lnkEdit" runat="server" Text="↩" CommandName="IssueID"  />
             </ItemTemplate>
         </asp:TemplateField>
-    </Columns>        
-</asp:GridView>
+        </Columns>        
+        </asp:GridView>
 
         <br />
         <br />
-     <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:43% "><strong>Feedback</strong></div>
-   <br />
+        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:43% "><strong>Feedback</strong></div>
+        <br />
 
-         <asp:GridView ID="FeebackGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-    <Columns>
+        <asp:GridView ID="FeebackGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
         <asp:BoundField DataField="Type" HeaderText="Type" />
         <asp:BoundField DataField="ID" HeaderText="ID" />
         <asp:BoundField DataField="Description" HeaderText="Feedback" />
         <asp:BoundField DataField="Date" HeaderText="Date" />
         <asp:BoundField DataField="Rating" HeaderText="Rating" />
         
-    </Columns>        
-</asp:GridView>
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
+
+
+
+        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Transactions</strong></div>
+            <br />
+
+        
+   
+        <asp:GridView ID="TransGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
+        <Columns>
+        <asp:BoundField DataField="transferID" HeaderText="Transfer ID" />
+        <asp:BoundField DataField="amount" HeaderText="Transaction Amount" />
+        <asp:BoundField DataField="jobID" HeaderText="Job ID" />
+        <asp:BoundField DataField="srcuser" HeaderText="From" />
+        <asp:BoundField DataField="dstuser" HeaderText="To" />
+        
+        </Columns>        
+        </asp:GridView>
+
+        <br />
+        <br />
 
 
  <%-------------------------------------------------------------------------------------------------%> 
