@@ -350,6 +350,24 @@
         color: #FF4500;
     }
 
+.Chat_Button {
+    display: inline-block;
+    background-color: #FF4500;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+    .Chat_Button:hover {
+        background-color: #000;
+        color: #FF4500;
+    }
+
+
 /*--------------------------------------------------------------------------------------------*/
 
 .slideshow-container {
@@ -470,3 +488,4 @@
 
 
 /*--------------------------------------------------------------------------------------------*/
+
