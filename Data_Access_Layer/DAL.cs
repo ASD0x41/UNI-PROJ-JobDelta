@@ -6,6 +6,8 @@ using System.Web;
 //Namespaces for Data Access:
 using System.Data;
 using System.Data.SqlClient;
+using Newtonsoft.Json.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace JobDelta.Data_Access_Layer
 {
@@ -39,8 +41,58 @@ namespace JobDelta.Data_Access_Layer
             {
                 con.Close();
             }
-
             return ds;
+        }
+
+        public int RegisterNewJob(int ClientID,string JobTitle,string JobType,decimal JobValue,string JobDetail ,string dueDate)
+        {
+            
+
+            int retval = -1;
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+
+ 
+                cmd = new SqlCommand("PostJob", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@clientID", SqlDbType.Int);
+                cmd.Parameters.Add("@jobtitle", SqlDbType.VarChar, 32);
+                cmd.Parameters.Add("@jobtype", SqlDbType.VarChar, 32);
+                cmd.Parameters.Add("@jobvalue", SqlDbType.Int);
+                cmd.Parameters.Add("@jobdetail", SqlDbType.Text);
+                cmd.Parameters.Add("@duedate", SqlDbType.Date);
+
+                cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.Parameters["@clientID"].Value = ClientID;
+                cmd.Parameters["@jobtitle"].Value = JobTitle;
+                cmd.Parameters["@jobtype"].Value = JobType;
+                cmd.Parameters["@jobvalue"].Value = JobValue;
+                cmd.Parameters["@jobdetail"].Value = JobDetail;
+                cmd.Parameters["@duedate"].Value = dueDate;
+
+                cmd.ExecuteNonQuery();
+
+                //retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
         }
 
         public int RegisterNewUser(string uname, string email, string pword, string utype)

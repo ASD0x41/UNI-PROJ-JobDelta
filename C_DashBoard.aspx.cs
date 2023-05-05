@@ -1,10 +1,12 @@
-﻿using System;
+﻿using JobDelta.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace JobDelta
 {
@@ -46,6 +48,33 @@ namespace JobDelta
                 int postingId = Convert.ToInt32(e.CommandArgument);
                 Response.Redirect("JobDetail.aspx?PostingID=" + postingId);
             }
+        }
+
+        protected void BtnJobPost_Click(object sender, EventArgs e)
+        {
+            int ClientID = (int)Application["currentUser"]; 
+            string JobTitle = jobTitle.Text;
+            string JobType = jobCategory.SelectedValue ;
+            decimal JobValue = decimal.Parse(jobBudget.Text);
+            string JobDetail = jobdesc.Text;
+            string dueDate = jobDueDate.SelectedDate.ToShortDateString();
+            
+
+
+            DAL myDAL = new DAL();
+            int retval = myDAL.RegisterNewJob(ClientID, JobTitle, JobType, JobValue, JobDetail,dueDate);
+            Response.Redirect("C_DashBoard.aspx");
+
+            //switch (retval)
+            //{
+            //    case 1:
+            //        //Response.Redirect("C_DashBoard.aspx");
+            //        break;
+            //    case -1:
+            //        //string script2 = "signupfailure();";
+            //        //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "jobpostfailure", script2, true);
+            //        break;
+            //}
         }
     }
 }

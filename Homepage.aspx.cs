@@ -63,7 +63,9 @@ namespace JobDelta
                     if (logindetails.Item3 == 1)
                         Response.Redirect("F_DashBoard.aspx");
                     else if (logindetails.Item3 == 2)
+                    {
                         Response.Redirect("C_DashBoard.aspx");
+                    }
                     else if (logindetails.Item3 == 0)
                         Response.Redirect("A_DashBoard.aspx");
                     break;
