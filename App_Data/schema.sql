@@ -356,6 +356,16 @@ EXEC PostJob
 
 SELECT @retVal
 
+alter PROCEDURE ViewPostedJobs
+	@clientId INT
+AS
+BEGIN
+	SELECT jobID, jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus
+	FROM Jobs
+	WHERE clientID = @clientId;
+END
+go
+
 
 
 

@@ -404,7 +404,7 @@ go
 
 
 
-CREATE PROCEDURE ViewPostedJobs
+alter PROCEDURE ViewPostedJobs
 	@clientId INT
 AS
 BEGIN
@@ -412,8 +412,12 @@ BEGIN
 	FROM Jobs
 	WHERE clientID = @clientId;
 END
-
 go
+
+
+
+
+
 
 CREATE PROCEDURE SearchJobsByCategory
     @category varchar(32)

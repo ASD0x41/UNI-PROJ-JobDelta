@@ -72,15 +72,17 @@
 
                <asp:GridView ID="PostingGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand" CssClass="table">
                 <Columns>
-                    <asp:BoundField DataField="PostingID" HeaderText="Posting ID" />
-                    <asp:BoundField DataField="Title" HeaderText="Title" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                    <asp:BoundField DataField="Category" HeaderText="Category" />
-                    <asp:BoundField DataField="Budget" HeaderText="Budget" />
+                    <asp:BoundField DataField="jobID" HeaderText="Posting ID" />
+                    <asp:BoundField DataField="jobtitle" HeaderText="Title" />
+                    <asp:BoundField DataField="jobdetail" HeaderText="Description" />
+                    <asp:BoundField DataField="jobtype" HeaderText="Category" />
+                    <asp:BoundField DataField="jobvalue" HeaderText="Budget" />
                     <asp:BoundField DataField="JobStatus" HeaderText="Job Status" />
+                    <asp:BoundField DataField="postdate" HeaderText="Post Date" DataFormatString="{0:d}" />
+                    <asp:BoundField DataField="duedate" HeaderText="Due Date" DataFormatString="{0:d}" />
                     <asp:TemplateField HeaderText="Edit">
                         <ItemTemplate>
-                            <asp:LinkButton CssClass="sp_button" ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("PostingID") %>' />
+                            <asp:LinkButton CssClass="sp_button" ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("jobID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>        

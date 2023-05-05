@@ -17,30 +17,51 @@ namespace JobDelta
             if (!IsPostBack)
             {
                 // Load job postings data and bind it to the GridView
-                DataTable jobPostings = LoadJobPostingsData();
-                PostingGridView.DataSource = jobPostings;
-                PostingGridView.DataBind();
+                LoadJobPostingsData();
+                //DataTable jobPostings = LoadJobPostingsData();
+                //PostingGridView.DataSource = jobPostings;
+                //PostingGridView.DataBind();
             }
         }
 
-        private DataTable LoadJobPostingsData()
+        private void LoadJobPostingsData()
         {
-            // You can load data from a database or other data source here
-            // For example, you can create a DataTable and add rows to it
-            DataTable jobPostings = new DataTable();
-            jobPostings.Columns.Add("PostingID", typeof(int));
-            jobPostings.Columns.Add("Title", typeof(string));
-            jobPostings.Columns.Add("Description", typeof(string));
-            jobPostings.Columns.Add("Category", typeof(string));
-            jobPostings.Columns.Add("Budget", typeof(string));
-            jobPostings.Columns.Add("JobStatus", typeof(string));
+            int clientID = (int)Application["currentUser"];
+            DAL myDAL = new DAL();
 
-            jobPostings.Rows.Add(1, "Build a Website", "Need a website for my business", "Web Development", "$1000", "Pending");
-            jobPostings.Rows.Add(2, "Design a Logo", "Looking for a logo for my startup", "Graphic Design", "$200", "Completed");
-            jobPostings.Rows.Add(3, "Write an Article", "Need a 500-word article on a specific topic", "Writing & Translation", "$50", "Ongoing");
+            PostingGridView.DataSource = myDAL.LoadClientJobTable(clientID);
+            PostingGridView.DataBind();
 
-            return jobPostings;
+            // Modify the job status string after databinding
+            foreach (GridViewRow row in PostingGridView.Rows)
+            {
+                string status = row.Cells[5].Text;
+                switch (status)
+                {
+                    case "N":
+                        row.Cells[5].Text = "Not done";
+                        break;
+                    case "T":
+                        row.Cells[5].Text = "To be assigned";
+                        break;
+                    case "O":
+                        row.Cells[5].Text = "Ongoing";
+                        break;
+                    case "D":
+                        row.Cells[5].Text = "Done";
+                        break;
+                    case "W":
+                        row.Cells[5].Text = "Withdrawn";
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
         }
+
+
         protected void PostingGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Edit")

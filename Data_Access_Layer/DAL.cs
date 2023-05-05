@@ -95,6 +95,36 @@ namespace JobDelta.Data_Access_Layer
             return retval;
         }
 
+        public DataSet LoadClientJobTable(int ClientID) //to get the values of all the items from table Items and return the Dataset
+        {
+
+            DataSet ds = new DataSet(); //declare and instantiate new dataset
+            SqlConnection con = new SqlConnection(conString); //declare and instantiate new SQL connection
+            con.Open(); // open sql Connection
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("ViewPostedJobs", con);  //instantiate SQL command 
+                cmd.CommandType = CommandType.StoredProcedure; //set type of sqL Command
+                cmd.Parameters.Add("@clientID", SqlDbType.Int);
+                cmd.Parameters["@clientID"].Value = ClientID;
+                cmd.ExecuteNonQuery();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(ds); //Add the result  set  returned from SQLCommand to ds
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return ds; //return the dataset
+        }
         public int RegisterNewUser(string uname, string email, string pword, string utype)
         {
             int atype = -1;
