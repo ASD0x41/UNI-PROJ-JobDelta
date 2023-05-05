@@ -73,6 +73,7 @@
                <asp:GridView ID="PostingGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand" CssClass="table">
                 <Columns>
                     <asp:BoundField DataField="jobID" HeaderText="Posting ID" />
+                    <%--<asp:BoundField DataField="lancerID" HeaderText="Freelancer ID" />--%>
                     <asp:BoundField DataField="jobtitle" HeaderText="Title" />
                     <asp:BoundField DataField="jobdetail" HeaderText="Description" />
                     <asp:BoundField DataField="jobtype" HeaderText="Category" />

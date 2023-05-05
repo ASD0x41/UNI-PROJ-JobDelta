@@ -415,7 +415,63 @@ END
 go
 
 
+alter PROCEDURE ViewPostedJobs_F
+    @jobID INT,
+    @jobTitle VARCHAR(32) OUTPUT,
+    @jobType VARCHAR(32) OUTPUT,
+    @jobValue MONEY OUTPUT,
+    @jobDetail NVARCHAR(1000) OUTPUT,
+    @postDate DATE OUTPUT,
+    @dueDate DATE OUTPUT
 
+AS
+BEGIN
+    IF EXISTS (SELECT * FROM Jobs WHERE jobID = @jobID)
+    BEGIN
+        SELECT @jobTitle = jobtitle,
+               @jobType = jobtype,
+               @jobValue = jobvalue,
+               @jobDetail = jobdetail,
+               @postDate = postdate,
+               @dueDate = duedate
+               
+        FROM Jobs
+        WHERE jobID = @jobID
+    END
+END
+
+DECLARE @jobTitle VARCHAR(32),
+        @jobType VARCHAR(32),
+        @jobValue MONEY,
+        @jobDetail NVARCHAR(1000),
+        @postDate DATE,
+        @dueDate DATE,
+        @jobID INT = 17-- Replace with the desired jobID value
+
+EXEC ViewPostedJobs_F 
+    @jobID = @jobID,
+    @jobTitle = @jobTitle OUTPUT,
+    @jobType = @jobType OUTPUT,
+    @jobValue = @jobValue OUTPUT,
+    @jobDetail = @jobDetail OUTPUT,
+    @postDate = @postDate OUTPUT,
+    @dueDate = @dueDate OUTPUT
+
+SELECT @jobTitle AS JobTitle,
+       @jobType AS JobType,
+       @jobValue AS JobValue,
+       @jobDetail AS JobDetail,
+       @postDate AS PostDate,
+       @dueDate AS DueDate
+select* from Jobs
+
+CREATE PROCEDURE SearchAvailJobs
+AS
+BEGIN
+	SELECT jobID,clientID, jobtitle, jobtype, jobvalue, jobdetail
+    FROM Jobs WHERE jobstatus = 'T'
+END
+go
 
 
 
@@ -426,6 +482,8 @@ BEGIN
     SELECT * FROM Jobs WHERE jobstatus = 'T' AND jobtype = @category
 END
 go
+
+
 
 
 CREATE PROCEDURE ApplyForJob

@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using System.Globalization;
 
 namespace JobDelta.Data_Access_Layer
 {
@@ -93,6 +94,85 @@ namespace JobDelta.Data_Access_Layer
             }
 
             return retval;
+        }
+
+        public DataSet LoadavailJobTable() //to get the values of all the items from table Items and return the Dataset
+        {
+
+            DataSet ds = new DataSet(); //declare and instantiate new dataset
+            SqlConnection con = new SqlConnection(conString); //declare and instantiate new SQL connection
+            con.Open(); // open sql Connection
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("SearchAvailJobs", con);  //instantiate SQL command 
+                cmd.CommandType = CommandType.StoredProcedure; //set type of sqL Command
+
+                cmd.ExecuteNonQuery();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(ds); //Add the result  set  returned from SQLCommand to ds
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return ds; //return the dataset
+        }
+
+        public (int, string, string, decimal, string, string, string) LoadJobDetailFreelancer(int jobID)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+            
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand("ViewPostedJobs_F", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@jobID", jobID);
+
+                // Define output parameters
+                cmd.Parameters.Add("@jobTitle", SqlDbType.VarChar, 32).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@jobType", SqlDbType.VarChar, 32).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@jobValue", SqlDbType.Money).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@jobDetail", SqlDbType.NVarChar,1000).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@postDate", SqlDbType.Date).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@dueDate", SqlDbType.Date).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+
+                // Retrieve output parameter values
+                string jobTitle = cmd.Parameters["@jobTitle"].Value.ToString();
+                string jobType = cmd.Parameters["@jobType"].Value.ToString();
+                decimal jobValue = Convert.ToDecimal(cmd.Parameters["@jobValue"].Value);
+                string jobDetail = cmd.Parameters["@jobDetail"].Value.ToString();
+                string postDate = cmd.Parameters["@postDate"].Value.ToString();
+                string dueDate = cmd.Parameters["@dueDate"].Value.ToString();
+
+                // Convert date strings to DateTime objects
+                
+                postDate = ((DateTime)cmd.Parameters["@postDate"].Value).ToString("yyyy-MM-dd");
+                dueDate = ((DateTime)cmd.Parameters["@dueDate"].Value).ToString("yyyy-MM-dd");
+
+                // Return tuple with output parameter values
+                return (jobID, jobTitle, jobType, jobValue, jobDetail, postDate, dueDate);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return (-1, "", "", -1, "", "", "");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         public DataSet LoadClientJobTable(int ClientID) //to get the values of all the items from table Items and return the Dataset

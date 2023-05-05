@@ -1,10 +1,15 @@
-﻿using System;
+﻿using JobDelta.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
+
+
+
 
 namespace JobDelta
 {
@@ -15,34 +20,30 @@ namespace JobDelta
         {
             if (!IsPostBack)
             {
-                DataTable JobPost = LoadJobPostData();
-                PostGridView.DataSource = JobPost;
-                PostGridView.DataBind();
 
-
-                DataTable jobPostings = LoadJobPostingsData();
-                PostingGridView.DataSource = jobPostings;
-                PostingGridView.DataBind();
+                loadavailJobs();
             }
         }
 
-        private DataTable LoadJobPostingsData()
+        protected void PostGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select")
+            {
+                int jobID = Convert.ToInt32(PostGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                Session["SelectedJobID"] = jobID;
+                Response.Redirect("JobDetail_F.aspx");
+            }
+        }
+
+
+        protected void loadavailJobs()
         {
             // You can load data from a database or other data source here
             // For example, you can create a DataTable and add rows to it
-            DataTable jobPostings = new DataTable();
-            jobPostings.Columns.Add("PostingID", typeof(int));
-            jobPostings.Columns.Add("Title", typeof(string));
-            jobPostings.Columns.Add("Description", typeof(string));
-            jobPostings.Columns.Add("Category", typeof(string));
-            jobPostings.Columns.Add("Budget", typeof(string));
-            jobPostings.Columns.Add("JobStatus", typeof(string));
+            DAL myDAL = new DAL();
+            PostGridView.DataSource = myDAL.LoadavailJobTable();
+            PostGridView.DataBind();
 
-            jobPostings.Rows.Add(1, "Build a Website", "Need a website for my business", "Web Development", "$500 - $1000", "Active");
-            jobPostings.Rows.Add(2, "Design a Logo", "Looking for a logo for my startup", "Graphic Design", "$100 - $200", "Completed");
-            jobPostings.Rows.Add(3, "Write an Article", "Need a 500-word article on a specific topic", "Writing & Translation", "$20 - $50", "Cancelled");
-
-            return jobPostings;
         }
 
 
