@@ -67,3 +67,7 @@ function showSlides2() {
 }
 
 showSlides2();
+
+
+
+

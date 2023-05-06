@@ -8,6 +8,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+ <form action="#" runat="server">
 
     <br />
 
@@ -18,29 +19,27 @@
                       <div class="container"> 
                         <h2>Profile Information</h2>
                         <div class="profile-box">
-                              <img src="image.jpg" class="profile-img" alt="Profile image"><br/>
-                          <h3>Name</h3>
-                          <p>John Doe</p>
-                          <h3>Email</h3>
-                          <p>johndoe@example.com</p>
-                          <h3>Location</h3>
-                          <p>New York, USA</p>
-                          <h3>Phone</h3>
-                          <p>+1 123-456-7890</p>
-                        </div>
+                             <asp:Image ID="ImageControl" runat="server" />
+                             <h3>Name</h3>
+                             <asp:Label ID="name" runat="server"></asp:Label>
+                             <h3>Email</h3>
+                             <asp:Label ID="email" runat="server"></asp:Label>
+                             <h3>Phone</h3>
+                             <asp:Label ID="phone" runat="server"></asp:Label>
+                             </div>
                       </div>
 
                       <div class="container"> 
                         <h2>Statistics</h2>
                         <div class="stat-box">
-                          <h3>Total Projects</h3>
-                          <p>10</p>
-                          <h3>Active Projects</h3>
-                          <p>5</p>
-                          <h3>Completed Projects</h3>
-                          <p>5</p>
-                          <h3>Total Spendings</h3>
-                          <p>$5000</p>
+                         <h3>Total Projects</h3>
+                            <asp:Label ID="totalProjects" runat="server" ></asp:Label>
+                            <h3>Active Projects</h3>
+                            <asp:Label ID="activeProjects" runat="server" ></asp:Label>
+                            <h3>Completed Projects</h3>
+                            <asp:Label ID="completedProjects" runat="server" ></asp:Label>
+                            <h3>Total Spendings</h3>
+                            $<asp:Label ID="totalSpendings" runat="server" ></asp:Label>
                         </div>
                       </div>
 
@@ -48,9 +47,9 @@
                         <h2>Extra Information</h2>
                         <div class="extra_stat-box">
                           <h3>Active Project Posts</h3>
-                          <p>3</p>
-                          <h3>Feedback Received</h3>
-                          <p>4.5</p>
+                            <asp:Label ID="activeProjectPosts" runat="server"></asp:Label>
+                            <h3>Rating Received</h3>
+                            <asp:Label ID="feedbackReceived" runat="server"></asp:Label> out of 5
                         </div>
                       </div>
                         <div style="display: flex; justify-content: center; align-items: center;"><button onclick="redirect()" class="sp_button">Chat</button></div>
@@ -181,7 +180,7 @@
             </div>
 
 <%-------------------------------------------------------------------------------------------------%> 
-
+     </form>
 
     <script src="Resources/JavaScript/C_Dashboard.js"></script>
     <script src="Resources/JavaScript/chatApp.js"></script>

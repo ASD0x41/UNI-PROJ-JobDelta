@@ -108,6 +108,7 @@
     <Content Include="App_Data\JobDeltaDB.mdf" />
     <Content Include="App_Data\JobDeltaDBLog.ldf" />
     <Content Include="App_Data\schema.sql" />
+    <Content Include="App_Data\Sultan_Proceduers.sql" />
     <Content Include="App_Data\storedprocs.sql" />
     <Content Include="A_DashBoard.aspx" />
     <Content Include="chat-api-project\frontend\.gitignore" />

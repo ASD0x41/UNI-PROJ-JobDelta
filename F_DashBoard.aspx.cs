@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobDelta.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,9 +11,11 @@ namespace JobDelta
 {
     public partial class F_DashBoard : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            int x = (int)Application["currentUser"];
+
             if (!IsPostBack)
             {
                 DataTable JobPost = LoadJobPostData();
@@ -24,7 +27,59 @@ namespace JobDelta
                 PostingGridView.DataSource = jobPostings;
                 PostingGridView.DataBind();
             }
+
+            DAL myDAL = new DAL();
+
+             int userId = x; 
+
+             string username = myDAL.GetUserById(userId);
+             lblUsername.Text = username;
+
+             string Fullname = myDAL.GetFullnameById(userId);
+             lb2Fullname.Text = Fullname;
+
+             string Email = myDAL.GetEmailById(userId);
+             lb3Email.Text = Email;
+
+             int Rating = myDAL.GetUserRating(userId);
+             lblRating.Text = Rating.ToString();
+
+             int totalJobs = myDAL.GetTotalJobsByUserID(userId);
+             T_jobs.Text = totalJobs.ToString();
+
+             int JobsActive = myDAL.GetActiveJobsByUserID(userId);
+             A_jobs.Text = JobsActive.ToString();
+
+            int JobsDone = myDAL.GetJobsDoneByUserID(userId);
+             C_jobs.Text = JobsDone.ToString();
+
+            int projectCompletionValue = (int)(((double) JobsDone/ totalJobs) * 100) % 100;
+            int clientSatisfactionValue = (int)(((double)Rating / 5) * 100) % 100;
+            int skillsValue = (int)(((double)Rating / 5) * 100) % 100;
+            int communicationValue = (int)(((double)Rating / 5) * 135) % 100;
+            int availabilityValue = (int)(((double) JobsActive / totalJobs) * 100) % 100;
+
+            string script = "updateProgressBars(" + projectCompletionValue + "," + clientSatisfactionValue + "," + skillsValue + "," + communicationValue + "," + availabilityValue + ");";
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "updateProgressBars", script, true);
+
+            int Earnings = myDAL.GetTotalEarnings(userId);
+            T_Earning.Text = Earnings.ToString();
+
+            byte[] imageData = myDAL.GetImageData(userId);
+            if (imageData != null)
+            {
+                string base64String = Convert.ToBase64String(imageData);
+                ImageControl.ImageUrl = "data:image/png;base64," + base64String;
+            }
+            else
+            {
+                ImageControl.ImageUrl = "Resources/Images/Profile.png\" alt=\"Profile Picture";
+            }
+
         }
+
+
+
 
         private DataTable LoadJobPostingsData()
         {

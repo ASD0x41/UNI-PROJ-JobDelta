@@ -1,78 +1,106 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster2.Master" AutoEventWireup="true" CodeBehind="F_DashBoard.aspx.cs" Inherits="JobDelta.F_DashBoard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Resources/FreelancerDashboard.css" rel="stylesheet" />
+    <link href="Resources/CSS/F_DashBoard.css" rel="stylesheet" />
 </asp:Content>
 
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="Resources/CSS/F_DashBoard.css" rel="stylesheet" />
- <div class="content-cover">
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+     <script type="text/javascript">
+
+         function updateProgressBars(projectCompletionValue, clientSatisfactionValue, skillsValue, communicationValue, availabilityValue) {
+
+             var projectCompletionBar = document.getElementById("projectCompletion");
+             var clientSatisfactionBar = document.getElementById("clientSatisfaction");
+             var skillsBar = document.getElementById("skills");
+             var communicationBar = document.getElementById("communication");
+             var availabilityBar = document.getElementById("availability");
+
+
+             var projectCompletionPercentText = document.getElementById("projectCompletionPercent");
+             var clientSatisfactionPercentText = document.getElementById("clientSatisfactionPercent");
+             var skillsPercentText = document.getElementById("skillsPercent");
+             var communicationPercentText = document.getElementById("communicationPercent");
+             var availabilityPercentText = document.getElementById("availabilityPercent");
+
+             projectCompletionBar.value = projectCompletionValue;
+             clientSatisfactionBar.value = clientSatisfactionValue;
+             skillsBar.value = skillsValue;
+             communicationBar.value = communicationValue;
+             availabilityBar.value = availabilityValue;
+
+             projectCompletionPercentText.innerHTML = projectCompletionValue.toString();
+             clientSatisfactionPercentText.innerHTML = clientSatisfactionValue.toString();
+             skillsPercentText.innerHTML = skillsValue.toString();
+             communicationPercentText.innerHTML = communicationValue.toString();
+             availabilityPercentText.innerHTML = availabilityValue.toString();
+         }
+
+     </script>
+
+      <form action="#" runat="server">
+      
+ <div class="content-cover">
 <%-------------------------------------------------------------------------------------------------%> 
 
               <div class="sidebar">
                       <div class="profile-wrapper">
                         <div class="profile-img-wrapper">
-                          <img src="image.jpg" class="profile-img" alt="Profile image">
+                           <p style="margin-left:45px;"><asp:Image ID="ImageControl"  runat="server" Height="175px" Width="180px" /></p>
                         </div>
                         <div class="user-details">
-                          <h3 class="username">John Doe</h3>
-                          <p class="job-title">Freelance Writer</p>
-                          <p class="location"><i class="fa fa-map-marker"></i> New York City</p>
+                         <h3 class="username"><asp:Label ID="lblUsername" runat="server"></asp:Label></h3>
+                          <p class="job-title"><asp:Label ID="lb2Fullname" runat="server"></asp:Label></p>
+                          <h3 class="job-title"><asp:Label  ID="lb3Email" runat="server" Text="example@example.com"></asp:Label></h3>
                           <div class="rating-section">
-                            <p class="rating-label">Rating:</p>
-                            <div class="stars">
-                              <span class='fa fa-star checked' style='color: white'></span>
-                              <span class='fa fa-star checked' style='color: white'></span>
-                              <span class='fa fa-star checked' style='color: white'></span>
-                              <span class='fa fa-star' style='color: white'></span>
-                              <span class='fa fa-star' style='color: white'></span>
-                            </div>
+                             <h3 class="job-title" style="font-size:24px; color:orangered">Rating : <asp:Label ID="lblRating" runat="server"></asp:Label>/5</h3>
                           </div>
                         </div>
                       </div>
                       <br />
-                      <div class="profile-progresses-wrapper">
-                        <ul class="progresses-wrapper">
-                          <li>
-                            <h6>Project completion rate</h6>
-                            <progress value="90" max="100"></progress>
-                            <div class="percent-text font-accent">90%</div>
-                          </li>
-                          <li>
-                            <h6>Client satisfaction rate</h6>
-                            <progress value="95" max="100"></progress>
-                            <div class="percent-text font-accent">95%</div>
-                          </li>
 
-                          <li>
-                            <h6>Skills</h6>
-                            <progress value="80" max="100"></progress>
-                            <div class="percent-text font-accent">80%</div>
-                          </li>
-                          <li>
-                            <h6>Communication</h6>
-                            <progress value="90" max="100"></progress>
-                            <div class="percent-text font-accent">90%</div>
-                          </li>
-                          <li>
-                            <h6>Availability</h6>
-                            <progress value="70" max="100"></progress>
-                            <div class="percent-text font-accent">70%</div>
-                          </li>
-                        </ul>                             
-                      </div>
+                      <div class="profile-progresses-wrapper">
+                          <ul class="progresses-wrapper">
+                            <li>
+                              <h6>Project completion rate</h6>
+                              <progress id="projectCompletion" value="0" max="100"></progress>
+                              <div class="percent-text font-accent"><span id="projectCompletionPercent">0</span>%</div>
+                            </li>
+                            <li>
+                              <h6>Client satisfaction rate</h6>
+                              <progress id="clientSatisfaction" value="0" max="100"></progress>
+                              <div class="percent-text font-accent"><span id="clientSatisfactionPercent">0</span>%</div>
+                            </li>
+                            <li>
+                              <h6>Skills</h6>
+                              <progress id="skills" value="0" max="100"></progress>
+                              <div class="percent-text font-accent"><span id="skillsPercent">0</span>%</div>
+                            </li>
+                            <li>
+                              <h6>Communication</h6>
+                              <progress id="communication" value="0" max="100"></progress>
+                              <div class="percent-text font-accent"><span id="communicationPercent">0</span>%</div>
+                            </li>
+                            <li>
+                              <h6>Availability</h6>
+                              <progress id="availability" value="0" max="100"></progress>
+                              <div class="percent-text font-accent"><span id="availabilityPercent">0</span>%</div>
+                            </li>
+                          </ul>
+                        </div>
+
                       <ul class="job-details">
-                        <li>Total Jobs: 10</li>
-                        <li>Active Jobs: 3</li>
-                        <li>Completed Jobs: 5</li>
+                        <li>Total Jobs: <asp:Label ID="T_jobs" runat="server"></asp:Label></li>
+                        <li>Active Jobs: <asp:Label ID="A_jobs" runat="server"></asp:Label></li>
+                        <li>Completed Jobs: <asp:Label ID="C_jobs" runat="server"></asp:Label></li>
                       </ul>
 
                       <ul>
                         <li class="earnings">
                           <h6>Earnings</h6>
-                          <p>$50,000</p>
+                          <p>$<asp:Label ID="T_Earning" runat="server"></asp:Label></p>
                           <br />
 
                         </li>
@@ -218,6 +246,8 @@
                 </div>
               </div>
             </div>
+
+     </form>
 
 <%-------------------------------------------------------------------------------------------------%> 
     <script src="Resources/JavaScript/F_DashBoard.js"></script>

@@ -1,4 +1,18 @@
 
+CREATE PROCEDURE GetUserById(
+    @UserId INT
+)
+AS
+BEGIN
+    SELECT username
+    FROM Users
+    WHERE UserId = @UserId
+END
+
+GO
+
+
+
 CREATE PROCEDURE usp_CreateAccount
 	@userID int,
     @Username varchar(50),
@@ -714,3 +728,5 @@ CREATE PROCEDURE logout_user (IN user_id INT)
 BEGIN
    UPDATE users SET is_logged_in = 0 WHERE id = user_id;
 END
+
+
