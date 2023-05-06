@@ -38,11 +38,13 @@ namespace JobDelta
                 propl.Visible = false;
                 ProposalGridView.Visible = false;
                 lancerWorking.Visible = true;
+                lancerWorkingl.Visible = true;
                 lancerWorking.Text = lancerID.ToString();
             }
             else if(prop > 0)
             {
                 lancerWorking.Visible = false;
+                lancerWorkingl.Visible = false;
                 propl.Visible = true;
                 ProposalGridView.Visible = true;
                 ProposalGridView.DataSource = myDAL.LoadProposal(jobID);
@@ -53,6 +55,7 @@ namespace JobDelta
                 propl.Visible = false;
                 ProposalGridView.Visible= false;
                 lancerWorking.Visible = false;
+                lancerWorkingl.Visible = false;
             }
         }
         protected void ProposalGridView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -60,9 +63,11 @@ namespace JobDelta
 
             if (e.CommandName == "Select")
             {
-                int jobID = Convert.ToInt32(ProposalGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
-                Session["SelectedJobID"] = jobID;
-                //Response.Redirect("JobDetail_C.aspx");
+                int proposalID = Convert.ToInt32(ProposalGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                Session["SelectedproposalID"] = proposalID;
+                DAL myDAL = new DAL();
+                myDAL.markProposal(proposalID, (int)Session["SelectedJobID"]);
+                Response.Redirect("C_DashBoard.aspx");
             }
         }
     }

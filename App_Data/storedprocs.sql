@@ -452,7 +452,18 @@ END
 go
 
 
-
+create procedure markproposal
+@jobID INT,
+@proposalID INT
+AS
+BEGIN
+	if exists(select * from Proposals where jobID = @jobID and proposalID = @proposalID)
+	begin
+		update Proposals set approvalstatus = 'A' where jobID = @jobID and proposalID = @proposalID
+        update Jobs set jobstatus = 'O' where jobID = @jobID
+        update Jobs set lancerID = (select lancerID from Proposals where jobID = @jobID and proposalID = @proposalID) where jobID = @jobID
+	end
+end
 
 alter PROCEDURE ViewPostedJobs
 	@clientId INT
@@ -464,12 +475,33 @@ BEGIN
 END
 go
 
+create procedure ViewOngoingJobs
+@lancerID INT
+as
+begin
+	select jobID, jobtitle, jobdetail, jobtype, jobvalue,jobstatus ,duedate from Jobs where lancerID = @lancerID
+end
 
 create procedure getProposals
 @jobID INT
 as
 begin
 	select proposalID,lancerID,proposaldetail,approvalstatus,applydate from Proposals where jobID = @jobID
+end
+
+create procedure checklancer
+@lancerID Int,
+@ret_val int output
+as
+begin
+	if exists(select * from Jobs where lancerID = @lancerID)
+	begin
+		set @ret_val = 1
+	end
+	else
+	begin
+		set @ret_val = 0
+	end
 end
 
 

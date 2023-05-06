@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using System.Globalization;
 using WebGrease.Css.Ast.Selectors;
+using System.Security.Cryptography;
 
 namespace JobDelta.Data_Access_Layer
 {
@@ -375,6 +376,21 @@ namespace JobDelta.Data_Access_Layer
 
             return ret_val;
         }
+        public void markProposal(int proposalID, int jobID)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+            con.Open();
+            cmd = new SqlCommand("markproposal", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@proposalID", SqlDbType.Int);
+            cmd.Parameters["@proposalID"].Value = proposalID;
+            cmd.Parameters.Add("@jobID", SqlDbType.Int);
+            cmd.Parameters["@jobID"].Value = jobID;
+
+            cmd.ExecuteNonQuery();
+
+        }
         public DataSet LoadClientJobTable(int ClientID) //to get the values of all the items from table Items and return the Dataset
         {
 
@@ -388,6 +404,79 @@ namespace JobDelta.Data_Access_Layer
                 cmd.CommandType = CommandType.StoredProcedure; //set type of sqL Command
                 cmd.Parameters.Add("@clientID", SqlDbType.Int);
                 cmd.Parameters["@clientID"].Value = ClientID;
+                cmd.ExecuteNonQuery();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(ds); //Add the result  set  returned from SQLCommand to ds
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return ds; //return the dataset
+        }
+       
+        public bool existFreelancer(int lancerID)
+        {
+            bool hasApplied = false;
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand("checklancer", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@lancerID", SqlDbType.Int);
+            
+                cmd.Parameters.Add("@ret_val", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+
+
+                cmd.Parameters["@lancerID"].Value = lancerID;
+                
+
+                cmd.ExecuteScalar();
+                int count = Convert.ToInt32(cmd.Parameters["@ret_val"].Value);
+
+
+                if (count > 0)
+                {
+                    hasApplied = true;
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return hasApplied;
+        }
+        public DataSet LoadongoingJobTable(int lancerID)
+        {
+
+            DataSet ds = new DataSet(); //declare and instantiate new dataset
+            SqlConnection con = new SqlConnection(conString); //declare and instantiate new SQL connection
+            con.Open(); // open sql Connection
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("ViewOngoingJobs", con);  //instantiate SQL command 
+                cmd.CommandType = CommandType.StoredProcedure; //set type of sqL Command
+                cmd.Parameters.Add("@lancerID", SqlDbType.Int);
+                cmd.Parameters["@lancerID"].Value = lancerID;
                 cmd.ExecuteNonQuery();
                 using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {

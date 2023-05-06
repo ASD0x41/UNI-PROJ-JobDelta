@@ -49,9 +49,9 @@
         <asp:Label CssClass="popup-label" runat="server" Text="Due Date:"></asp:Label>
          <asp:TextBox CssClass="popup-input" runat="server" ID="duedate"  ReadOnly="true"></asp:TextBox>
         
-        
-         <asp:Label CssClass="popup-label" runat="server" Visible="false" Text="Freelancer:"></asp:Label>
-         <asp:TextBox CssClass="popup-input" runat="server" ID="lancerWorking"  ReadOnly="true"></asp:TextBox>
+        <br />
+         <asp:Label ID="lancerWorkingl" CssClass="popup-label" runat="server" Visible="false" Text="Freelancer:"></asp:Label>
+         <asp:TextBox CssClass="popup-input" runat="server" ID="lancerWorking" Visible="false"  ReadOnly="true"></asp:TextBox>
 
          <br />
 

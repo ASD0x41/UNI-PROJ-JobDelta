@@ -18,11 +18,10 @@ namespace JobDelta
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-
+           
+                loadongoingjobs();
                 loadavailJobs();
-            }
+            
         }
 
         protected void PostGridView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -45,9 +44,22 @@ namespace JobDelta
             PostGridView.DataBind();
 
         }
+        protected void loadongoingjobs()
+        {
+            // You can load data from a database or other data source here
+            // For example, you can create a DataTable and add rows to it
+            int lancerID = (int)Application["currentUser"];
+
+            DAL myDAL = new DAL();
+            if (myDAL.existFreelancer(lancerID))
+            {
+                PostingGridView.DataSource = myDAL.LoadongoingJobTable(lancerID);
+                PostingGridView.DataBind();
+            }
+
+        }
 
 
-       
         private DataTable LoadJobPostData()
         {
             // You can load data from a database or other data source here
