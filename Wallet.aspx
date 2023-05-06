@@ -5,47 +5,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </asp:Content>
 
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <script type="text/javascript">
+
+        function insufficient_funds() {
+            const popup = document.querySelector("#insufficient-funds-popup");
+            popup.style.display = "flex";
+            setTimeout(function () { popup.style.display = "none"; }, 1000);
+        }
+
+    </script>
+
+
+    <form action="#" runat="server">
 
  <section style="margin-top:5%;">
           <div class="container">
               <div class="card-info">
                                   <div class="card-holder">
-                                    <h2>Card Holder Information</h2>
-                                    <p>Name :&nbsp ABC XYZ</p>
-                                    <p>Card Number :&nbsp <span id="Card_No">XXXX XXXX XXXX 1234</span></p>
-                                    <p>Expiration Date :&nbsp <span id="Ex_date">XX/XX</span></p>
-                                    <p>CVV :&nbsp <span id="CVV_No">XXX</span></p>
+                                    <h2>User Banking Information</h2>
+                                    <h3>Name :&nbsp <asp:Label ID="NameLabel" runat="server" ></asp:Label></h3>
+                                    <p style="font-weight:bold;">Bank Account :&nbsp <asp:Label ID="BankAccLabel" runat="server" ></asp:Label></p>
                                       <br />
+                                     <p><asp:Textbox ID="C_BA" runat="server" CssClass="amount" Text="Enter new Bank Account..."></asp:Textbox></p>
                                       <br />
-                                    <button class="sp_button" id="add_card_button">ADD CARD</button>
+                                    <asp:button runat="server" CSSclass="sp_button" id="add_card_button" Text="Save" OnClick="ChangeBankAccount"></asp:button>
                                   </div>
                  </div>
 
                               <div class="balance">
+                                  <br/>
                                <h3>Current Balance
-                             <br />$ &nbsp<span id="Balance">0.00</span></h3>
+                                 <br />
+                                <asp:Literal runat="server" Text="$ "></asp:Literal>
+                                <asp:Label runat="server" ID="Balance" Text="0.00"></asp:Label>
+                                </h3>
+
 
                                   <br />
                                   <br />
 
-                                  <p> Total Deposits: $<span id="TotalDeposits">0.00</span> <i class="fa fa-arrow-up" style = "color:green"></i></p>
-                                  <p> Total Withdrawals: $<span id="TotalWithdrawals">0.00</span> <i class="fa fa-arrow-down" style = "color:red"></i></p>
+                                  <asp:Label runat="server" Text="Total Deposits: $" AssociatedControlID="TotalDeposits"></asp:Label>
+                                  <asp:Label runat="server" ID="TotalDeposits" Text="0.00"></asp:Label>
+                                  <i class="fa fa-arrow-up" style="color:green"></i>
+                                  <br/>
+                                  <br/>
+                                  <asp:Label runat="server" Text="Total Withdrawals: $" AssociatedControlID="TotalWithdrawals"></asp:Label>
+                                  <asp:Label runat="server" ID="TotalWithdrawals" Text="0.00"></asp:Label>
+                                  <i class="fa fa-arrow-down" style="color:red"></i>
+
                               </div>
                  </div>
 
 <!------------------------------------------------------------------------------------------->
 
             <div class="parent-element">
-              <p2 style = "font-weight: bold; font-size:20px ">Amount : &nbsp; <input type="number" id="amount" min="1"/></p2>
+              <p2 style = "font-weight: bold; font-size:20px "><p>Amount : &nbsp;<asp:TextBox ID="amount_label" runat="server" CssClass="amount" type="number" min="1"></asp:TextBox></p>
               <br />
               <div id="insufficient-funds-popup" class="popup-if">
                 <p>Insufficient funds</p>
               </div>
               <br />
               <p2>
-                <button id="deposit-button">Deposit</button>
-                <button id="withdraw-button">Withdraw</button>
+                <asp:button id="D_btn" runat="server" CssClass="deposit-button" Text="Deposite" OnClick="DepositMoney"></asp:button>
+                <asp:button id="W_btn" runat="server" CssClass="withdraw-button" Text="WithDraw" Onclick="WithdrawMoney"></asp:button>
               </p2>
             </div>   
    </section>
@@ -57,45 +83,20 @@
     <br />
   <h1  style = "text-align:center; ">Transaction History</h1>
     <br />
-    <table>
-        <thead>
-            <tr>
-                <th>Amount</th>
-                <th>Type</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody id="table-body">
-        </tbody>
-    </table>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="transfertime" HeaderText="Transfer Time" />
+                    <asp:BoundField DataField="amount" HeaderText="Amount" />
+                    <asp:BoundField DataField="srcusername" HeaderText="Source User" />
+                    <asp:BoundField DataField="dstusername" HeaderText="Destination User" />
+                </Columns>
+                <HeaderStyle BackColor="#CCCCCC" Font-Bold="true" />
+            </asp:GridView>
       </section>
 
-<!------------------------------------------------------------------------------------------->
-
-         <div id="add_card_popup" class="popup_ci">
-          <div class="popup_ci-content">
-            <span class="popup_ci-close">&times;</span>
-            <h2>Add a Card</h2>
-                     
-                       <br/>
-                       <br/>
-
-                      <label for="card_number">Card Number:</label>
-                      <input type="text" style="width:150px; text-align:center" id="card_number" name="card_number" pattern="[0-9]{13}"  title = "Please enter a valid card number" required="required" maxlength = "13" /><br /><br />
-                        <br/>
-                      <label for="expiry_date">Expiry Date:</label>
-                      <input type="text" id="expiry_date" style="width:80px; text-align:center" name="expiry_date" pattern="^(0[1-9]|1[0-2])\/(2[2-9]|[3-9][0-9])$" title = "Please enter a valid expiry date in the format MM/YY" required="required" /><br /><br />
-                        <br/>
-                      <label for="cvv">CVV:</label>
-                      <input type="text" id="cvv" name="cvv" style="width:60px; text-align:center " pattern="[0-9]{3}" title="Please enter a valid CVV (3 digits)" required="required" maxlength = "3" /><br /><br />
-                       <br/>
-                       <br/>
-                      <div style="margin-left:37%;"><input type="submit" class="sp_button" value="Submit"/></div>
-          </div>
-        </div>
 
 <!------------------------------------------------------------------------------------------->
-
+</form>
 
     <script src="Resources/JavaScript/Wallet.js"></script>
 </asp:Content>

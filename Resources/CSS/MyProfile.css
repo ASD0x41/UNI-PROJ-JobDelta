@@ -242,3 +242,34 @@ hr {
         background-color: #fff;
         color: #f36c21;
     }
+
+
+.Contact_Input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    height: 150px;
+}
+
+    .Contact_Input:focus {
+        border: 2px solid #f48c42;
+    }
+
+.sp_button {
+    background-color: #f36c21;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.sp_button :hover {
+    background-color: #fff;
+    color: #f36c21;
+}

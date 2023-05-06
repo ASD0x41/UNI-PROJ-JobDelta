@@ -51,13 +51,13 @@
 
 /*-------------------------------------------------------------------------------*/
 
-table {
+.ctable {
     border-collapse: collapse;
     width: 100%;
     background-color: #4b4b4b;
 }
 
-    table th {
+    .ctable th {
         background-color: #333;
         color: #fff;
         font-weight: bold;
@@ -65,7 +65,7 @@ table {
         text-align: left;
     }
 
-    table td {
+    .ctable td {
         border: 1px solid #FF4500;
         padding: 1rem;
         color: #fff;
@@ -73,31 +73,31 @@ table {
         transition: background-color 0.2s ease-in-out;
     }
 
-        table td:hover {
+        .ctable td:hover {
             background-color: #f5f5f5;
             color: #FF4500;
         }
 
-        table td:first-child {
+        .ctable td:first-child {
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
         }
 
-        table td:last-child {
+        .ctable td:last-child {
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
         }
 
 @media screen and (max-width: 768px) {
-    table th,
-    table td {
+    .ctable th,
+    .ctable td {
         font-size: 0.9rem;
     }
 }
 
 @media screen and (max-width: 576px) {
-    table th,
-    table td {
+    .ctable th,
+    .ctable td {
         font-size: 0.8rem;
     }
 }
@@ -110,12 +110,12 @@ table {
     text-align: center;
 }
 
-#amount, #deposit-button, #withdraw-button {
+.amount, .deposit-button, .withdraw-button {
     display: inline-block;
     margin: 0;
 }
 
-#amount {
+.amount {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -124,7 +124,7 @@ table {
     text-align: center;
 }
 
-#deposit-button, #withdraw-button {
+.deposit-button, .withdraw-button {
     display: inline-block;
     background-color: #FF4500;
     color: #fff;
@@ -138,7 +138,7 @@ table {
     margin: 10px;
 }
 
-    #deposit-button:hover, #withdraw-button:hover {
+    .deposit-button:hover, .withdraw-button:hover {
         background-color: #fff;
         color: #FF4500;
     }

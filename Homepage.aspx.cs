@@ -166,7 +166,11 @@ namespace JobDelta
                     SmtpServer.EnableSsl = true;
 
                     SmtpServer.Send(mail);
-
+					
+					
+					Tuple<int, int, int> logindetails = myDAL.LoginUser(uname, pword);
+                    Application["currentUser"] = logindetails.Item2;
+                    Application["curUserType"] = logindetails.Item3;
                     Response.Redirect("Complete_Profile.aspx");
                     break;
 

@@ -274,7 +274,7 @@ cascade/no action' statements are also not needed */
 -- Trial Data Insertions (just for testing schema):
 /*
 insert into Users (username,userpass,usertype,fullname,birthdate,gender,CNIC,picture,aboutuser,phonenumber,emailaddress,workaddress,bankaccount) values
-('client1','pw1','C','First Client','2.19.2003','M','36501-1234567-1',NULL,'Hello1','+92336-1234567','abc@def.com','address1','123456789'),
+('client1','pw1','2','First Client','2.19.2003','M','36501-1234567-1',NULL,'Hello1','+92336-1234567','abc@def.com','address1','123456789'),
 ('lancer1','pw2','F','First Lancer','3.18.2004','F','36501-1586799-5',NULL,'Hello2','+92331-1234567','ghj@def.com','address2','123447891'),
 ('admins1','pw3','A','First Admins','6.23.2001','M','36533-1235355-6',NULL,'Hello3','+92336-1234454','etw@def.com','address3','123435434')
 go
@@ -288,13 +288,13 @@ go
 select * from Jobs;
 
 insert into Proposals (jobID,lancerID,applydate,proposaldetail) values
-(1,2,getdate(),'I will design a logo.')
+(1,3,getdate(),'I will design a logo.')
 go
 
 select * from Proposals
 
 insert into MoneyTransfers (transfertime,amount,forjob,srcuser,dstuser) values
-(getdate(),50.00,1,1,3)
+(getdate(),50.00,2,6,3)
 go
 
 select * from MoneyTransfers
@@ -438,10 +438,19 @@ AS
 	END
 GO
 
+CREATE PROCEDURE GetPhoneNumber 
+ @userID INT
+AS
+BEGIN
+	SELECT phonenumber
+	FROM Users
+	WHERE userID = @userID;
+END;
+GO
 
-
-
-
+EXECUTE UpdateUserAboutById
+@UserId = 6,
+@aboutuser = "Hi there! My name is First_Freelancer and I am a freelance graphic designer with over 5 years of experience."
 
 CREATE PROCEDURE		RecoverPassword
 
