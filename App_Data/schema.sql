@@ -438,19 +438,12 @@ AS
 	END
 GO
 
-CREATE PROCEDURE GetPhoneNumber 
- @userID INT
-AS
-BEGIN
-	SELECT phonenumber
-	FROM Users
-	WHERE userID = @userID;
-END;
-GO
 
-EXECUTE UpdateUserAboutById
-@UserId = 6,
-@aboutuser = "Hi there! My name is First_Freelancer and I am a freelance graphic designer with over 5 years of experience."
+
+
+
+
+
 
 CREATE PROCEDURE		RecoverPassword
 

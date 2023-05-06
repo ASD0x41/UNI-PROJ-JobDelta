@@ -83,7 +83,10 @@ GO
 
 
 
-
+EXECUTE UpdateUserAboutById
+@UserId = 6,
+@aboutuser = "Hi there! My name is First_Freelancer and I am a freelance graphic designer with over 5 years of experience."
+GO
 
 
 
@@ -137,17 +140,6 @@ go
 
 
 
-CREATE PROCEDURE GetUserById(
-    @UserId INT
-)
-AS
-BEGIN
-    SELECT username
-    FROM Users
-    WHERE UserId = @UserId
-END
-
-GO
 
 
 
@@ -863,7 +855,8 @@ go
 
 --incomplete
 
-CREATE PROCEDURE logout_user (IN user_id INT)
+CREATE PROCEDURE logout_user (@user_id INT)
+AS
 BEGIN
    UPDATE users SET is_logged_in = 0 WHERE id = user_id;
 END
