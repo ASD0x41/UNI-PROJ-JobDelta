@@ -65,15 +65,15 @@
                 <div class="side-section-container" style="margin-top:10%">
               <h2 >INFROMATION BOX</h2>
               <div class="faq-item">
-                <img src="https://img.icons8.com/ios-filled/100/null/permanent-job.png"/>
+                <img src="Resources/Images/BG_Image/faq-1.png"/>
                 <p>Types of jobs available</p>
               </div>
               <div class="faq-item">
-                <img src="https://img.icons8.com/ios/100/null/card-in-use.png"/>
+                <img src="Resources/Images/BG_Image/faq-2.png"/>
                 <p>Payment and commission structure</p>
               </div>
               <div class="faq-item">
-                <img src="https://img.icons8.com/ios-filled/100/null/thumbs-up-down.png"/>
+                <img src="Resources/Images/BG_Image/faq-3.png"/>
                 <p>Client feedback and ratings</p>
               </div>
 

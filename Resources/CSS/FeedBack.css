@@ -49,12 +49,13 @@
         border: 2px solid #ddd;
         border-radius: 4px;
         font-size: 16px;
-        color: #fff;
+        color: #000;
     }
 
     .form-group textarea {
         height: 100px;
     }
+
         .form-group input:focus, .form-group textarea:focus {
             border-color: #f79a3e;
             outline: none;
@@ -68,7 +69,7 @@
     line-height: 20px;
     font-size: 20px;
     color: #ec7813;
-    text-align:center;
+    text-align: center;
 }
 
     .rating input {
@@ -89,12 +90,12 @@
             display: block;
             font-size: 20px;
             line-height: 1;
-            color: #ddd;
+            color: #FFC107;
         }
 
-        .rating label:hover:before,
+        .rating label:hover:after,
         .rating label:hover ~ label:before {
-            color: #FFC107;
+            color: #ddd;
         }
 
 .ss_button {

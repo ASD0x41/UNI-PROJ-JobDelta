@@ -21,21 +21,21 @@
         <br/>
         <div class="Team_sub-container">
             <div class="teams">
-                <img src="Resources/Images/mehdy.jpeg"/>
+                <img src="Resources/Images/Mehdy.jpg"/>
                 <div class="name">Mehdy</div>
                 <div class="desig">Developer</div>
                 <div class="email">l211784@lhr.nu.edu.pk</div>
             </div>
 
             <div class="teams">
-                <img src="Resources/Images/me.jpg"/>
+                <img src="Resources/Images/Umair.jpg"/>
                 <div class="name">Umair Bin Asim </div>
                 <div class="desig">Web Developer</div>
                 <div class="email">l211847@lhr.nu.edu.pk</div>
             </div>
 
             <div class="teams">
-                <img src="Resources/Images/sultan.png"/>
+                <img src="Resources/Images/Sultan.jpg"/>
                 <div class="name">Sultan Ahmed </div>
                 <div class="desig">Manager</div>
                 <div class="email">l217560@lhr.nu.edu.pk</div>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="teams">
-                <img src="Resources/Images/asad.png" />
+                <img src="Resources/Images/Asad.jpg" />
                 <div class="name">M. Asad Tariq</div>
                 <div class="desig">Designer</div>
                  <div class="email">l215266@lhr.nu.edu.pk</div>
