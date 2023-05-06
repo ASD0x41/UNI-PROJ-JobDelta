@@ -43,6 +43,54 @@ namespace JobDelta.Data_Access_Layer
             return ds;
         }
 
+
+        public string RecoverPword(string uname, string email)
+        {
+            int retval = -1;
+            string pword = "";
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("RecoverPassword ", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@_username", SqlDbType.VarChar, 16);
+                cmd.Parameters.Add("@_emailadd", SqlDbType.VarChar, 50);
+
+                cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_password", SqlDbType.VarChar, 16).Direction = ParameterDirection.Output;
+
+
+                cmd.Parameters["@_username"].Value = uname;
+                cmd.Parameters["@_emailadd"].Value = email;
+
+                cmd.ExecuteNonQuery();
+
+                retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+                if (retval == 0)
+                {
+                    pword = Convert.ToString(cmd.Parameters["@_password"].Value);
+                }
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return pword;
+        }
+
+
         public int RegisterNewUser(string uname, string email, string pword, string utype)
         {
             int atype = -1;

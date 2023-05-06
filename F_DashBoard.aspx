@@ -7,10 +7,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="Resources/CSS/F_DashBoard.css" rel="stylesheet" />
- <div class="content-cover">
+ <form action="#" runat="server">
+    <div class="content-cover">
 
 <%-------------------------------------------------------------------------------------------------%> 
-
+     
               <div class="sidebar">
                       <div class="profile-wrapper">
                         <div class="profile-img-wrapper">
@@ -218,7 +219,7 @@
                 </div>
               </div>
             </div>
-
+    </form>
 <%-------------------------------------------------------------------------------------------------%> 
     <script src="Resources/JavaScript/F_DashBoard.js"></script>
     <script src="Resources/JavaScript/chatApp.js"></script>

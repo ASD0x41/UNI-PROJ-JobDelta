@@ -1,3 +1,147 @@
+	--CREATE VIEW	SelfProfile
+	--AS
+		
+	--	SELECT	username, usertype, fullname, birthdate, gender, CNIC, picture, aboutuser, phonenumber, emailaddress, workaddress, bankaccount, walletmoney, rating, jobsnotdone, jobsongoing, jobsdone FROM Users
+
+	--GO
+
+	--CREATE VIEW NonSelfProfile
+	--AS
+
+	--	SELECT	
+
+	--GO
+
+
+
+	
+create view Q3 as
+select O.CustomerNo as StarCustomer, SUM(OD.Quantity*I.Price) as Purchases
+from [Order] as O
+join OrderDetails as OD on O.OrderNo=OD.OrderNo
+join Items as I on OD.ItemNo=I.ItemNo
+group by O.CustomerNo
+having SUM(OD.Quantity*I.Price)>2000
+go;
+
+select * from Q3
+go;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- -------------------- --
+--  Functionality # 5:	--
+-- -------------------- --
+
+	CREATE PROCEDURE		DepositMoney
+
+		@_userID			int,
+		@_amount			money,
+		@_password			varchar(16),
+		@_usertype			int,
+
+		@_ret_val_			int					output
+
+	AS
+		BEGIN
+
+			INSERT INTO MoneyTransfers VALUES (CURRENT_TIMESTAMP, @_amount, NULL, @_userID, NULL)
+			UPDATE Users SET walletmoney = (walletmoney - @_amount) WHERE userID = @_userID
+			
+
+		END
+	GO
+
+-- -----
+
+	CREATE PROCEDURE		WithdrawMoney
+
+		@_username			varchar(16),
+		@_emailadd			varchar(32),
+		@_password			varchar(16),
+		@_usertype			int,
+
+		@_ret_val_			int					output
+
+	AS
+		BEGIN
+
+			IF		NOT EXISTS (SELECT * FROM Users WHERE username=@_username)
+				BEGIN
+					INSERT INTO Users (username, userpass, emailaddress, usertype) VALUES (@_username, @_password, @_emailadd, @_usertype)
+					SET		@_ret_val_ = 0
+				END
+			ELSE
+					SET		@_ret_val_ = -1
+
+		END
+	GO
+
+
+
+
+
+
+
+
+
+-- -------------------- --
+--  Functionality #21:	--
+-- -------------------- --
+
+	CREATE PROCEDURE		DeleteAccount
+
+		@_username			varchar(16),
+		@_password			varchar(16),
+
+		@_ret_val_			int					output
+
+	AS
+		BEGIN
+
+			IF		EXISTS	(SELECT * FROM Users WHERE username=@_username)
+			BEGIN
+				IF		(SELECT userpass FROM Users WHERE username=@_username)=@_password
+					BEGIN
+						--UPDATE	Users SET 
+						SELECT	@_user_ID_ = userID FROM Users WHERE username=@_username
+						SELECT	@_usertype = usertype FROM Users WHERE username=@_username
+						SET		@_ret_val_ = 0
+					END
+				ELSE
+						SET		@_ret_val_ = -1
+			END
+			ELSE
+				SET		@_ret_val_ = -2
+
+		END
+	GO
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- Creating Tables (note that table ID columns will be auto-generated):
 
 
@@ -296,6 +440,35 @@ GO
 
 
 
+
+
+
+CREATE PROCEDURE		RecoverPassword
+
+	@_username			varchar(16),
+	@_emailadd			varchar(50),
+
+	@_password			varchar(16)			output,
+	@_ret_val_			int					output
+
+AS
+	BEGIN
+
+		IF		EXISTS	(SELECT * FROM Users WHERE username=@_username)
+			BEGIN
+				IF		(SELECT emailaddress FROM Users WHERE username=@_username)=@_emailadd
+					BEGIN
+						SELECT	@_password = userpass FROM Users WHERE username=@_username
+						SET		@_ret_val_ = 0
+					END
+				ELSE
+						SET		@_ret_val_ = -1
+			END
+		ELSE
+				SET		@_ret_val_ = -2
+
+	END
+GO
 
 
 
