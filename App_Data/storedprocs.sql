@@ -465,6 +465,40 @@ END
 go
 
 
+create procedure getProposals
+@jobID INT
+as
+begin
+	select proposalID,lancerID,proposaldetail,approvalstatus,applydate from Proposals where jobID = @jobID
+end
+
+
+
+alter procedure getlancerID
+    @jobID INT,
+    @lancerID int output
+AS
+BEGIN
+	if exists (select lancerID from Jobs where jobID = @jobID)
+    select @lancerID=lancerID from Jobs where jobID = @jobID
+    else
+    select @lancerID = 0
+END
+go
+
+ALTER PROCEDURE ifproposal
+    @jobID INT,
+    @ret_val INT OUTPUT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Proposals WHERE jobID = @jobID)
+        SET @ret_val = 1
+    ELSE
+        SET @ret_val = 0
+END
+GO
+
+
 alter PROCEDURE ViewPostedJobs_F
     @jobID INT,
     @jobTitle VARCHAR(32) OUTPUT,

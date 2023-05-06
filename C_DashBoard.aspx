@@ -70,10 +70,9 @@
                         
                       
 
-               <asp:GridView ID="PostingGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand" CssClass="table">
+               <asp:GridView ID="PostingGridView"  runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand" CssClass="J_Grid">
                 <Columns>
                     <asp:BoundField DataField="jobID" HeaderText="Posting ID" />
-                    <%--<asp:BoundField DataField="lancerID" HeaderText="Freelancer ID" />--%>
                     <asp:BoundField DataField="jobtitle" HeaderText="Title" />
                     <asp:BoundField DataField="jobdetail" HeaderText="Description" />
                     <asp:BoundField DataField="jobtype" HeaderText="Category" />
@@ -81,9 +80,9 @@
                     <asp:BoundField DataField="JobStatus" HeaderText="Job Status" />
                     <asp:BoundField DataField="postdate" HeaderText="Post Date" DataFormatString="{0:d}" />
                     <asp:BoundField DataField="duedate" HeaderText="Due Date" DataFormatString="{0:d}" />
-                    <asp:TemplateField HeaderText="Edit">
+                    <asp:TemplateField HeaderText="Select">
                         <ItemTemplate>
-                            <asp:LinkButton CssClass="sp_button" ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("jobID") %>' />
+                            <asp:LinkButton CssClass="sp_button" ID="lnkEdit" runat="server" Text="View" CommandName="Select" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>        

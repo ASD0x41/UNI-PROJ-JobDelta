@@ -64,10 +64,12 @@ namespace JobDelta
 
         protected void PostingGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Edit")
+            
+            if (e.CommandName=="Select")
             {
-                int postingId = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("JobDetail.aspx?PostingID=" + postingId);
+                int jobID = Convert.ToInt32(PostingGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                Session["SelectedJobID"] = jobID;
+                Response.Redirect("JobDetail_C.aspx");
             }
         }
 

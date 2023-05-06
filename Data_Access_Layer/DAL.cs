@@ -302,7 +302,79 @@ namespace JobDelta.Data_Access_Layer
                 con.Close();
             }
         }
+        public DataSet LoadProposal(int jobID)
+        {
+            DataSet ds = new DataSet(); //declare and instantiate new dataset
+            SqlConnection con = new SqlConnection(conString); //declare and instantiate new SQL connection
+            con.Open(); // open sql Connection
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("getProposals", con);  //instantiate SQL command 
+                cmd.CommandType = CommandType.StoredProcedure; //set type of sqL Command
+                cmd.Parameters.Add("@jobID", SqlDbType.Int);
+                cmd.Parameters["@jobID"].Value = jobID;
+                cmd.ExecuteNonQuery();
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(ds); //Add the result  set  returned from SQLCommand to ds
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
 
+            return ds; //return the dataset
+        }
+        public int getFreelancer(int jobID)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+            con.Open();
+            cmd = new SqlCommand("getlancerID", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@jobID", SqlDbType.Int);
+            cmd.Parameters["@jobID"].Value = jobID;
+            cmd.Parameters.Add("@lancerID", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            int lancerID = 0;
+            if (!Convert.IsDBNull(cmd.Parameters["@lancerID"].Value))
+            {
+                lancerID = Convert.ToInt32(cmd.Parameters["@lancerID"].Value);
+            }
+
+
+            return lancerID;
+        }
+        public int ifProposal(int jobID)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+            con.Open();
+            cmd = new SqlCommand("ifproposal", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@jobID", SqlDbType.Int);
+            cmd.Parameters["@jobID"].Value = jobID;
+            cmd.Parameters.Add("@ret_val", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            int ret_val = 0;
+            if (!Convert.IsDBNull(cmd.Parameters["@ret_val"].Value))
+            {
+                ret_val = Convert.ToInt32(cmd.Parameters["@ret_val"].Value);
+            }
+
+
+            return ret_val;
+        }
         public DataSet LoadClientJobTable(int ClientID) //to get the values of all the items from table Items and return the Dataset
         {
 

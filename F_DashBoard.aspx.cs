@@ -47,15 +47,7 @@ namespace JobDelta
         }
 
 
-        protected void PostingGridView_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "Edit")
-            {
-                int postingId = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("JobDetail.aspx?PostingID=" + postingId);
-            }
-        }
-
+       
         private DataTable LoadJobPostData()
         {
             // You can load data from a database or other data source here
