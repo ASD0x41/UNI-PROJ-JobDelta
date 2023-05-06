@@ -11,6 +11,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form action="#" runat="server">
+
         <h1>Job Details</h1>
          <asp:Label CssClass="popup-label" runat="server" Text="Job ID:"></asp:Label>
          <asp:TextBox CssClass="popup-input" runat="server" ID="jobIDT"  ReadOnly="true"></asp:TextBox>
@@ -55,6 +56,34 @@
          <asp:TextBox CssClass="popup-input" runat="server" ID="duedate"  ReadOnly="true"></asp:TextBox>
         
         <h1>Proposal</h1>
+
+         <asp:Label ID="wproposal" Visible="false" CssClass="popup-label" runat="server" Text="Write proposal to the client:" ></asp:Label>
+         <br />
+         <br />
+         <br />
+         <asp:TextBox CssClass="popup-input" Visible="false" runat="server" ID="proposal" TextMode="MultiLine" Rows="4" Style="width: 450px;" required="true"></asp:TextBox>
+         
+        <asp:Button ID="spropose" Visible="false" runat="server" Text="Submit Proposal"  OnClick="SubmitProposal" />
+        
+
+        <asp:Label ID="lPID" Visible="false" CssClass="popup-label" runat="server" Text="Proposal ID:"></asp:Label>
+         <asp:TextBox CssClass="popup-input" runat="server" ID="PID"  ReadOnly="true"></asp:TextBox>
+         <br />
+
+          <asp:Label ID="lpdesc" Visible="false" CssClass="popup-label" runat="server" Text="Proposal Description:" ></asp:Label>
+         <br />
+         <br />
+         <br />
+         <asp:TextBox CssClass="popup-input" Visible="false" runat="server" ID="pdesc" ReadOnly="true" TextMode="MultiLine" Rows="4" Style="width: 450px;" required="true"></asp:TextBox>
+         <br />
+
+         <asp:Label ID="lstatus" Visible="false" CssClass="popup-label" runat="server" Text="Status:"></asp:Label>
+         <asp:TextBox CssClass="popup-input" Visible="false" runat="server" ID="status"  ReadOnly="true"></asp:TextBox>
+
+        <br />
+        <asp:Label ID="ldate" CssClass="popup-label" Visible="false" runat="server" Text="Applied Date:"></asp:Label>
+         <asp:TextBox CssClass="popup-input" runat="server" ID="date" Visible="false" ReadOnly="true"></asp:TextBox>
+
 
 
     </form>

@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using System.Globalization;
+using WebGrease.Css.Ast.Selectors;
 
 namespace JobDelta.Data_Access_Layer
 {
@@ -168,6 +169,133 @@ namespace JobDelta.Data_Access_Layer
             {
                 Console.WriteLine("SQL Error" + ex.Message.ToString());
                 return (-1, "", "", -1, "", "", "");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public bool checkProposal(int jobID,int UID)
+        {
+            bool hasApplied = false;
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand("CheckIfUserHasApplied", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@lancerID", SqlDbType.Int);
+                cmd.Parameters.Add("@jobID", SqlDbType.Int);
+                cmd.Parameters.Add("@return_val", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+
+
+                cmd.Parameters["@lancerID"].Value = UID;
+                cmd.Parameters["@jobID"].Value = jobID;
+           
+                cmd.ExecuteScalar();
+                int count = Convert.ToInt32(cmd.Parameters["@return_val"].Value);
+
+
+                if (count > 0)
+                {
+                    hasApplied = true;
+                }
+
+               
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return hasApplied;
+        }
+        public int RegisterNewProposal(int lancerID,int jobID, string jobDetail)
+        {
+
+
+            int retval = -1;
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+
+                cmd = new SqlCommand("submitProposal", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@lancerID", SqlDbType.Int);
+                cmd.Parameters.Add("@jobID", SqlDbType.Int);
+                cmd.Parameters.Add("@proposalDetail", SqlDbType.Text);
+               
+
+                cmd.Parameters["@lancerID"].Value = lancerID;
+                cmd.Parameters["@jobID"].Value = jobID;
+                cmd.Parameters["@proposalDetail"].Value = jobDetail;
+                
+
+                cmd.ExecuteNonQuery();
+
+                //retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+        public (int,string,string,string) LoadProposalsFreelancer(int jobID, int lancerID)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand("getProposal", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@jobID", jobID);
+                cmd.Parameters.AddWithValue("@lancerID", lancerID);
+
+                // Define output parameters
+                cmd.Parameters.Add("@proposalID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@proposaldetail", SqlDbType.VarChar, 1000).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@approvalstatus", SqlDbType.VarChar, 32).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@applydate", SqlDbType.Date).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+
+                // Retrieve output parameter values
+                int proposalID = Convert.ToInt32(cmd.Parameters["@proposalID"].Value);
+                string proposalDetail = cmd.Parameters["@proposaldetail"].Value.ToString();
+                string approvalStatus = cmd.Parameters["@approvalstatus"].Value.ToString();
+                string applydate = cmd.Parameters["@applydate"].Value.ToString();
+
+                applydate = ((DateTime)cmd.Parameters["@applydate"].Value).ToString("yyyy-MM-dd");
+
+                // Return tuple with output parameter values
+                return (proposalID, proposalDetail, approvalStatus,applydate);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return (-1, "", "", "");
             }
             finally
             {

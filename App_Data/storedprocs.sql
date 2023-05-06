@@ -316,10 +316,60 @@ EXEC PostJob
     @_ret_val_ = @retVal OUTPUT
 
 SELECT @retVal
+go
 
+alter PROCEDURE CheckIfUserHasApplied
+	@jobID INT,
+    @lancerID INT,
+    @return_val  INT OUTPUT
+AS
+Begin
+    if exists( select * from Proposals where jobID = @jobID and lancerID = @lancerID)
+    begin
+        set @return_val = 1
+    end
+    else
+        set @return_val = 0
+    
+end
 
+DECLARE @jobID INT = 16
+DECLARE @UserID INT = 6
+DECLARE @return_val INT
 
+EXEC CheckIfUserHasApplied @jobID, @UserID, @return_val OUTPUT
 
+SELECT @return_val
+
+alter procedure getProposal
+@jobID INT,
+@lancerID INT,
+@proposalID INT OUTPUT,
+@proposaldetail varchar(1000) OUTPUT,
+@approvalstatus VARCHAR(32) OUTPUT,
+@applydate DATE OUTPUT
+as
+begin
+    if(exists(select * from Proposals where jobID = @jobID and lancerID = @lancerID))
+    begin
+        select @proposalID=proposalID,@proposaldetail = proposaldetail,@approvalstatus = approvalstatus,@applydate = applydate from Proposals where jobID = @jobID and lancerID = @lancerID
+    end
+end
+
+DECLARE @proposalID INT
+DECLARE @proposaldetail VARCHAR(1000)
+DECLARE @approvalstatus VARCHAR(32)
+DECLARE @applydate DATE
+
+EXEC getProposal
+    @jobID = 16,
+    @lancerID = 6,
+    @proposalID = @proposalID OUTPUT,
+    @proposaldetail = @proposaldetail OUTPUT,
+    @approvalstatus = @approvalstatus OUTPUT,
+    @applydate = @applydate OUTPUT
+
+SELECT @proposalID AS ProposalID, @proposaldetail AS ProposalDetail, @approvalstatus AS ApprovalStatus, @applydate AS ApplyDate
 
 
 
@@ -486,35 +536,28 @@ go
 
 
 
-CREATE PROCEDURE ApplyForJob
-    @freelancerID int,
-    @jobID int
+alter PROCEDURE submitProposal
+    @lancerID int,
+    @jobID int,
+    @proposalDetail Text
+
 AS
 BEGIN
-    
-    IF EXISTS (SELECT 1 FROM Proposals WHERE lancerID = @freelancerID AND jobID = @jobID)
-    BEGIN
-        RAISERROR ('Freelancer has already applied for this job', 16, 1);
-        RETURN;
-    END
-
-    
-    DECLARE @jobStatus char(1);
-    SELECT @jobStatus = jobstatus FROM Jobs WHERE jobID = @jobID;
-    IF @jobStatus <> 'T'
-    BEGIN
-        RAISERROR ('Job is not available for application', 16, 1);
-        RETURN;
-    END
 
    
-    INSERT INTO Proposals(lancerID, jobID,applydate )
-    VALUES (@freelancerID, @jobID, GETDATE());
-
-   
-    UPDATE Jobs SET jobstatus = 'O' WHERE jobID = @jobID;
+    INSERT INTO Proposals(lancerID, jobID,applydate,proposaldetail )
+    VALUES (@lancerID, @jobID, GETDATE(),@proposalDetail);
 END
 go
+
+
+Declare @lancerID int = 3
+Declare @jobID int = 17
+Declare @proposalDetail nvarchar(1000) = 'I am a good fit for this job2'
+EXEC submitProposal @lancerID, @jobID,@proposalDetail;
+
+select* from Proposals
+
 
 
 
