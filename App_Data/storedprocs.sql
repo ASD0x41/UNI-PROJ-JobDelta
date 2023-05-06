@@ -1,3 +1,141 @@
+CREATE FUNCTION ViewJobs (@_userID int) -- Functionality #9
+RETURNS TABLE
+AS
+    RETURN (SELECT * FROM Jobs WHERE clientID = @_userID)
+GO
+
+CREATE VIEW SelfProfiles -- Functionality #4
+AS
+    SELECT username, usertype, fullname, birthdate, CNIC, phonenumber, gender, emailaddress, workaddress, picture, aboutuser, rating, jobsongoing, jobsdone FROM Users
+GO
+
+CREATE VIEW NonSelfProfiles -- AAdditional Functionality (~#4)
+AS
+    SELECT username, usertype, fullname, gender, picture, aboutuser, rating, jobsdone FROM Users
+GO
+
+CREATE FUNCTION ViewApplicants (@_jobID int) -- Functionality #12
+    RETURNS TABLE
+AS
+    RETURN (SELECT * FROM Proposals WHERE jobID = @_jobID)
+GO
+
+CREATE FUNCTION ViewApplications (@_userID int) -- Functionality #14
+    RETURNS TABLE
+AS
+    RETURN (SELECT * FROM Proposals WHERE lancerID = @_userID)
+GO
+
+CREATE FUNCTION GetDeliverable (@_jobID int) -- Functionality #16
+    RETURNS varbinary(max)
+AS
+BEGIN
+        DECLARE @file varbinary(max)
+        SELECT @file = deliverable FROM Jobs WHERE jobID = @_jobID
+        RETURN @file
+END
+GO
+
+CREATE FUNCTION CalculateNewRating (@_userID int, @new_rating int) -- Functionality #18
+    RETURNS int
+AS
+BEGIN
+    DECLARE @newrating int, @oldrating int, @oldjobs int
+    SELECT @oldrating = (SELECT rating FROM Users WHERE userID = @userID)
+    SELECT @oldjobs = (SELECT jobsdone FROM Users WHERE userID = @userID)
+    SELECT @newrating = ((@oldrating * @oldjobs) + @new_rating) / (@oldjobs + 1)
+    RETURN @newrating
+END
+GO
+
+
+CREATE VIEW PendingComplaints -- Functionality #20
+AS
+    SELECT sentby, requestsate, details WHERE requeststatus = 'P'
+GO
+
+CREATE FUNCTION ViewComplaints () -- Functionality #20
+    RETURNS TABLE
+AS
+    RETURN (SELECT * FROM PendingComplaints)
+GO
+
+CREATE FUNCTION GetPassword (@_username int, @_emailaddress varchar(50)) -- Functionality #3
+    RETURNS varchar(16)
+AS
+BEGIN
+    DECLARE @_password varchar (16)
+    IF EXISTS (SELECT * FROM Users WHERE username = @username)
+        IF ((SELECT emailaddress FROM Users WHERE username = @_username) = @_emailaddress)
+               SELECT @_password = [password] FROM Users WHERE username = @_username
+        ELSE
+               SET @_password = 'INVALID_EMAIL'
+    ELSE
+        SET @_password = 'INVALID_USER'
+    RETURN @_password
+END
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE VIEW MyJobs
+AS
+    SELECT jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus, deliverable FROM Jobs
+GO
+
+
+
+
+
+
+
+CREATE FUNCTION ViewPostedJobs (@_userID int)
+    RETURNS TABLE
+AS
+    RETURN (SELECT jobtitle, jobtype, jobvalue, jobdetail FROM Jobs WHERE clientID = @_userID)
+GO
+
+
+
+
+
+
+
+
+create function Q5 (@userID int)
+returns table
+as
+	return (select cardNum, dbo.Q1(cardNum) as Balance from UserCard where userID = @userID)
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE PROCEDURE usp_CreateAccount
 	@userID int,
@@ -710,7 +848,7 @@ go
 
 
 --incomplete
-CREATE PROCEDURE logout_user (IN user_id INT)
-BEGIN
-   UPDATE users SET is_logged_in = 0 WHERE id = user_id;
-END
+--CREATE PROCEDURE logout_user (@user_id INT)
+--BEGIN
+   --UPDATE users SET is_logged_in = 0 WHERE id = user_id;
+--END

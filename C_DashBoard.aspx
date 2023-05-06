@@ -7,10 +7,10 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <form runat="server">
 
     <br />
-
+    
               <div class="wrapper"> 
     
                         <div class="sidebar"  style="border-radius:10px;">
@@ -181,7 +181,7 @@
             </div>
 
 <%-------------------------------------------------------------------------------------------------%> 
-
+        </form>
 
     <script src="Resources/JavaScript/C_Dashboard.js"></script>
     <script src="Resources/JavaScript/chatApp.js"></script>

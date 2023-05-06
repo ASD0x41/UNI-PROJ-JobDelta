@@ -26,6 +26,7 @@ const AuthPage = (props) => {
         </div>
       </form>
     </div>
+
   );
 };
 

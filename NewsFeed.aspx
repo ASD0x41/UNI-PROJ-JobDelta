@@ -2,11 +2,74 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Resources/CSS/NewsFeed.css" rel="stylesheet" />
+
+	<style type="text/css">
+				.popup {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 9999;
+			width: 350px;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+			text-align: center;
+		}
+
+		/* Styles for the popup heading */
+		.popup h2 {
+			margin-top: 0;
+			font-size: 24px;
+			font-weight: bold;
+		}
+
+		/* Styles for the popup message */
+		.popup p {
+			margin-bottom: 0;
+			font-size: 16px;
+		}
+	</style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h1>Job Delta Newsfeed</h1>
+
+	<form runat="server">
+
+		<section class="news-item-special" style="text-align:center">
+			<asp:Label runat="server" style="color:#FF4500;">Subscribe to our Newsletter: </asp:Label>
+			<asp:TextBox ID="txtEmailNews" style="width:200px; text-align:center;padding: 10px;border-radius: 5px;border: none;flex: 1;margin-right: 10px;border-color:#FF4500;" runat="server" placeholder="Enter your email address..."></asp:TextBox>
+            <asp:Button ID="BtnSignUpNews" runat="server" Text="Subscribe" style="padding: 10px 20px;border-radius: 5px; border: none;background-color: #FF4500;color: #fff;font-size: 14px;cursor: pointer;transition: all 0.3s ease;" OnClick="BtnSignUpNews_Click"/>
+		</section>
+
+		<br />
+		<br />
+
+			<div class="popup-container">
+				<div id="thanksub" class="popup">
+					<h2>Newsletter Subscription!</h2>
+					<p>Thank you for subscribing!</p>
+				</div>
+			</div>
+
+		<script type="text/javascript">
+            function subbed() {
+                
+                const popup = document.querySelector("#thanksub");
+                popup.style.display = "flex";
+                setTimeout(function () { popup.style.display = "none"; }, 3000);
+                return;
+            }
+        </script>
+
+
+             
+			<%--<input id="newsemail" type="email" placeholder="Enter your email address">
+            <button id="BtnSubmit" type="submit" onclick ="window.location.href='NewsFeed.aspx';">Subscribe to our Newsletter</button>--%>
+    </form>
 
     <section class="news-item">
 			<h2>Introducing Job Delta : Our New Platform for Freelancers!</h2>

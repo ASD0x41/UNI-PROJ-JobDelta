@@ -15,6 +15,15 @@ namespace JobDelta
     {
 
         /// <summary>
+        /// BtnHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnHidden;
+
+        /// <summary>
         /// txtSignInUserName control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace JobDelta
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// cnfrmpsword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cnfrmpsword;
 
         /// <summary>
         /// ddlAccountType control.
