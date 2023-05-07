@@ -13666,6 +13666,8 @@
     <Content Include="Global.asax" />
     <Content Include="Homepage.aspx" />
     <Content Include="JobDetail.aspx" />
+    <Content Include="JobDetail_C.aspx" />
+    <Content Include="JobDetail_F.aspx" />
     <Content Include="Job_Categories.aspx" />
     <Content Include="MyProfile.aspx" />
     <Content Include="NewsFeed.aspx" />
@@ -16497,6 +16499,20 @@
     </Compile>
     <Compile Include="JobDetail.aspx.designer.cs">
       <DependentUpon>JobDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobDetail_C.aspx.cs">
+      <DependentUpon>JobDetail_C.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobDetail_C.aspx.designer.cs">
+      <DependentUpon>JobDetail_C.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobDetail_F.aspx.cs">
+      <DependentUpon>JobDetail_F.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobDetail_F.aspx.designer.cs">
+      <DependentUpon>JobDetail_F.aspx</DependentUpon>
     </Compile>
     <Compile Include="Job_Categories.aspx.cs">
       <DependentUpon>Job_Categories.aspx</DependentUpon>

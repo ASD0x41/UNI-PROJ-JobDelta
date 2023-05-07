@@ -480,11 +480,69 @@ GO
 truncate table Users
 select * from Users
 
+select * from Jobs
 
 
 
+alter PROCEDURE PostJob
+    @clientID INT,
+    @jobtitle VARCHAR(32),
+    @jobtype VARCHAR(32),
+    @jobvalue MONEY,
+    @jobdetail TEXT,
+    @duedate DATE,
 
+    
+AS
+BEGIN
+    
 
+    
+  --  DECLARE @walletBalance MONEY;
+  --  SELECT @walletBalance = amount FROM moneytransfers WHERE srcuser = @clientID;
+  --  IF @jobvalue > @walletBalance
+  --  BEGIN
+  --      RAISERROR ('Insufficient balance in wallet. Please deposit sufficient funds to post the job.', 16, 1);
+  --      RETURN;
+  --  END
+
+   
+
+  --  DECLARE @commission MONEY;
+  --  SET @commission = @jobvalue * 0.1;
+  --  UPDATE MoneyTransfers SET amount = amount - @jobvalue - @commission WHERE srcuser = @clientID;
+
+    
+    INSERT INTO Jobs (clientID, jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus)
+    VALUES (@clientID, @jobtitle, @jobtype, @jobvalue, @jobdetail, GETDATE(), @duedate, 'T');
+    
+    
+END
+go
+
+select* from Jobs
+select* from Users
+
+DECLARE @retVal INT
+EXEC PostJob 
+    @clientID = 3,
+    @jobtitle = 'Job Title',
+    @jobtype = 'Data',
+    @jobvalue = 100.00,
+    @jobdetail = 'Example Job Details',
+    @_ret_val_ = @retVal OUTPUT
+
+SELECT @retVal
+
+alter PROCEDURE ViewPostedJobs
+	@clientId INT
+AS
+BEGIN
+	SELECT jobID, jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus
+	FROM Jobs
+	WHERE clientID = @clientId;
+END
+go
 
 
 

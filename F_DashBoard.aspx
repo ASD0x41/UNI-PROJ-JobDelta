@@ -58,7 +58,10 @@
 
           </script>--%>
 
- <div class="content-cover">
+	<div class="content-cover">
+	
+    <link href="Resources/CSS/F_DashBoard.css" rel="stylesheet" />
+
 <%-------------------------------------------------------------------------------------------------%> 
      
               <div class="sidebar">
@@ -164,18 +167,19 @@
 
       <br />
       <br />
-        
+                <h2>Ongoing Jobs</h2>
                 <asp:GridView CssClass="J_Grid" style="margin-left:20px" ID="PostingGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand">
                     <Columns>
-                        <asp:BoundField DataField="PostingID" HeaderText="Posting ID" />
-                        <asp:BoundField DataField="Title" HeaderText="Title" />
-                        <asp:BoundField DataField="Description" HeaderText="Description" />
-                        <asp:BoundField DataField="Category" HeaderText="Category" />
-                        <asp:BoundField DataField="Budget" HeaderText="Budget" />
-                        <asp:BoundField DataField="JobStatus" HeaderText="Job Status" />
+                        <asp:BoundField DataField="jobID" HeaderText="Posting ID" />
+                        <asp:BoundField DataField="jobtitle" HeaderText="Title" />
+                        <asp:BoundField DataField="jobdetail" HeaderText="Description" />
+                        <asp:BoundField DataField="jobtype" HeaderText="Category" />
+                        <asp:BoundField DataField="jobvalue" HeaderText="Budget" />
+                        <asp:BoundField DataField="jobstatus" HeaderText="Job Status" />
+                        <asp:BoundField DataField="duedate" HeaderText="Due Date" />
                         <asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
-                                <asp:LinkButton style="margin-left:20px" CssClass="sp_button" ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("PostingID") %>' />
+                                <asp:LinkButton style="margin-left:20px" CssClass="sp_button" ID="lnkEdit" runat="server" Text="Select" CommandName="Select1" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>        
@@ -184,8 +188,34 @@
       <br />  
       <br />  
 
-      <div style="display: flex; justify-content: center; align-items: center;"><button class="Find_Button" onclick="openFindJob()">Find A New Job</button></div>
+                      <div style="display: flex; justify-content: center; align-items: center;">
+                         <asp:Button CssClass="Find_Button" ID="findJobButton" runat="server" Text="Find A New Job" />
+                        </div>
+                        <!-- The popup container -->
+                        <div class="popup-container">
+                            <!-- The popup content -->
+                            <div class="popup-content">
+                                <h2>Find Job</h2>
+                                <asp:GridView CssClass="J_Grid" ID="PostGridView"  OnRowCommand="PostGridView_RowCommand" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:BoundField DataField="jobID" HeaderText="Post ID" />
+                                        <asp:BoundField DataField="clientID" HeaderText="Client ID" />
+                                        <asp:BoundField DataField="jobtitle" HeaderText="Title" />
+                                        <asp:BoundField DataField="jobdetail" HeaderText="Description" />
+                                        <asp:BoundField DataField="jobtype" HeaderText="Category" />
+                                        <asp:BoundField DataField="jobvalue" HeaderText="Budget" />
+                                        <asp:TemplateField HeaderText="Apply">
+                                            <ItemTemplate>
+                                               <asp:LinkButton CssClass="sp_button" ID="Select" runat="server" Text="Select" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>"/>
 
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>        
+                                </asp:GridView>
+                                <!-- Close button for the popup -->
+                                <button class="close-button">&times;</button>
+                            </div>
+                        </div>
 <%-------------------------------------------------------------------------------------------------%> 
 
                  <section class="Banner">
@@ -213,29 +243,7 @@
  </div>
 <%-------------------------------------------------------------------------------------------------%> 
 
-                <!-- The popup container -->
-                    <div class="popup-container">
-                      <!-- The popup content -->
-                      <div class="popup-content">
-                        <h2>Find Job</h2>
-                                 <asp:GridView CssClass="J_Grid" ID="PostGridView" runat="server" AutoGenerateColumns="False">
-                                    <Columns>
-                                        <asp:BoundField DataField="Job_ID" HeaderText="Post ID" />
-                                        <asp:BoundField DataField="Title" HeaderText="Title" />
-                                        <asp:BoundField DataField="Description" HeaderText="Description" />
-                                        <asp:BoundField DataField="Category" HeaderText="Category" />
-                                        <asp:BoundField DataField="Budget" HeaderText="Budget" />
-                                        <asp:TemplateField HeaderText="">
-                                            <ItemTemplate>
-                                              <asp:LinkButton CssClass="sp_button" ID="Select" runat="server" Text="Select"/>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>        
-                                </asp:GridView>
-                        <!-- Close button for the popup -->
-                        <button class="close-button">&times;</button>
-                      </div>
-                    </div>
+               
 
 <%-------------------------------------------------------------------------------------------------%> 
  
@@ -263,8 +271,7 @@
               </div>
             </div>
 
-     </form>
-
+        </form>
 <%-------------------------------------------------------------------------------------------------%> 
     <%--<script type="module" src="chat-api-project/frontend/src/chat_App.jsx"></script>--%>
     <script src="Resources/JavaScript/F_DashBoard.js"></script>

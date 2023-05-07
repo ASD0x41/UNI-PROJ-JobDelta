@@ -6,6 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
+
+
+
 
 namespace JobDelta
 {
@@ -79,6 +83,10 @@ namespace JobDelta
             {
                 ImageControl.ImageUrl = "Resources/Images/Profile.png\" alt=\"Profile Picture";
             }
+			
+			loadongoingjobs();
+			loadavailJobs();			
+			
 
         }
 
@@ -104,33 +112,77 @@ namespace JobDelta
             return jobPostings;
         }
 
-
         protected void PostingGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Edit")
+            if(e.CommandName == "Select1")
             {
-                int postingId = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("JobDetail.aspx?PostingID=" + postingId);
+                int jobID = Convert.ToInt32(PostingGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                Session["SelectedJobID"] = jobID;
+                Response.Redirect("JobDetail_F.aspx");
+            }
+        }
+        protected void PostGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select" )
+            {
+                int jobID = Convert.ToInt32(PostGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                Session["SelectedJobID"] = jobID;
+                Response.Redirect("JobDetail_F.aspx");
             }
         }
 
-        private DataTable LoadJobPostData()
+
+        protected void loadavailJobs()
         {
             // You can load data from a database or other data source here
             // For example, you can create a DataTable and add rows to it
-            DataTable jobPost = new DataTable();
-            jobPost.Columns.Add("Job_ID", typeof(int));
-            jobPost.Columns.Add("Title", typeof(string));
-            jobPost.Columns.Add("Description", typeof(string));
-            jobPost.Columns.Add("Category", typeof(string));
-            jobPost.Columns.Add("Budget", typeof(string));
+            DAL myDAL = new DAL();
+            PostGridView.DataSource = myDAL.LoadavailJobTable();
+            PostGridView.DataBind();
 
-            jobPost.Rows.Add(1, "Build a Website", "Need a website for my business", "Web Development", "$500 - $1000");
-            jobPost.Rows.Add(2, "Design a Logo", "Looking for a logo for my startup", "Graphic Design", "$100 - $200");
-            jobPost.Rows.Add(3, "Write an Article", "Need a 500-word article on a specific topic", "Writing & Translation", "$20 - $50");
-
-            return jobPost;
         }
+        protected void loadongoingjobs()
+        {
+            // You can load data from a database or other data source here
+            // For example, you can create a DataTable and add rows to it
+            int lancerID = (int)Application["currentUser"];
+
+            DAL myDAL = new DAL();
+            if (myDAL.existFreelancer(lancerID))
+            {
+                PostingGridView.DataSource = myDAL.LoadongoingJobTable(lancerID);
+                PostingGridView.DataBind();
+                foreach (GridViewRow row in PostingGridView.Rows)
+                {
+                    string status = row.Cells[5].Text;
+                    switch (status)
+                    {
+                        case "N":
+                            row.Cells[5].Text = "Not done";
+                            break;
+                        case "T":
+                            row.Cells[5].Text = "To be assigned";
+                            break;
+                        case "O":
+                            row.Cells[5].Text = "Ongoing";
+                            break;
+                        case "D":
+                            row.Cells[5].Text = "Done";
+                            break;
+                        case "W":
+                            row.Cells[5].Text = "Withdrawn";
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+            }
+
+        }
+
+
+        
 
         protected void BtnHidden_Click(object sender, EventArgs e)
         {
