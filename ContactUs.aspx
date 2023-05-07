@@ -3,6 +3,36 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Resources/CSS/ContactUs.css" rel="stylesheet" />
+
+    <style type="text/css">
+				.popup {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 9999;
+			width: 350px;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+			text-align: center;
+            color:black;
+		}
+
+		/* Styles for the popup heading */
+		.popup h2 {
+			margin-top: 0;
+			font-size: 24px;
+			font-weight: bold;
+		}
+
+		/* Styles for the popup message */
+		.popup p {
+			margin-bottom: 0;
+			font-size: 16px;
+		}
+	</style>
 </asp:Content>
 
 
@@ -16,9 +46,9 @@
 
    <div class="container" style="width:90%; background-color:#fff; color:#000f; box-shadow:10px 10px 5px black;" >
     <div class="OurTeam" style="margin:20px 10px 20px 10px;">
-        <h1 style="text-align:center; font-size:60px; text-shadow:10px 10px 5px black;">Connect With Our Team</h1>
         <br/>
-        <br/>
+        <h1 style="text-align:center; font-size:60px; ">Connect With Our Team</h1>
+        
         <div class="Team_sub-container">
             <div class="teams">
                 <img src="Resources/Images/mehdy.jpeg"/>
@@ -78,17 +108,17 @@
             <div class="contact-left">
                 <h3>Send your request</h3>
 
-                <form>
+                <form runat="server">
 
                     <div class="input-row">
                         <div class="input-group">
                             <label>Name</label>
-                            <input type="text" placeholder="Sultan Ahmed">
+                            <input name="contactname" type="text" placeholder="Sultan Ahmed">
                         </div>
 
                         <div class="input-group">
                             <label>Phone No.</label>
-                            <input type="text" placeholder="+92 300 1234 567">
+                            <input name="contactphone" type="text" placeholder="+92 300 1234 567">
                         </div>
                     </div>
 
@@ -96,18 +126,38 @@
                     <div class="input-row">
                         <div class="input-group">
                             <label>Email</label>
-                            <input type="email" placeholder="Sultan567@example.com">
+                            <input name="contactemail" type="email" placeholder="Sultan567@example.com">
                         </div>
                         <div class="input-group">
                             <label>Subject</label>
-                            <input type="text" placeholder="Demo">
+                            <input name="contactsubject" type="text" placeholder="Demo">
                         </div>
                     </div>
 
 
                     <label>Messages</label>
-                    <textarea rows="5" placeholder="Your Message"></textarea>
-                    <button type="submit"> SEND</button>
+                    <textarea name="contactmsg" rows="5" placeholder="Your Message"></textarea>
+                    <asp:button runat="server" onclick="SendMsg_Click" text="SEND" style="background-color:#FF4500;; color:white;"></asp:button>
+
+
+                    <div class="popup-container">
+				        <div id="thanksub" class="popup" style="color:black;">
+					        <h2>Greetings from JobDelta!</h2>
+					        <p>Thank you for contacting us!</p>
+				        </div>
+			        </div>
+
+		        <script type="text/javascript">
+                    function subbed() {
+                
+                        const popup = document.querySelector("#thanksub");
+                        popup.style.display = "flex";
+                        setTimeout(function () { popup.style.display = "none"; }, 5000);
+                        return;
+                    }
+                </script>
+
+
                 </form>
             </div>
 

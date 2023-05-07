@@ -19,7 +19,7 @@
  <header>
                       <div class="header-container">
                         <div class="Heading_name">
-                          <a href="#">JOB-DELTA</a>
+                          <a href="A_DashBoard.aspx">JOB-DELTA</a>
                         </div>
                         <nav>
                           <ul>
@@ -28,15 +28,21 @@
                             <li><a href="Wallet.aspx">Wallet</a></li>
                             <li><a href="MyProfile.aspx">My Profile</a></li>
                             <li><a href="FeedBack.aspx">FeedBack</a></li>
+                            
                           </ul>
                         </nav>
                         <div class="profile">
-                          <a href="MyProfile.aspx"><img src="https://img.icons8.com/ios-filled/100/FFFFFF/user-male-circle.png"/></a>
+                          <a href="MyProfile.aspx"><asp:Image ID="ImageControl" runat="server" /></a>
                           <div class="dropdown" style="margin-left:7px;">
+                            <a href="javascript:redirect();">Chat</a>
                             <a href="HomePage.aspx">Logout</a>
                           </div>
+
+
                         </div>
                       </div>
+
+
                     </header>            
 
 <%-------------------------------------------------------------------------------------------------%> 
@@ -46,7 +52,7 @@
         </div>
 <%-------------------------------------------------------------------------------------------------%> 
 
-         <footer>
+        <footer>
 	             <div class="footer-container">
                     <div class="footer-links" style="font-weight:bold">
                       <a href="Homepage.aspx">Home</a>
@@ -55,25 +61,21 @@
                       <a href="https://workspace.fiverr.com/pricing/">Pricing</a>
                       <a href="FAQs.aspx">FAQ</a>
                       <a href="Our_Services.aspx">Terms of Service</a>
-
-                      <a href="https://www.fiverr.com/privacy-policy">Privacy Policy</a>
-
+                      <a href="Privacy_Policy.aspx">Privacy Policy</a>
                       <a href="NewsFeed.aspx">Blog</a>
                       <a href="ContactUs.aspx">Contact Us</a>
                     </div>
                     <div class="footer-categories">
                       <h4>Categories</h4>
                       <ul>
-
-                        <li><a href="https://www.upwork.com/hire/web-designers/">Web Development</a></li>
-                        <li><a href="https://www.fiverr.com/categories/graphics-design">Graphic Design</a></li>
-                        <li><a href="https://www.fiverr.com/categories/online-marketing">Digital Marketing</a></li>
-                        <li><a href="https://www.fiverr.com/categories/writing-translation">Writing & Translation</a></li>
-                        <li><a href="https://www.fiverr.com/categories/video-animation">Video & Animation</a></li>
-                        <li><a href="https://www.fiverr.com/categories/music-audio">Music & Audio</a></li>
-                        <li><a href="https://www.fiverr.com/categories/programming-tech">Programming & Tech</a></li>
-                        <li><a href="https://www.fiverr.com/categories/business">Business</a></li>
-
+                        <li><a href="Job_Categories.aspx">Web Development</a></li>
+                        <li><a href="Job_Categories.aspx">Graphic Design</a></li>
+                        <li><a href="Job_Categories.aspx">Digital Marketing</a></li>
+                        <li><a href="Job_Categories.aspx">Writing & Translation</a></li>
+                        <li><a href="Job_Categories.aspx">Video & Animation</a></li>
+                        <li><a href="Job_Categories.aspx">Music & Audio</a></li>
+                        <li><a href="Job_Categories.aspx">Programming & Tech</a></li>
+                        <li><a href="Job_Categories.aspx">Business</a></li>
                       </ul>
                     </div>
                     <div class="footer-services">
@@ -98,10 +100,9 @@
                     </div>
                     <div class="footer-newsletter">
                       <h4>Join Our Newsletter</h4>
-                      <form>
-                        <input type="email" placeholder="Enter your email address">
-                        <button type="submit">Subscribe</button>
-                      </form>
+                      
+                        <button id="BtnSubmit" type="submit" onclick ="window.location.href='NewsFeed.aspx';">Subscribe to our Newsletter</button>
+                      
                     </div>
                     <div class="footer-social">
                       <h4>Connect With Us</h4>
@@ -116,7 +117,7 @@
                   <div class="footer-disclaimer">
                     <p>© 2023 JOBDELTA. All rights reserved.</p>
               </div>
-</footer>
+</footer>      
     
 <%-------------------------------------------------------------------------------------------------%> 
           <%--</form>--%>

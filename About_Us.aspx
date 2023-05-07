@@ -3,7 +3,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Resources/CSS/About_Us.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </asp:Content>
 
 
@@ -192,11 +193,11 @@
                 <div class="T_about">Experienced developer with a track record of delivering innovative solutions. Proficient in programming languages, frameworks, and tools. Strong analytical and problem-solving skills. Passionate about staying updated with latest technologies.</div>
 
                 <div class="sLinks">
-                    <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/fiverr/"><i class="fa fa-instagram"></i></a>
-                    <a href="https://twitter.com/fiverr"><i class="fa fa-twitter"></i></a>
-                    <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                    <a href="https://www.linkedin.com/company/fiverr-com"><i class="fa fa-linkedin"></i></a>
+                    <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
+                    <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
+                    <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
+                    <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
+                    <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
                 </div>
             </div>
 
@@ -207,11 +208,11 @@
                 <div class="T_about">A highly skilled web developer with a passion for creating beautiful and functional websites. With several years of experience in HTML, CSS, JavaScript, and various web development frameworks, I have developed expertise in creating responsive and user-friendly websites. </div>
 
                 <div class="sLinks">
-                    <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/fiverr/"><i class="fa fa-instagram"></i></a>
-                    <a href="https://twitter.com/fiverr"><i class="fa fa-twitter"></i></a>
-                    <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                    <a href="https://www.linkedin.com/company/fiverr-com"><i class="fa fa-linkedin"></i></a>
+                    <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
+                    <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
+                    <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
+                    <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
+                    <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
                 </div>
             </div>
 
@@ -222,11 +223,11 @@
                 <div class="T_about">Experienced manager with a proven track record of success in leading teams and achieving organizational goals. Strategic mindset, strong leadership skills, and effective implementation of processes. Excellent communication and collaboration abilities, coupled with keen business acumen.</div>
 
                 <div class="sLinks">
-                    <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/fiverr/"><i class="fa fa-instagram"></i></a>
-                    <a href="https://twitter.com/fiverr"><i class="fa fa-twitter"></i></a>
-                    <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                    <a href="https://www.linkedin.com/company/fiverr-com"><i class="fa fa-linkedin"></i></a>
+                    <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
+                    <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
+                    <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
+                    <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
+                    <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
                 </div>
             </div>
 
@@ -237,11 +238,11 @@
                 <div class="T_about">Experienced designer with expertise in graphic design, UX/UI design, and branding. Keen eye for aesthetics and strong ability to create visually stunning designs. Creative approach, attention to detail, and proficiency in design software. Committed to staying updated with design trends and continuously refining skills for exceptional results.</div>
 
                 <div class="sLinks">
-                    <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/fiverr/"><i class="fa fa-instagram"></i></a>
-                    <a href="https://twitter.com/fiverr"><i class="fa fa-twitter"></i></a>
-                    <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                    <a href="https://www.linkedin.com/company/fiverr-com"><i class="fa fa-linkedin"></i></a>
+                    <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
+                    <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
+                    <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
+                    <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
+                    <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
                 </div>
             </div>
 
@@ -251,12 +252,12 @@
                 <div class="desig">Programmer</div>
                 <div class="T_about">Programmer with extensive experience in designing, developing, testing, and debugging software applications using various programming languages and frameworks. Proficient in coding concepts and possesses strong analytical skills. Skilled in resolving complex issues efficiently and meeting project requirements and deadlines. Detail-oriented, collaborative team player with a keen problem-solving mindset</div>
 
-                <div class="sLinks">
-                    <a href="https://www.facebook.com/Fiverr/"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/fiverr/"><i class="fa fa-instagram"></i></a>
-                    <a href="https://twitter.com/fiverr"><i class="fa fa-twitter"></i></a>
-                    <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                    <a href="https://www.linkedin.com/company/fiverr-com"><i class="fa fa-linkedin"></i></a>
+               <div class="sLinks">
+                    <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
+                    <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
+                    <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
+                    <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
+                    <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
                 </div>
             </div>
         </div>
