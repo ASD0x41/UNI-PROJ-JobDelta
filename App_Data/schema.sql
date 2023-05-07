@@ -319,8 +319,8 @@ EXEC sp_tables @table_type = "'TABLE'"
 
 select * from information_schema.routines where routine_type = 'Procedure'
 
-select * from Users
 select * from Jobs
+select * from Users
 select * from Proposals
 select * from MoneyTransfers
 select * from Requests
@@ -533,6 +533,7 @@ EXEC PostJob
     @_ret_val_ = @retVal OUTPUT
 
 SELECT @retVal
+GO
 
 alter PROCEDURE ViewPostedJobs
 	@clientId INT

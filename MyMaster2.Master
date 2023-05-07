@@ -5,6 +5,8 @@
 <html>
 <head runat="server">
     <link href="Resources/CSS/Master2.css" rel="stylesheet" />
+    
+    <script src="Resources/JavaScript/chatApp.js"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

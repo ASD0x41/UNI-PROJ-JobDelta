@@ -14,7 +14,7 @@ namespace JobDelta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((int)Application["curUserType"] == 0)
+            if ((int)Application["curUserType"] < 0)
                 Response.Redirect("Homepage.aspx");
 
             int userId = (int)Application["currentUser"];

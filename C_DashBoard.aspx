@@ -186,7 +186,7 @@
             </div>
 
 <%-------------------------------------------------------------------------------------------------%> 
-
+    </form>
     <script src="Resources/JavaScript/C_Dashboard.js"></script>
     <script src="Resources/JavaScript/chatApp.js"></script>
 </asp:Content>

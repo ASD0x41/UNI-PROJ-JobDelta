@@ -16,7 +16,9 @@ namespace JobDelta
             if ((int)Application["curUserType"] == 1)
                 Response.Redirect("F_DashBoard.aspx");
             else if ((int)Application["curUserType"] == 2)
-                Response.Redirect("C_DashBoard.aspx.aspx");
+                Response.Redirect("C_DashBoard.aspx");
+            else if ((int)Application["curUserType"] != 0)
+                Response.Redirect("Homepage.aspx");
 
             if (!IsPostBack)
             {

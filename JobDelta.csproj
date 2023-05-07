@@ -13709,6 +13709,7 @@
     <Content Include="Resources\JavaScript\HomePage.js" />
     <Content Include="Resources\JavaScript\Job_Categories.js" />
     <Content Include="Resources\JavaScript\MyProfile.js" />
+    <Content Include="Resources\JavaScript\subchat.py" />
     <Content Include="Resources\JavaScript\subscription.js" />
     <Content Include="Resources\JavaScript\Wallet.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />

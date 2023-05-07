@@ -704,6 +704,32 @@ GO
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE PROCEDURE GetPhoneNumber 
  @userID INT
 AS
