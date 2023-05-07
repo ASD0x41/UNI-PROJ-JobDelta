@@ -7,7 +7,75 @@
     <title></title>
     <link href="Resources/CSS/Master1.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
+
+
+        <%--<asp:ScriptManager ID="ScriptManager" runat="server" EnableScriptGlobalization="true" LoadScriptsBeforeUI="true">--%>
+
+
     </asp:ContentPlaceHolder>
+    
+    <%--<script src="Resources/JavaScript/subscription.js"></script>--%>
+    <%--<script type="text/javascript">
+
+        //function callServer() {
+        //    var hdnField = document.getElementById('hdnField');
+        //    hdnField.value = '1';
+        //    __doPostBack(hdnField.name, '');
+        //}
+
+
+
+
+
+
+
+        /*function subNews() {
+        //alert("Error,");
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('GET', window.location.href, false);
+        httpRequest.send(null);
+        var args = {
+            arg1: 'value1',
+            arg2: 'value2',
+            arg3: httpRequest
+        };
+        PageMethods.PopUpClick(args, onSuccess, onFailure);
+        __doPostBack('BtnSubmit', '');
+        alert("Hello!");
+        }*/
+
+
+
+
+        /*function subNews() {
+            __doPostBack('BtnSubmit', '');
+            alert("Error,");
+        }*/
+
+
+
+
+            //PageMethods.PopUpClick();
+            /*var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://smtp.gmail.com:587');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert('Mail sent successfully');
+                }
+            };
+            xhr.onerror = function() {
+                alert('Error sending mail');
+            };
+            var emailadd = document.getElementById("newsemail").value;
+            xhr.send(('to=' + emailadd + '&subject=JobDelta Newsletter Subscription&body=Thank you for subscribing to our newsletter!'));
+        }*/
+    </script>--%>
+
+
+
+
+
 </head>
 
 
@@ -30,6 +98,8 @@
                             <li><a href="About_Us.aspx">About Us</a></li>
                             <li><a href="How_it_works.aspx">How it Works</a></li>
                             <li><a href="Our_Services.aspx">Our Services</a></li>
+                            <li><a href="Job_Categories.aspx">Job Categories</a></li>
+                            <li><a href="Privacy_Policy.aspx">Privacy</a></li>
                             <li><a href="NewsFeed.aspx">NewsFeed</a></li>
                             <li><a href="ContactUs.aspx">Contact</a></li>
                             <li><a href="FAQs.aspx">FAQs</a></li>
@@ -55,7 +125,7 @@
                       <a href="https://workspace.fiverr.com/pricing/">Pricing</a>
                       <a href="FAQs.aspx">FAQ</a>
                       <a href="Our_Services.aspx">Terms of Service</a>
-                      <a href="Privacy_Policy">Privacy Policy</a>
+                      <a href="Privacy_Policy.aspx">Privacy Policy</a>
                       <a href="NewsFeed.aspx">Blog</a>
                       <a href="ContactUs.aspx">Contact Us</a>
                     </div>
@@ -94,10 +164,13 @@
                     </div>
                     <div class="footer-newsletter">
                       <h4>Join Our Newsletter</h4>
-                      <form>
-                        <input type="email" placeholder="Enter your email address">
-                        <button type="submit">Subscribe</button>
-                      </form>
+                      <%--<form>--%>
+                          <%--<asp:TextBox ID="txtEmailNews" runat="server" placeholder="Enter your email address"></asp:TextBox>
+                          <asp:Button ID="BtnSignUpNews" runat="server" Text="Subscribe" OnClick="BtnSignUpNews_Click"/>--%>
+                        <%--<input id="newsemail" type="email" placeholder="Enter your email address">--%>
+                        <button id="BtnSubmit" type="submit" onclick ="window.location.href='NewsFeed.aspx';">Subscribe to our Newsletter</button>
+                      <%--</form>--%>
+                        <%--<asp:HiddenField ID="hdnField" runat="server" Value="0" />--%>
                     </div>
                     <div class="footer-social">
                       <h4>Connect With Us</h4>

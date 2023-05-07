@@ -704,3 +704,56 @@ GO
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE PROCEDURE GetPhoneNumber 
+ @userID INT
+AS
+BEGIN
+	SELECT phonenumber
+	FROM Users
+	WHERE userID = @userID;
+END;
+GO
+
+
+
+
+
+
+
+CREATE PROCEDURE GetUserById(
+    @UserId INT
+)
+AS
+BEGIN
+    SELECT username
+    FROM Users
+    WHERE UserId = @UserId
+END
+
+GO
