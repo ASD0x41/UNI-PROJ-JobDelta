@@ -16,17 +16,17 @@
           <form action="submit_feedback.php" method="post">
             <div class="form-group">
               <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required>
+              <asp:TextBox ID="name" runat="server"></asp:TextBox> 
             </div>
 
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required>
+              <asp:TextBox ID="email" type="email" runat="server"></asp:TextBox>
             </div>
 
             <div class="form-group">
               <label for="feedback">Feedback:</label>
-              <textarea id="feedback" name="feedback" required></textarea>
+               <textarea id="feedback" name="feedback" runat="server"></textarea>
             </div>
 
          <div class="form-group">
@@ -48,20 +48,22 @@
 
             <div class="form-group">
               <label for="improvements">How can we improve?</label>
-              <textarea id="improvements" name="improvements"></textarea>
+              <textarea id="improvements" name="improvements" runat="server"></textarea>
             </div>
 
             <div class="form-group">
               <label for="issue">Did you encounter any issues? If yes, please describe:</label>
-              <textarea id="issue" name="issue"></textarea>
+              <textarea id="issue" name="issue" runat="server"></textarea>
             </div>
 
             <div class="form-group">
               <label for="suggestion">Do you have any suggestions or feature requests?</label>
-              <textarea id="suggestion" name="suggestion"></textarea>
+              <textarea id="suggestion" name="suggestion" runat="server"></textarea>
             </div>
 
-            <button class="ss_button" type="submit">Submit Feedback</button>
+            <%--<button class="ss_button" type="submit">Submit Feedback</button>--%>
+               <asp:Button Class="ss_button" ID="Button1" runat="server"  type="submit" Text="Submit Feedback" onclick="BtnSubmit_Click"/>
+         
           </form>
         </section>
 
