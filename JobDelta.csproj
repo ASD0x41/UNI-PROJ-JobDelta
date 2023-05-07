@@ -13634,6 +13634,7 @@
     <Content Include="chat-api-project\frontend\src\assets\react.svg" />
     <Content Include="chat-api-project\frontend\src\AuthPage.jsx" />
     <Content Include="chat-api-project\frontend\src\ChatsPage.jsx" />
+    <Content Include="chat-api-project\frontend\src\chat_App.jsx" />
     <Content Include="chat-api-project\frontend\src\main.jsx" />
     <Content Include="chat-api-project\frontend\vite.config.js" />
     <Content Include="Complete_Profile.aspx" />

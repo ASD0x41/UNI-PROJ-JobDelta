@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 		 <h1>Privacy Policy</h1>
-         <p style="margin-bottom:50px; text-align:center; font-size: 18px; color: #333333; margin-top: 20px;  line-height: 1.5;">At Job Delta, we are committed to protecting the privacy and security of our users' personal information. This privacy policy outlines the types of personal information we collect, how we use it, and how we keep it safe.</p>
+         <p style="margin-bottom:50px; text-align:center; font-size: 18px; color: #333333; margin-top: 20px;  line-height: 1.5; width:1000px;  margin-left:180px;">At Job Delta, we are committed to protecting the privacy and security of our users' personal information. This privacy policy outlines the types of personal information we collect, how we use it, and how we keep it safe.</p>
 
 		<section class="news-item">
         <h2>Personal Information We Collect</h2>

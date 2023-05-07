@@ -30,7 +30,7 @@
                                     <h3>Name :&nbsp <asp:Label ID="NameLabel" runat="server" ></asp:Label></h3>
                                     <p style="font-weight:bold;">Bank Account :&nbsp <asp:Label ID="BankAccLabel" runat="server" ></asp:Label></p>
                                       <br />
-                                     <p><asp:Textbox ID="C_BA" runat="server" CssClass="amount" Text="Enter new Bank Account..."></asp:Textbox></p>
+                                     <p>Enter New Account No.:&nbsp&nbsp<asp:Textbox ID="C_BA" runat="server" CssClass="amount" Text=""></asp:Textbox></p>
                                       <br />
                                     <asp:button runat="server" CSSclass="sp_button" id="add_card_button" Text="Save" OnClick="ChangeBankAccount"></asp:button>
                                   </div>
@@ -83,7 +83,7 @@
     <br />
   <h1  style = "text-align:center; ">Transaction History</h1>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CssClass="ctable">
                 <Columns>
                     <asp:BoundField DataField="transfertime" HeaderText="Transfer Time" />
                     <asp:BoundField DataField="amount" HeaderText="Amount" />

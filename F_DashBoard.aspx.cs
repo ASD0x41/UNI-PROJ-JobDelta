@@ -13,6 +13,10 @@ namespace JobDelta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((int)Application["curUserType"] == 0)
+                Response.Redirect("Homepage.aspx");
+            else if ((int)Application["curUserType"] == 2)
+                Response.Redirect("C_DashBoard.aspx.aspx");
 
             int x = (int)Application["currentUser"];
 
@@ -126,6 +130,32 @@ namespace JobDelta
             jobPost.Rows.Add(3, "Write an Article", "Need a 500-word article on a specific topic", "Writing & Translation", "$20 - $50");
 
             return jobPost;
+        }
+
+        protected void BtnHidden_Click(object sender, EventArgs e)
+        {
+
+            string email = Request.Form["emailadd"];
+            /*string uname = Request.Form["uname"];
+
+
+
+            DAL myDAL = new DAL();
+            string pword = myDAL.RecoverPword(uname, email);
+
+            if (pword == "")
+            {
+                string script2 = "invalidforgotpword();";
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "invalidforgotpword", script2, true);
+
+            }
+            else
+            {
+                string script2 = "pwordrecovered();";
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "pwordrecovered", script2, true);
+
+            }*/
+
         }
 
     }

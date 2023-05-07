@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Resources/CSS/F_DashBoard.css" rel="stylesheet" />
+<%--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
+    
+    <%--<script src="Resources/JavaScript/chatApp.js"></script>--%>
 </asp:Content>
 
 
@@ -39,10 +42,22 @@
              availabilityPercentText.innerHTML = availabilityValue.toString();
          }
 
+         
+
      </script>
 
       <form action="#" runat="server">
       
+          <%--<asp:Button ID="BtnHidden" runat="server" Text="" OnClick="BtnHidden_Click" style="display:none"  />
+
+          <script type="text/javascript">
+              function redirect() {
+                  document.getElementById('<% BtnHidden.ClientID %>').click();
+                  return;
+              }
+
+          </script>--%>
+
  <div class="content-cover">
 <%-------------------------------------------------------------------------------------------------%> 
      
@@ -251,8 +266,10 @@
      </form>
 
 <%-------------------------------------------------------------------------------------------------%> 
+    <%--<script type="module" src="chat-api-project/frontend/src/chat_App.jsx"></script>--%>
     <script src="Resources/JavaScript/F_DashBoard.js"></script>
     <script src="Resources/JavaScript/chatApp.js"></script>
+    
 <%-------------------------------------------------------------------------------------------------%> 
 
 </asp:Content>

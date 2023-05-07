@@ -321,6 +321,9 @@ select * from information_schema.routines where routine_type = 'Procedure'
 
 select * from Users
 select * from Jobs
+select * from Proposals
+select * from MoneyTransfers
+select * from Requests
 
 insert into Jobs values (4,'My Job','Web Design',54,'Design a website for me.',getdate(),'4.25.2023','T',NULL,NULL)
 

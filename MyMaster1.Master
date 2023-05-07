@@ -98,6 +98,8 @@
                             <li><a href="About_Us.aspx">About Us</a></li>
                             <li><a href="How_it_works.aspx">How it Works</a></li>
                             <li><a href="Our_Services.aspx">Our Services</a></li>
+                            <li><a href="Job_Categories.aspx">Job Categories</a></li>
+                            <li><a href="Privacy_Policy.aspx">Privacy</a></li>
                             <li><a href="NewsFeed.aspx">NewsFeed</a></li>
                             <li><a href="ContactUs.aspx">Contact</a></li>
                             <li><a href="FAQs.aspx">FAQs</a></li>
@@ -123,7 +125,7 @@
                       <a href="https://workspace.fiverr.com/pricing/">Pricing</a>
                       <a href="FAQs.aspx">FAQ</a>
                       <a href="Our_Services.aspx">Terms of Service</a>
-                      <a href="Privacy_Policy">Privacy Policy</a>
+                      <a href="Privacy_Policy.aspx">Privacy Policy</a>
                       <a href="NewsFeed.aspx">Blog</a>
                       <a href="ContactUs.aspx">Contact Us</a>
                     </div>

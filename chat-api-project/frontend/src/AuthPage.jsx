@@ -2,6 +2,11 @@ import axios from "axios";
 
 const AuthPage = (props) => {
   const onSubmit = (e) => {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get("uname");
+        document.getElementsByName("username")[0].value = username;
+
     e.preventDefault();
     const { value } = e.target[0];
     axios
@@ -12,7 +17,12 @@ const AuthPage = (props) => {
 
   return (
     <div className="background">
-      <form onSubmit={onSubmit} className="form-card">
+
+          <script type="text/javascript">
+              setTimeout(function() {"{"}document.getElementById("chatform").submit();{"}"}, 100);
+          </script>
+
+      <form id="chatform" onSubmit={onSubmit} className="form-card">
         <div className="form-title">Welcome 👋</div>
 
         <div className="form-subtitle">Set a username to get started</div>
@@ -20,13 +30,12 @@ const AuthPage = (props) => {
         <div className="auth">
           <div className="auth-label">Username</div>
           <input className="auth-input" name="username" />
-          <button className="auth-button" type="submit">
+          <button id="subchat" className="auth-button" type="submit">
             Enter
           </button>
         </div>
       </form>
     </div>
-
   );
 };
 
