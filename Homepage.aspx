@@ -99,6 +99,11 @@
             <h2>Password Recovery</h2>
             <p>Your password has been sent to your registered email.</p>
         </div>
+
+        <div id="pword-nomatch" class="popup-if">
+            <h2>Passwords Must Match!</h2>
+            <p>Your password and confirm password do not match.</p>
+        </div>
             
 
 
@@ -112,14 +117,14 @@
                     <br/>
                     <br/>
 
-                    <label for="uname">Your Username:</label>
+                    <label for="uname">Your Username:&nbsp&nbsp&nbsp&nbsp&nbsp</label>
                     <input type="text" style="width:200px; text-align:center" id="uname" name="uname" placeholder="Enter your username" <%--required="required"--%> /><br /><br />
-                    <label for="email">E-mail Address:</label>
+                    <label for="email">E-mail Address:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
                      <input type="text" style="width:200px; text-align:center" id="emailadd" name="emailadd" placeholder="Enter your email address" <%--required="required"--%> /><br /><br />
                     <br/>
                     <br/>
                     <%--<div style="margin-left:37%;"><input type="submit" class="sp_button" value="Submit"/></div>--%>
-                      <div style="margin-left:37%;"><button id="subbtn" onclick="sendpassword()">Submit</button></div>
+                      <div style="margin-left:37%;"><button id="subbtn" class="sp_button" onclick="sendpassword()">Submit</button></div>
                   </div>
          </div>
 
@@ -170,6 +175,18 @@
                 //alert("Unable to Sign Up Successfully: Username already exists!");
 
                 const popup = document.querySelector("#nomatch-uname-email");
+                //document.getElementById("incorrect-login-popup").style.display = "flex";
+                popup.style.display = "flex";
+                setTimeout(function () { popup.style.display = "none"; }, 3000);
+
+                return;
+            }
+
+            function notmatchpword() {
+                /*openPopup();*/
+                //alert("Unable to Sign Up Successfully: Username already exists!");
+
+                const popup = document.querySelector("#pword-nomatch");
                 //document.getElementById("incorrect-login-popup").style.display = "flex";
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; }, 3000);

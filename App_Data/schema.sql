@@ -325,6 +325,8 @@ select * from Proposals
 select * from MoneyTransfers
 select * from Requests
 
+select * from feedback
+
 insert into Jobs values (4,'My Job','Web Design',54,'Design a website for me.',getdate(),'4.25.2023','T',NULL,NULL)
 
 select * from Proposals
@@ -490,7 +492,7 @@ alter PROCEDURE PostJob
     @jobtype VARCHAR(32),
     @jobvalue MONEY,
     @jobdetail TEXT,
-    @duedate DATE,
+    @duedate DATE
 
     
 AS

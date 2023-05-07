@@ -119,7 +119,7 @@
     <footer>
 	             <div class="footer-container">
                     <div class="footer-links" style="font-weight:bold">
-                      <a href="Homepage.aspx">Home</a>
+                      <h4><a href="Homepage.aspx">Home</a></h4>
                       <a href="About_Us.aspx">About Us</a>
                       <a href="How_it_works.aspx">How It Works</a>
                       <a href="https://workspace.fiverr.com/pricing/">Pricing</a>

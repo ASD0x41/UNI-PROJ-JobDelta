@@ -90,9 +90,11 @@ create table feedback		-- complaints/feedback/requests for admins by clients/fre
 	sentby			int				foreign key		references Users (userID),
 	UName		varchar(25),
 	email		varchar(50),
-	feedback	varchar(250)
+	feedback	varchar(250),
+	rating		int
 );
 go
+drop table feedback
 
 create table Complain		-- complaints/feedback/requests for admins by clients/freelancers
 (

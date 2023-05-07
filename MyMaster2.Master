@@ -35,7 +35,7 @@
                         </nav>
                         <div class="profile">
 
-                          <a href="MyProfile.aspx"><img src="Resources/Images/BG_Image/master-1.png"/></a>
+                          <a href="MyProfile.aspx"><asp:Image ID="ImageControl" runat="server" /></a>
 
                           <div class="dropdown" style="margin-left:7px;">
                             <a href="javascript:redirect();">Chat</a>
@@ -59,7 +59,7 @@
         <footer>
 	             <div class="footer-container">
                     <div class="footer-links" style="font-weight:bold">
-                      <a href="Homepage.aspx">Home</a>
+                      <h4><a href="Homepage.aspx">Home</a></h4>
                       <a href="About_Us.aspx">About Us</a>
                       <a href="How_it_works.aspx">How It Works</a>
                       <a href="https://workspace.fiverr.com/pricing/">Pricing</a>
