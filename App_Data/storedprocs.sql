@@ -475,6 +475,46 @@ BEGIN
 END
 go
 
+alter procedure getstatus
+@jobID INT,
+@ret_val char(1) output
+as
+begin
+	if exists (select jobstatus from Jobs where jobID = @jobID)
+begin
+		select @ret_val = jobstatus from Jobs where jobID = @jobID
+	end
+end
+go
+
+
+CREATE PROCEDURE UploadDeliverable
+    @jobID INT,
+    @deliverable VARBINARY(MAX)
+AS
+BEGIN
+    UPDATE Jobs
+    SET deliverable = @deliverable, jobstatus = 'D'
+    WHERE jobID = @jobID
+END
+
+EXEC UploadDeliverable @jobID = 14, @deliverable = 0x54686973206973206120746573742064656c6976657261626c652e
+
+create procedure getDeliverable
+@jobID INT,
+@ret_val varbinary(max) output
+as
+begin
+	if exists(select deliverable from Jobs where jobID = @jobID)
+	begin
+		select @ret_val = deliverable from Jobs where jobID = @jobID
+	end
+end
+
+
+
+select* from jobs
+
 create procedure ViewOngoingJobs
 @lancerID INT
 as

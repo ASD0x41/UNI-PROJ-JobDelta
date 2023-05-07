@@ -73,5 +73,11 @@
                 </Columns>        
             </asp:GridView>
 
+         <br />
+        <br />
+       <asp:Button Visible="false" ID="btnDownloadDeliverable" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
+
+
+
      </form>
 </asp:Content>

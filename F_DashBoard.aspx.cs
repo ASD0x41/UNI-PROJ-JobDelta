@@ -24,9 +24,18 @@ namespace JobDelta
             
         }
 
+        protected void PostingGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName == "Select1")
+            {
+                int jobID = Convert.ToInt32(PostingGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
+                Session["SelectedJobID"] = jobID;
+                Response.Redirect("JobDetail_F.aspx");
+            }
+        }
         protected void PostGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Select")
+            if (e.CommandName == "Select" )
             {
                 int jobID = Convert.ToInt32(PostGridView.Rows[Convert.ToInt32(e.CommandArgument)].Cells[0].Text);
                 Session["SelectedJobID"] = jobID;
@@ -55,28 +64,37 @@ namespace JobDelta
             {
                 PostingGridView.DataSource = myDAL.LoadongoingJobTable(lancerID);
                 PostingGridView.DataBind();
+                foreach (GridViewRow row in PostingGridView.Rows)
+                {
+                    string status = row.Cells[5].Text;
+                    switch (status)
+                    {
+                        case "N":
+                            row.Cells[5].Text = "Not done";
+                            break;
+                        case "T":
+                            row.Cells[5].Text = "To be assigned";
+                            break;
+                        case "O":
+                            row.Cells[5].Text = "Ongoing";
+                            break;
+                        case "D":
+                            row.Cells[5].Text = "Done";
+                            break;
+                        case "W":
+                            row.Cells[5].Text = "Withdrawn";
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
             }
 
         }
 
 
-        private DataTable LoadJobPostData()
-        {
-            // You can load data from a database or other data source here
-            // For example, you can create a DataTable and add rows to it
-            DataTable jobPost = new DataTable();
-            jobPost.Columns.Add("Job_ID", typeof(int));
-            jobPost.Columns.Add("Title", typeof(string));
-            jobPost.Columns.Add("Description", typeof(string));
-            jobPost.Columns.Add("Category", typeof(string));
-            jobPost.Columns.Add("Budget", typeof(string));
-
-            jobPost.Rows.Add(1, "Build a Website", "Need a website for my business", "Web Development", "$500 - $1000");
-            jobPost.Rows.Add(2, "Design a Logo", "Looking for a logo for my startup", "Graphic Design", "$100 - $200");
-            jobPost.Rows.Add(3, "Write an Article", "Need a 500-word article on a specific topic", "Writing & Translation", "$20 - $50");
-
-            return jobPost;
-        }
+        
 
     }
 }

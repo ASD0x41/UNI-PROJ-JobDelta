@@ -128,7 +128,7 @@
       <br />
       <br />
                 <h2>Ongoing Jobs</h2>
-                <asp:GridView CssClass="J_Grid" style="margin-left:20px" ID="PostingGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="PostGridView_RowCommand">
+                <asp:GridView CssClass="J_Grid" style="margin-left:20px" ID="PostingGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="jobID" HeaderText="Posting ID" />
                         <asp:BoundField DataField="jobtitle" HeaderText="Title" />
@@ -139,7 +139,7 @@
                         <asp:BoundField DataField="duedate" HeaderText="Due Date" />
                         <asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
-                                <asp:LinkButton style="margin-left:20px" CssClass="sp_button" ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' />
+                                <asp:LinkButton style="margin-left:20px" CssClass="sp_button" ID="lnkEdit" runat="server" Text="Select" CommandName="Select1" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>        

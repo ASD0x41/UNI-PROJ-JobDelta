@@ -45,6 +45,7 @@ namespace JobDelta
                     spropose.Visible = false;
                     wproposal.Enabled = false;
                     wproposal.Visible = false;
+                    btnDownloadDeliverable.Visible = false;
 
                     PID.Visible = true; 
                     lPID.Visible = true;
@@ -99,10 +100,39 @@ namespace JobDelta
                 lstatus.Visible = false;
                 date.Visible = false;
                 ldate.Visible = false;
-                
+                btnDownloadDeliverable.Visible = false;
             }
 
+            
+            string getStatus = myDAL.getStatus(jobID);
+            if (getStatus == "O")
+            {
+                deliverablel.Visible = true;
+                deliverableFileUpload.Visible = true;
+                deliverableFileUpload.Enabled = true;
+                markCompletedButton.Visible = true;
+                markCompletedButton.Enabled = true;
+                btnDownloadDeliverable.Visible = false;
 
+
+            }
+            if(getStatus == "D")
+            {
+                deliverablel.Visible = false;
+                deliverableFileUpload.Visible = false;
+                markCompletedButton.Visible = false;
+                markCompletedButton.Enabled = false;
+                deliverableFileUpload.Enabled = false;
+                btnDownloadDeliverable.Visible= true;
+                
+             
+                    
+                
+              
+
+                
+
+            }
             // disable form if user has already applied
 
 
@@ -134,5 +164,53 @@ namespace JobDelta
             //        break;
             //}
         }
+
+        
+        protected void markCompletedButton_Click(object sender, EventArgs e)
+        {
+            // Get the job ID from the query string or session variable
+
+            int jobID = (int)Session["SelectedJobID"];
+
+            // Check if the file was uploaded
+          
+                // Save the file to a byte array
+                byte[] fileBytes = new byte[deliverableFileUpload.PostedFile.ContentLength];
+                deliverableFileUpload.PostedFile.InputStream.Read(fileBytes, 0, deliverableFileUpload.PostedFile.ContentLength);
+
+                // Save the file to the database as a binary data (varbinary(max) type)
+                DAL myDAL = new DAL();
+                myDAL.SaveDeliverable(jobID, fileBytes);
+
+                // Update the job status to "Done"
+                
+
+                // Redirect to the job details page
+                Response.Redirect("F_DashBoard.aspx");
+           
+                // Show an error message if no file was uploaded
+                
+            
+        }
+
+        protected void btnDownloadDeliverable_Click(object sender, EventArgs e)
+        {
+            int jobID = (int)Session["SelectedJobID"];
+            DAL myDAL = new DAL();
+            byte[] fileBytes = myDAL.GetDeliverable(jobID);
+
+            if (fileBytes != null && fileBytes.Length > 0)
+            {
+                Response.Clear();
+                Response.Buffer = true;
+                Response.ContentType = "application/octet-stream";
+                Response.AddHeader("Content-Disposition", "attachment; filename=deliverable.zip");
+                Response.BinaryWrite(fileBytes);
+                Response.End();
+            }
+        }
+
+
+
     }
 }

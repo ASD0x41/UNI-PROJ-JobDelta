@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Resources/FreelancerDashboard.css" rel="stylesheet" />
     <link href="Resources/CSS/C_DashBoard.css" rel="stylesheet" />
+    
 </asp:Content>
 
 
@@ -84,7 +85,22 @@
         <asp:Label ID="ldate" CssClass="popup-label" Visible="false" runat="server" Text="Applied Date:"></asp:Label>
          <asp:TextBox CssClass="popup-input" runat="server" ID="date" Visible="false" ReadOnly="true"></asp:TextBox>
 
+        <br />
+        <br />
+        <asp:Label ID="deliverablel" CssClass="popup-label" Visible="false" runat="server" Text="Upload Deliverable:"></asp:Label>
+        <br />
+        <br />
+        <asp:FileUpload ID="deliverableFileUpload" Visible="false" Enabled="false" runat="server" required="true" />
+        <br />
+        <br />
+        <asp:Button ID="markCompletedButton" Visible="false" Enabled="false" runat="server" Text="Mark as Completed" OnClick="markCompletedButton_Click"  />
+
+        <br />
+        <br />
+       <asp:Button Visible="false" ID="btnDownloadDeliverable" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
+
 
 
     </form>
+
 </asp:Content>

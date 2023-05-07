@@ -421,7 +421,58 @@ namespace JobDelta.Data_Access_Layer
 
             return ds; //return the dataset
         }
-       
+        
+        public void SaveDeliverable(int jobID, byte[] filedata)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+            con.Open();
+            cmd = new SqlCommand("UploadDeliverable", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@deliverable", SqlDbType.VarBinary,-1);
+            cmd.Parameters["@deliverable"].Value = filedata;
+            cmd.Parameters.Add("@jobID", SqlDbType.Int);
+            cmd.Parameters["@jobID"].Value = jobID;
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public byte[] GetDeliverable(int jobID)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+            con.Open();
+            cmd = new SqlCommand("getDeliverable", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@jobID", SqlDbType.Int);
+            cmd.Parameters["@jobID"].Value = jobID;
+            cmd.Parameters.Add("@ret_val", SqlDbType.VarBinary, -1).Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            byte[] ret_val = (byte[])cmd.Parameters["@ret_val"].Value;
+
+            return ret_val;
+        }
+        public string getStatus(int jobID)
+        {
+
+            SqlConnection con = new SqlConnection(conString);
+            SqlCommand cmd;
+            con.Open();
+            cmd = new SqlCommand("getstatus", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@jobID", SqlDbType.Int);
+            cmd.Parameters["@jobID"].Value = jobID;
+            cmd.Parameters.Add("@ret_val", SqlDbType.Char,1).Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            string ret_val = Convert.ToString(cmd.Parameters["@ret_val"].Value);
+
+
+            return ret_val;
+        }
         public bool existFreelancer(int lancerID)
         {
             bool hasApplied = false;
