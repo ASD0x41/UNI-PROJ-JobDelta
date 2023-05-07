@@ -11,12 +11,12 @@
     <h2 class="heading-2">What We Provide</h2>
     <div class="services-container">
       <div class="service">
-        <img src="https://media1.giphy.com/media/U8Y2KNDcCSyk6ILB8b/giphy.gif" alt="Freelancer">
+        <img src="Resources/Images/BG_Image/about-4.gif" alt="Freelancer">
         <h3 class="heading-3">For Freelancers</h3>
         <p class="service-description">Showcase your skills and find work that fits your interests and expertise on our platform. Our tools help you manage your projects, communicate with clients, and get paid for your work.</p>
       </div>
       <div class="service" >
-        <img src="https://www.bing.com/th/id/OGC.6cafeb1941de2b4e1089f67b7b139458?pid=1.7&rurl=https%3a%2f%2fcdn.myportfolio.com%2fec4657434c011e1a856a01752ef5f2f5%2fdf4cced1864491068565a9ef_rw_1200.gif%3fh%3df6d0aee62a35c711106f89f861dfb19a&ehk=nMksmcup9bG8J7L4fUijAQB64gUkQBfRuMC3zVgfVmk%3d" alt="Client">
+        <img src="Resources/Images/BG_Image/about-5.gif" alt="Client">
         <h3 class="heading-3">For Clients</h3>
         <p class="service-description">Find and hire top-quality professionals from around the world on our platform. Our tools help you manage your projects, communicate with freelancers, and pay for their services.</p>
       </div>

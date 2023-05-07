@@ -15,17 +15,17 @@
                    <br />
                     <div>
                       <div>
-                        <img src="https://cdn.dribbble.com/users/1632728/screenshots/4693038/profilepic_dribbble.gif">
+                        <img src="Resources/Images/BG_Image/about-1.gif">
                         <h3>Edit your profile</h3>
                         <p>An eye-catching title and client-focused overview help us match you to the work you want. Include your work history, your skills, and your photo. Add more, like an introduction video, to create a profile that really stands out.</p>
                       </div>
                       <div>
-                        <img src="https://cdn.dribbble.com/users/533117/screenshots/3490598/dribbble.gif">
+                        <img src="Resources/Images/BG_Image/about-2.gif">
                         <h3>Explore ways to earn</h3>
                         <p>Work and earn in different ways. Bid for jobs. Pitch your projects. Discuss your in-demand skills with our recruiters so they can find opportunities aligned with your passions and career goals. Do all three. Create a predictable pipeline and build your network.</p>
                       </div>
                       <div>
-                        <img src="https://i.pinimg.com/originals/f8/c4/22/f8c422a0a0e6793b3f9113d419c5143a.gif">
+                        <img src="Resources/Images/BG_Image/about-3.gif">
                         <h3>Get paid securely</h3>
                         <p>Choose how you get paid. Our fixed-price protection releases client payments at project milestones. Hourly protection bills clients every week. However you work, our service fees are the same. Spend less time chasing, more earning.</p>
                       </div>
