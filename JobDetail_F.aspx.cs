@@ -17,8 +17,10 @@ namespace JobDelta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-                int jobID = (int)Session["SelectedJobID"];
+            if ((int)Application["curUserType"] <= 0)
+                Response.Redirect("Homepage.aspx");
+
+            int jobID = (int)Session["SelectedJobID"];
 
                 DAL myDAL = new DAL();
                 var jobDetail = myDAL.LoadJobDetailFreelancer(jobID);

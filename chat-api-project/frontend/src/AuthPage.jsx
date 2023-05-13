@@ -3,9 +3,9 @@ import axios from "axios";
 const AuthPage = (props) => {
   const onSubmit = (e) => {
 
-        const urlParams = new URLSearchParams(window.location.search);
+        /*const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get("uname");
-        document.getElementsByName("username")[0].value = username;
+        document.getElementsByName("username")[0].value = username;*/
 
     e.preventDefault();
     const { value } = e.target[0];

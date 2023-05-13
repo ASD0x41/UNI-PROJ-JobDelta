@@ -1373,5 +1373,62 @@ namespace JobDelta.Data_Access_Layer
 
 
 
+
+
+
+        ///////////////////////////////////////////////////////////////////
+        //Feedback_Input
+        public int Feedback_Input(int sent, string uname, string uemail, string details, string rate, string uimprove, string ucomplain, string usuggestion)
+        {
+
+            int retval = -1;
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("Feedback_store", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@sentID", SqlDbType.Int);
+                cmd.Parameters.Add("@Username", SqlDbType.VarChar, 25);
+                cmd.Parameters.Add("@usemail", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@feedbck", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@urating", SqlDbType.VarChar, 20);
+                cmd.Parameters.Add("@improvement", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@comp", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@sugges", SqlDbType.VarChar, 250);
+
+                cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.Parameters["@sentID"].Value = sent;
+                cmd.Parameters["@Username"].Value = uname;
+                cmd.Parameters["@usemail"].Value = uemail;
+                cmd.Parameters["@feedbck"].Value = details;
+                cmd.Parameters["@urating"].Value = rate;
+                cmd.Parameters["@improvement"].Value = uimprove;
+                cmd.Parameters["@comp"].Value = ucomplain;
+                cmd.Parameters["@sugges"].Value = usuggestion;
+
+
+                cmd.ExecuteNonQuery();
+
+                retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
     }
 }

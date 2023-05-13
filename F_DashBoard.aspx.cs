@@ -17,13 +17,13 @@ namespace JobDelta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((int)Application["curUserType"] == 0)
+            if ((int)Application["curUserType"] <= 0)
                 Response.Redirect("Homepage.aspx");
             else if ((int)Application["curUserType"] == 2)
-                Response.Redirect("C_DashBoard.aspx.aspx");
+                Response.Redirect("C_DashBoard.aspx");
 
             int x = (int)Application["currentUser"];
-
+            /*
             if (!IsPostBack)
             {
                 DataTable JobPost = LoadJobPostData();
@@ -35,12 +35,15 @@ namespace JobDelta
                 PostingGridView.DataSource = jobPostings;
                 PostingGridView.DataBind();
             }
-
+            */
             DAL myDAL = new DAL();
 
-             int userId = x; 
+             int userId = x;
 
-             string username = myDAL.GetUserById(userId);
+            loadongoingjobs();
+            loadavailJobs();
+
+            string username = myDAL.GetUserById(userId);
              lblUsername.Text = username;
 
              string Fullname = myDAL.GetFullnameById(userId);
@@ -84,8 +87,7 @@ namespace JobDelta
                 ImageControl.ImageUrl = "Resources/Images/Profile.png\" alt=\"Profile Picture";
             }
 			
-			loadongoingjobs();
-			loadavailJobs();			
+						
 			
 
         }
@@ -130,6 +132,25 @@ namespace JobDelta
                 Response.Redirect("JobDetail_F.aspx");
             }
         }
+
+        private DataTable LoadJobPostData()
+        {
+            // You can load data from a database or other data source here
+            // For example, you can create a DataTable and add rows to it
+            DataTable jobPost = new DataTable();
+            jobPost.Columns.Add("Job_ID", typeof(int));
+            jobPost.Columns.Add("Title", typeof(string));
+            jobPost.Columns.Add("Description", typeof(string));
+            jobPost.Columns.Add("Category", typeof(string));
+            jobPost.Columns.Add("Budget", typeof(string));
+
+            jobPost.Rows.Add(1, "Build a Website", "Need a website for my business", "Web Development", "$500 - $1000");
+            jobPost.Rows.Add(2, "Design a Logo", "Looking for a logo for my startup", "Graphic Design", "$100 - $200");
+            jobPost.Rows.Add(3, "Write an Article", "Need a 500-word article on a specific topic", "Writing & Translation", "$20 - $50");
+
+            return jobPost;
+        }
+
 
 
         protected void loadavailJobs()

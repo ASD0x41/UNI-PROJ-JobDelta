@@ -14,10 +14,10 @@ namespace JobDelta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((int)Application["curUserType"] == 0)
+            if ((int)Application["curUserType"] <= 0)
                 Response.Redirect("Homepage.aspx");
             else if ((int)Application["curUserType"] == 1)
-                Response.Redirect("F_DashBoard.aspx.aspx");
+                Response.Redirect("F_DashBoard.aspx");
 
 
             int x = (int)Application["currentUser"];

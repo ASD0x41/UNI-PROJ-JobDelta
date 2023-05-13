@@ -140,41 +140,52 @@ namespace JobDelta
             string uname = txtName.Text;
             string email = txtEmail.Text;
             string pword = txtPassword.Text;
+            string cpwrd = cnfrmpsword.Text;
             string utype = ddlAccountType.SelectedValue;
 
-            DAL myDAL = new DAL();
-            int retval = myDAL.RegisterNewUser(uname, email, pword, utype);
-
-            switch(retval)
+            if (pword == cpwrd)
             {
-                case -1:
-                    string script2 = "signupfailure();";
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "signupfailure", script2, true);
-                    break;
+                DAL myDAL = new DAL();
+                int retval = myDAL.RegisterNewUser(uname, email, pword, utype);
 
-                case 0:
-                    MailMessage mail = new MailMessage();
-                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                switch (retval)
+                {
+                    case -1:
+                        string script2 = "signupfailure();";
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "signupfailure", script2, true);
+                        break;
 
-                    mail.From = new MailAddress("jobdelta2023@gmail.com");
-                    mail.To.Add(email);
-                    mail.Subject = "Welcome to JobDelta!";
-                    mail.Body = ("Dear " + uname + ",\n\nThank you for signing up on JobDelta!\n\nRegards,\nThe JobDelta Team");
+                    case 0:
+                        MailMessage mail = new MailMessage();
+                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                    SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new System.Net.NetworkCredential("jobdelta2023@gmail.com", "qovhuuguobtnqfij");
-                    SmtpServer.EnableSsl = true;
+                        mail.From = new MailAddress("jobdelta2023@gmail.com");
+                        mail.To.Add(email);
+                        mail.Subject = "Welcome to JobDelta!";
+                        mail.Body = ("Dear " + uname + ",\n\nThank you for signing up on JobDelta!\n\nRegards,\nThe JobDelta Team");
 
-                    SmtpServer.Send(mail);
-					
-					
-					Tuple<int, int, int> logindetails = myDAL.LoginUser(uname, pword);
-                    Application["currentUser"] = logindetails.Item2;
-                    Application["curUserType"] = logindetails.Item3;
-                    Response.Redirect("Complete_Profile.aspx");
-                    break;
+                        SmtpServer.Port = 587;
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("jobdelta2023@gmail.com", "qovhuuguobtnqfij");
+                        SmtpServer.EnableSsl = true;
 
+                        SmtpServer.Send(mail);
+
+
+                        Tuple<int, int, int> logindetails = myDAL.LoginUser(uname, pword);
+                        Application["currentUser"] = logindetails.Item2;
+                        Application["curUserType"] = logindetails.Item3;
+                        Response.Redirect("Complete_Profile.aspx");
+                        break;
+
+
+                }
+            }
+            else
+            {
+                string script2 = "nomatchpword();";
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "nomatchpword", script2, true);
                 
+
             }
         }
 

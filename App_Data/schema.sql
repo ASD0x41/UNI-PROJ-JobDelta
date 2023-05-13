@@ -319,11 +319,13 @@ EXEC sp_tables @table_type = "'TABLE'"
 
 select * from information_schema.routines where routine_type = 'Procedure'
 
-select * from Users
 select * from Jobs
+select * from Users
 select * from Proposals
 select * from MoneyTransfers
 select * from Requests
+
+select * from feedback
 
 insert into Jobs values (4,'My Job','Web Design',54,'Design a website for me.',getdate(),'4.25.2023','T',NULL,NULL)
 
@@ -490,7 +492,7 @@ alter PROCEDURE PostJob
     @jobtype VARCHAR(32),
     @jobvalue MONEY,
     @jobdetail TEXT,
-    @duedate DATE,
+    @duedate DATE
 
     
 AS
@@ -533,6 +535,7 @@ EXEC PostJob
     @_ret_val_ = @retVal OUTPUT
 
 SELECT @retVal
+GO
 
 alter PROCEDURE ViewPostedJobs
 	@clientId INT

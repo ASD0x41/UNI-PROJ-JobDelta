@@ -3,8 +3,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Resources/CSS/About_Us.css" rel="stylesheet" />
+
     <%-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--%>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
 </asp:Content>
 
 
@@ -56,17 +58,17 @@
                    <br />
                     <div>
                       <div class="step">
-                        <img src="https://cdn.dribbble.com/users/1632728/screenshots/4693038/profilepic_dribbble.gif">
+                        <img src="Resources/Images/BG_Image/about-1.gif">
                         <h3>Create your profile (it's free)</h3>
                         <p>An eye-catching title and client-focused overview help us match you to the work you want. Include your work history, your skills, and your photo. Add more, like an introduction video, to create a profile that really stands out.</p>
                       </div>
                       <div class="step">
-                        <img src="https://cdn.dribbble.com/users/533117/screenshots/3490598/dribbble.gif">
+                        <img src="Resources/Images/BG_Image/about-2.gif">
                         <h3>Explore ways to earn</h3>
                         <p>Work and earn in different ways. Bid for jobs. Pitch your projects. Discuss your in-demand skills with our recruiters so they can find opportunities aligned with your passions and career goals. Do all three. Create a predictable pipeline and build your network.</p>
                       </div>
                       <div class="step">
-                        <img src="https://i.pinimg.com/originals/f8/c4/22/f8c422a0a0e6793b3f9113d419c5143a.gif">
+                        <img src="Resources/Images/BG_Image/about-3.gif">
                         <h3>Get paid securely</h3>
                         <p>Choose how you get paid. Our fixed-price protection releases client payments at project milestones. Hourly protection bills clients every week. However you work, our service fees are the same. Spend less time chasing, more earning.</p>
                       </div>
@@ -107,12 +109,12 @@
     <h2 class="heading-2">What We Provide</h2>
     <div class="services-container">
       <div class="service">
-        <img src="https://media1.giphy.com/media/U8Y2KNDcCSyk6ILB8b/giphy.gif" alt="Freelancer">
+        <img src="Resources/Images/BG_Image/about-4.gif" alt="Freelancer">
         <h3 class="heading-3">For Freelancers</h3>
         <p class="service-description">Showcase your skills and find work that fits your interests and expertise on our platform. Our tools help you manage your projects, communicate with clients, and get paid for your work.</p>
       </div>
       <div class="service" >
-        <img src="https://www.bing.com/th/id/OGC.6cafeb1941de2b4e1089f67b7b139458?pid=1.7&rurl=https%3a%2f%2fcdn.myportfolio.com%2fec4657434c011e1a856a01752ef5f2f5%2fdf4cced1864491068565a9ef_rw_1200.gif%3fh%3df6d0aee62a35c711106f89f861dfb19a&ehk=nMksmcup9bG8J7L4fUijAQB64gUkQBfRuMC3zVgfVmk%3d" alt="Client">
+        <img src="Resources/Images/BG_Image/about-5.gif" alt="Client">
         <h3 class="heading-3">For Clients</h3>
         <p class="service-description">Find and hire top-quality professionals from around the world on our platform. Our tools help you manage your projects, communicate with freelancers, and pay for their services.</p>
       </div>
@@ -187,47 +189,53 @@
 
         <div class="Team_sub-container">
             <div class="teams">
-                <img src="Resources/Images/mehdy.jpeg" />
+                <img src="Resources/Images/Mehdy.jpg" />
                 <div class="name">Mehdy</div>
                 <div class="desig">Developer</div>
                 <div class="T_about">Experienced developer with a track record of delivering innovative solutions. Proficient in programming languages, frameworks, and tools. Strong analytical and problem-solving skills. Passionate about staying updated with latest technologies.</div>
 
                 <div class="sLinks">
+
                     <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
                     <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
                     <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
                     <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
                     <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
+
                 </div>
             </div>
 
             <div class="teams">
-                <img src="Resources/Images/me.jpg" />
+                <img src="Resources/Images/Umair.jpg" />
                 <div class="name">Umair Bin Asim </div>
                 <div class="desig">Web Developer</div>
                 <div class="T_about">A highly skilled web developer with a passion for creating beautiful and functional websites. With several years of experience in HTML, CSS, JavaScript, and various web development frameworks, I have developed expertise in creating responsive and user-friendly websites. </div>
 
                 <div class="sLinks">
+
                     <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
                     <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
                     <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
                     <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
                     <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
+
                 </div>
             </div>
 
             <div class="teams">
-                <img src="Resources/Images/sultan.png" />
+                <img src="Resources/Images/Sultan.jpg" />
                 <div class="name">Sultan Ahmed </div>
                 <div class="desig">Manager</div>
                 <div class="T_about">Experienced manager with a proven track record of success in leading teams and achieving organizational goals. Strategic mindset, strong leadership skills, and effective implementation of processes. Excellent communication and collaboration abilities, coupled with keen business acumen.</div>
 
                 <div class="sLinks">
+
                     <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
                     <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
                     <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
                     <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
                     <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
+
                 </div>
             </div>
 
@@ -238,19 +246,22 @@
                 <div class="T_about">Experienced designer with expertise in graphic design, UX/UI design, and branding. Keen eye for aesthetics and strong ability to create visually stunning designs. Creative approach, attention to detail, and proficiency in design software. Committed to staying updated with design trends and continuously refining skills for exceptional results.</div>
 
                 <div class="sLinks">
+
                     <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
                     <a  style="text-decoration:none" href="https://www.instagram.com/fiverr/" class="fab fa-instagram"></a>
                     <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
                     <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
                     <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
+
                 </div>
             </div>
 
             <div class="teams">
-                <img src="Resources/Images/asad.png" />
+                <img src="Resources/Images/Asad.jpg" />
                 <div class="name">M. Asad Tariq</div>
                 <div class="desig">Programmer</div>
                 <div class="T_about">Programmer with extensive experience in designing, developing, testing, and debugging software applications using various programming languages and frameworks. Proficient in coding concepts and possesses strong analytical skills. Skilled in resolving complex issues efficiently and meeting project requirements and deadlines. Detail-oriented, collaborative team player with a keen problem-solving mindset</div>
+
 
                <div class="sLinks">
                     <a  style="text-decoration:none" href="https://www.facebook.com/Fiverr/" class="fab fa-facebook-f"></a>
@@ -258,6 +269,7 @@
                     <a  style="text-decoration:none" href="https://twitter.com/fiverr" class="fab fa-twitter"></a>
                     <a  style="text-decoration:none" href="https://github.com/" class="fab fa-github"></a>
                     <a  style="text-decoration:none" href="https://www.linkedin.com/company/fiverr-com" class="fab fa-linkedin"></a>
+
                 </div>
             </div>
         </div>
