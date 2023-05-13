@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Web;
@@ -175,6 +176,12 @@ namespace JobDelta
 
             int jobID = (int)Session["SelectedJobID"];
 
+            string fileExtension = Path.GetExtension(deliverableFileUpload.FileName);
+
+            // Save the file extension to the database
+            DAL myDAL = new DAL();
+            myDAL.SaveDeliverableExt(jobID, fileExtension);
+
             // Check if the file was uploaded
 
             // Save the file to a byte array
@@ -182,7 +189,7 @@ namespace JobDelta
             deliverableFileUpload.PostedFile.InputStream.Read(fileBytes, 0, deliverableFileUpload.PostedFile.ContentLength);
 
             // Save the file to the database as a binary data (varbinary(max) type)
-            DAL myDAL = new DAL();
+            
             myDAL.SaveDeliverable(jobID, fileBytes);
 
             // Update the job status to "Done"
@@ -201,13 +208,13 @@ namespace JobDelta
             int jobID = (int)Session["SelectedJobID"];
             DAL myDAL = new DAL();
             byte[] fileBytes = myDAL.GetDeliverable(jobID);
-
+            string fileExtension = myDAL.GetDeliverableExt(jobID);
             if (fileBytes != null && fileBytes.Length > 0)
             {
                 Response.Clear();
                 Response.Buffer = true;
                 Response.ContentType = "application/octet-stream";
-                Response.AddHeader("Content-Disposition", "attachment; filename=deliverable.zip");
+                Response.AddHeader("Content-Disposition", "attachment; filename=deliverable"+ fileExtension);
                 Response.BinaryWrite(fileBytes);
                 Response.End();
             }
