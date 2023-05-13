@@ -75,8 +75,12 @@
 
          <br />
         <br />
-       <asp:Button Visible="false" ID="btnDownloadDeliverable" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
-
+        <asp:Button Visible="false" ID="btnDownloadDeliverable" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
+         <br />
+         <br />
+         &nbsp &nbsp &nbsp<asp:Label ID="lblDetails" runat="server" AssociatedControlID="txtDetails">Post Complaint</asp:Label><br/>
+         &nbsp &nbsp &nbsp<asp:TextBox ID="txtDetails" runat="server" TextMode="MultiLine" Width="300px" Height="100px"></asp:TextBox><br/>
+         &nbsp &nbsp &nbsp<asp:Button ID="btnPostComplaint" runat="server" Text="Post Complaint" OnClick="PostComplaint"  />
 
 
      </form>

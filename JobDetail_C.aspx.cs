@@ -107,7 +107,15 @@ namespace JobDelta
                 Response.End();
             }
         }
-
+        protected void PostComplaint(object sender, EventArgs e)
+        {
+            int jobID = (int)Session["SelectedJobID"];
+            int sentBy = (int)Application["currentUser"];
+            string details = txtDetails.Text;
+            DAL myDAL = new DAL();
+            myDAL.PostComplaint(jobID, sentBy, details);
+            txtDetails.Text = "";
+        }
 
     }
 }
