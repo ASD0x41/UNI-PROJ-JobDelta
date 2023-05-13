@@ -431,6 +431,39 @@ namespace JobDelta.Data_Access_Layer
 
             return ret_val;
         }
+
+        public void SaveDeliverableExt(int jobID, string fileExtension)
+        {
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand("createExt", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@JobID", jobID);
+                cmd.Parameters.AddWithValue("@extension", fileExtension);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public string GetDeliverableExt(int jobID)
+        {
+            string x = "";
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand("GetExtension", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@JobID", jobID);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    if (reader["Ext"] != DBNull.Value)
+                        x = (string)reader["Ext"];
+                }
+            }
+            return x;
+        }
+
         public void markProposal(int proposalID, int jobID)
         {
             SqlConnection con = new SqlConnection(conString);
