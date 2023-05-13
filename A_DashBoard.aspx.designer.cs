@@ -15,48 +15,57 @@ namespace JobDelta
     {
 
         /// <summary>
-        /// UserGridView control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView UserGridView;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// JobsGridView control.
+        /// GridView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView JobsGridView;
+        protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
-        /// IssueGridView control.
+        /// GridView4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView IssueGridView;
+        protected global::System.Web.UI.WebControls.GridView GridView4;
 
         /// <summary>
-        /// FeebackGridView control.
+        /// GridView5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView FeebackGridView;
+        protected global::System.Web.UI.WebControls.GridView GridView5;
 
         /// <summary>
-        /// TransGridView control.
+        /// GridView3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView TransGridView;
+        protected global::System.Web.UI.WebControls.GridView GridView3;
+
+        /// <summary>
+        /// GridView6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView6;
     }
 }

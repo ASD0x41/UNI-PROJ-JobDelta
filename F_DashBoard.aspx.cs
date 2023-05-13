@@ -64,11 +64,27 @@ namespace JobDelta
             int JobsDone = myDAL.GetJobsDoneByUserID(userId);
              C_jobs.Text = JobsDone.ToString();
 
-            int projectCompletionValue = (int)(((double) JobsDone/ totalJobs) * 100) % 100;
-            int clientSatisfactionValue = (int)(((double)Rating / 5) * 100) % 100;
-            int skillsValue = (int)(((double)Rating / 5) * 100) % 100;
-            int communicationValue = (int)(((double)Rating / 5) * 135) % 100;
-            int availabilityValue = (int)(((double) JobsActive / totalJobs) * 100) % 100;
+            int projectCompletionValue = 0;
+            int availabilityValue = 0;
+            int clientSatisfactionValue = 0;
+            int skillsValue = 0;
+            int communicationValue = 0;
+
+            if (totalJobs != 0)
+            {
+                projectCompletionValue = (int)(((double)JobsDone / totalJobs) * 100) % 100;
+            }
+
+            if (totalJobs != 0)
+            {
+                clientSatisfactionValue = (int)(((double)Rating / 5) * 100) % 100;
+                skillsValue = (int)(((double)Rating / 5) * 100) % 100;
+                communicationValue = (int)(((double)Rating / 5) * 135) % 100;
+            }
+            if (totalJobs != 0)
+            {
+                availabilityValue = (int)(((double)JobsActive / totalJobs) * 100) % 100;
+            }
 
             string script = "updateProgressBars(" + projectCompletionValue + "," + clientSatisfactionValue + "," + skillsValue + "," + communicationValue + "," + availabilityValue + ");";
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "updateProgressBars", script, true);
@@ -86,8 +102,6 @@ namespace JobDelta
             {
                 ImageControl.ImageUrl = "Resources/Images/Profile.png\" alt=\"Profile Picture";
             }
-			
-						
 			
 
         }

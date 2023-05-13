@@ -27,8 +27,6 @@
                         <br />
                         <asp:FileUpload ID="fileUpload" runat="server" />
                         <br />
-                        <br />
-                        <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
                     </div>
         </div>
 
@@ -49,9 +47,6 @@
 
             <label for="birthdate">Birthdate</label>
             <asp:TextBox ID="birthdate" runat="server" Width="30%" CssClass="form-control" type="date" required="required"></asp:TextBox>
-
-            <label for="email">Email Address</label>
-            <asp:TextBox ID="email" runat="server" Width="60%" CssClass="form-control" placeholder="Enter your email address" required="required"></asp:TextBox>
 
             <label for="CNIC">CNIC</label>
             <asp:TextBox ID="CNIC" runat="server" Width="60%" CssClass="form-control" placeholder="Enter your CNIC" required="required"></asp:TextBox>

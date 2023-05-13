@@ -20,14 +20,12 @@
     float: left;
 }
 
-.profile-img {
-    background-color: #fff;
-    width: 100px;
-    height: 100px;
+.profile-picture {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 10px;
-    display: block;
-    margin: 0 auto;
 }
 
 .username {
@@ -489,3 +487,10 @@
 
 /*--------------------------------------------------------------------------------------------*/
 
+.rounded-image {
+    border-radius: 50%;
+    position: absolute;
+    top: -2147483648px;
+    left: 41%;
+    transform: translate(-50%, -50%);
+}
