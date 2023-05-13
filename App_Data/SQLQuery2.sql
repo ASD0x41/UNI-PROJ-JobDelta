@@ -96,6 +96,25 @@ create table feedback		-- feedbacks for admins by clients/freelancers
 go
 drop table feedback
 
+create table Complain		-- complaints/feedback/requests for admins by clients/freelancers
+(
+	ComplainID		int				primary key		identity(1,1),
+	sentby			int				foreign key		references Users (userID),
+	improve		varchar(250),
+	complain	varchar(250),
+	suggestion	varchar(250)
+);
+go
+
+drop table deliverable
+create table deliverable
+(
+  
+	jobID			int				foreign key		references Jobs (jobID),
+	Ext  varchar(10)
+);
+go
+
 drop table feedback
 
 

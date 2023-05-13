@@ -265,7 +265,40 @@ END
 go
 
 
+alter procedure AddExtension
+@jobID int,
+@extension varchar (10)
+as
+begin
+insert into deliverable (jobID,Ext )
+values (@jobID, @extension)
+end
+go
 
+alter procedure createExt
+@JobID int,
+@extension varchar (10)
+as
+begin
+    
+    insert into deliverable values (@jobID, @extension)
+
+end
+go
+
+
+
+
+alter procedure GetExtension
+@JobID int
+as
+begin
+if exists (select * from deliverable where jobID = @JobID)
+    begin
+    select Ext from deliverable where jobID = @JobID
+    end
+end
+go
 
 
 CREATE PROCEDURE UpdateUserProfile(

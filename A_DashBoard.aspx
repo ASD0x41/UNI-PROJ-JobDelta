@@ -218,80 +218,19 @@
                     </div>
 
 
+                <br />
+                <br />
+
 <%-------------------------------------------------------------------------------------------------%> 
+
 
 
 <%-------------------------------------------------------------------------------------------------%> 
 
         <footer>
 	             <div class="footer-container">
-<<<<<<< Updated upstream
-                    <div class="footer-links" style="font-weight:bold">
-                      <a href="Homepage.aspx">Home</a>
-                      <a href="About_Us.aspx">About Us</a>
-                      <a href="How_it_works.aspx">How It Works</a>
-                      <a href="https://workspace.fiverr.com/pricing/">Pricing</a>
-                      <a href="FAQs.aspx">FAQ</a>
-                      <a href="Our_Services.aspx">Terms of Service</a>
-                      <a href="Privacy_Policy">Privacy Policy</a>
-                      <a href="NewsFeed.aspx">Blog</a>
-                      <a href="ContactUs.aspx">Contact Us</a>
-                    </div>
-                    <div class="footer-categories">
-                      <h4>Categories</h4>
-                      <ul>
-                        <li><a href="Job_Categories.aspx">Web Development</a></li>
-                        <li><a href="Job_Categories.aspx">Graphic Design</a></li>
-                        <li><a href="Job_Categories.aspx">Digital Marketing</a></li>
-                        <li><a href="Job_Categories.aspx">Writing & Translation</a></li>
-                        <li><a href="Job_Categories.aspx">Video & Animation</a></li>
-                        <li><a href="Job_Categories.aspx">Music & Audio</a></li>
-                        <li><a href="Job_Categories.aspx">Programming & Tech</a></li>
-                        <li><a href="Job_Categories.aspx">Business</a></li>
-                      </ul>
-                    </div>
-                    <div class="footer-services">
-                      <h4>Our Services</h4>
-                      <ul>
-                        <li><a href="https://www.fiverr.com/">Freelance Services</a></li>
-                        <li><a href="https://www.fiverr.com/gigs/management">Managed Services</a></li>
-                        <li><a href="https://www.fiverr.com/categories/business/project-management">Project Management</a></li>
-                        <li><a href="https://www.fiverr.com/gigs/enterprise">Enterprise Solutions</a></li>
-                        <li><a href="https://www.fiverr.com/categories/business/hr-consulting/recruiting">Talent Sourcing</a></li>
-                      </ul>
-                    </div>
-                    <div class="footer-company">
-                      <h4>Company</h4>
-                      <ul>
-                        <li><a href="About_Us.aspx">About Us</a></li>
-                        <li><a href="https://www.fiverr.com/jobs?source=footer">Careers</a></li>
-                        <li><a href="https://www.fiverr.com/news/press-releases?source=footer">Press</a></li>
-                        <li><a href="https://affiliates.fiverr.com/">Affiliates</a></li>
-                        <li><a href="https://investors.fiverr.com/investor-overview/default.aspx">Investors</a></li>
-                      </ul>
-                    </div>
-                    <div class="footer-newsletter">
-                      <h4>Join Our Newsletter</h4>
-                      <form>
-                        <input type="email" placeholder="Enter your email address">
-                        <button type="submit">Subscribe</button>
-                      </form>
-                    </div>
-                    <div class="footer-social">
-                      <h4>Connect With Us</h4>
-                      <div class="social-icons">
-                       <a href="https://www.facebook.com/Fiverr/"><img src="Resources/Images/BG_Image/icon-1.png" style="margin-top:5px;" /></a>
-					   <a href="https://twitter.com/fiverr"><img src="Resources/Images/BG_Image/icon-2.png" style="margin-top:5px;" /></a>
-					   <a href="https://www.linkedin.com/company/fiverr-com"><img src="Resources/Images/BG_Image/icon-3.png" style="margin-top:5px;" /></a>
-					   <a href="https://www.instagram.com/fiverr/"><img src="Resources/Images/BG_Image/icon-4.png" style="margin-top:5px;" /></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="footer-disclaimer">
-                    <p>© 2023 JOBDELTA. All rights reserved.</p>
-=======
+
                     <p style="margin-left:40%;">© 2023 JOBDELTA. All rights reserved.</p>
->>>>>>> Stashed changes
               </div>
 </footer>      
 
