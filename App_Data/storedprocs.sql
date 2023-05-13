@@ -419,12 +419,12 @@ alter PROCEDURE PostJob
     @jobdetail TEXT,
     @duedate DATE,
 
-    
+    @_ret_val_			int					output
 AS
 BEGIN
     
 
-    
+      DECLARE @JobID int
   --  DECLARE @walletBalance MONEY;
   --  SELECT @walletBalance = amount FROM moneytransfers WHERE srcuser = @clientID;
   --  IF @jobvalue > @walletBalance
@@ -442,10 +442,16 @@ BEGIN
     
     INSERT INTO Jobs (clientID, jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus)
     VALUES (@clientID, @jobtitle, @jobtype, @jobvalue, @jobdetail, GETDATE(), @duedate, 'T');
-    
+
+	SELECT TOP 1  @JobID = jobID FROM Jobs ORDER BY jobID DESC;
+
+	INSERT INTO MoneyTransfers (transfertime,amount,forjob,srcuser,dstuser) values (getdate(),@jobvalue,@jobID,@clientID,1)
+    UPDATE Users SET walletmoney = walletmoney - @jobvalue WHERE userID = @clientID
+    UPDATE Users SET walletmoney = walletmoney + @jobvalue WHERE userID = 1
+    UPDATE Users SET jobsnotdone = jobsnotdone + 1 WHERE userID = @clientID
     
 END
-go
+GO
 
 select* from Jobs
 select* from Users
@@ -484,6 +490,7 @@ DECLARE @return_val INT
 EXEC CheckIfUserHasApplied @jobID, @UserID, @return_val OUTPUT
 
 SELECT @return_val
+GO
 
 alter procedure getProposal
 @jobID INT,
@@ -514,7 +521,7 @@ EXEC getProposal
     @applydate = @applydate OUTPUT
 
 SELECT @proposalID AS ProposalID, @proposaldetail AS ProposalDetail, @approvalstatus AS ApprovalStatus, @applydate AS ApplyDate
-
+GO
 
 
 
@@ -593,7 +600,7 @@ BEGIN
         RAISERROR('Cannot remove job. It has already been assigned to a freelancer.', 16, 1)
     END
 END
-go
+GO
 
 
 create procedure markproposal
@@ -601,13 +608,21 @@ create procedure markproposal
 @proposalID INT
 AS
 BEGIN
+    DECLARE @ClientID INT,@LancerID INT;
+
+    select @ClientID = clientID,@LancerID = lancerID from Jobs where jobID = @jobID  
+
 	if exists(select * from Proposals where jobID = @jobID and proposalID = @proposalID)
 	begin
 		update Proposals set approvalstatus = 'A' where jobID = @jobID and proposalID = @proposalID
         update Jobs set jobstatus = 'O' where jobID = @jobID
         update Jobs set lancerID = (select lancerID from Proposals where jobID = @jobID and proposalID = @proposalID) where jobID = @jobID
+        update Users SET jobsnotdone = jobsnotdone - 1 WHERE userID = @ClientID
+        update Users SET jobsongoing = jobsongoing + 1 WHERE userID = @ClientID
+        update Users SET jobsongoing = jobsongoing + 1 WHERE userID = @LancerID
 	end
 end
+GO
 
 alter PROCEDURE ViewPostedJobs
 	@clientId INT
@@ -632,17 +647,28 @@ end
 go
 
 
-CREATE PROCEDURE UploadDeliverable
+alter PROCEDURE UploadDeliverable
     @jobID INT,
     @deliverable VARBINARY(MAX)
 AS
 BEGIN
-    UPDATE Jobs
-    SET deliverable = @deliverable, jobstatus = 'D'
-    WHERE jobID = @jobID
+    DECLARE @LancerID INT, @ClientID INT,@jobvalue INT ,@newAmount INT;
+    select @ClientID = clientID,@LancerID = lancerID,@jobvalue = jobvalue from Jobs where jobID = @jobID  
+
+    UPDATE Jobs SET deliverable = @deliverable, jobstatus = 'D' WHERE jobID = @jobID
+    UPDATE Users SET jobsdone = jobsdone + 1,jobsongoing = jobsongoing - 1  WHERE userID =@LancerID
+    UPDATE Users SET jobsdone = jobsdone + 1,jobsongoing = jobsongoing - 1  WHERE userID =@ClientID
+    
+    SET @newAmount = ((@jobvalue * 90)/100);
+
+	INSERT INTO MoneyTransfers (transfertime,amount,forjob,srcuser,dstuser) values (getdate(),@newAmount,@jobID,1,@LancerID)
+    UPDATE Users SET walletmoney = walletmoney + @newAmount  WHERE userID = @LancerID
+    UPDATE Users SET walletmoney = walletmoney - @newAmount WHERE userID = 1
+    
 END
 
 EXEC UploadDeliverable @jobID = 14, @deliverable = 0x54686973206973206120746573742064656c6976657261626c652e
+GO
 
 create procedure getDeliverable
 @jobID INT,
@@ -658,6 +684,7 @@ end
 
 
 select* from jobs
+GO
 
 create procedure ViewOngoingJobs
 @lancerID INT
@@ -665,6 +692,7 @@ as
 begin
 	select jobID, jobtitle, jobdetail, jobtype, jobvalue,jobstatus ,duedate from Jobs where lancerID = @lancerID
 end
+GO
 
 create procedure getProposals
 @jobID INT
@@ -672,6 +700,7 @@ as
 begin
 	select proposalID,lancerID,proposaldetail,approvalstatus,applydate from Proposals where jobID = @jobID
 end
+GO
 
 create procedure checklancer
 @lancerID Int,
@@ -687,7 +716,7 @@ begin
 		set @ret_val = 0
 	end
 end
-
+GO
 
 
 alter procedure getlancerID
@@ -764,6 +793,7 @@ SELECT @jobTitle AS JobTitle,
        @postDate AS PostDate,
        @dueDate AS DueDate
 select* from Jobs
+GO
 
 CREATE PROCEDURE SearchAvailJobs
 AS
@@ -807,7 +837,7 @@ Declare @proposalDetail nvarchar(1000) = 'I am a good fit for this job2'
 EXEC submitProposal @lancerID, @jobID,@proposalDetail;
 
 select* from Proposals
-
+GO
 
 
 
@@ -910,8 +940,10 @@ CREATE PROCEDURE MarkJobDone
 	@clientID INT
 AS
 BEGIN
-	
-	IF NOT EXISTS (SELECT * FROM Jobs WHERE jobID = @jobID AND clientID = @clientID)
+	DECLARE @lanerID INT;
+    select @lanerID = lancerID FROM Jobs WHERE jobID =@jobID
+
+ 	IF NOT EXISTS (SELECT * FROM Jobs WHERE jobID = @jobID AND clientID = @clientID)
 	BEGIN
 		RAISERROR('Job does not exist or does not belong to the specified client.', 16, 1)
 		RETURN

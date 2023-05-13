@@ -376,29 +376,23 @@ footer {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Style the search modal content */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Style the close button */
-    .modal-content .close {
-        color: #aaaaaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-        .modal-content .close:hover,
-        .modal-content .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
 
 /* Style the search input */
 #searchInput {

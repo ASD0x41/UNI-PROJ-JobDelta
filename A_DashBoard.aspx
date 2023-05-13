@@ -33,23 +33,23 @@
                     </header> 
         
 
-          <div class="slide2show-container" style="margin-top:10%; margin-bottom:5%;"> 
+         <div class="slide2show-container" style="margin-right:8px;"> 
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 1"/>
+                <img src="Resources/Images/BG_Image/A-7.jpg" alt="Slide 1"/>
                 <div class="slide2-text">
                   <h2>Welcome to Job Delta</h2>
                   <p>We are a freelancing platform connecting businesses with top-rated freelancers from around the world. Our mission is to help businesses grow and succeed by providing them with the best freelance talent available.</p>
                 </div>
               </div>
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 2"/>
+                <img src="Resources/Images/BG_Image/A-8.jpg" alt="Slide 2"/>
                 <div class="slide2-text">
                   <h2>Hire Top Freelancers</h2>
                   <p>Find the perfect freelancer for your project. Our platform offers a wide range of freelancers with diverse skills and experience levels, so you can find the right fit for your project.</p>
                 </div>
               </div>
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 3"/>
+                <img src="Resources/Images/BG_Image/A-9.jpg" alt="Slide 3"/>
                 <div class="slide2-text">
                   <h2>Grow Your Business</h2>
                   <p>Get the help you need to grow your business. Our freelancers offer a wide range of services, from web development and design to marketing and content creation, to help your business succeed.</p>
@@ -176,17 +176,18 @@
                         <asp:BoundField DataField="status" HeaderText="Status" />
                         <asp:TemplateField HeaderText="Resolve">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lnkEdit" runat="server" Text="↩" CommandName="IssueID" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    </Columns>
-                 <HeaderStyle BackColor="#CCCCCC" Font-Bold="true" />
-              </asp:GridView>
+                         <asp:LinkButton ID="Accept_btn" runat="server" Text="Accept" CommandName="Accept" CommandArgument='<%# Eval("complaintID") %>' OnCommand="AcceptButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
+                         <asp:LinkButton ID="Reject_btn" runat="server" Text="Reject" CommandName="Reject" CommandArgument='<%# Eval("complaintID") %>' OnCommand="RejectButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
+                          </ItemTemplate>
+                        </asp:TemplateField>
+                        </Columns>
+                     <HeaderStyle BackColor="#CCCCCC" Font-Bold="true" />
+                  </asp:GridView>
 
         <br />
         <br />
 
-
+        
 
  <%-------------------------------------------------------------------------------------------------%> 
 
@@ -217,151 +218,8 @@
                     </div>
 
 
-                <br />
-                <br />
-<<<<<<< Updated upstream
-                <br />
-                <br />
-                <br />
+<%-------------------------------------------------------------------------------------------------%> 
 
-            <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Users</strong></div>
-            <br />
-
-            </div>
-   
-        <asp:GridView ID="UserGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-        <Columns>
-        <asp:BoundField DataField="UserID" HeaderText="ID" />
-        <asp:BoundField DataField="UserName" HeaderText="Name" />
-        <asp:BoundField DataField="UserType" HeaderText="Type" />
-        <asp:BoundField DataField="UserGender" HeaderText="Gender" />
-        <asp:BoundField DataField="UserEmail" HeaderText="Email Address" />
-        <asp:TemplateField HeaderText="Delete">
-            <ItemTemplate>
-                <asp:LinkButton ID="lnkEdit" runat="server" Text="X" CommandName="IssueID"  />
-            </ItemTemplate>
-        </asp:TemplateField>
-        </Columns>        
-        </asp:GridView>
-
-        <br />
-        <br />
-
-
-
-        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Active Jobs</strong></div>
-            <br />
-
-        
-   
-        <asp:GridView ID="JobsGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-        <Columns>
-        <asp:BoundField DataField="jobID" HeaderText="Job ID" />
-        <asp:BoundField DataField="clientID" HeaderText="Client ID" />
-        <asp:BoundField DataField="jobtitle" HeaderText="Name" />
-        <asp:BoundField DataField="lancerID" HeaderText="Freelancer ID" />
-        <asp:BoundField DataField="jobstatus" HeaderText="Status" />
-        <asp:TemplateField HeaderText="Delete">
-            <ItemTemplate>
-                <asp:LinkButton ID="lnkEdit" runat="server" Text="X" CommandName="IssueID"  />
-            </ItemTemplate>
-        </asp:TemplateField>
-        </Columns>        
-        </asp:GridView>
-
-        <br />
-        <br />
-
-
-
-
-     <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Ongoing Issues</strong></div>
-   <br />
-
-       
-        <asp:GridView ID="IssueGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-        <Columns>
-        <asp:BoundField DataField="Type" HeaderText="Type" />
-        <asp:BoundField DataField="ID" HeaderText="ID" />
-        <asp:BoundField DataField="Description" HeaderText="Detail" />
-        <asp:BoundField DataField="Date" HeaderText="Request Date" />
-        <asp:BoundField DataField="Status" HeaderText="Status" />
-        <asp:TemplateField HeaderText="Resolve">
-            <ItemTemplate>
-                <asp:LinkButton ID="lnkEdit" runat="server" Text="↩" CommandName="IssueID"  />
-            </ItemTemplate>
-        </asp:TemplateField>
-        </Columns>        
-        </asp:GridView>
-
-        <br />
-        <br />
-        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:43% "><strong>Feedback</strong></div>
-        <br />
-
-        <asp:GridView ID="FeebackGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-        <Columns>
-        <asp:BoundField DataField="Type" HeaderText="Type" />
-        <asp:BoundField DataField="ID" HeaderText="ID" />
-        <asp:BoundField DataField="Description" HeaderText="Feedback" />
-        <asp:BoundField DataField="Date" HeaderText="Date" />
-        <asp:BoundField DataField="Rating" HeaderText="Rating" />
-        
-        </Columns>        
-        </asp:GridView>
-
-        <br />
-        <br />
-
-
-
-        <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:40%; "><strong>Transactions</strong></div>
-            <br />
-
-        
-   
-        <asp:GridView ID="TransGridView" runat="server" AutoGenerateColumns="False" Height="218px" style="margin-left: 17%; text-align:center" Width="815px" >
-        <Columns>
-        <asp:BoundField DataField="transferID" HeaderText="Transfer ID" />
-        <asp:BoundField DataField="amount" HeaderText="Transaction Amount" />
-        <asp:BoundField DataField="jobID" HeaderText="Job ID" />
-        <asp:BoundField DataField="srcuser" HeaderText="From" />
-        <asp:BoundField DataField="dstuser" HeaderText="To" />
-        
-        </Columns>        
-        </asp:GridView>
-
-        <br />
-        <br />
-
-
- <%-------------------------------------------------------------------------------------------------%> 
-
- <div class="slide2show-container" style="margin-top:10%; margin-bottom:5%;"> 
-              <div class="slide2">
-                <img src="Resources/Images/BG_Image/A-7.jpg" alt="Slide 1"/>
-                <div class="slide2-text">
-                  <h2>Welcome to Job Delta</h2>
-                  <p>We are a freelancing platform connecting businesses with top-rated freelancers from around the world. Our mission is to help businesses grow and succeed by providing them with the best freelance talent available.</p>
-                </div>
-              </div>
-              <div class="slide2">
-                <img src="Resources/Images/BG_Image/A-8.jpg" alt="Slide 2"/>
-                <div class="slide2-text">
-                  <h2>Hire Top Freelancers</h2>
-                  <p>Find the perfect freelancer for your project. Our platform offers a wide range of freelancers with diverse skills and experience levels, so you can find the right fit for your project.</p>
-                </div>
-              </div>
-              <div class="slide2">
-                <img src="Resources/Images/BG_Image/A-9.jpg" alt="Slide 3"/>
-                <div class="slide2-text">
-                  <h2>Grow Your Business</h2>
-                  <p>Get the help you need to grow your business. Our freelancers offer a wide range of services, from web development and design to marketing and content creation, to help your business succeed.</p>
-                </div>
-              </div>
-            </div>
-=======
->>>>>>> Stashed changes
 
 <%-------------------------------------------------------------------------------------------------%> 
 

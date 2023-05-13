@@ -1494,6 +1494,37 @@ namespace JobDelta.Data_Access_Layer
         }
 
 
+        public void HandleComplaintAccept(int complaintID)
+        {
+            // Implement database connection and execute the stored procedure
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("HandleComplaint_Accept", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@complaintid", complaintID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void HandleComplaintReject(int complaintID)
+        {
+            // Implement database connection and execute the stored procedure
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("HandleComplaint_Reject", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@complaintid", complaintID);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
 
         ///////////////////////////////////////////////////////////////////
