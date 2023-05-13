@@ -96,13 +96,13 @@ namespace JobDelta
             int jobID = (int)Session["SelectedJobID"];
             DAL myDAL = new DAL();
             byte[] fileBytes = myDAL.GetDeliverable(jobID);
-
+            string fileExtension = myDAL.GetDeliverableExt(jobID);
             if (fileBytes != null && fileBytes.Length > 0)
             {
                 Response.Clear();
                 Response.Buffer = true;
                 Response.ContentType = "application/octet-stream";
-                Response.AddHeader("Content-Disposition", "attachment; filename=deliverable.zip");
+                Response.AddHeader("Content-Disposition", "attachment; filename=deliverable"+ fileExtension);
                 Response.BinaryWrite(fileBytes);
                 Response.End();
             }

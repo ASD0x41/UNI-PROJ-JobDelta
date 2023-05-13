@@ -106,5 +106,14 @@ create table Complain		-- complaints/feedback/requests for admins by clients/fre
 );
 go
 
+drop table deliverable
+create table deliverable
+(
+  
+	jobID			int				foreign key		references Jobs (jobID),
+	Ext  varchar(10)
+);
+go
+
 drop table feedback
 drop table Complain
