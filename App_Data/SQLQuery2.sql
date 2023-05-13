@@ -84,7 +84,7 @@ create table Requests		-- complaints/feedback/requests for admins by clients/fre
 go
 drop table Requests
 
-create table feedback		-- complaints/feedback/requests for admins by clients/freelancers
+create table feedback		-- feedbacks for admins by clients/freelancers
 (
 	feedbackID		int				primary key		identity(1,1),
 	sentby			int				foreign key		references Users (userID),
@@ -116,4 +116,5 @@ create table deliverable
 go
 
 drop table feedback
-drop table Complain
+
+
