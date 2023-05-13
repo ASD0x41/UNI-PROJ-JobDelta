@@ -415,6 +415,7 @@ BEGIN
 END
 GO
 
+
 /*
 
 Description:
@@ -701,35 +702,6 @@ END
 GO
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 CREATE PROCEDURE GetPhoneNumber 
  @userID INT
 AS
@@ -739,9 +711,6 @@ BEGIN
 	WHERE userID = @userID;
 END;
 GO
-
-
-
 
 
 
@@ -757,3 +726,178 @@ BEGIN
 END
 
 GO
+
+--------------------------------ADMIN-PAGE-------------------------------------
+
+
+CREATE PROCEDURE DisplayUsersInfo
+AS
+BEGIN
+
+    SELECT 
+         userID,
+	     username,
+	     usertype,
+	     fullname,
+	     birthdate,
+	     gender,
+	     CNIC,
+		 phonenumber,
+		 emailaddress,
+		 workaddress,
+		 bankaccount,
+	     walletmoney
+    FROM 
+        Users
+    ORDER BY 
+        UserID ASC;
+END
+GO
+
+
+
+CREATE PROCEDURE DisplayJobInfo
+AS
+BEGIN
+
+    SELECT 
+         jobtitle,
+	     jobtype,
+	     jobvalue,
+	     jobdetail,
+	     postdate,
+	     duedate,
+	     jobstatus,
+         dbo.GetUsernameById(clientID) AS clientName,
+         CASE
+         WHEN lancerID IS NOT NULL THEN dbo.GetUsernameById(lancerID)
+            ELSE 'JOB STILL NOT ACCEPTED'
+             END AS lancerName
+    FROM 
+        Jobs
+    ORDER BY 
+        postdate DESC;
+END
+GO
+
+
+
+CREATE FUNCTION GetJobTitle
+(
+    @JobId INT
+)
+RETURNS VARCHAR(50)
+AS
+BEGIN
+    DECLARE @JobName VARCHAR(50)
+    SELECT @JobName = jobtitle
+    FROM Jobs
+    WHERE jobID = @JobId
+
+    RETURN @JobName
+END
+GO
+
+
+CREATE PROCEDURE DisplayMoneyTransfersInfo
+AS
+BEGIN
+    SELECT 
+        transfertime,
+        amount,
+        CASE 
+            WHEN srcuser IS NOT NULL THEN dbo.GetUsernameById(srcuser)
+            ELSE 'BankTransfer'
+        END AS srcusername,
+        CASE 
+            WHEN dstuser IS NOT NULL THEN dbo.GetUsernameById(dstuser)
+            ELSE 'BankTransfer'
+        END AS dstusername,
+        dbo.GetJobTitle(forjob) AS JobTitle
+    FROM 
+        MoneyTransfers
+    ORDER BY 
+        transfertime DESC;
+END
+GO
+
+
+CREATE PROCEDURE DisplayProposalInfo
+AS
+BEGIN
+
+    SELECT 
+    dbo.GetJobTitle(jobID) AS JobTitle,
+	dbo.GetUsernameById(lancerID) AS LancerName,
+	applydate,
+	proposaldetail,
+	approvalstatus
+    FROM 
+        Proposals
+    ORDER BY 
+        jobID DESC;
+END
+GO
+
+
+CREATE PROCEDURE DisplayRequestInfo
+AS
+BEGIN
+
+    SELECT 
+    dbo.GetUsernameById(sentby) AS UserName,
+	requestdate,
+	details,
+	requeststatus
+    FROM 
+        Requests
+END
+GO
+
+CREATE PROCEDURE DisplayComplains
+AS
+BEGIN
+
+    SELECT 
+    dbo.GetUsernameById(sentby) AS UserName,
+	dbo.GetUsernameById(sentfor) AS [Posted Against],
+    dbo.GetJobTitle(onJob) AS [Job Title],
+    posteddate AS [Date],
+    details,
+	status 
+    FROM 
+        Complaints
+END
+GO
+
+CREATE PROCEDURE PostComplaint
+  @jobID int,
+  @sentby int,
+  @details text
+AS
+BEGIN
+  DECLARE @sentfor int;
+
+  IF EXISTS (SELECT 1 FROM Jobs WHERE jobID = @jobID AND clientID = @sentby)
+    SET @sentfor = (SELECT lancerID FROM Jobs WHERE jobID = @jobID);
+  ELSE
+    SET @sentfor = (SELECT clientID FROM Jobs WHERE jobID = @jobID);
+
+  INSERT INTO complaints (sentby, sentfor, onJob, posteddate, details)
+  VALUES (@sentby, @sentfor, @jobID, GETDATE(), @details);
+END
+
+
+
+CREATE PROCEDURE HandleComplaint
+    @complaintid int
+AS
+BEGIN
+    UPDATE Complaints
+    SET complaintstatus = 'D'
+    WHERE complaintid = @complaintid;
+END
+
+
+
+

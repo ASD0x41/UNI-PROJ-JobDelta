@@ -20,7 +20,7 @@
                       <div class="container"> 
                         <h2>Profile Information</h2>
                         <div class="profile-box">
-                             <asp:Image ID="ImageControl" runat="server" />
+                             <asp:Image ID="ImageControl" runat="server"  />
                              <h3>Name</h3>
                              <asp:Label ID="name" runat="server"></asp:Label>
                              <h3>Email</h3>

@@ -18,7 +18,7 @@ namespace JobDelta
 
         protected void UpdateUserInfo_Click(object sender, EventArgs e)
         {
-
+            DAL myDAL = new DAL();
             int userId = (int)Application["currentUser"];
             string f_name = fullname.Text;
             DateTime b_date = DateTime.Parse(birthdate.Text);
@@ -26,7 +26,7 @@ namespace JobDelta
             string Cnic = CNIC.Text;
             string aboutuser = bio.Text;
             string phonenumber = phone.Text;
-            string emailaddress = email.Text;
+            string emailaddress = myDAL.GetEmailById(userId);
             string w_address = workaddress.Text;
             string bankaccount = TextBox1.Text;
             char G = 'O';
@@ -39,8 +39,9 @@ namespace JobDelta
                 G = 'F';
             }
 
-            DAL myDAL = new DAL();
+           
             myDAL.CompleteProfile(userId, f_name, b_date, G, Cnic, aboutuser, phonenumber, emailaddress, w_address, bankaccount);
+            btnUpload_Click(sender,e);
 
             int userType = (int)Application["curUserType"];
 

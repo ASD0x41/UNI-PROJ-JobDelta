@@ -300,7 +300,7 @@ go
 select * from MoneyTransfers
 
 insert into Requests (sentby, requestdate, details) values
-(2, getdate(), 'Money not paid by client1')
+(6, getdate(), 'Money not paid by client1')
 go
 
 select * from Requests
@@ -309,10 +309,28 @@ select * from Requests
 
 
 
+create table complaints		-- complaints for admins by clients/freelancers
+(
+	complaintID		int				primary key		identity(1,1),
 
+	sentby			int				foreign key		references Users (userID),
+	sentfor         int             foreign key     references Users (userID),
 
+	onJob           int             foreign key		references Jobs (jobID),
 
+	posteddate		date			not null,
+	details			text			not null,
 
+	status	char(1)			default 'P',
+
+	check (status='P' or status='H' or status='R')
+			-- pending (P), handled (H) or refused (R)
+);
+go
+
+insert into complaints (sentby,sentfor,onJob,posteddate,details,status) values (3, 6,13,getdate(),'did not provided working project','P')
+
+Select * from complaints
 
 
 EXEC sp_tables @table_type = "'TABLE'"
@@ -484,7 +502,7 @@ select * from Users
 
 select * from Jobs
 
-
+GO
 
 alter PROCEDURE PostJob
     @clientID INT,
@@ -492,9 +510,13 @@ alter PROCEDURE PostJob
     @jobtype VARCHAR(32),
     @jobvalue MONEY,
     @jobdetail TEXT,
+<<<<<<< Updated upstream
     @duedate DATE
 
     
+=======
+    @duedate DATE 
+>>>>>>> Stashed changes
 AS
 BEGIN
     

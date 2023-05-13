@@ -1371,7 +1371,127 @@ namespace JobDelta.Data_Access_Layer
             return imageData;
         }
 
+        public DataTable DisplayUsersInfo()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                using (SqlCommand command = new SqlCommand("DisplayUsersInfo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+            }
+            return dataTable;
+        }
 
+        public DataTable DisplayJobInfo()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                using (SqlCommand command = new SqlCommand("DisplayJobInfo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+            }
+            return dataTable;
+        }
+
+        public DataTable DisplayMoneyTransfersInfo()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                using (SqlCommand command = new SqlCommand("DisplayMoneyTransfersInfo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+            }
+            return dataTable;
+        }
+
+        public DataTable DisplayProposalInfo()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                using (SqlCommand command = new SqlCommand("DisplayProposalInfo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+            }
+            return dataTable;
+        }
+
+        public DataTable DisplayRequestInfo()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                using (SqlCommand command = new SqlCommand("DisplayRequestInfo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+            }
+            return dataTable;
+        }
+
+        public DataTable DisplayComplains()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                using (SqlCommand command = new SqlCommand("DisplayComplains", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
+                    {
+                        dataAdapter.Fill(dataTable);
+                    }
+                }
+            }
+            return dataTable;
+        }
+
+        public void PostComplaint(int jobID, int sentBy, string details)
+        {
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "PostComplaint";
+
+                    command.Parameters.AddWithValue("@jobID", jobID);
+                    command.Parameters.AddWithValue("@sentby", sentBy);
+                    command.Parameters.AddWithValue("@details", details);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
 
 
