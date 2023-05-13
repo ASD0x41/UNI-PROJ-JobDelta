@@ -1085,11 +1085,71 @@ go
 
 --incomplete
 
-CREATE PROCEDURE logout_user (@user_id INT)
+--CREATE PROCEDURE logout_user (IN user_id INT)
+--BEGIN
+--   UPDATE users SET is_logged_in = 0 WHERE id = user_id;
+--END
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+drop procedure Feedback_store
+
+go
+CREATE PROCEDURE Feedback_store
+	--@feedID int,
+ --   @compID int,
+    @sentID int,
+    @Username varchar(20),
+    @usemail  varchar(50),
+    @urating   varchar(5),
+    @feedbck varchar(250),
+    @improvement varchar(250),
+    @comp varchar(250),
+    @sugges varchar(250),
+    @_ret_val_			int					output
 AS
 BEGIN
-   UPDATE users SET is_logged_in = 0 WHERE id = user_id;
+        INSERT INTO feedback (sentby, UName, email, feedback, rating)
+        VALUES  (@sentID, @Username, @usemail, @feedbck, @urating)
+
+    
+        INSERT INTO Complain (sentby, improve, complain, suggestion)
+        VALUES (@sentID, @improvement, @comp, @sugges)
+
+        SET		@_ret_val_ = 0
+	
 END
+
+
+
+
+go
+
+
+create table feedback		-- complaints/feedback/requests for admins by clients/freelancers
+(
+	feedbackID		int				primary key		identity(1,1),
+	sentby			int				foreign key		references Users (userID),
+	UName		varchar(25),
+	email		varchar(50),
+	feedback	varchar(250),
+    rating      varchar(50)
+);
+go
+
+create table Complain		-- complaints/feedback/requests for admins by clients/freelancers
+(
+	ComplainID		int				primary key		identity(1,1),
+	sentby			int				foreign key		references Users (userID),
+	improve		varchar(250),
+	complain	varchar(250),
+	suggestion	varchar(250)
+);
+go
+
+drop table feedback
+drop table Complain
 
 
 

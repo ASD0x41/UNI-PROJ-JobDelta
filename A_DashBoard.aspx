@@ -24,7 +24,7 @@
                               </ul>
                             </nav>
                             <div class="profile">
-                              <a href="MyProfile.aspx"><img src="https://img.icons8.com/ios-filled/100/FFFFFF/user-male-circle.png"/></a>
+                              <a href="MyProfile.aspx"><img src="Resources/Images/BG_Image/A-1.png"/></a>
                               <div class="dropdown" style="margin-left:7px;">
                                 <a href="HomePage.aspx">Logout</a>
                               </div>
@@ -36,23 +36,23 @@
                       <h2>Benefits of being an Admin on JOB delta</h2>
                       <ul>
                         <li>
-                          <img src="https://imgs.search.brave.com/3yLl3JRwjeYm9rq9-S6cnAMwdHxXUxdusKH6Q2uvr3A/rs:fit:800:600:1/g:ce/aHR0cHM6Ly9jb2Rl/c3lhcmlhaDEyMi5n/aXRodWIuaW8vYXNz/ZXRzL2ltYWdlcy9w/cm9qZWN0L2NvZGVz/eWFyaWFoL3ZlY3Rv/cjIuZ2lm.gif" />
+                          <img src="Resources/Images/BG_Image/A-2.gif" />
                           Complete control over the site's policies and guidelines
                         </li>
                         <li>
-                          <img src="https://media4.giphy.com/media/s99VUdNNp2kzYJDq4B/200.webp?cid=ecf05e47gmo44mavemilj5y12e8t82vg8t2mvwi0lboghvyt&rid=200.webp&ct=s"/>
+                          <img src="Resources/Images/BG_Image/A-3.gif"/>
                           Ability to manage and moderate user accounts and content
                         </li>
                         <li>
-                          <img src="https://media4.giphy.com/media/QJ8bR5An4VC59FvVcx/200w.webp?cid=ecf05e47aalz27t3t7xxmgu3q2io63ydnf75go9eg8mt91ak&rid=200w.webp&ct=s" />
+                          <img src="Resources/Images/BG_Image/A-4.gif" />
                           Access to valuable data and analytics about the site's performance
                         </li>
                         <li>
-                          <img src="https://media4.giphy.com/media/gRYTjQAs04Pfydymgc/200w.webp?cid=ecf05e47aalz27t3t7xxmgu3q2io63ydnf75go9eg8mt91ak&rid=200w.webp&ct=s" />
+                          <img src="Resources/Images/BG_Image/A-5.gif" />
                           Opportunity to build and grow a community of freelancers and employers
                         </li>
                         <li>
-                          <img src="https://media4.giphy.com/media/EyoiQkwpR5zesB0qoo/200.webp?cid=ecf05e47bcr8qjfyjd1cq9ve8a3b02s9rflrbk2lyusonxhx&rid=200.webp&ct=s" />
+                          <img src="Resources/Images/BG_Image/A-6.gif" />
                           Potential for increased income through revenue sharing or other compensation models
                         </li>
                       </ul>
@@ -181,21 +181,21 @@
 
  <div class="slide2show-container" style="margin-top:10%; margin-bottom:5%;"> 
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 1"/>
+                <img src="Resources/Images/BG_Image/A-7.jpg" alt="Slide 1"/>
                 <div class="slide2-text">
                   <h2>Welcome to Job Delta</h2>
                   <p>We are a freelancing platform connecting businesses with top-rated freelancers from around the world. Our mission is to help businesses grow and succeed by providing them with the best freelance talent available.</p>
                 </div>
               </div>
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 2"/>
+                <img src="Resources/Images/BG_Image/A-8.jpg" alt="Slide 2"/>
                 <div class="slide2-text">
                   <h2>Hire Top Freelancers</h2>
                   <p>Find the perfect freelancer for your project. Our platform offers a wide range of freelancers with diverse skills and experience levels, so you can find the right fit for your project.</p>
                 </div>
               </div>
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 3"/>
+                <img src="Resources/Images/BG_Image/A-9.jpg" alt="Slide 3"/>
                 <div class="slide2-text">
                   <h2>Grow Your Business</h2>
                   <p>Get the help you need to grow your business. Our freelancers offer a wide range of services, from web development and design to marketing and content creation, to help your business succeed.</p>
@@ -261,10 +261,10 @@
                     <div class="footer-social">
                       <h4>Connect With Us</h4>
                       <div class="social-icons">
-                       <a href="https://www.facebook.com/Fiverr/"><img src="https://img.icons8.com/ios-filled/30/null/facebook-new.png" style="margin-top:5px;" /></a>
-					   <a href="https://twitter.com/fiverr"><img src="https://img.icons8.com/material-sharp/30/null/twitter.png" style="margin-top:5px;" /></a>
-					   <a href="https://www.linkedin.com/company/fiverr-com"><img src="https://img.icons8.com/ios-glyphs/30/null/linkedin.png" style="margin-top:5px;" /></a>
-					   <a href="https://www.instagram.com/fiverr/"><img src="https://img.icons8.com/ios-glyphs/30/null/instagram-new.png" style="margin-top:5px;" /></a>
+                       <a href="https://www.facebook.com/Fiverr/"><img src="Resources/Images/BG_Image/icon-1.png" style="margin-top:5px;" /></a>
+					   <a href="https://twitter.com/fiverr"><img src="Resources/Images/BG_Image/icon-2.png" style="margin-top:5px;" /></a>
+					   <a href="https://www.linkedin.com/company/fiverr-com"><img src="Resources/Images/BG_Image/icon-3.png" style="margin-top:5px;" /></a>
+					   <a href="https://www.instagram.com/fiverr/"><img src="Resources/Images/BG_Image/icon-4.png" style="margin-top:5px;" /></a>
                       </div>
                     </div>
                   </div>

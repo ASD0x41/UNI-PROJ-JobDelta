@@ -18,7 +18,7 @@
           <h1>Complete Your Profile</h1>
         </div>
 
-    <form>
+    
 
         <div class="profile-picture" style="margin-top:10%;">
                     <div class="upload-button-container">
@@ -83,7 +83,7 @@
         <br/>
         <asp:button ID="SubmitBtn" runat="server" CSSclass="sp_button" BackColor="black" Text="Submit" OnClick="UpdateUserInfo_Click"></asp:button><br />
 
-    </form>
+    
 
 
     </form>

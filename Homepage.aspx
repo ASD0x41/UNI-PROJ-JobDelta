@@ -99,6 +99,11 @@
             <h2>Password Recovery</h2>
             <p>Your password has been sent to your registered email.</p>
         </div>
+
+        <div id="pword-nomatch" class="popup-if">
+            <h2>Passwords Must Match!</h2>
+            <p>Your password and confirm password do not match.</p>
+        </div>
             
 
 
@@ -112,14 +117,14 @@
                     <br/>
                     <br/>
 
-                    <label for="uname">Your Username:</label>
+                    <label for="uname">Your Username:&nbsp&nbsp&nbsp&nbsp&nbsp</label>
                     <input type="text" style="width:200px; text-align:center" id="uname" name="uname" placeholder="Enter your username" <%--required="required"--%> /><br /><br />
-                    <label for="email">E-mail Address:</label>
+                    <label for="email">E-mail Address:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
                      <input type="text" style="width:200px; text-align:center" id="emailadd" name="emailadd" placeholder="Enter your email address" <%--required="required"--%> /><br /><br />
                     <br/>
                     <br/>
                     <%--<div style="margin-left:37%;"><input type="submit" class="sp_button" value="Submit"/></div>--%>
-                      <div style="margin-left:37%;"><button id="subbtn" onclick="sendpassword()">Submit</button></div>
+                      <div style="margin-left:37%;"><button id="subbtn" class="sp_button" onclick="sendpassword()">Submit</button></div>
                   </div>
          </div>
 
@@ -170,6 +175,18 @@
                 //alert("Unable to Sign Up Successfully: Username already exists!");
 
                 const popup = document.querySelector("#nomatch-uname-email");
+                //document.getElementById("incorrect-login-popup").style.display = "flex";
+                popup.style.display = "flex";
+                setTimeout(function () { popup.style.display = "none"; }, 3000);
+
+                return;
+            }
+
+            function notmatchpword() {
+                /*openPopup();*/
+                //alert("Unable to Sign Up Successfully: Username already exists!");
+
+                const popup = document.querySelector("#pword-nomatch");
                 //document.getElementById("incorrect-login-popup").style.display = "flex";
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; }, 3000);
@@ -354,15 +371,15 @@
 
                       <div class="slideshow">
                       <div class="slide">
-                         <img src="https://images.unsplash.com/photo-1482398650355-d4c6462afa0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Random Image 1">
+                         <img src="Resources/Images/BG_Image/home-1.jpeg" alt="Random Image 1">
                          <div class="slide-text">Check out our latest jobs</div>
                       </div>
                       <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Random Image 2">
+                        <img src="Resources/Images/BG_Image/home-2.jpeg" alt="Random Image 2">
                         <div class="slide-text">Earn more money with us</div>
                       </div>
                       <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1613336026275-d6d473084e85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Random Image 3">
+                        <img src="Resources/Images/BG_Image/home-3.jpeg" alt="Random Image 3">
                         <div class="slide-text">Get hired for your dream job</div>
                       </div>
                     </div>
@@ -434,7 +451,7 @@
 <!------------------------------------------------------------------------------------------------------------------->
 
         <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;">
-          <img src="https://media2.giphy.com/media/9xmjP6FkdINCA6Ucp4/giphy.gif?cid=ecf05e474pdb4r5mbuhr95i038czy60rkum5i1p7v1ajzo3q&rid=giphy.gif&ct=g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" alt="Freelancing GIF">
+          <img src="Resources/Images/BG_Image/home-4.gif" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" alt="Freelancing GIF">
           <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
             <h2 style="color: azure; text-shadow:10px 10px 5px black; font-size: 3rem; font-weight: bold; margin: 0;">Welcome to Job Delta!</h2>
             <p style="color: azure; text-shadow:10px 10px 5px black; font-size: 1.6rem; margin: 1rem 0 0 0;">"Empowering freelancers, connecting businesses: Job Delta, where opportunity meets talent."</p>

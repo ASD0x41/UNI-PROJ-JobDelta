@@ -34,7 +34,9 @@
                           </ul>
                         </nav>
                         <div class="profile">
+
                           <a href="MyProfile.aspx"><asp:Image ID="ImageControl" runat="server" /></a>
+
                           <div class="dropdown" style="margin-left:7px;">
                             <a href="javascript:redirect();">Chat</a>
                             <a href="HomePage.aspx">Logout</a>
@@ -57,13 +59,16 @@
         <footer>
 	             <div class="footer-container">
                     <div class="footer-links" style="font-weight:bold">
-                      <a href="Homepage.aspx">Home</a>
+                      <h4><a href="Homepage.aspx">Home</a></h4>
                       <a href="About_Us.aspx">About Us</a>
                       <a href="How_it_works.aspx">How It Works</a>
                       <a href="https://workspace.fiverr.com/pricing/">Pricing</a>
                       <a href="FAQs.aspx">FAQ</a>
                       <a href="Our_Services.aspx">Terms of Service</a>
+
+
                       <a href="Privacy_Policy.aspx">Privacy Policy</a>
+
                       <a href="NewsFeed.aspx">Blog</a>
                       <a href="ContactUs.aspx">Contact Us</a>
                     </div>
@@ -109,10 +114,10 @@
                     <div class="footer-social">
                       <h4>Connect With Us</h4>
                       <div class="social-icons">
-                       <a href="https://www.facebook.com/Fiverr/"><img src="https://img.icons8.com/ios-filled/30/null/facebook-new.png" style="margin-top:5px;" /></a>
-					   <a href="https://twitter.com/fiverr"><img src="https://img.icons8.com/material-sharp/30/null/twitter.png" style="margin-top:5px;" /></a>
-					   <a href="https://www.linkedin.com/company/fiverr-com"><img src="https://img.icons8.com/ios-glyphs/30/null/linkedin.png" style="margin-top:5px;" /></a>
-					   <a href="https://www.instagram.com/fiverr/"><img src="https://img.icons8.com/ios-glyphs/30/null/instagram-new.png" style="margin-top:5px;" /></a>
+                       <a href="https://www.facebook.com/Fiverr/"><img src="Resources/Images/BG_Image/icon-1.png" style="margin-top:5px;" /></a>
+					   <a href="https://twitter.com/fiverr"><img src="Resources/Images/BG_Image/icon-2.png" style="margin-top:5px;" /></a>
+					   <a href="https://www.linkedin.com/company/fiverr-com"><img src="Resources/Images/BG_Image/icon-3.png" style="margin-top:5px;" /></a>
+					   <a href="https://www.instagram.com/fiverr/"><img src="Resources/Images/BG_Image/icon-4.png" style="margin-top:5px;" /></a>
                       </div>
                     </div>
                   </div>
