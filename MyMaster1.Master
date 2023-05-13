@@ -90,11 +90,10 @@
 
                       <div class="header-container">
                         <div class="Heading_name">
-                          <a href="HomePage.aspx">JOB-DELTA</a>
+                          <a href="C_DashBoard.aspx">JOB-DELTA</a>
                         </div>
                         <nav>
                           <ul>
-                            <li><a href="HomePage.aspx">Home</a></li>
                             <li><a href="About_Us.aspx">About Us</a></li>
                             <li><a href="How_it_works.aspx">How it Works</a></li>
                             <li><a href="Our_Services.aspx">Our Services</a></li>
