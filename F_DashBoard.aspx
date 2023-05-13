@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster2.Master" AutoEventWireup="true" CodeBehind="F_DashBoard.aspx.cs" Inherits="JobDelta.F_DashBoard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Resources/CSS/F_DashBoard.css" rel="stylesheet" />
+    <link href="Resources/CSS/F_Dashboard.css" rel="stylesheet" />
 <%--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
     
     <%--<script src="Resources/JavaScript/chatApp.js"></script>--%>
@@ -67,7 +67,7 @@
               <div class="sidebar">
                       <div class="profile-wrapper">
                         <div class="profile-img-wrapper">
-                           <p style="margin-left:45px;"><asp:Image ID="ImageControl"  runat="server" Height="175px" Width="180px" /></p>
+                           <p style="margin-left:23%;"><asp:Image ID="ImageControl" runat="server" CssClass="profile-picture" /></p>
                         </div>
                         <div class="user-details">
                          <h3 class="username"><asp:Label ID="lblUsername" runat="server"></asp:Label></h3>

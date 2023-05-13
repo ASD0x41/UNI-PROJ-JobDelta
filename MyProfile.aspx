@@ -17,7 +17,7 @@
 
          <div class="personal-info">
               <div class="editable" id="profile-picture">
-                <asp:Image ID="ImageControl" runat="server" />
+                <asp:Image ID="ImageControl" runat="server" Height="300px" Width="300px" />
               </div>
                     
              <div class="content">
@@ -57,10 +57,7 @@
 
               <br />
               <br />
-               <asp:FileUpload ID="fileUpload" runat="server" />
-               <br />
-               <br />
-               <asp:Button ID="btnUpload" runat="server" CssClass="sp_button" Text="Upload" OnClick="btnUpload_Click" />
+              <p><asp:FileUpload ID="fileUpload" runat="server" />&nbsp<asp:Button ID="btnUpload" runat="server" CssClass="sp_button" Text="Upload" OnClick="btnUpload_Click"/></p>
 
            <br/>
            <br/>
@@ -68,7 +65,6 @@
 
 
             <hr style="height: 6px;" />
-
              <hr/>
             <br />
             <h2 style="color:#ff6a00">About Me</h2>

@@ -42,15 +42,6 @@ namespace JobDelta
         protected global::System.Web.UI.WebControls.FileUpload fileUpload;
 
         /// <summary>
-        /// btnUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
-
-        /// <summary>
         /// fullname control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace JobDelta
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox birthdate;
-
-        /// <summary>
-        /// email control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
         /// CNIC control.
