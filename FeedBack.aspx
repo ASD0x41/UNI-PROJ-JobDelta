@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster2.Master" AutoEventWireup="true" CodeBehind="FeedBack.aspx.cs" Inherits="JobDelta.FeedBack" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Resources/CSS/newfeedback.css" rel="stylesheet" />
+    <%--<link href="Resources/CSS/newfeedBck.css" rel="stylesheet" />--%>
+    <link href="Resources/CSS/feedBck.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
