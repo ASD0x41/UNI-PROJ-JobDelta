@@ -1,3 +1,147 @@
+CREATE FUNCTION ViewJobs (@_userID int) -- Functionality #9
+RETURNS TABLE
+AS
+    RETURN (SELECT * FROM Jobs WHERE clientID = @_userID)
+GO
+
+CREATE VIEW SelfProfiles -- Functionality #4
+AS
+    SELECT username, usertype, fullname, birthdate, CNIC, phonenumber, gender, emailaddress, workaddress, picture, aboutuser, rating, jobsongoing, jobsdone FROM Users
+GO
+
+CREATE VIEW NonSelfProfiles -- AAdditional Functionality (~#4)
+AS
+    SELECT username, usertype, fullname, gender, picture, aboutuser, rating, jobsdone FROM Users
+GO
+
+CREATE FUNCTION ViewApplicants (@_jobID int) -- Functionality #12
+    RETURNS TABLE
+AS
+    RETURN (SELECT * FROM Proposals WHERE jobID = @_jobID)
+GO
+
+CREATE FUNCTION ViewApplications (@_userID int) -- Functionality #14
+    RETURNS TABLE
+AS
+    RETURN (SELECT * FROM Proposals WHERE lancerID = @_userID)
+GO
+
+CREATE FUNCTION GetDeliverable (@_jobID int) -- Functionality #16
+    RETURNS varbinary(max)
+AS
+BEGIN
+        DECLARE @file varbinary(max)
+        SELECT @file = deliverable FROM Jobs WHERE jobID = @_jobID
+        RETURN @file
+END
+GO
+
+CREATE FUNCTION CalculateNewRating (@_userID int, @new_rating int) -- Functionality #18
+    RETURNS int
+AS
+BEGIN
+    DECLARE @newrating int, @oldrating int, @oldjobs int
+    SELECT @oldrating = (SELECT rating FROM Users WHERE userID = @userID)
+    SELECT @oldjobs = (SELECT jobsdone FROM Users WHERE userID = @userID)
+    SELECT @newrating = ((@oldrating * @oldjobs) + @new_rating) / (@oldjobs + 1)
+    RETURN @newrating
+END
+GO
+
+
+CREATE VIEW PendingComplaints -- Functionality #20
+AS
+    SELECT sentby, requestsate, details WHERE requeststatus = 'P'
+GO
+
+CREATE FUNCTION ViewComplaints () -- Functionality #20
+    RETURNS TABLE
+AS
+    RETURN (SELECT * FROM PendingComplaints)
+GO
+
+CREATE FUNCTION GetPassword (@_username int, @_emailaddress varchar(50)) -- Functionality #3
+    RETURNS varchar(16)
+AS
+BEGIN
+    DECLARE @_password varchar (16)
+    IF EXISTS (SELECT * FROM Users WHERE username = @username)
+        IF ((SELECT emailaddress FROM Users WHERE username = @_username) = @_emailaddress)
+               SELECT @_password = [password] FROM Users WHERE username = @_username
+        ELSE
+               SET @_password = 'INVALID_EMAIL'
+    ELSE
+        SET @_password = 'INVALID_USER'
+    RETURN @_password
+END
+GO
+
+
+
+
+
+
+
+
+EXECUTE UpdateUserAboutById
+@UserId = 6,
+@aboutuser = "Hi there! My name is First_Freelancer and I am a freelance graphic designer with over 5 years of experience."
+GO
+
+
+
+
+
+
+
+
+
+CREATE VIEW MyJobs
+AS
+    SELECT jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus, deliverable FROM Jobs
+GO
+
+
+
+
+
+
+
+CREATE FUNCTION ViewPostedJobs (@_userID int)
+    RETURNS TABLE
+AS
+    RETURN (SELECT jobtitle, jobtype, jobvalue, jobdetail FROM Jobs WHERE clientID = @_userID)
+GO
+
+
+
+
+
+
+
+
+create function Q5 (@userID int)
+returns table
+as
+	return (select cardNum, dbo.Q1(cardNum) as Balance from UserCard where userID = @userID)
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE PROCEDURE usp_CreateAccount
 	@userID int,
@@ -267,40 +411,109 @@ END
 go
 
 
-CREATE PROCEDURE PostJob
+alter PROCEDURE PostJob
     @clientID INT,
     @jobtitle VARCHAR(32),
     @jobtype VARCHAR(32),
     @jobvalue MONEY,
     @jobdetail TEXT,
-    @duedate DATE
+    @duedate DATE,
+
+    
 AS
 BEGIN
     
 
     
-    DECLARE @walletBalance MONEY;
-    SELECT @walletBalance = amount FROM moneytransfers WHERE srcuser = @clientID;
-    IF @jobvalue > @walletBalance
-    BEGIN
-        RAISERROR ('Insufficient balance in wallet. Please deposit sufficient funds to post the job.', 16, 1);
-        RETURN;
-    END
+  --  DECLARE @walletBalance MONEY;
+  --  SELECT @walletBalance = amount FROM moneytransfers WHERE srcuser = @clientID;
+  --  IF @jobvalue > @walletBalance
+  --  BEGIN
+  --      RAISERROR ('Insufficient balance in wallet. Please deposit sufficient funds to post the job.', 16, 1);
+  --      RETURN;
+  --  END
 
    
 
-    DECLARE @commission MONEY;
-    SET @commission = @jobvalue * 0.1;
-    UPDATE MoneyTransfers SET amount = amount - @jobvalue - @commission WHERE srcuser = @clientID;
+  --  DECLARE @commission MONEY;
+  --  SET @commission = @jobvalue * 0.1;
+  --  UPDATE MoneyTransfers SET amount = amount - @jobvalue - @commission WHERE srcuser = @clientID;
 
     
     INSERT INTO Jobs (clientID, jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus)
     VALUES (@clientID, @jobtitle, @jobtype, @jobvalue, @jobdetail, GETDATE(), @duedate, 'T');
-
+    
     
 END
 go
 
+select* from Jobs
+select* from Users
+
+DECLARE @retVal INT
+EXEC PostJob 
+    @clientID = 3,
+    @jobtitle = 'Job Title',
+    @jobtype = 'Data',
+    @jobvalue = 100.00,
+    @jobdetail = 'Example Job Details',
+    @_ret_val_ = @retVal OUTPUT
+
+SELECT @retVal
+go
+
+alter PROCEDURE CheckIfUserHasApplied
+	@jobID INT,
+    @lancerID INT,
+    @return_val  INT OUTPUT
+AS
+Begin
+    if exists( select * from Proposals where jobID = @jobID and lancerID = @lancerID)
+    begin
+        set @return_val = 1
+    end
+    else
+        set @return_val = 0
+    
+end
+
+DECLARE @jobID INT = 16
+DECLARE @UserID INT = 6
+DECLARE @return_val INT
+
+EXEC CheckIfUserHasApplied @jobID, @UserID, @return_val OUTPUT
+
+SELECT @return_val
+
+alter procedure getProposal
+@jobID INT,
+@lancerID INT,
+@proposalID INT OUTPUT,
+@proposaldetail varchar(1000) OUTPUT,
+@approvalstatus VARCHAR(32) OUTPUT,
+@applydate DATE OUTPUT
+as
+begin
+    if(exists(select * from Proposals where jobID = @jobID and lancerID = @lancerID))
+    begin
+        select @proposalID=proposalID,@proposaldetail = proposaldetail,@approvalstatus = approvalstatus,@applydate = applydate from Proposals where jobID = @jobID and lancerID = @lancerID
+    end
+end
+
+DECLARE @proposalID INT
+DECLARE @proposaldetail VARCHAR(1000)
+DECLARE @approvalstatus VARCHAR(32)
+DECLARE @applydate DATE
+
+EXEC getProposal
+    @jobID = 16,
+    @lancerID = 6,
+    @proposalID = @proposalID OUTPUT,
+    @proposaldetail = @proposaldetail OUTPUT,
+    @approvalstatus = @approvalstatus OUTPUT,
+    @applydate = @applydate OUTPUT
+
+SELECT @proposalID AS ProposalID, @proposaldetail AS ProposalDetail, @approvalstatus AS ApprovalStatus, @applydate AS ApplyDate
 
 
 
@@ -383,9 +596,20 @@ END
 go
 
 
+create procedure markproposal
+@jobID INT,
+@proposalID INT
+AS
+BEGIN
+	if exists(select * from Proposals where jobID = @jobID and proposalID = @proposalID)
+	begin
+		update Proposals set approvalstatus = 'A' where jobID = @jobID and proposalID = @proposalID
+        update Jobs set jobstatus = 'O' where jobID = @jobID
+        update Jobs set lancerID = (select lancerID from Proposals where jobID = @jobID and proposalID = @proposalID) where jobID = @jobID
+	end
+end
 
-
-CREATE PROCEDURE ViewPostedJobs
+alter PROCEDURE ViewPostedJobs
 	@clientId INT
 AS
 BEGIN
@@ -393,8 +617,163 @@ BEGIN
 	FROM Jobs
 	WHERE clientID = @clientId;
 END
-
 go
+
+alter procedure getstatus
+@jobID INT,
+@ret_val char(1) output
+as
+begin
+	if exists (select jobstatus from Jobs where jobID = @jobID)
+begin
+		select @ret_val = jobstatus from Jobs where jobID = @jobID
+	end
+end
+go
+
+
+CREATE PROCEDURE UploadDeliverable
+    @jobID INT,
+    @deliverable VARBINARY(MAX)
+AS
+BEGIN
+    UPDATE Jobs
+    SET deliverable = @deliverable, jobstatus = 'D'
+    WHERE jobID = @jobID
+END
+
+EXEC UploadDeliverable @jobID = 14, @deliverable = 0x54686973206973206120746573742064656c6976657261626c652e
+
+create procedure getDeliverable
+@jobID INT,
+@ret_val varbinary(max) output
+as
+begin
+	if exists(select deliverable from Jobs where jobID = @jobID)
+	begin
+		select @ret_val = deliverable from Jobs where jobID = @jobID
+	end
+end
+
+
+
+select* from jobs
+
+create procedure ViewOngoingJobs
+@lancerID INT
+as
+begin
+	select jobID, jobtitle, jobdetail, jobtype, jobvalue,jobstatus ,duedate from Jobs where lancerID = @lancerID
+end
+
+create procedure getProposals
+@jobID INT
+as
+begin
+	select proposalID,lancerID,proposaldetail,approvalstatus,applydate from Proposals where jobID = @jobID
+end
+
+create procedure checklancer
+@lancerID Int,
+@ret_val int output
+as
+begin
+	if exists(select * from Jobs where lancerID = @lancerID)
+	begin
+		set @ret_val = 1
+	end
+	else
+	begin
+		set @ret_val = 0
+	end
+end
+
+
+
+alter procedure getlancerID
+    @jobID INT,
+    @lancerID int output
+AS
+BEGIN
+	if exists (select lancerID from Jobs where jobID = @jobID)
+    select @lancerID=lancerID from Jobs where jobID = @jobID
+    else
+    select @lancerID = 0
+END
+go
+
+ALTER PROCEDURE ifproposal
+    @jobID INT,
+    @ret_val INT OUTPUT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Proposals WHERE jobID = @jobID)
+        SET @ret_val = 1
+    ELSE
+        SET @ret_val = 0
+END
+GO
+
+
+alter PROCEDURE ViewPostedJobs_F
+    @jobID INT,
+    @jobTitle VARCHAR(32) OUTPUT,
+    @jobType VARCHAR(32) OUTPUT,
+    @jobValue MONEY OUTPUT,
+    @jobDetail NVARCHAR(1000) OUTPUT,
+    @postDate DATE OUTPUT,
+    @dueDate DATE OUTPUT
+
+AS
+BEGIN
+    IF EXISTS (SELECT * FROM Jobs WHERE jobID = @jobID)
+    BEGIN
+        SELECT @jobTitle = jobtitle,
+               @jobType = jobtype,
+               @jobValue = jobvalue,
+               @jobDetail = jobdetail,
+               @postDate = postdate,
+               @dueDate = duedate
+               
+        FROM Jobs
+        WHERE jobID = @jobID
+    END
+END
+
+DECLARE @jobTitle VARCHAR(32),
+        @jobType VARCHAR(32),
+        @jobValue MONEY,
+        @jobDetail NVARCHAR(1000),
+        @postDate DATE,
+        @dueDate DATE,
+        @jobID INT = 17-- Replace with the desired jobID value
+
+EXEC ViewPostedJobs_F 
+    @jobID = @jobID,
+    @jobTitle = @jobTitle OUTPUT,
+    @jobType = @jobType OUTPUT,
+    @jobValue = @jobValue OUTPUT,
+    @jobDetail = @jobDetail OUTPUT,
+    @postDate = @postDate OUTPUT,
+    @dueDate = @dueDate OUTPUT
+
+SELECT @jobTitle AS JobTitle,
+       @jobType AS JobType,
+       @jobValue AS JobValue,
+       @jobDetail AS JobDetail,
+       @postDate AS PostDate,
+       @dueDate AS DueDate
+select* from Jobs
+
+CREATE PROCEDURE SearchAvailJobs
+AS
+BEGIN
+	SELECT jobID,clientID, jobtitle, jobtype, jobvalue, jobdetail
+    FROM Jobs WHERE jobstatus = 'T'
+END
+go
+
+
 
 CREATE PROCEDURE SearchJobsByCategory
     @category varchar(32)
@@ -405,35 +784,30 @@ END
 go
 
 
-CREATE PROCEDURE ApplyForJob
-    @freelancerID int,
-    @jobID int
+
+
+alter PROCEDURE submitProposal
+    @lancerID int,
+    @jobID int,
+    @proposalDetail Text
+
 AS
 BEGIN
-    
-    IF EXISTS (SELECT 1 FROM Proposals WHERE lancerID = @freelancerID AND jobID = @jobID)
-    BEGIN
-        RAISERROR ('Freelancer has already applied for this job', 16, 1);
-        RETURN;
-    END
-
-    
-    DECLARE @jobStatus char(1);
-    SELECT @jobStatus = jobstatus FROM Jobs WHERE jobID = @jobID;
-    IF @jobStatus <> 'T'
-    BEGIN
-        RAISERROR ('Job is not available for application', 16, 1);
-        RETURN;
-    END
 
    
-    INSERT INTO Proposals(lancerID, jobID,applydate )
-    VALUES (@freelancerID, @jobID, GETDATE());
-
-   
-    UPDATE Jobs SET jobstatus = 'O' WHERE jobID = @jobID;
+    INSERT INTO Proposals(lancerID, jobID,applydate,proposaldetail )
+    VALUES (@lancerID, @jobID, GETDATE(),@proposalDetail);
 END
 go
+
+
+Declare @lancerID int = 3
+Declare @jobID int = 17
+Declare @proposalDetail nvarchar(1000) = 'I am a good fit for this job2'
+EXEC submitProposal @lancerID, @jobID,@proposalDetail;
+
+select* from Proposals
+
 
 
 
@@ -710,6 +1084,7 @@ go
 
 
 --incomplete
+
 --CREATE PROCEDURE logout_user (IN user_id INT)
 --BEGIN
 --   UPDATE users SET is_logged_in = 0 WHERE id = user_id;
@@ -745,6 +1120,10 @@ BEGIN
         SET		@_ret_val_ = 0
 	
 END
+
+
+
+
 go
 
 
@@ -773,3 +1152,6 @@ drop table feedback
 drop table Complain
 
 
+
+select* from Jobs
+select* from Users

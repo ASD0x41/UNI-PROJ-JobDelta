@@ -59,24 +59,7 @@ jobEditBtn.addEventListener("click", function () {
 
 
 
-//------------------------------------------------------------------------------------------------------------------//
 
-personalInfoModal.querySelector("form").onsubmit = function (event) {
-    event.preventDefault();
 
-    nameElement.querySelector("h2").textContent = nameInput.value;
-    occupationElement.querySelector("h3").textContent = occupationInput.value;
-    emailElement.querySelector("p").textContent = `Email: ${emailInput.value}`;
 
-    personalInfoModal.style.display = "none";
-};
 
-//------------------------------------------------------------------------------------------------------------------//
-
-summaryModal.querySelector("form").onsubmit = function (event) {
-    event.preventDefault();
-
-    summaryElement.querySelector("p").textContent = summaryInput.value;
-
-    summaryModal.style.display = "none";
-};

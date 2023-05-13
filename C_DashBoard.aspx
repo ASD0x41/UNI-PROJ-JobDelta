@@ -6,11 +6,13 @@
 </asp:Content>
 
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
+<form action="#" runat="server">
     <br />
-
+    
               <div class="wrapper"> 
     
                         <div class="sidebar"  style="border-radius:10px;">
@@ -18,29 +20,27 @@
                       <div class="container"> 
                         <h2>Profile Information</h2>
                         <div class="profile-box">
-                              <img src="image.jpg" class="profile-img" alt="Profile image"><br/>
-                          <h3>Name</h3>
-                          <p>John Doe</p>
-                          <h3>Email</h3>
-                          <p>johndoe@example.com</p>
-                          <h3>Location</h3>
-                          <p>New York, USA</p>
-                          <h3>Phone</h3>
-                          <p>+1 123-456-7890</p>
-                        </div>
+                             <asp:Image ID="ImageControl" runat="server" />
+                             <h3>Name</h3>
+                             <asp:Label ID="name" runat="server"></asp:Label>
+                             <h3>Email</h3>
+                             <asp:Label ID="email" runat="server"></asp:Label>
+                             <h3>Phone</h3>
+                             <asp:Label ID="phone" runat="server"></asp:Label>
+                             </div>
                       </div>
 
                       <div class="container"> 
                         <h2>Statistics</h2>
                         <div class="stat-box">
-                          <h3>Total Projects</h3>
-                          <p>10</p>
-                          <h3>Active Projects</h3>
-                          <p>5</p>
-                          <h3>Completed Projects</h3>
-                          <p>5</p>
-                          <h3>Total Spendings</h3>
-                          <p>$5000</p>
+                         <h3>Total Projects</h3>
+                            <asp:Label ID="totalProjects" runat="server" ></asp:Label>
+                            <h3>Active Projects</h3>
+                            <asp:Label ID="activeProjects" runat="server" ></asp:Label>
+                            <h3>Completed Projects</h3>
+                            <asp:Label ID="completedProjects" runat="server" ></asp:Label>
+                            <h3>Total Spendings</h3>
+                            $<asp:Label ID="totalSpendings" runat="server" ></asp:Label>
                         </div>
                       </div>
 
@@ -48,9 +48,9 @@
                         <h2>Extra Information</h2>
                         <div class="extra_stat-box">
                           <h3>Active Project Posts</h3>
-                          <p>3</p>
-                          <h3>Feedback Received</h3>
-                          <p>4.5</p>
+                            <asp:Label ID="activeProjectPosts" runat="server"></asp:Label>
+                            <h3>Rating Received</h3>
+                            <asp:Label ID="feedbackReceived" runat="server"></asp:Label> out of 5
                         </div>
                       </div>
                         <div style="display: flex; justify-content: center; align-items: center;"><button onclick="redirect()" class="sp_button">Chat</button></div>
@@ -64,71 +64,76 @@
                  <div style="-webkit-font-smoothing:antialiased; font-size:30px; margin-left:20px "><strong>My Postings</strong></div>
                <br />
                 <br />
-                        <div style="margin-left:42%;">
-                       <button class="sp_button" onclick="openPostJob()">Post New Job</button>
-                      </div>
-                            <br />
+                        
+                      
 
-                <!-- The popup container -->
-                        <div class="popup-container">
-                          <!-- The popup content -->
-                          <div class="popup-content">
-                            <h2>Post a New Job</h2>
-
-                            <label class="popup-label" for="job-title">Job Title:</label>
-                            <input class="popup-input" type="text" id="job-title" name="job-title" required>
-                            <br>
-
-                            <label class="popup-label" for="job-description">Job Description:</label>
-                            <textarea class="popup-input" style="width:450px; height:72px;" id="job-description" name="job-description" rows="4" required></textarea>
-                            <br>
-
-                            <label class="popup-label" for="job-category">Job Category:</label>
-                            <select class="popup-input" id="job-category" name="job-category" required>
-                              <option value="">Select a category</option>
-                              <option value="web-design">Web Design</option>
-                              <option value="graphic-design">Graphic Design</option>
-                              <option value="software-development">Software Development</option>
-                              <!-- Add more options here -->
-                            </select>
-                            <br>
-
-                            <label class="popup-label" for="job-budget">Budget:</label>
-                            <input class="popup-input" type="number" id="job-budget" name="job-budget" required>
-                            <br>
-
-       
-                              <!-- Add more options here -->
-                
-                            <br>
-
-                            <label class="popup-label" for="job-skills">Skills Required:</label>
-                            <input class="popup-input" type="text" id="job-skills" name="job-skills">
-                            <br>
-
-
-                            <button class="sp_button" type="submit">Post Job</button>
-
-                            <!-- Close button for the popup -->
-                            <button class="close-button">&times;</button>
-                          </div>
-                        </div>
-
-               <asp:GridView ID="PostingGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand" CssClass="table">
+               <asp:GridView ID="PostingGridView"  runat="server" AutoGenerateColumns="False" OnRowCommand="PostingGridView_RowCommand" CssClass="J_Grid">
                 <Columns>
-                    <asp:BoundField DataField="PostingID" HeaderText="Posting ID" />
-                    <asp:BoundField DataField="Title" HeaderText="Title" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                    <asp:BoundField DataField="Category" HeaderText="Category" />
-                    <asp:BoundField DataField="Budget" HeaderText="Budget" />
+                    <asp:BoundField DataField="jobID" HeaderText="Posting ID" />
+                    <asp:BoundField DataField="jobtitle" HeaderText="Title" />
+                    <asp:BoundField DataField="jobdetail" HeaderText="Description" />
+                    <asp:BoundField DataField="jobtype" HeaderText="Category" />
+                    <asp:BoundField DataField="jobvalue" HeaderText="Budget" />
                     <asp:BoundField DataField="JobStatus" HeaderText="Job Status" />
-                    <asp:TemplateField HeaderText="Edit">
+                    <asp:BoundField DataField="postdate" HeaderText="Post Date" DataFormatString="{0:d}" />
+                    <asp:BoundField DataField="duedate" HeaderText="Due Date" DataFormatString="{0:d}" />
+                    <asp:TemplateField HeaderText="Select">
                         <ItemTemplate>
-                            <asp:LinkButton CssClass="sp_button" ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("PostingID") %>' />
+                            <asp:LinkButton CssClass="sp_button" ID="lnkEdit" runat="server" Text="View" CommandName="Select" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>        
             </asp:GridView>
+                            <br />
+                            <br />
+                            
+                            
+                            
+                            <br />
+
+                        <h2>Post a New Job</h2>
+        
+                        <asp:Label CssClass="popup-label" runat="server" Text="Job Title:"></asp:Label>
+                        <asp:TextBox CssClass="popup-input" runat="server" ID="jobTitle"  required="true"></asp:TextBox>
+                        <br />
+                       
+                        <asp:Label CssClass="popup-label" runat="server" Text="Job Description:"></asp:Label>
+                        <br />
+                        <br />
+                        <br />
+                        <asp:TextBox CssClass="popup-input" runat="server" ID="jobdesc" TextMode="MultiLine" Rows="4" Style="width: 450px;" required="true"></asp:TextBox>
+                      
+                      <br />
+        
+                        <asp:Label CssClass="popup-label" runat="server" Text="Job Category:"></asp:Label>
+                        <asp:DropDownList CssClass="popup-input" runat="server" ID="jobCategory" required="true">
+                            <asp:ListItem Value="">Select a category</asp:ListItem>
+                            <asp:ListItem Value="web-design">Web Design</asp:ListItem>
+                            <asp:ListItem Value="graphic-design">Graphic Design</asp:ListItem>
+                            <asp:ListItem Value="software-development">Software Development</asp:ListItem>
+                            
+                        </asp:DropDownList>
+                        <br />
+        
+                        <asp:Label CssClass="popup-label" runat="server"  Text="Budget:"></asp:Label>
+                        <asp:TextBox CssClass="popup-input" runat="server" ID="jobBudget" type="number" required="true"></asp:TextBox>
+                        <br />
+        
+                       
+                        <br />
+                    
+                        <asp:Label   runat="server"  Text="Due Date:"></asp:Label>
+                        <asp:Calendar  runat="server" ID="jobDueDate"></asp:Calendar>
+
+                        <br />
+        
+                        <asp:Button CssClass="sp_button" runat="server" ID="BtnPostJob" OnClick="BtnJobPost_Click" Text="Post Job"  />
+        
+                        
+                        <button class="close-button">&times;</button>
+               
+               
+
 
 
                   <section class="Banner">
@@ -181,8 +186,9 @@
             </div>
 
 <%-------------------------------------------------------------------------------------------------%> 
-
-
+    </form>
     <script src="Resources/JavaScript/C_Dashboard.js"></script>
     <script src="Resources/JavaScript/chatApp.js"></script>
 </asp:Content>
+
+

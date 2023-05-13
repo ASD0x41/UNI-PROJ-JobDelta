@@ -13,7 +13,7 @@
 
         <section class="form">
           <h3>Feedback Form</h3>
-          <form action="submit_feedback.php" method="post">
+          <form action="#"  runat="server">
             <div class="form-group">
               <label for="name">Name:</label>
               <asp:TextBox ID="name" runat="server"></asp:TextBox> 
