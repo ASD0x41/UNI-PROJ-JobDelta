@@ -333,9 +333,12 @@
 
 
 
+        <asp:Panel ID="Panel1" runat="server" DefaultButton="BtnSignIn">
 
     <div class="Cover" style="background-image:url(Resources/Images/office3.jpg); background-size:cover;">
+        
                 <div class="wrapper">
+                    
                         <div class="signin_container" id="signin-container">
                           <h2>Sign In</h2>
                             
@@ -346,8 +349,10 @@
                             <asp:Button CssClass="sp_button" ID="BtnSignIn" runat="server" Text="Sign In" onclick="BtnSignIn_Click"/>
                                 
                         </div>
-
+                    
+                    <asp:Panel ID="Panel2" runat="server" DefaultButton="BtnSignUp">
                         <div class="signup_container" id="signup-container">
+
                           <h2>Sign Up</h2>
                             
                                 <asp:TextBox ID="txtName" runat="server" placeholder="Username"></asp:TextBox>
@@ -364,8 +369,11 @@
                                 <asp:Button CssClass="sp_button" ID="BtnSignUp" runat="server" Text="Sign Up" OnClick="BtnSignUp_Click"/>
                            
                          </div>
+                                   </asp:Panel>
                      </div>
+ 
                 </div>
+            </asp:Panel>
 
 <!------------------------------------------------------------------------------------------------------------------->
 
