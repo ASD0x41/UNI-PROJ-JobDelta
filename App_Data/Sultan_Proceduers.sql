@@ -405,13 +405,13 @@ The "jobsnotdone" output value represents the total number of jobs that are not 
 
 -----------------------------------------TotalEarning------------------------------------------
 
-CREATE PROCEDURE GetTotalEarnings
+alter PROCEDURE GetTotalEarnings
     @userId INT
 AS
 BEGIN
     SELECT  COALESCE(SUM(amount), 0) AS TotalAmountReceived
     FROM MoneyTransfers
-    WHERE dstuser = @userId AND srcuser IS NOT NULL
+    WHERE dstuser = @userId AND srcuser IS NOT NULL AND srcuser != @userId
 END
 GO
 
@@ -447,7 +447,7 @@ AS
 BEGIN
     SELECT COALESCE(SUM(amount), 0) AS TotalAmountReceived
     FROM MoneyTransfers
-    WHERE srcuser = @userId AND dstuser IS NOT NULL
+    WHERE srcuser = @userId AND dstuser IS NOT NULL AND dstuser != @userId
 END
 GO
 
@@ -554,6 +554,8 @@ BEGIN
 	WHERE userID = @userID
 END
 GO
+
+
 
 -----------------------CompleteProfile-------------------------------
 CREATE PROCEDURE UpdateUserInfo
@@ -806,11 +808,13 @@ BEGIN
         transfertime,
         amount,
         CASE 
+            WHEN srcuser = 1 THEN 'Portal' 
             WHEN srcuser IS NOT NULL THEN dbo.GetUsernameById(srcuser)
             ELSE 'BankTransfer'
         END AS srcusername,
-        CASE 
-            WHEN dstuser IS NOT NULL THEN dbo.GetUsernameById(dstuser)
+        CASE
+            WHEN dstuser = 1 THEN 'Portal' 
+            WHEN dstuser IS NOT NULL THEN dbo.GetUsernameById(dstuser) 
             ELSE 'BankTransfer'
         END AS dstusername,
         dbo.GetJobTitle(forjob) AS JobTitle
@@ -820,6 +824,7 @@ BEGIN
         transfertime DESC;
 END
 GO
+
 
 
 CREATE PROCEDURE DisplayProposalInfo
@@ -864,6 +869,7 @@ BEGIN
     dbo.GetJobTitle(onJob) AS [Job Title],
     posteddate AS [Date],
     details,
+    complaintID,
 	status 
     FROM 
         Complaints
@@ -886,18 +892,39 @@ BEGIN
   INSERT INTO complaints (sentby, sentfor, onJob, posteddate, details)
   VALUES (@sentby, @sentfor, @jobID, GETDATE(), @details);
 END
+GO
+
+Create PROCEDURE HandleComplaint_Accept
+    @complaintid int
+AS
+BEGIN
+    DECLARE @By INT,@Against INT,@JobID INT,@jobvalue INT;
+    select @By = sentby,@Against = sentfor  from complaints where complaintID = @complaintid
+    
+    UPDATE Complaints SET status = 'H' WHERE complaintid = @complaintid;
+    
+    SELECT @JobID = onJob FROM complaints WHERE complaintID = @complaintid
+    SELECT @jobvalue = jobvalue FROM Jobs WHERE jobID = @JobID
+    
+    DECLARE @DeductionAmount INT
+    SET @DeductionAmount = ((@jobvalue*15)/100)
+    
+    UPDATE Users SET walletmoney = walletmoney + @DeductionAmount  WHERE userID = @By
+    UPDATE Users SET walletmoney = walletmoney - @DeductionAmount WHERE userID = @Against
+    insert into MoneyTransfers (transfertime,amount,forjob,srcuser,dstuser) values
+    (getdate(),@DeductionAmount,@JobID,@Against,@By)
+
+
+END
+GO
 
 
 
-CREATE PROCEDURE HandleComplaint
+CREATE PROCEDURE HandleComplaint_Reject
     @complaintid int
 AS
 BEGIN
     UPDATE Complaints
-    SET complaintstatus = 'D'
+    SET status = 'R'
     WHERE complaintid = @complaintid;
 END
-
-
-
-

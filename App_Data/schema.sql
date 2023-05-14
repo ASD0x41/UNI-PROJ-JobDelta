@@ -328,6 +328,15 @@ create table complaints		-- complaints for admins by clients/freelancers
 );
 go
 
+create table feedback		-- feedbacks for admins by clients/freelancers
+(
+	feedbackID		int				primary key		identity(1,1),
+	sentby			int				foreign key		references Users (userID),
+	feedback	varchar(250),
+	rating		int
+);
+go
+
 insert into complaints (sentby,sentfor,onJob,posteddate,details,status) values (3, 6,13,getdate(),'did not provided working project','P')
 
 Select * from complaints
@@ -510,13 +519,8 @@ alter PROCEDURE PostJob
     @jobtype VARCHAR(32),
     @jobvalue MONEY,
     @jobdetail TEXT,
-<<<<<<< Updated upstream
     @duedate DATE
 
-    
-=======
-    @duedate DATE 
->>>>>>> Stashed changes
 AS
 BEGIN
     
