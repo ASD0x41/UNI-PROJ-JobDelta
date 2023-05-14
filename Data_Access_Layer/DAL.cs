@@ -514,6 +514,20 @@ namespace JobDelta.Data_Access_Layer
             }
         }
 
+
+        public void removeJob(int jobID)
+        {
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand("removeJob", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@JobID", jobID);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+        }
         public string GetDeliverableExt(int jobID)
         {
             string x = "";
