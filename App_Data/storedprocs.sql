@@ -192,6 +192,7 @@ select* from jobs
 
 GO
 
+
 create procedure ViewOngoingJobs
 @lancerID INT
 as
@@ -199,28 +200,6 @@ begin
 	select jobID, jobtitle, jobdetail, jobtype, jobvalue,jobstatus ,duedate from Jobs where lancerID = @lancerID
 end
 GO
-
-alter procedure removeJob
-@jobID INT
-as
-begin
-    if exists (select* from MoneyTransfers where forjob = @jobID)
-    begin
-        UPDATE Users	SET walletmoney += (select amount from MoneyTransfers where forjob = @jobID) WHERE userID = (SELECT srcuser FROM MoneyTransfers WHERE forjob = @jobID)
-        UPDATE Users	SET walletmoney -= (select amount from MoneyTransfers where forjob = @jobID) WHERE userID = (SELECT dstuser FROM MoneyTransfers WHERE forjob = @jobID)
-        delete from MoneyTransfers where forjob = @jobID
-        
-	end
-    if exists (select* from complaints where onJob = @jobID)
-    begin
-		delete from complaints where onJob = @jobID
-	end
-
-    delete from Jobs where jobID = @jobID
-end
-
-select * from MoneyTransfers
-select* from complaints
 
 
 
@@ -247,10 +226,6 @@ begin
 	end
 end
 GO
-
-
-
-
 
 
 

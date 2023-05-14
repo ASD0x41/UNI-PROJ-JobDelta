@@ -11,33 +11,105 @@
 		<h1>Search Profile</h1>
 
 		<form runat="server">
-			<label for="account-type" style="margin-left:17%;">Account Type:</label>
-			<select id="account-type">
-				<option value="">All</option>
-				<option value="Freelancer">Freelancer</option>
-				<option value="Client">Client</option>
-			</select>
+			
 
-			<label for="occupation">Occupation:</label>
-			<select id="occupation">
-				<option value="">All</option>
-				<option value="developer">Developer</option>
-				<option value="designer">Designer</option>
-				<option value="writer">Writer</option>
-				<option value="consultant">Consultant</option>
-			</select>
 
-			<input type="text" id="search" placeholder="Search profiles...">
+			<asp:TextBox ID="searchname" runat="server" placeholder="Search by username..."></asp:TextBox>
 			<asp:button CssClass="sp_button" ID="BtnSearch" runat="server" Text="Search" onclick="BtnSearch_Click" />
 		</form>
 
-		<div id="results">
-			<!-- Profiles will be displayed here -->
+		<div id="profresults" style="display:none;">
+
+			<div class="container">
+
+         <div class="personal-info">
+              <div class="prof" id="profile-picture">
+                <asp:Image ID="ImageControl" runat="server" Height="300px" Width="300px" />
+              </div>
+                    
+             <div class="content">
+                     <div class="prof" id="fullname">
+                        <h2><asp:Label ID="fullNameLabel" runat="server" Text="John Doe"></asp:Label></h2>
+                     </div>
+
+                    <div class="prof" id="Gender">
+                        <p><b>Gender :</b> <asp:Label ID="genderLabel" runat="server" Text="Male"></asp:Label></p>
+                    </div>
+                 
+                    <div class="prof" id="usertype">
+                        <p><b>User Type :</b> <asp:Label ID="usrtype" runat="server" Text="None"></asp:Label></p>
+                    </div>
+
+                    <div class="prof" id="userid">
+                        <p><b>User ID :</b> <asp:Label ID="idusr" runat="server" Text="-1"></asp:Label></p>
+                    </div>
+
+                    <div class="prof" id="email">
+                        <p><b>Email :</b> <asp:Label ID="emailLabel" runat="server" Text="john.doe@example.com"></asp:Label></p>
+                    </div>
+
+                    <div class="prof" id="Phone_Number">
+                        <p><b>Phone_Number :</b> <asp:Label ID="phoneNumberLabel" runat="server" Text="0100-1234561"></asp:Label></p>
+                    </div>
+                    
+                    <div class="prof" id="WorkAdress">
+                        <p><b>Address :</b> <asp:Label ID="WorkaddressLabel" runat="server" Text="3b Street New York City"></asp:Label></p>
+                    </div>             
+
+                 <br />
+             </div>
+         </div>
+
+              <br />
+           
+
+
+            <hr style="height: 6px;" />
+             <hr/>
+            <br />
+            <h2 style="color:#ff6a00">About Me</h2>
+            <br />
+          <div class="prof" id="summary">
+            <p><asp:Label ID="aboutUs" runat="server" Text=""></asp:Label></p>
+            <br/>
+            <br/>
+          </div>
+            <br/>
+            <br/>
+            <br/>
+
+           <br />
+            
+          </div>
+
+
+
 		</div>
 
 	</div>
 
 	<script>
+        function displayprofile() {
+
+            const popup = document.querySelector("#profresults");
+
+            popup.style.display = "flex";
+
+            return;
+
+        }
+
+        function hideprofile() {
+
+            const popup = document.querySelector("#profresults");
+
+            popup.style.display = "none";
+
+            return;
+
+        }
+
+
         /*const form = document.querySelector('form');
         const accountTypeSelect = document.getElementById('account-type');
         const occupationSelect = document.getElementById('occupation');
