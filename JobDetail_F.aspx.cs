@@ -214,7 +214,9 @@ namespace JobDelta
                 Response.Clear();
                 Response.Buffer = true;
                 Response.ContentType = "application/octet-stream";
+
                 Response.AddHeader("Content-Disposition", "attachment; filename=deliverable"+ fileExtension);
+
                 Response.BinaryWrite(fileBytes);
                 Response.End();
             }

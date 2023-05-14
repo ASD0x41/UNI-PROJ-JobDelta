@@ -33,23 +33,23 @@
                     </header> 
         
 
-          <div class="slide2show-container" style="margin-top:10%; margin-bottom:5%;"> 
+         <div class="slide2show-container" style="margin-right:8px;"> 
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 1"/>
+                <img src="Resources/Images/BG_Image/A-7.jpg" alt="Slide 1"/>
                 <div class="slide2-text">
                   <h2>Welcome to Job Delta</h2>
                   <p>We are a freelancing platform connecting businesses with top-rated freelancers from around the world. Our mission is to help businesses grow and succeed by providing them with the best freelance talent available.</p>
                 </div>
               </div>
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 2"/>
+                <img src="Resources/Images/BG_Image/A-8.jpg" alt="Slide 2"/>
                 <div class="slide2-text">
                   <h2>Hire Top Freelancers</h2>
                   <p>Find the perfect freelancer for your project. Our platform offers a wide range of freelancers with diverse skills and experience levels, so you can find the right fit for your project.</p>
                 </div>
               </div>
               <div class="slide2">
-                <img src="https://source.unsplash.com/random/800x400" alt="Slide 3"/>
+                <img src="Resources/Images/BG_Image/A-9.jpg" alt="Slide 3"/>
                 <div class="slide2-text">
                   <h2>Grow Your Business</h2>
                   <p>Get the help you need to grow your business. Our freelancers offer a wide range of services, from web development and design to marketing and content creation, to help your business succeed.</p>
@@ -176,17 +176,18 @@
                         <asp:BoundField DataField="status" HeaderText="Status" />
                         <asp:TemplateField HeaderText="Resolve">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lnkEdit" runat="server" Text="↩" CommandName="IssueID" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    </Columns>
-                 <HeaderStyle BackColor="#CCCCCC" Font-Bold="true" />
-              </asp:GridView>
+                         <asp:LinkButton ID="Accept_btn" runat="server" Text="Accept" CommandName="Accept" CommandArgument='<%# Eval("complaintID") %>' OnCommand="AcceptButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
+                         <asp:LinkButton ID="Reject_btn" runat="server" Text="Reject" CommandName="Reject" CommandArgument='<%# Eval("complaintID") %>' OnCommand="RejectButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
+                          </ItemTemplate>
+                        </asp:TemplateField>
+                        </Columns>
+                     <HeaderStyle BackColor="#CCCCCC" Font-Bold="true" />
+                  </asp:GridView>
 
         <br />
         <br />
 
-
+        
 
  <%-------------------------------------------------------------------------------------------------%> 
 
@@ -219,6 +220,9 @@
 
                 <br />
                 <br />
+
+<%-------------------------------------------------------------------------------------------------%> 
+
 
 
 <%-------------------------------------------------------------------------------------------------%> 
