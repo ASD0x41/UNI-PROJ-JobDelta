@@ -84,8 +84,8 @@ namespace JobDelta
             string fullname = Name_I.Text;
             DAL myDAL = new DAL();
 
-            if(add != "")
-                myDAL.UpdateUserAddressById(userID,add);
+            if (add != "")
+                myDAL.UpdateUserAddressById(userID, add);
 
             if (p_number != "")
                 myDAL.UpdateUserPhoneNumberById(userID, p_number);
@@ -112,5 +112,28 @@ namespace JobDelta
             }
         }
 
+        protected void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            int UserId = (int)Application["currentUser"];
+            string old_pass = OldPassword.Text;
+            string new_pass = NewPassword.Text;
+            string confirm_pass = NewPassword2.Text;
+            string check;
+            DAL myDAL = new DAL();
+            check = myDAL.getPassword(UserId);
+            if(confirm_pass != new_pass)
+            {
+                ERROR.Text = "Confirm Password not same as New Password";
+            }
+            else if(check != old_pass)
+            {
+                ERROR.Text = "Wrong Old PassWord";
+            }
+            else
+            {
+                myDAL.ChangePassword(UserId, new_pass);
+                Response.Redirect("MyProfile.aspx");
+            }
+        }
     }
 }

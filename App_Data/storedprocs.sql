@@ -162,6 +162,103 @@ SELECT @proposalID AS ProposalID, @proposaldetail AS ProposalDetail, @approvalst
 
 
 
+CREATE PROCEDURE EditJob
+    @jobID INT,
+    @clientID INT,
+    @jobtitle VARCHAR(32),
+    @jobtype VARCHAR(32),
+    @jobvalue MONEY,
+    @jobdetail TEXT,
+    @duedate DATE
+AS
+BEGIN
+    
+    IF EXISTS(SELECT 1 FROM Jobs WHERE jobID = @jobID AND clientID = @clientID AND jobstatus = 'T')
+    BEGIN
+        
+        IF NOT EXISTS(SELECT 1 FROM Jobs WHERE jobID = @jobID AND jobstatus = 'N')
+        BEGIN
+            
+            UPDATE Jobs
+            SET jobtitle = @jobtitle,
+                jobtype = @jobtype,
+                jobvalue = @jobvalue,
+                jobdetail = @jobdetail,
+                duedate = @duedate
+            WHERE jobID = @jobID AND clientID = @clientID AND jobstatus = 'T'
+        END
+        ELSE
+        BEGIN
+            
+            RAISERROR('Cannot edit job as a freelancer has already applied for it', 16, 1)
+        END
+    END
+    ELSE
+    BEGIN
+        
+        RAISERROR('Invalid job or client', 16, 1)
+    END
+END
+
+go
+
+
+
+
+CREATE PROCEDURE RemoveJob
+    @jobID int,
+    @clientID int
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    
+    IF EXISTS (
+        SELECT 1
+        FROM Jobs
+        WHERE jobID = @jobID AND clientID = @clientID AND jobstatus IN ('T', 'N')
+    )
+    BEGIN
+        
+       -- UPDATE Walletmoney
+        --SET balance = balance + j.jobvalue
+        --FROM Jobs j
+        --JOIN Wallet w ON j.clientID = w.userID
+        --WHERE j.jobID = @jobID
+
+        DELETE FROM Jobs
+        WHERE jobID = @jobID AND clientID = @clientID
+
+        SELECT 'Job removed successfully' AS Message
+    END
+    --ELSE
+    BEGIN
+        RAISERROR('Cannot remove job. It has already been assigned to a freelancer.', 16, 1)
+    END
+END
+GO
+
+
+alter procedure markproposal
+@jobID INT,
+@proposalID INT
+AS
+BEGIN
+    DECLARE @ClientID INT,@LancerID INT;
+
+    select @ClientID = clientID,@LancerID = lancerID from Jobs where jobID = @jobID  
+
+	if exists(select * from Proposals where jobID = @jobID and proposalID = @proposalID)
+	begin
+		update Proposals set approvalstatus = 'A' where jobID = @jobID and proposalID = @proposalID
+        update Jobs set jobstatus = 'O' where jobID = @jobID
+        update Jobs set lancerID = (select lancerID from Proposals where jobID = @jobID and proposalID = @proposalID) where jobID = @jobID
+        update Users SET jobsnotdone = jobsnotdone - 1 WHERE userID = @ClientID
+        update Users SET jobsongoing = jobsongoing + 1 WHERE userID = @ClientID
+        update Users SET jobsongoing = jobsongoing + 1 WHERE userID = @LancerID
+	end
+end
+GO
 
 go
 ------------already got it from previous file
