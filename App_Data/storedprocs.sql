@@ -308,6 +308,8 @@ begin
 end
 GO
 
+
+
 create procedure checklancer
 @lancerID Int,
 @ret_val int output
@@ -1284,7 +1286,7 @@ BEGIN
 end
 GO
 
-alter PROCEDURE PostJob
+create PROCEDURE PostJob
     @clientID INT,
     @jobtitle VARCHAR(32),
     @jobtype VARCHAR(32),
