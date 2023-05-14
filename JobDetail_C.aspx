@@ -4,8 +4,12 @@
     <link href="Resources/CSS/C_DashBoard.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <form action="#" runat="server">
-         <h1>Job Details</h1>
+     <form id="form1" runat="server">
+         <h1>Job Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+         <asp:Button ID ="btnClose" Visible="false" Enabled="false" runat="server" Text="remove" OnClick="btnRemove_Click" style="margin-right:2px" />
+
+          </h1>
 
           <asp:Label CssClass="popup-label" runat="server" Text="Job ID:"></asp:Label>
          <asp:TextBox CssClass="popup-input" runat="server" ID="jobIDT"  ReadOnly="true"></asp:TextBox>
