@@ -17,6 +17,13 @@ namespace JobDelta
         protected void Page_Load(object sender, EventArgs e)
         {
 
+			if ((int)Application["curUserType"] < 0)
+                Response.Redirect("Homepage.aspx");
+            else if ((int)Application["curUserType"] == 1)
+                Response.Redirect("F_DashBoard.aspx");
+			else if ((int)Application["curUserType"] == 2)
+                Response.Redirect("C_DashBoard.aspx");
+
             DAL myDAL = new DAL();
             Commission.Text = myDAL.GetUserWalletMoneyById(1).ToString();
             DataTable dataTable = myDAL.DisplayUsersInfo();
