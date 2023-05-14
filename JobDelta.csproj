@@ -13688,7 +13688,7 @@
     <Content Include="Resources\CSS\Master2.css" />
     <Content Include="Resources\CSS\myProfile.css" />
     <Content Include="Resources\CSS\NewsFeed.css" />
-    <Content Include="Resources\CSS\Search.css" />
+    <Content Include="Resources\CSS\search.css" />
     <Content Include="Resources\CSS\wallet.css" />
     <Content Include="Resources\Images\asad.png" />
     <Content Include="Resources\Images\me.jpg" />

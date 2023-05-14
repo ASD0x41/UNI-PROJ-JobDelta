@@ -1,107 +1,119 @@
-﻿/* Style for container */
+﻿/* Container styles */
 .container {
-    max-width: 100%;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 40px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-    /* Style for h1 */
-    .container h1 {
-        font-size: 48px;
-        font-weight: bold;
-        margin-bottom: 30px;
-        color: #333;
-        text-align: center;
-    }
+/* Personal info styles */
+.personal-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    visibility: visible;
+}
 
-    /* Style for form */
-    .container form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 30px;
-    }
+.A_info {
+    visibility: visible;
+}
 
-    /* Style for select inputs */
-    .container select {
-        margin-right: 10px;
-        padding: 10px 20px;
-        border-radius: 5px;
-        background-color: #fff;
-        border: none;
-        font-size: 16px;
-        color: #333;
-        transition: all 0.3s ease-in-out;
-    }
+.prof {
+    margin-right: 20px;
+}
 
-        .container select:focus {
-            outline: none;
-            box-shadow: 0 0 3px #ffa07a;
-        }
+#profile-picture {
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-/* Style for search input */
-#search {
+.content {
     flex-grow: 1;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    border: none;
-    font-size: 16px;
+}
+
+/* Typography styles */
+h2 {
+    margin: 0;
+    font-size: 24px;
     color: #333;
-    transition: all 0.3s ease-in-out;
 }
 
-    #search:focus {
-        outline: none;
-        box-shadow: 0 0 3px #ffa07a;
-    }
-
-/* Style for submit button */
-.container button[type="submit"] {
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #ff6a00;
-    border: none;
-    color: #fff;
+p {
+    margin: 0;
     font-size: 16px;
+    color: #555;
+}
+
+b {
     font-weight: bold;
+}
+
+/* Separator styles */
+hr {
+    height: 2px;
+    background-color: #ccc;
+    border: none;
+    margin: 20px 0;
+}
+
+/* About Me section styles */
+#summary {
+    font-size: 18px;
+}
+
+/* Customization */
+.container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #ff6a00;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-info {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.prof {
+    margin-bottom: 10px;
+}
+
+#summary 
+{
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.S_Bar {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.sp_button {
+    padding: 8px 16px;
+    background-color: #ff6a00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
 }
 
-    .container button[type="submit"]:hover {
+    .sp_button:hover {
         background-color: #fff;
-        color: #ff6a00;
     }
-
-/* Style for results section */
-#results {
-    margin-top: 20px;
-}
-
-/* Media queries for responsiveness */
-@media only screen and (max-width: 767px) {
-    .container {
-        padding: 20px;
-    }
-
-        .container h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .container form {
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .container select {
-            margin-right: 0;
-            margin-bottom: 10px;
-        }
-}

@@ -457,7 +457,7 @@ select* from Users
 
 
 
-
+GO
 -----------------------------------------GetUserById------------------------------------------
 
 CREATE PROCEDURE GetUserById(
@@ -1206,7 +1206,7 @@ GO
 
 ------------------------------------------------------------------------------------------------
 
-Alter PROCEDURE ChangePassword
+CREATE PROCEDURE ChangePassword
 	@userID int,
 	@newPassword VARCHAR(16)
 AS
