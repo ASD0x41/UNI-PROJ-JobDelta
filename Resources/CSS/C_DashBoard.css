@@ -344,4 +344,12 @@ tr:hover {
 
 /*--------------------------------------------------------------------------------------------*/
 
+.ERROR_txt {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #f70f0f;
+    background-color: inherit;
+    width: 30%
+}
 

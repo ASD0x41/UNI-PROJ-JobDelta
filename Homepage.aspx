@@ -208,7 +208,7 @@
                                 
                         </div>
                     
-                    <asp:Panel ID="Panel2" runat="server" DefaultButton="BtnSignUp" style="width: 50%;">
+                    <%--<asp:Panel ID="Panel2" runat="server" DefaultButton="BtnSignUp" style="width: 50%;">--%>
                         <div class="signup_container" id="signup-container">
 
                           <h2>Sign Up</h2>
@@ -227,7 +227,7 @@
                                 <asp:Button CssClass="sp_button" ID="BtnSignUp" runat="server" Text="Sign Up" OnClick="BtnSignUp_Click"/>
                            
                          </div>
-                                   </asp:Panel>
+                                   <%--</asp:Panel>--%>
                      </div>
  
                 </div>

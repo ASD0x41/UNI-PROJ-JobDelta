@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster2.Master" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="JobDelta.MyProfile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Resources/CSS/MyProfile.css" rel="stylesheet" />
+    <link href="Resources/CSS/myProfile.css" rel="stylesheet" />
 </asp:Content>
 
 
@@ -52,12 +52,20 @@
                  <br />
                  <br />
               <a class="edit-button" id="personal-info-btn">Edit</a>
+                 <br />
+                 <br />
+                 <br />
+              <a class="edit-button" id="ChangePassword">Change-Password</a>
+                 <br />
+                 <br />
+                 <asp:TextBox ID="ERROR" runat="server" CssClass="ERROR_txt" BorderStyle="None" Text="" ></asp:TextBox>
+              <br />
              </div>
-         </div>
+             </div>
 
               <br />
               <br />
-              <p><asp:FileUpload ID="fileUpload" runat="server" />&nbsp<asp:Button ID="btnUpload" runat="server" CssClass="sp_button" Text="Upload" OnClick="btnUpload_Click"/></p>
+              <p><asp:FileUpload ID="fileUpload" runat="server" /><br /><br /><asp:Button ID="btnUpload" runat="server" CssClass="sp_button" Text="Upload" OnClick="btnUpload_Click"/></p>
 
            <br/>
            <br/>
@@ -68,6 +76,7 @@
              <hr/>
             <br />
             <h2 style="color:#ff6a00">About Me</h2>
+            <p style="font-size:10px; margin-top:-15px; font-weight:bold;">( *Note : if you are a Freelancer do provide you specialization and qualification to make a good impression on Client and As a Client you should provide sufficient information about your frim or personal aims for Lancer. )</p>
             <br />
           <div class="editable" id="summary">
             <p><asp:Label ID="aboutUs" runat="server"></asp:Label></p>
@@ -136,10 +145,31 @@
   </div>
 </div>
 
-</form>
+
 
 <%-- -------------------------------------------------------------------------------------------------------------------- --%>
 
+    <div id="Password-info-modal" class="modal">
+  <div class="modal-content" style="width:40%">
+    <span class="close">&times;</span>
+    <h2>Change Password</h2>
+
+        <label for="OldPassword">Old Password :</label>
+        <asp:TextBox ID="OldPassword" runat="server" CssClass="form-control" TextMode="Password" Width="60%" Height="20px" ></asp:TextBox>
+        <br />
+        <label for="NewPassword">New Password:</label>
+        <asp:TextBox ID="NewPassword" runat="server" CssClass="form-control" TextMode="Password" Width="60%" Height="20px" ></asp:TextBox>
+        <label for="NewPassword2">Confirm New Password:</label>
+        <asp:TextBox ID="NewPassword2" runat="server" CssClass="form-control" TextMode="Password" Width="60%" Height="20px" ></asp:TextBox>
+         <br />
+         <br />
+        <asp:Button  ID="Change_btn" CSSclass="edit-button" runat="server" TextMode="Password" Text="Change" onclick="btnChangePassword_Click"/>
+  
+  </div>
+</div>
+
+<%-- -------------------------------------------------------------------------------------------------------------------- --%>
+</form>
 
     <script src="Resources/JavaScript/MyProfile.js"></script>
 

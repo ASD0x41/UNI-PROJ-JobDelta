@@ -327,13 +327,8 @@ alter PROCEDURE PostJob
     @jobtype VARCHAR(32),
     @jobvalue MONEY,
     @jobdetail TEXT,
-<<<<<<< Updated upstream
     @duedate DATE
 
-    
-=======
-    @duedate DATE 
->>>>>>> Stashed changes
 AS
 BEGIN
     

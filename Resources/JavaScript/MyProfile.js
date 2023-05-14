@@ -13,12 +13,12 @@ const summaryElement = document.getElementById("summary");
 // Modal elements
 var personalInfoModal = document.getElementById("personal-info-modal");
 var summaryModal = document.getElementById("summary-modal");
-var jobModal = document.getElementById("job-modal");
+var jobModal = document.getElementById("Password-info-modal");
 
 // Edit button elements
 var personalInfoBtn = document.getElementById("personal-info-btn");
 var summaryInfoBtn = document.getElementById("summary-info-btn");
-var jobEditBtn = document.getElementById("Job-info-btn");
+var jobEditBtn = document.getElementById("ChangePassword");
 
 // Close button elements
 var closeBtns = document.getElementsByClassName("close");
@@ -32,6 +32,7 @@ personalInfoBtn.onclick = function () {
 summaryInfoBtn.onclick = function () {
     summaryModal.style.display = "block";
 }
+
 
 // Close modal when close button is clicked
 for (var i = 0; i < closeBtns.length; i++) {
@@ -56,7 +57,6 @@ window.onclick = function (event) {
 jobEditBtn.addEventListener("click", function () {
     jobModal.style.display = "block";
 });
-
 
 
 
