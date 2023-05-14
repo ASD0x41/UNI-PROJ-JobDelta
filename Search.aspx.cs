@@ -19,6 +19,8 @@ namespace JobDelta
         {
             if ((int)Application["curUserType"] < 0)
                 Response.Redirect("Homepage.aspx");
+            ImageControl.ImageUrl = "Resources/Images/Profile.png\" alt=\"Profile Picture";
+
         }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
@@ -32,12 +34,12 @@ namespace JobDelta
 
             if (profile.Item10 == 0 && profile.Item8 != 0)
             {
-                fullNameLabel.Text = profile.Item1;
-                emailLabel.Text = profile.Item7;
-                phoneNumberLabel.Text = profile.Item6;
-                WorkaddressLabel.Text = profile.Item5;
-                genderLabel.Text = profile.Item2.ToString();
-                aboutUs.Text = profile.Item4;
+                fullNameLabel.Text = myDAL.GetFullnameById(profile.Item9);
+                emailLabel.Text = myDAL.GetEmailById(profile.Item9);
+                phoneNumberLabel.Text = myDAL.GetPhoneNumber(profile.Item9);
+                WorkaddressLabel.Text = myDAL.GetUserWorkAddressById(profile.Item9);
+                genderLabel.Text = myDAL.GetUserGenderById(profile.Item9);
+                aboutUs.Text = myDAL.GetUserAboutById(profile.Item9);
 
                 switch (profile.Item8 )
                 {
@@ -62,15 +64,18 @@ namespace JobDelta
                     ImageControl.ImageUrl = "Resources/Images/Profile.png\" alt=\"Profile Picture";
                 }
 
-                string script2 = "displayprofile();";
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "displayprofile", script2, true);
-
             }
             else
             {
-                string script2 = "hideprofile();";
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "hideprofile", script2, true);
-                
+                ImageControl.ImageUrl = "Resources/Images/Profile.png\" alt=\"Profile Picture";
+                fullNameLabel.Visible = false;
+                emailLabel.Visible = false;
+                phoneNumberLabel.Visible = false;
+                genderLabel.Visible = false;
+                usrtype.Visible= false;
+                WorkaddressLabel.Visible = false;
+                aboutUs.Visible = false;
+                idusr.Visible= false;
             }
             
         }
