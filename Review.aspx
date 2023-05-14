@@ -30,7 +30,7 @@
             </div>
 
          <div class="form-group">
-          <label for="rating">How satisfied were you with the job done by the freelancer/client?</label>
+          <label for="rating">Rate your freelancer/client</label>
           <fieldset class="rating">
             <input type="radio" id="star1" name="rating" value="1" />
             <label for="star1" title="1 stars"></label>
@@ -44,7 +44,10 @@
             <label for="star5" title="5 star"></label>
           </fieldset>
         </div>
-
+              <div class="form-group">
+              <label for="satisfy">How satisfied were you with the job done by the freelancer/client?</label>
+              <textarea id="Satisfy" name="satisfy" runat="server"></textarea>
+            </div>
 
             <div class="form-group">
               <label for="workwith">How easy was it to work with the freelancer/client?</label>
@@ -66,8 +69,7 @@
               <textarea id="Anythingelse" name="Anythingelse" runat="server"></textarea>
             </div>
 
-            <%--<button class="ss_button" type="submit">Submit Feedback</button>--%>
-               <asp:Button Class="ss_button" ID="Button1" runat="server"  type="submit" Text="Submit Review"/>
+         <asp:Button Class="ss_button" ID="Button1" runat="server"  type="submit" Text="Submit Review" onclick="BtnSubmit_Click"/>
          
           </form>
         </section>

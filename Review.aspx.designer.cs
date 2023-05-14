@@ -42,6 +42,15 @@ namespace JobDelta
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Expectations;
 
         /// <summary>
+        /// Satisfy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Satisfy;
+
+        /// <summary>
         /// workwith control.
         /// </summary>
         /// <remarks>

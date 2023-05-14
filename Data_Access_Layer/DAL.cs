@@ -1614,5 +1614,66 @@ namespace JobDelta.Data_Access_Layer
 
             return retval;
         }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        public int Review_Input(int sent,int ujob, string uname, string uemail, string expectation, string rate, string satistactory, string communication, string workease, string recommend, string additional)
+        {
+
+            int retval = -1;
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("Reviews_store", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@sentID", SqlDbType.Int);
+                cmd.Parameters.Add("@job", SqlDbType.Int);
+                cmd.Parameters.Add("@Username", SqlDbType.VarChar, 25);
+                cmd.Parameters.Add("@usemail", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@expec", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@urating", SqlDbType.VarChar, 20);
+                cmd.Parameters.Add("@satisfac", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@communi", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@work", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@recom", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@add", SqlDbType.VarChar, 250);
+
+                cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.Parameters["@sentID"].Value = sent;
+                cmd.Parameters["@job"].Value = ujob;
+                cmd.Parameters["@Username"].Value = uname;
+                cmd.Parameters["@usemail"].Value = uemail;
+                cmd.Parameters["@expec"].Value = expectation;
+                cmd.Parameters["@urating"].Value = rate;
+                cmd.Parameters["@satisfac"].Value = satistactory;
+                cmd.Parameters["@communi"].Value = communication;
+                cmd.Parameters["@work"].Value = workease;
+                cmd.Parameters["@recom"].Value = recommend;
+                cmd.Parameters["@add"].Value = additional;
+
+
+                cmd.ExecuteNonQuery();
+
+                retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
     }
 }
