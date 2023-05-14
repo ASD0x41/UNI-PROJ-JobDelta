@@ -662,7 +662,7 @@ GO
 
 -----------------------------------------TotalEarning------------------------------------------
 
-alter PROCEDURE GetTotalEarnings
+CREATE PROCEDURE GetTotalEarnings
     @userId INT
 AS
 BEGIN
@@ -1327,3 +1327,46 @@ BEGIN
     
 END
 GO
+
+CREATE FUNCTION GetCounterpartyID
+    (@userID INT, @jobID INT)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @counterpartyID INT;
+
+    SELECT @counterpartyID = CASE
+        WHEN lancerID = @userID THEN clientID
+        WHEN clientID = @userID THEN lancerID
+        ELSE NULL
+    END
+    FROM Jobs
+    WHERE jobID = @jobID;
+
+    RETURN @counterpartyID;
+END;
+GO
+
+DECLARE @counterpartyID INT;
+
+SET @counterpartyID = dbo.GetCounterpartyID(10,19);
+
+SELECT @counterpartyID AS CounterpartyID;
+
+GO
+
+
+
+CREATE PROCEDURE UpdateUserRating
+    @userID INT,
+    @JobId INT,
+    @newRating INT
+AS
+BEGIN
+   DECLARE @U INT
+    SET @U = dbo.GetCounterpartyID(10,@JobId);
+    SELECT @U
+    UPDATE Users
+    SET rating = (@newRating + rating)/2
+    WHERE userID = @U;
+END;

@@ -7,7 +7,7 @@
      <form id="form1" runat="server">
          <h1>Job Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-         <asp:Button ID ="btnClose" Visible="false" Enabled="false" runat="server" Text="remove" OnClick="btnRemove_Click" style="margin-right:2px" />
+         <asp:Button ID ="btnClose" Visible="false" CssClass="sp_button" Enabled="false" runat="server" Text="remove" OnClick="btnRemove_Click" style="margin-right:2px" />
 
           </h1>
 
@@ -79,12 +79,12 @@
 
          <br />
         <br />
-        <asp:Button Visible="false" ID="btnDownloadDeliverable" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
+        <asp:Button Visible="false" CssClass="sp_button" ID="btnDownloadDeliverable" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
          <br />
          <br />
          &nbsp &nbsp &nbsp<asp:Label ID="lblDetails" runat="server" AssociatedControlID="txtDetails">Post Complaint</asp:Label><br/>
          &nbsp &nbsp &nbsp<asp:TextBox ID="txtDetails" runat="server" TextMode="MultiLine" Width="300px" Height="100px"></asp:TextBox><br/>
-         &nbsp &nbsp &nbsp<asp:Button ID="btnPostComplaint" runat="server" Text="Post Complaint" OnClick="PostComplaint"  />
+         &nbsp &nbsp &nbsp<asp:Button ID="btnPostComplaint" CssClass="sp_button" runat="server" Text="Post Complaint" OnClick="PostComplaint"  />
          
 
          &nbsp &nbsp &nbsp<br />
@@ -93,6 +93,6 @@
 
 
      </form>
-     <button><a href="Review.aspx">Give Review</a></button>
+     <button><a class="sp_button" href="Review.aspx">Give Review</a></button>
          <br />
 </asp:Content>
