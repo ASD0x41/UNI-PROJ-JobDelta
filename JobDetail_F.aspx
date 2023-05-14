@@ -102,7 +102,11 @@
          &nbsp &nbsp &nbsp<asp:Label ID="lblDetails" runat="server" AssociatedControlID="txtDetails">Post Complaint</asp:Label><br/>
          &nbsp &nbsp &nbsp<asp:TextBox ID="txtDetails" runat="server" TextMode="MultiLine" Width="300px" Height="100px"></asp:TextBox><br/>
          &nbsp &nbsp &nbsp<asp:Button ID="btnPostComplaint" runat="server" Text="Post Complaint" OnClick="PostComplaint"  />
-
+        
+        &nbsp &nbsp &nbsp<button><a href="Review.aspx">Give Review</a></button>
+         <br />
+         <br />
+         <button id="BtnReview" type="submit" onclick ="window.location.href='Review.aspx';">Give Review</button>
 
     </form>
 
