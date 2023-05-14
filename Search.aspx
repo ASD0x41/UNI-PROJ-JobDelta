@@ -18,7 +18,8 @@
 			<asp:button CssClass="sp_button" ID="BtnSearch" runat="server" Text="Search" onclick="BtnSearch_Click" />
 		</form>
 
-		<div id="profresults" style="display:none;">
+		<%--<div id="profresults" style="display:none;">--%>
+            <div id="profresults">
 
 			<div class="container">
 
