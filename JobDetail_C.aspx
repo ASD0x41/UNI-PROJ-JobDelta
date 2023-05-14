@@ -4,8 +4,12 @@
     <link href="Resources/CSS/C_DashBoard.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <form action="#" runat="server">
-         <h1>Job Details</h1>
+     <form id="form1" runat="server">
+         <h1>Job Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+         <asp:Button ID ="btnClose" Visible="false" Enabled="false" runat="server" Text="remove" OnClick="btnRemove_Click" style="margin-right:2px" />
+
+          </h1>
 
           <asp:Label CssClass="popup-label" runat="server" Text="Job ID:"></asp:Label>
          <asp:TextBox CssClass="popup-input" runat="server" ID="jobIDT"  ReadOnly="true"></asp:TextBox>
@@ -81,6 +85,13 @@
          &nbsp &nbsp &nbsp<asp:Label ID="lblDetails" runat="server" AssociatedControlID="txtDetails">Post Complaint</asp:Label><br/>
          &nbsp &nbsp &nbsp<asp:TextBox ID="txtDetails" runat="server" TextMode="MultiLine" Width="300px" Height="100px"></asp:TextBox><br/>
          &nbsp &nbsp &nbsp<asp:Button ID="btnPostComplaint" runat="server" Text="Post Complaint" OnClick="PostComplaint"  />
+         
+
+         &nbsp &nbsp &nbsp<button><a href="Review.aspx">Give Review</a></button>
+         <br />
+         <br />
+         <button id="BtnReview" type="submit" onclick ="window.location.href='Review.aspx';">Give Review</button>
+
 
 
      </form>

@@ -46,90 +46,7 @@ go;
 --  Functionality # 5:	--
 -- -------------------- --
 
-	CREATE PROCEDURE		DepositMoney
-
-		@_userID			int,
-		@_amount			money,
-		@_password			varchar(16),
-		@_usertype			int,
-
-		@_ret_val_			int					output
-
-	AS
-		BEGIN
-
-			INSERT INTO MoneyTransfers VALUES (CURRENT_TIMESTAMP, @_amount, NULL, @_userID, NULL)
-			UPDATE Users SET walletmoney = (walletmoney - @_amount) WHERE userID = @_userID
-			
-
-		END
-	GO
-
--- -----
-
-	CREATE PROCEDURE		WithdrawMoney
-
-		@_username			varchar(16),
-		@_emailadd			varchar(32),
-		@_password			varchar(16),
-		@_usertype			int,
-
-		@_ret_val_			int					output
-
-	AS
-		BEGIN
-
-			IF		NOT EXISTS (SELECT * FROM Users WHERE username=@_username)
-				BEGIN
-					INSERT INTO Users (username, userpass, emailaddress, usertype) VALUES (@_username, @_password, @_emailadd, @_usertype)
-					SET		@_ret_val_ = 0
-				END
-			ELSE
-					SET		@_ret_val_ = -1
-
-		END
-	GO
-
-
-
-
-
-
-
-
-
--- -------------------- --
---  Functionality #21:	--
--- -------------------- --
-
-	CREATE PROCEDURE		DeleteAccount
-
-		@_username			varchar(16),
-		@_password			varchar(16),
-
-		@_ret_val_			int					output
-
-	AS
-		BEGIN
-
-			IF		EXISTS	(SELECT * FROM Users WHERE username=@_username)
-			BEGIN
-				IF		(SELECT userpass FROM Users WHERE username=@_username)=@_password
-					BEGIN
-						--UPDATE	Users SET 
-						SELECT	@_user_ID_ = userID FROM Users WHERE username=@_username
-						SELECT	@_usertype = usertype FROM Users WHERE username=@_username
-						SET		@_ret_val_ = 0
-					END
-				ELSE
-						SET		@_ret_val_ = -1
-			END
-			ELSE
-				SET		@_ret_val_ = -2
-
-		END
-	GO
-
+	
 
 
 
@@ -309,33 +226,7 @@ select * from Requests
 
 
 
-create table complaints		-- complaints for admins by clients/freelancers
-(
-	complaintID		int				primary key		identity(1,1),
 
-	sentby			int				foreign key		references Users (userID),
-	sentfor         int             foreign key     references Users (userID),
-
-	onJob           int             foreign key		references Jobs (jobID),
-
-	posteddate		date			not null,
-	details			text			not null,
-
-	status	char(1)			default 'P',
-
-	check (status='P' or status='H' or status='R')
-			-- pending (P), handled (H) or refused (R)
-);
-go
-
-create table feedback		-- feedbacks for admins by clients/freelancers
-(
-	feedbackID		int				primary key		identity(1,1),
-	sentby			int				foreign key		references Users (userID),
-	feedback	varchar(250),
-	rating		int
-);
-go
 
 insert into complaints (sentby,sentfor,onJob,posteddate,details,status) values (3, 6,13,getdate(),'did not provided working project','P')
 
@@ -345,6 +236,7 @@ Select * from complaints
 EXEC sp_tables @table_type = "'TABLE'"
 
 select * from information_schema.routines where routine_type = 'Procedure'
+delete from information_schema.routines where routine_type = 'Procedure'
 
 select * from Jobs
 select * from Users
@@ -416,93 +308,7 @@ go
 
 
 
-CREATE PROCEDURE		SignUp
 
-	@_username			varchar(16),
-	@_emailadd			varchar(32),
-	@_password			varchar(16),
-	@_usertype			int,
-
-	@_ret_val_			int					output
-
-AS
-	BEGIN
-
-		IF		NOT EXISTS (SELECT * FROM Users WHERE username=@_username)
-			BEGIN
-				INSERT INTO Users (username, userpass, emailaddress, usertype) VALUES (@_username, @_password, @_emailadd, @_usertype)
-				SET		@_ret_val_ = 0
-			END
-		ELSE
-				SET		@_ret_val_ = -1
-
-	END
-GO
-
-
-
-CREATE PROCEDURE		SignIn
-
-	@_username			varchar(16),
-	@_password			varchar(16),
-
-	@_user_ID_			int					output,
-	@_usertype			int					output,
-	@_ret_val_			int					output
-
-AS
-	BEGIN
-
-		IF		EXISTS	(SELECT * FROM Users WHERE username=@_username)
-			BEGIN
-				IF		(SELECT userpass FROM Users WHERE username=@_username)=@_password
-					BEGIN
-						SELECT	@_user_ID_ = userID FROM Users WHERE username=@_username
-						SELECT	@_usertype = usertype FROM Users WHERE username=@_username
-						SET		@_ret_val_ = 0
-					END
-				ELSE
-						SET		@_ret_val_ = -1
-			END
-		ELSE
-				SET		@_ret_val_ = -2
-
-	END
-GO
-
-
-
-
-
-
-
-
-CREATE PROCEDURE		RecoverPassword
-
-	@_username			varchar(16),
-	@_emailadd			varchar(50),
-
-	@_password			varchar(16)			output,
-	@_ret_val_			int					output
-
-AS
-	BEGIN
-
-		IF		EXISTS	(SELECT * FROM Users WHERE username=@_username)
-			BEGIN
-				IF		(SELECT emailaddress FROM Users WHERE username=@_username)=@_emailadd
-					BEGIN
-						SELECT	@_password = userpass FROM Users WHERE username=@_username
-						SET		@_ret_val_ = 0
-					END
-				ELSE
-						SET		@_ret_val_ = -1
-			END
-		ELSE
-				SET		@_ret_val_ = -2
-
-	END
-GO
 
 
 
@@ -513,6 +319,8 @@ select * from Jobs
 
 GO
 
+
+------------no change taking place here so i didnt copy it and change to make pocedure instead
 alter PROCEDURE PostJob
     @clientID INT,
     @jobtitle VARCHAR(32),
@@ -563,15 +371,7 @@ EXEC PostJob
 SELECT @retVal
 GO
 
-alter PROCEDURE ViewPostedJobs
-	@clientId INT
-AS
-BEGIN
-	SELECT jobID, jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus
-	FROM Jobs
-	WHERE clientID = @clientId;
-END
-go
+
 
 
 

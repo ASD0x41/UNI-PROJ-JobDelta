@@ -20,10 +20,13 @@
                             </div>
                             <nav>
                               <ul>
+
+
                                 <li>
                                     <a><b>Commission :</b> $<asp:Label ID="Commission" runat="server"></asp:Label></a>
-                                    <a>Admin Access</a>
+                                    <a href="A_DashBoard.aspx">Admin Access</a>
                                 </li>
+
                               </ul>
                             </nav>
                             <div class="profile">

@@ -93,14 +93,13 @@
           <h2>Our Location</h2>
           <p>We are located at:</p>
           <address>
-            123 Main Street<br>
-            Suite 456<br>
-            Anytown, USA 12345
+            852-B Milaad Street<br>
+            Block B, Faisal Town<br>
+            Lahore, Pakistan
           </address>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3073.1372234075667!2d-122.40529368521504!3d37.78202237975963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3af3abf399%3A0x798d45c2e2eac057!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1613573832609!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-
-
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.5513466616267!2d74.3004391747097!3d31.481525749061767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391903f08ebc7e8b%3A0x47e934f4cd34790!2sFAST%20NUCES%20Lahore!5e0!3m2!1sen!2s!4v1684091383316!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+    
 
     <div class="container" style="box-shadow: 10px 10px 5px #000000;">
 

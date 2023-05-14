@@ -98,6 +98,84 @@ namespace JobDelta.Data_Access_Layer
 			            return pword;
         }
 
+        public (string, string, byte[], string, string, string, string, int, int, int) SearchUser(string uname)
+        {
+            int retval = -1;
+            int utype = -1;
+            int id = -1;
+
+            string fname = "";
+            string gender = "Male";
+            byte[] pic = null;
+            string about = "";
+            string workadr = "";
+            string phonenum = "";
+            string emailadr = "";
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("SearchUser ", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@_username", SqlDbType.VarChar, 16);
+                
+
+                cmd.Parameters.Add("@_fullname", SqlDbType.VarChar, 64).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_usergend", SqlDbType.Char, 1).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_workaddr", SqlDbType.VarChar, 128).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_phonenum", SqlDbType.VarChar, 14).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_emailadd", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_user_ID_", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_usertype", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.Parameters["@_username"].Value = uname;
+
+                cmd.ExecuteNonQuery();
+
+                retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+                if (retval == 0)
+                {
+                    id = Convert.ToInt32(cmd.Parameters["@_user_ID_"].Value);
+                    if (id != 1)
+                    {
+                        pic = GetImageData(id);
+                        about = GetUserAboutById(id).ToString();
+
+                        fname = Convert.ToString(cmd.Parameters["@_fullname"].Value);
+                        gender = GetUserGenderById(id);
+
+
+                        workadr = Convert.ToString(cmd.Parameters["@_workaddr"].Value);
+                        phonenum = Convert.ToString(cmd.Parameters["@_phonenum"].Value);
+                        emailadr = Convert.ToString(cmd.Parameters["@_emailadd"].Value);
+
+                        utype = Convert.ToInt32(cmd.Parameters["@_usertype"].Value);
+                    }
+                    else
+                    {
+                        retval = -1;
+                    }
+                }
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return (fname, gender, pic, about, workadr, phonenum, emailadr, utype, id, retval);
+        }
+
 
 
 
@@ -445,6 +523,20 @@ namespace JobDelta.Data_Access_Layer
             }
         }
 
+
+        public void removeJob(int jobID)
+        {
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand("removeJob", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@JobID", jobID);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+        }
         public string GetDeliverableExt(int jobID)
         {
             string x = "";
@@ -1685,6 +1777,67 @@ namespace JobDelta.Data_Access_Layer
                 cmd.Parameters["@improvement"].Value = uimprove;
                 cmd.Parameters["@comp"].Value = ucomplain;
                 cmd.Parameters["@sugges"].Value = usuggestion;
+
+
+                cmd.ExecuteNonQuery();
+
+                retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        public int Review_Input(int sent,int ujob, string uname, string uemail, string expectation, string rate, string satistactory, string communication, string workease, string recommend, string additional)
+        {
+
+            int retval = -1;
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("Reviews_store", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@sentID", SqlDbType.Int);
+                cmd.Parameters.Add("@job", SqlDbType.Int);
+                cmd.Parameters.Add("@Username", SqlDbType.VarChar, 25);
+                cmd.Parameters.Add("@usemail", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@expec", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@urating", SqlDbType.VarChar, 20);
+                cmd.Parameters.Add("@satisfac", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@communi", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@work", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@recom", SqlDbType.VarChar, 250);
+                cmd.Parameters.Add("@add", SqlDbType.VarChar, 250);
+
+                cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.Parameters["@sentID"].Value = sent;
+                cmd.Parameters["@job"].Value = ujob;
+                cmd.Parameters["@Username"].Value = uname;
+                cmd.Parameters["@usemail"].Value = uemail;
+                cmd.Parameters["@expec"].Value = expectation;
+                cmd.Parameters["@urating"].Value = rate;
+                cmd.Parameters["@satisfac"].Value = satistactory;
+                cmd.Parameters["@communi"].Value = communication;
+                cmd.Parameters["@work"].Value = workease;
+                cmd.Parameters["@recom"].Value = recommend;
+                cmd.Parameters["@add"].Value = additional;
 
 
                 cmd.ExecuteNonQuery();
