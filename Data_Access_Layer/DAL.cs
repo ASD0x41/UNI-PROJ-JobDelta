@@ -98,6 +98,75 @@ namespace JobDelta.Data_Access_Layer
 			            return pword;
         }
 
+        public (string, char, byte[], string, string, string, string, int, int) SearchUser(string uname, int utype)
+        {
+            int retval = -1;
+            int id = -1;
+
+            string fname = "";
+            char gender = 'M';
+            byte[] pic = null;
+            string about = "";
+            string workadr = "";
+            string phonenum = "";
+            string emailadr = "";
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            SqlCommand cmd;
+            try
+            {
+                cmd = new SqlCommand("SearchUser ", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@_username", SqlDbType.VarChar, 16);
+                cmd.Parameters.Add("@_usertype", SqlDbType.Int);
+
+                cmd.Parameters.Add("@_fullname", SqlDbType.VarChar, 64).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_usergend", SqlDbType.Char, 1).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_user_pic", SqlDbType.Image).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_aboutusr", SqlDbType.Text).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_workaddr", SqlDbType.VarChar, 128).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_phonenum", SqlDbType.VarChar, 14).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_emailadd", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_user_ID_", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@_ret_val_", SqlDbType.Int).Direction = ParameterDirection.Output;
+                
+                cmd.Parameters["@_username"].Value = uname;
+                cmd.Parameters["@_usertype"].Value = utype;
+
+                cmd.ExecuteNonQuery();
+
+                retval = Convert.ToInt32(cmd.Parameters["@_ret_val_"].Value);
+                if (retval == 0)
+                {
+                    fname = Convert.ToString(cmd.Parameters["@_fullname"].Value);
+                    gender = Convert.ToChar(cmd.Parameters["@_usergend"].Value);
+                    
+                    about = Convert.ToString(cmd.Parameters["@_aboutusr"].Value);
+                    workadr = Convert.ToString(cmd.Parameters["@_workaddr"].Value);
+                    phonenum = Convert.ToString(cmd.Parameters["@_phhonenum"].Value);
+                    emailadr = Convert.ToString(cmd.Parameters["@_emailadd"].Value);
+
+                    id = Convert.ToInt32(cmd.Parameters["@_user_ID_"].Value);
+                    pic = GetImageData(id);
+                }
+
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return (fname, gender, pic, about, workadr, phonenum, emailadr, id, retval);
+        }
+
 
 
 

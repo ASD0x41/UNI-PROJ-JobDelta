@@ -7,73 +7,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<script src="Resources/Scripts/WebForms/Focus.js" type="text/javascript"></script>--%>
-    <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--%>
-    <%--<asp:ScriptManager ID="scriptManager" runat="server" EnablePageMethods="true">
-    <Scripts>--%>
-        
-
-
-       <%-- <script src="Resources/JavaScript/HomePage.js"></script>--%>
     
-
-    
-
-
-
-
-
-
-
-
-    <%--</Scripts>
-    </asp:ScriptManager>--%>
-
-    
-
-
-    
-
 
     <form action="#" runat="server">
 
-<%--        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>--%>
-
-        <%--<asp:ScriptManager EnablePageMethods="true" ID="MainSM" runat="server" ScriptMode="Release" LoadScriptsBeforeUI="true"></asp:ScriptManager>--%>
 
 
-        <%--<asp:TextBox ID="hiddenTextBox" runat="server" />
-        <asp:Button ID="button" runat="server" Text="Click me" OnClick="Button_Click" />--%>
-
-
-        
-
-
-        
-
-
-
-       <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-    <ContentTemplate>--%>
-        <%--<asp:TextBox ID="dummyuname" runat="server" style="display:none;"></asp:TextBox>
-        <asp:TextBox ID="dummyemail" runat="server" style="display:none;"></asp:TextBox>--%>
         <asp:Button ID="BtnHidden" runat="server" Text="" OnClick="BtnHidden_Click" style="display:none"  />
-    <%--</ContentTemplate>
-    <Triggers>
-        <asp:PostBackTrigger ControlID="dummyemail" />
-    </Triggers>
-        </asp:UpdatePanel>--%>
-
-
-
-        
-
-
-
-
-
-
-
+ 
 
 
         <div class="popup-container">
@@ -130,28 +71,13 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
         <script type="text/javascript">
-            //$(document).ready(function () {
-            //function signupsuccess() {
-            //    alert("Signed up successfully!");
-            //}
+         
 
             function signupfailure() {
-                /*openPopup();*/
-                //alert("Unable to Sign Up Successfully: Username already exists!");
-
+              
                 const popup = document.querySelector("#incorrect-signup-popup-uname");
-                //document.getElementById("incorrect-login-popup").style.display = "flex";
+                
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; }, 3000);
 
@@ -159,23 +85,19 @@
             }
 
             function pwordrecovered() {
-                /*openPopup();*/
-                //alert("Unable to Sign Up Successfully: Username already exists!");
-
+               
                 const popup = document.querySelector("#pword-sent");
-                //document.getElementById("incorrect-login-popup").style.display = "flex";
+              
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; }, 3000);
-                //nomatch - uname - email
+              
                 return;
             }
 
             function invalidforgotpword() {
-                /*openPopup();*/
-                //alert("Unable to Sign Up Successfully: Username already exists!");
-
+               
                 const popup = document.querySelector("#nomatch-uname-email");
-                //document.getElementById("incorrect-login-popup").style.display = "flex";
+             
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; }, 3000);
 
@@ -183,65 +105,51 @@
             }
 
             function notmatchpword() {
-                /*openPopup();*/
-                //alert("Unable to Sign Up Successfully: Username already exists!");
-
+               
                 const popup = document.querySelector("#pword-nomatch");
-                //document.getElementById("incorrect-login-popup").style.display = "flex";
+               
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; }, 3000);
 
                 return;
             }
 
-            //function signinsuccess() {
-            //    alert("Logged In Successfully!");
-            //}
+        
 
             function signinfailure1() {
-                //alert("Unable to log in successfully: Invalid password!");
+              
                 const popup = document.querySelector("#incorrect-login-popup-pword");
-                //document.getElementById("incorrect-login-popup").style.display = "flex";
+              
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; },3000);
 
                 return;
-                /*openPopup();*/
-                //alert("Unable to log in successfully: Invalid password!");
+              
             }
 
             function signinfailure2() {
-                /*openPopup();*/
-                /*document.getElementById("txtSignInUserName").value = "Invalid Username!";*/
-                //alert("Unable to log in successfully: Invalid username!");
-                //alert("Unable to log in successfully: Invalid password!");
+               
                 const popup = document.querySelector("#incorrect-login-popup-uname");
-                //document.getElementById("incorrect-login-popup").style.display = "flex";
+              
                 popup.style.display = "flex";
                 setTimeout(function () { popup.style.display = "none"; }, 3000);
-                //document.getElementById("txtSignInUserName").value = "";
+                
                 return;
             }
 
 
 
 
-            //var forgotPasswordButton = document.getElementById("forgot_password_button");
-            //var closeButton = document.getElementsByClassName("#popup_ci-close")[0];
-
-            //forgotPasswordButton.onclick = function () {
-
+         
             function forgotpword() {
                 var forgotPasswordPopup = document.querySelector("#forgot_password_popup");
                 forgotPasswordPopup.style.display = "block";
                 var forgotpwordPopup = forgotPasswordPopup.querySelector("#pwordpopup");
                 forgotpwordPopup.style.display = "block";
-                //closeButton = document.getElementsByClassName("#popup_ci-close")[0];
+                
             }
 
-            /*closeButton.onclick = function () {
-                forgotPasswordPopup.style.display = "none";
-            }*/
+        
 
             function clsbtnclick() {
                 var forgotPasswordPopup = document.querySelector("#forgot_password_popup");
@@ -253,26 +161,14 @@
 
             }
 
-            /*window.onclick = function (event) {
-                if (event.target == forgotPasswordPopup) {
-                    forgotPasswordPopup.style.display = "none";
-                }
-            }*/
+           
 
             function sendpassword() {
-                /*var un = document.getElementById("uname").value;
-                var em = document.getElementById("email").value;*/
-
-
+               
                 
 
                 alert("Hello!" + document.getElementById("uname").value + document.getElementById("emailadd").value);
-                /*PageMethods.SendPword(document.getElementById("uname").value, document.getElementById("email").value, pwordrecovered, invalidforgotpword);
-                var arg1 = "argument1";
-                var arg2 = "argument2";
-                __doPostBack('BtnHidden', arg1 + '|' + arg2);*/
-
-                
+            
 
                 btnclickhdn();
 
@@ -289,47 +185,9 @@
                 return;
             }
 
-            /*function callCSharpFunction() {
-                var arg1 = "argument1";
-                var arg2 = "argument2";
-                __doPostBack('btnHidden', arg1 + '|' + arg2);
-            }*/
+          
 
-        //});
         </script>
-
-        <%--<script>
-            Type.registerNamespace('Sys.WebForms');
-            Sys.WebForms.Res = {
-                "PRM_UnknownToken": "Unknown token: \u0027{0}\u0027.",
-                "PRM_MissingPanel": "Could not find UpdatePanel with ID \u0027{0}\u0027. If it is being updated dynamically then it must be inside another UpdatePanel.",
-                "PRM_ServerError": "An unknown error occurred while processing the request on the server. The status code returned from the server was: {0}",
-                "PRM_ParserError": "The message received from the server could not be parsed.",
-                "PRM_TimeoutError": "The server request timed out.",
-                "PRM_ParserErrorDetails": "Error parsing near \u0027{0}\u0027.",
-                "PRM_CannotRegisterTwice": "The PageRequestManager cannot be initialized more than once."
-            };
-        </script>--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
 
 
@@ -350,7 +208,7 @@
                                 
                         </div>
                     
-                    <asp:Panel ID="Panel2" runat="server" DefaultButton="BtnSignUp">
+                    <asp:Panel ID="Panel2" runat="server" DefaultButton="BtnSignUp" style="width: 50%;">
                         <div class="signup_container" id="signup-container">
 
                           <h2>Sign Up</h2>

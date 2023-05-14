@@ -20,7 +20,7 @@
                             </div>
                             <nav>
                               <ul>
-                                  <li><a href="Search.aspx">Search User</a></li>
+                                  <%--<li><a href="Search.aspx">Search User</a></li>--%>
                                 <li><a href="A_DashBoard.aspx">Admin Panel</a></li>
                               </ul>
                             </nav>

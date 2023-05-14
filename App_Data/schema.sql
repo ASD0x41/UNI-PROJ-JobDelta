@@ -236,6 +236,7 @@ Select * from complaints
 EXEC sp_tables @table_type = "'TABLE'"
 
 select * from information_schema.routines where routine_type = 'Procedure'
+delete from information_schema.routines where routine_type = 'Procedure'
 
 select * from Jobs
 select * from Users

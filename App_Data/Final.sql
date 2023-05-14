@@ -2299,3 +2299,56 @@ CREATE VIEW MyJobs
 AS
     SELECT jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus, deliverable FROM Jobs
 GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE PROCEDURE		SearchUser
+
+	@_username			varchar(16),
+	@_usertype			int,
+
+	@_fullname			varchar(64)			output,
+	@_usergend			char(1)				output,
+	@_user_pic			image				output,
+	@_aboutusr			text				output,
+	@_workaddr			varchar(128)		output,
+	@_phonenum			varchar(14)			output,
+	@_emailadd			varchar(50)			output,
+    @_user_ID_			int     			output,
+	@_ret_val_			int					output
+
+AS
+	BEGIN
+
+		IF		EXISTS	(SELECT * FROM Users WHERE username=@_username AND usertype=@_usertype)
+			BEGIN
+				SELECT	@_fullname = fullname FROM Users WHERE username=@_username
+				SELECT	@_usergend = gender FROM Users WHERE username=@_username
+				SELECT	@_user_pic = picture FROM Users WHERE username=@_username
+				SELECT	@_aboutusr = aboutuser FROM Users WHERE username=@_username
+				SELECT	@_workaddr = workaddress FROM Users WHERE username=@_username
+				SELECT	@_phonenum = phonenumber FROM Users WHERE username=@_username
+				SELECT	@_emailadd = emailaddress FROM Users WHERE username=@_username
+                SELECT	@_user_ID_ = userID FROM Users WHERE username=@_username
+				SET		@_ret_val_ = 0
+			END
+		ELSE
+				SET		@_ret_val_ = -1
+
+	END
+GO
