@@ -1,4 +1,30 @@
-﻿body {
+﻿.commission-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.commission-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.commission-amount {
+    font-size: 36px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.commission-description {
+    font-size: 18px;
+    color: #666;
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -450,4 +476,53 @@ footer {
         .ctable td:last-child {
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
+        }
+
+
+.Edit_User {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: inherit;
+    margin-bottom:50px;
+    align-content:center;
+}
+
+    .Edit_User label {
+        text-align:center;
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .Edit_User input[type="text"],
+    .Edit_User input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .Edit_User .edit-button {
+        display: block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #FF4500;
+        border: double;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left:42%;
+    }
+
+        .Edit_User .edit-button:hover {
+            background-color: #FF4500;
+            color:#fff;
+        }
+
+
+        .Edit_User .edit-button:focus {
+            outline: none;
         }

@@ -101,7 +101,7 @@ namespace JobDelta.Data_Access_Layer
 
 
 
-        public int RegisterNewJob(int ClientID,string JobTitle,string JobType,decimal JobValue,string JobDetail ,string dueDate)
+        public int RegisterNewJob(int ClientID,string JobTitle,string JobType,decimal JobValue,string JobDetail ,DateTime dueDate)
         {
             
 
@@ -1171,6 +1171,42 @@ namespace JobDelta.Data_Access_Layer
             }
         }
 
+        public void UpdateCNICById(int userID, string fullname)
+        {
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateCNICById", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    cmd.Parameters.AddWithValue("@userID", userID);
+                    cmd.Parameters.AddWithValue("@CNIC", fullname);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateUserNameById(int userID, string fullname)
+        {
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateUserNameById", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    cmd.Parameters.AddWithValue("@userID", userID);
+                    cmd.Parameters.AddWithValue("@Uname", fullname);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void UpdateUserPhoneNumberById(int userID, string phoneNo)
         {
             using (SqlConnection conn = new SqlConnection(conString))
@@ -1529,7 +1565,6 @@ namespace JobDelta.Data_Access_Layer
 
         public void HandleComplaintAccept(int complaintID)
         {
-            // Implement database connection and execute the stored procedure
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 connection.Open();
@@ -1545,7 +1580,6 @@ namespace JobDelta.Data_Access_Layer
 
         public void HandleComplaintReject(int complaintID)
         {
-            // Implement database connection and execute the stored procedure
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 connection.Open();
@@ -1560,9 +1594,65 @@ namespace JobDelta.Data_Access_Layer
         }
 
 
-        ///////////////////////////////////////////////////////////////////
-        //Feedback_Input
-        public int Feedback_Input(int sent, string uname, string uemail, string details, string rate, string uimprove, string ucomplain, string usuggestion)
+        public void ChangePassword(int UserID,string newpassword)
+        {
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("ChangePassword", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@userID", UserID);
+                    command.Parameters.AddWithValue("@newpassword", newpassword);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public string getPassword(int userId)
+        {
+           string pass = "";
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                using (SqlCommand cmd = new SqlCommand("getPassword", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@userID", userId);
+                    conn.Open();
+                    pass = (cmd.ExecuteScalar()).ToString();
+                }
+            }
+            return pass;
+        }
+
+        public bool CheckUserIDExists(int userID)
+        {
+            bool exists = false;
+
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                using (SqlCommand command = new SqlCommand("CheckUserIDExists", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@userID", SqlDbType.Int).Value = userID;
+                    command.Parameters.Add("@exists", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    exists = Convert.ToBoolean(command.Parameters["@exists"].Value);
+                }
+            }
+
+            return exists;
+        }
+
+
+    ///////////////////////////////////////////////////////////////////
+    //Feedback_Input
+    public int Feedback_Input(int sent, string uname, string uemail, string details, string rate, string uimprove, string ucomplain, string usuggestion)
         {
 
             int retval = -1;

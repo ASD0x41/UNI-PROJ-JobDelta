@@ -150,13 +150,22 @@ namespace JobDelta
         protected global::System.Web.UI.WebControls.TextBox jobBudget;
 
         /// <summary>
+        /// ERROR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ERROR;
+
+        /// <summary>
         /// jobDueDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar jobDueDate;
+        protected global::System.Web.UI.WebControls.TextBox jobDueDate;
 
         /// <summary>
         /// BtnPostJob control.

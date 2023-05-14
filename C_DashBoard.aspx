@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Resources/CSS/C_DashBoard.css" rel="stylesheet" />
+    <link href="Resources/CSS/C_DashBoarD.css" rel="stylesheet" />
 </asp:Content>
 
 
@@ -116,14 +116,14 @@
                         <br />
         
                         <asp:Label CssClass="popup-label" runat="server"  Text="Budget:"></asp:Label>
-                        <asp:TextBox CssClass="popup-input" runat="server" ID="jobBudget" type="number" required="true"></asp:TextBox>
+                        <asp:TextBox CssClass="popup-input" runat="server" ID="jobBudget" type="number" required="true"></asp:TextBox>&nbsp&nbsp&nbsp<asp:TextBox CssClass="ERROR_txt" runat="server" ID="ERROR" BorderColor="InactiveBorder" BorderStyle="None" Text=""></asp:TextBox> 
                         <br />
         
                        
                         <br />
                     
-                        <asp:Label   runat="server"  Text="Due Date:"></asp:Label>
-                        <asp:Calendar  runat="server" ID="jobDueDate"></asp:Calendar>
+                        <asp:Label CssClass="popup-label"  runat="server"  Text="Due Date:"></asp:Label>
+                        <asp:TextBox ID="jobDueDate" runat="server" CssClass="popup-input" Width="30%" type="date" required="required"></asp:TextBox>
 
                         <br />
         

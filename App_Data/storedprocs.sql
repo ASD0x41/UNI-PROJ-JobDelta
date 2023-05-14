@@ -636,7 +636,7 @@ END
 GO
 
 
-create procedure markproposal
+alter procedure markproposal
 @jobID INT,
 @proposalID INT
 AS

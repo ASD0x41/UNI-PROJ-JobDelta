@@ -13674,9 +13674,9 @@
     <Content Include="Our_Services.aspx" />
     <Content Include="Privacy_Policy.aspx" />
     <Content Include="Resources\CSS\About_Us.css" />
-    <Content Include="Resources\CSS\A_DashBoarB.css" />
+    <Content Include="Resources\CSS\A_Dashboard.css" />
     <Content Include="Resources\CSS\ContactUs.css" />
-    <Content Include="Resources\CSS\C_DashBoard.css" />
+    <Content Include="Resources\CSS\C_DashBoarD.css" />
     <Content Include="Resources\CSS\FAQs.css" />
     <Content Include="Resources\CSS\FeedBack.css" />
     <Content Include="Resources\CSS\F_DashBoard.css" />
@@ -13687,10 +13687,10 @@
     <Content Include="Resources\CSS\Job_Categories.css" />
     <Content Include="Resources\CSS\Master1.css" />
     <Content Include="Resources\CSS\Master2.css" />
-    <Content Include="Resources\CSS\MyProfile.css" />
+    <Content Include="Resources\CSS\myProfile.css" />
     <Content Include="Resources\CSS\NewsFeed.css" />
     <Content Include="Resources\CSS\Search.css" />
-    <Content Include="Resources\CSS\Wallet.css" />
+    <Content Include="Resources\CSS\wallet.css" />
     <Content Include="Resources\Images\asad.png" />
     <Content Include="Resources\Images\me.jpg" />
     <Content Include="Resources\Images\mehdy.jpeg" />

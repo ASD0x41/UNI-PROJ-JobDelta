@@ -15,28 +15,6 @@ END
 GO
 
 
-/*
-
-Description:
-The "GetUserById" stored procedure retrieves the username of a user from the "Users" table in the database based on the given user ID.
-
-Input Parameters:
-
-"@UserId" (INT): The ID of the user whose username needs to be retrieved.
-Output:
-
-"username" (VARCHAR): The username associated with the input user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the username for a user with ID = 123, execute the following SQL statement:
-EXEC GetUserById @UserId = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "UserId" column and a "username" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-
-*/
-
 -----------------------------------------GetBirthDate------------------------------------------
 
 CREATE PROCEDURE GetUserBirthdateById
@@ -134,29 +112,6 @@ END
 
 GO
 
-/*
-
-Description:
-The "GetUserFullName" stored procedure retrieves the full name of a user from the "Users" table in the database based on the given user ID.
-
-Input Parameters:
-
-"@userID" (INT): The ID of the user whose full name needs to be retrieved.
-Output:
-
-"fullname" (VARCHAR): The full name associated with the input user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the full name for a user with ID = 123, execute the following SQL statement:
-EXEC GetUserFullName @userID = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "userID" column and a "fullname" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-
-
-*/
-
 
 -----------------------------------------GetUserEmail------------------------------------------
 
@@ -171,28 +126,7 @@ END
 
 GO
 
-/*
-
-Description:
-The "GetEmail_ID" stored procedure retrieves the email address of a user from the "Users" table in the database based on the given user ID.
-
-Input Parameters:
-
-"@UserId" (INT): The ID of the user whose email address needs to be retrieved.
-Output:
-
-"emailaddress" (VARCHAR): The email address associated with the input user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the email address for a user with ID = 123, execute the following SQL statement:
-EXEC GetEmail_ID @UserId = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "UserId" column and an "emailaddress" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-
-*/
-
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE GetPhoneNumber 
  @userID INT
@@ -204,28 +138,6 @@ BEGIN
 END;
 GO
 
-/*
-
-Description:
-The "GetPhoneNumber" stored procedure retrieves the phone number of a user based on their ID from the "Users" table in the database.
-
-Input Parameters:
-
-"@userID" (INT): The ID of the user whose phone number needs to be retrieved.
-Output:
-
-"phonenumber" (VARCHAR): The phone number of the user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the phone number of a user with ID = 123, execute the following SQL statement:
-EXEC GetPhoneNumber @userID = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "phonenumber" column.
-If no user exists in the "Users" table with the given ID, this stored procedure will return an empty result set.
-The "phonenumber" output value represents the phone number of the given user ID.
-
-*/
 
 -----------------------------------------GetRating------------------------------------------
 
@@ -240,27 +152,6 @@ END
 
 GO
 
-/*
-
-Description:
-The "GetUserRating" stored procedure retrieves the rating of a user from the "Users" table in the database based on the given user ID.
-
-Input Parameters:
-
-"@userID" (INT): The ID of the user whose rating needs to be retrieved.
-Output:
-
-"rating" (INT): The rating associated with the input user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the rating for a user with ID = 123, execute the following SQL statement:
-EXEC GetUserRating @userID = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "userID" column and a "rating" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-
-*/
 
 -----------------------------------------TotalJobs------------------------------------------
 
@@ -274,29 +165,6 @@ BEGIN
 END
 GO
 
-/*
-
-Description:
-The "GetTotalJobsByUserID" stored procedure calculates the total number of jobs (i.e., ongoing jobs and completed jobs) associated with a specific user ID from the "Users" table in the database.
-
-Input Parameters:
-
-"@userID" (INT): The ID of the user whose total number of jobs needs to be calculated.
-Output:
-
-"totaljobs" (INT): The sum of "jobsongoing" and "jobsdone" columns for the user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the total number of jobs for a user with ID = 123, execute the following SQL statement:
-EXEC GetTotalJobsByUserID @userID = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "userID" column, a "jobsongoing" column, and a "jobsdone" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-The "totaljobs" output value represents the sum of ongoing jobs and completed jobs associated with the given user ID.
-
-*/
-
 
 -----------------------------------------JobsDone------------------------------------------
 CREATE PROCEDURE GetJobsDoneByUserID
@@ -308,29 +176,6 @@ BEGIN
 	WHERE userID = @userID;
 END
 GO
-
-/*
-
-Description:
-The "GetJobsDoneByUserID" stored procedure retrieves the total number of jobs completed by a specific user from the "Users" table in the database.
-
-Input Parameters:
-
-"@userID" (INT): The ID of the user whose completed jobs need to be calculated.
-Output:
-
-"jobsdone" (INT): The total number of jobs completed by the user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the total number of jobs completed by a user with ID = 123, execute the following SQL statement:
-EXEC GetJobsDoneByUserID @userID = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "userID" column and a "jobsdone" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-The "jobsdone" output value represents the total number of completed jobs associated with the given user ID.
-
-*/
 
 -----------------------------------------ActiveJobs------------------------------------------
 
@@ -344,29 +189,6 @@ BEGIN
 END
 GO
 
-/*
-
-Description:
-The "GetJobsOnGoingByUserID" stored procedure retrieves the total number of ongoing jobs assigned to a specific user from the "Users" table in the database.
-
-Input Parameters:
-
-"@userID" (INT): The ID of the user whose ongoing jobs need to be calculated.
-Output:
-
-"jobsongoing" (INT): The total number of ongoing jobs assigned to the user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the total number of ongoing jobs assigned to a user with ID = 123, execute the following SQL statement:
-EXEC GetJobsOnGoingByUserID @userID = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "userID" column and a "jobsongoing" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-The "jobsongoing" output value represents the total number of ongoing jobs assigned to the given user ID.
-
-*/
-
 -----------------------------------------JobsNotActive------------------------------------------
 
 CREATE PROCEDURE GetJobsNotDoneByUserID
@@ -378,29 +200,6 @@ BEGIN
 	WHERE userID = @userID;
 END
 GO
-
-/*
-
-Description:
-The "GetJobsNotDoneByUserID" stored procedure retrieves the total number of jobs that are not yet completed or ongoing and assigned to a specific user from the "Users" table in the database.
-
-Input Parameters:
-
-"@userID" (INT): The ID of the user whose not-done jobs need to be calculated.
-Output:
-
-"jobsnotdone" (INT): The total number of jobs that are not yet completed or ongoing and assigned to the user ID, retrieved from the "Users" table.
-Example Usage:
-To retrieve the total number of jobs that are not yet completed or ongoing and assigned to a user with ID = 123, execute the following SQL statement:
-EXEC GetJobsNotDoneByUserID @userID = 123
-
-Notes:
-
-This stored procedure assumes that there is a "Users" table in the database that contains a "userID" column and a "jobsnotdone" column.
-If no user with the given ID exists in the "Users" table, this stored procedure will not return any results.
-The "jobsnotdone" output value represents the total number of jobs that are not yet completed or ongoing and assigned to the given user ID.
-
-*/
 
 
 -----------------------------------------TotalEarning------------------------------------------
@@ -416,29 +215,6 @@ END
 GO
 
 
-/*
-
-Description:
-The "GetTotalEarnings" stored procedure retrieves the total amount of money received by a user based on their ID from the "MoneyTransfers" table in the database.
-
-Input Parameters:
-
-"@userId" (INT): The ID of the user whose total earnings need to be calculated.
-Output:
-
-"TotalAmountReceived" (MONEY): The total amount of money received by the user ID, retrieved from the "MoneyTransfers" table.
-Example Usage:
-To retrieve the total amount of money received by a user with ID = 123, execute the following SQL statement:
-EXEC GetTotalEarnings @userId = 123
-
-Notes:
-
-This stored procedure assumes that there is a "MoneyTransfers" table in the database that contains a "dstuser" column and an "amount" column.
-If no money transfer has been made to the user with the given ID in the "MoneyTransfers" table, this stored procedure will return a total amount of 0.
-The "TotalAmountReceived" output value represents the total amount of money received by the given user ID.
-
-*/
-
 -----------------------------------------TotalSpendings------------------------------------------
 
 CREATE PROCEDURE GetTotalSpendings
@@ -450,31 +226,6 @@ BEGIN
     WHERE srcuser = @userId AND dstuser IS NOT NULL AND dstuser != @userId
 END
 GO
-
-
-/*
-
-Description:
-The "GetTotalSpendings" stored procedure calculates the total amount of money spent by a user based on their ID from the "MoneyTransfers" table in the database.
-
-Input Parameters:
-
-"@userId" (INT): The ID of the user whose total spendings needs to be calculated.
-Output:
-
-"TotalAmountReceived" (DECIMAL): The total amount of money spent by the user ID, calculated from the "MoneyTransfers" table.
-Example Usage:
-To calculate the total amount of money spent by a user with ID = 123, execute the following SQL statement:
-EXEC GetTotalSpendings @userId = 123
-
-Notes:
-
-This stored procedure assumes that there is a "MoneyTransfers" table in the database that contains an "amount" column.
-If no money transfers exist in the "MoneyTransfers" table with the given user ID as the source user, this stored procedure will return an empty result set with the value "NULL" for "TotalAmountReceived".
-The "TotalAmountReceived" output value represents the total amount of money spent by the given user ID.
-
-*/
-
 
 ------------------UpdateProceduers--------------------------
 
@@ -489,6 +240,34 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
+CREATE PROCEDURE UpdateUserNameById
+	@userID int,
+	@Uname varchar(64)
+AS
+BEGIN
+	UPDATE Users
+	SET username = @Uname
+	WHERE userID = @userID
+END
+GO
+
+----------------------------------------------------------------------------------------------
+
+CREATE PROCEDURE UpdateCNICById
+	@userID int,
+	@CNIC varchar(15)
+AS
+BEGIN
+	UPDATE Users
+	SET CNIC = @CNIC
+	WHERE userID = @userID
+END
+GO
+
+----------------------------------------------------------------------------------------------
+
 CREATE PROCEDURE UpdateUserPhoneNumberById
 	@userID int,
 	@phonenumber varchar(14)
@@ -499,6 +278,8 @@ BEGIN
 	WHERE userID = @userID
 END
 GO
+
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE UpdateUserEmailAddressById
 	@userID int,
@@ -511,6 +292,8 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
 CREATE PROCEDURE UpdateUserWorkAddressById
 	@userID int,
 	@workaddress varchar(128)
@@ -521,6 +304,9 @@ BEGIN
 	WHERE userID = @userID
 END
 GO
+
+
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE UpdateUserAboutById
 	@userID int,
@@ -533,6 +319,8 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
 CREATE PROCEDURE UpdateUserBankAccountById
 	@userID int,
 	@bankaccount varchar(34)
@@ -543,6 +331,8 @@ BEGIN
 	WHERE userID = @userID
 END
 GO
+
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE UpdateUserWalletMoneyById
 	@userID int,
@@ -604,6 +394,8 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
 
 CREATE PROCEDURE Deposite
     @userId INT,
@@ -620,6 +412,8 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
 CREATE PROCEDURE GetTotalWithdraws
     @userId INT
 AS
@@ -629,6 +423,8 @@ BEGIN
     WHERE srcuser = @userId AND dstuser IS NULL
 END
 GO
+
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE GetTotalDeposites
     @userId INT
@@ -640,6 +436,7 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
 
 CREATE FUNCTION GetUsernameById
 (
@@ -657,7 +454,7 @@ BEGIN
 END
 GO
 
-
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE DisplayTransactionInfo
     @UserID int
@@ -684,6 +481,8 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
 CREATE PROCEDURE AddImage
 	@userID int,
 	@ImageData image
@@ -695,6 +494,8 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
 CREATE PROCEDURE GetImageData
     @UserId INT
 AS
@@ -702,6 +503,8 @@ BEGIN
     SELECT picture FROM Users WHERE userID = @UserId
 END
 GO
+
+----------------------------------------------------------------------------------------------
 
 
 CREATE PROCEDURE GetPhoneNumber 
@@ -714,7 +517,7 @@ BEGIN
 END;
 GO
 
-
+----------------------------------------------------------------------------------------------
 
 
 CREATE PROCEDURE GetUserById(
@@ -756,6 +559,7 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
 
 
 CREATE PROCEDURE DisplayJobInfo
@@ -782,6 +586,7 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
 
 
 CREATE FUNCTION GetJobTitle
@@ -800,6 +605,7 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE DisplayMoneyTransfersInfo
 AS
@@ -825,6 +631,7 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
 
 
 CREATE PROCEDURE DisplayProposalInfo
@@ -844,6 +651,7 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE DisplayRequestInfo
 AS
@@ -858,6 +666,8 @@ BEGIN
         Requests
 END
 GO
+
+----------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE DisplayComplains
 AS
@@ -876,6 +686,8 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
+
 CREATE PROCEDURE PostComplaint
   @jobID int,
   @sentby int,
@@ -893,6 +705,8 @@ BEGIN
   VALUES (@sentby, @sentfor, @jobID, GETDATE(), @details);
 END
 GO
+
+----------------------------------------------------------------------------------------------
 
 Create PROCEDURE HandleComplaint_Accept
     @complaintid int
@@ -918,6 +732,7 @@ BEGIN
 END
 GO
 
+----------------------------------------------------------------------------------------------
 
 
 CREATE PROCEDURE HandleComplaint_Reject
@@ -928,3 +743,129 @@ BEGIN
     SET status = 'R'
     WHERE complaintid = @complaintid;
 END
+GO
+
+
+------------------------------------------------------------------------------------------------
+
+Alter PROCEDURE ChangePassword
+	@userID int,
+	@newPassword VARCHAR(16)
+AS
+BEGIN
+		UPDATE Users SET userpass = @newPassword WHERE userID = @userID
+END
+GO
+
+------------------------------------------------------------------------------------------------
+CREATE PROCEDURE getPassword
+	@userID int
+    AS
+BEGIN
+    SELECT userpass 
+    FROM Users 
+    WHERE userID = @userID 
+END
+GO
+------------------------------------------------------------------------------------------------
+
+CREATE PROCEDURE CheckUserIDExists
+    @userID INT,
+    @exists BIT OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (SELECT 1 FROM Users WHERE userID = @userID)
+        SET @exists = 1;
+    ELSE
+        SET @exists = 0;
+END
+GO
+
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+
+alter PROCEDURE UploadDeliverable
+    @jobID INT,
+    @deliverable VARBINARY(MAX)
+AS
+BEGIN
+    DECLARE @LancerID INT, @ClientID INT,@jobvalue INT ,@newAmount INT;
+    select @ClientID = clientID,@LancerID = lancerID,@jobvalue = jobvalue from Jobs where jobID = @jobID  
+
+    UPDATE Jobs SET deliverable = @deliverable, jobstatus = 'D' WHERE jobID = @jobID
+    UPDATE Users SET jobsdone = jobsdone + 1,jobsongoing = jobsongoing - 1  WHERE userID =@LancerID
+    UPDATE Users SET jobsdone = jobsdone + 1,jobsongoing = jobsongoing - 1  WHERE userID =@ClientID
+    
+    SET @newAmount = ((@jobvalue * 90)/100);
+
+	INSERT INTO MoneyTransfers (transfertime,amount,forjob,srcuser,dstuser) values (getdate(),@newAmount,@jobID,1,@LancerID)
+    UPDATE Users SET walletmoney = walletmoney + @newAmount  WHERE userID = @LancerID
+    UPDATE Users SET walletmoney = walletmoney - @newAmount WHERE userID = 1
+    
+END
+GO
+
+alter procedure markproposal
+@jobID INT,
+@proposalID INT
+AS
+BEGIN
+    DECLARE @ClientID INT,@LancerID INT;
+
+    select @ClientID = clientID,@LancerID = lancerID from Jobs where jobID = @jobID  
+
+	if exists(select * from Proposals where jobID = @jobID and proposalID = @proposalID)
+	begin
+		update Proposals set approvalstatus = 'A' where jobID = @jobID and proposalID = @proposalID
+        update Jobs set jobstatus = 'O' where jobID = @jobID
+        update Jobs set lancerID = (select lancerID from Proposals where jobID = @jobID and proposalID = @proposalID) where jobID = @jobID
+        update Users SET jobsnotdone = jobsnotdone - 1 WHERE userID = @ClientID
+        update Users SET jobsongoing = jobsongoing + 1 WHERE userID = @ClientID
+        update Users SET jobsongoing = jobsongoing + 1 WHERE userID = @LancerID
+	end
+end
+GO
+
+alter PROCEDURE PostJob
+    @clientID INT,
+    @jobtitle VARCHAR(32),
+    @jobtype VARCHAR(32),
+    @jobvalue MONEY,
+    @jobdetail TEXT,
+    @duedate DATE,
+
+    @_ret_val_			int					output
+AS
+BEGIN
+    
+
+      DECLARE @JobID int
+  --  DECLARE @walletBalance MONEY;
+  --  SELECT @walletBalance = amount FROM moneytransfers WHERE srcuser = @clientID;
+  --  IF @jobvalue > @walletBalance
+  --  BEGIN
+  --      RAISERROR ('Insufficient balance in wallet. Please deposit sufficient funds to post the job.', 16, 1);
+  --      RETURN;
+  --  END
+
+   
+
+  --  DECLARE @commission MONEY;
+  --  SET @commission = @jobvalue * 0.1;
+  --  UPDATE MoneyTransfers SET amount = amount - @jobvalue - @commission WHERE srcuser = @clientID;
+
+    
+    INSERT INTO Jobs (clientID, jobtitle, jobtype, jobvalue, jobdetail, postdate, duedate, jobstatus)
+    VALUES (@clientID, @jobtitle, @jobtype, @jobvalue, @jobdetail, GETDATE(), @duedate, 'T');
+
+	SELECT TOP 1  @JobID = jobID FROM Jobs ORDER BY jobID DESC;
+
+	INSERT INTO MoneyTransfers (transfertime,amount,forjob,srcuser,dstuser) values (getdate(),@jobvalue,@jobID,@clientID,1)
+    UPDATE Users SET walletmoney = walletmoney - @jobvalue WHERE userID = @clientID
+    UPDATE Users SET walletmoney = walletmoney + @jobvalue WHERE userID = 1
+    UPDATE Users SET jobsnotdone = jobsnotdone + 1 WHERE userID = @clientID
+    
+END
+GO

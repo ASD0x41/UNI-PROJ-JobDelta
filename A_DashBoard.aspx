@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <link href="Resources/CSS/A_DashBoarB.css" rel="stylesheet" />
+    <link href="Resources/CSS/A_Dashboard.css" rel="stylesheet" />
     <title></title>
 </head>
 
@@ -20,7 +20,10 @@
                             </div>
                             <nav>
                               <ul>
-                                <li><a>Admin Access</a></li>
+                                <li>
+                                    <a><b>Commission :</b> $<asp:Label ID="Commission" runat="server"></asp:Label></a>
+                                    <a>Admin Access</a>
+                                </li>
                               </ul>
                             </nav>
                             <div class="profile">
@@ -80,7 +83,29 @@
 
         <br />
         <br />
+        <br />
+        
+        <section class="Edit_User">
 
+            <div style="-webkit-font-smoothing:antialiased; font-size:20px; text-align:center; "><strong>Edit User Information</strong></div>
+            <br />
+
+                <label for="U_Id">Enter User-ID: </label>
+                <p style="margin-left:42%"><asp:TextBox ID="U_Id" runat="server" CssClass="form-control" Width="20%" TextMode="Number" ></asp:TextBox></p>
+
+                <label for="UserName">UserName:</label>
+                <p style="margin-left:30%"> <asp:TextBox ID="UserName" runat="server" CssClass="form-control" Width="50%" ></asp:TextBox></p>
+
+                <label for="Email">Email:</label>
+                 <p style="margin-left:30%"><asp:TextBox ID="Email" runat="server" CssClass="form-control" Width="50%" ></asp:TextBox></p>
+
+                <label for="CNIC">CNIC:</label>
+                 <p style="margin-left:30%"><asp:TextBox ID="CNIC" runat="server" CssClass="form-control" Width="50%"></asp:TextBox></p>
+
+                 <br />
+                <asp:Button  ID="btn_Edit" CSSclass="edit-button" runat="server" Text="Save" onclick="Edit_Click"/>
+  
+        </section>
 
 
         <div style="-webkit-font-smoothing:antialiased; font-size:30px; text-align:center; "><strong>ACTIVE JOBS</strong></div>
@@ -175,10 +200,10 @@
                         <asp:BoundField DataField="Date" HeaderText="Date" />
                         <asp:BoundField DataField="status" HeaderText="Status" />
                         <asp:TemplateField HeaderText="Resolve">
-                        <ItemTemplate>
-                         <asp:LinkButton ID="Accept_btn" runat="server" Text="Accept" CommandName="Accept" CommandArgument='<%# Eval("complaintID") %>' OnCommand="AcceptButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
-                         <asp:LinkButton ID="Reject_btn" runat="server" Text="Reject" CommandName="Reject" CommandArgument='<%# Eval("complaintID") %>' OnCommand="RejectButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
-                          </ItemTemplate>
+                            <ItemTemplate>
+                            <asp:LinkButton ID="Accept_btn" runat="server" Text="Accept" CommandName="Accept" CommandArgument='<%# Eval("complaintID") ?? "" %>' OnCommand="AcceptButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
+                            <asp:LinkButton ID="Reject_btn" runat="server" Text="Reject" CommandName="Reject" CommandArgument='<%# Eval("complaintID") ?? "" %>' OnCommand="RejectButton_Command" Visible='<%# !IsStatusHidden(Eval("status")) %>' />
+                             </ItemTemplate>
                         </asp:TemplateField>
                         </Columns>
                      <HeaderStyle BackColor="#CCCCCC" Font-Bold="true" />
