@@ -13711,6 +13711,7 @@
     <Content Include="Resources\JavaScript\subchat.py" />
     <Content Include="Resources\JavaScript\subscription.js" />
     <Content Include="Resources\JavaScript\Wallet.js" />
+    <Content Include="Review.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -16570,6 +16571,13 @@
     </Compile>
     <Compile Include="How_it_works.aspx.designer.cs">
       <DependentUpon>How_it_works.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Review.aspx.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Review.aspx.designer.cs">
+      <DependentUpon>Review.aspx</DependentUpon>
     </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
