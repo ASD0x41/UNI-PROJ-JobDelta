@@ -24,6 +24,8 @@ namespace JobDelta
             int jobID = (int)Session["SelectedJobID"];
 
             propl.Visible = false;
+            btnClose.Visible = false;
+            btnClose.Enabled = false;
             btnDownloadDeliverable.Visible = false;
             DAL myDAL = new DAL();
             var jobDetail = myDAL.LoadJobDetailFreelancer(jobID);
@@ -40,6 +42,8 @@ namespace JobDelta
             if (lancerID != 0)
             {
                 propl.Visible = false;
+                btnClose.Visible = false;
+                btnClose.Enabled = false;
                 ProposalGridView.Visible = false;
                 lancerWorking.Visible = true;
                 lancerWorkingl.Visible = true;
@@ -51,6 +55,8 @@ namespace JobDelta
                 lancerWorking.Visible = false;
                 lancerWorkingl.Visible = false;
                 propl.Visible = true;
+                btnClose.Visible = false;
+                btnClose.Enabled = false;
                 ProposalGridView.Visible = true;
                 btnDownloadDeliverable.Visible = false;
                 ProposalGridView.DataSource = myDAL.LoadProposal(jobID);
@@ -63,6 +69,8 @@ namespace JobDelta
                 ProposalGridView.Visible= false;
                 lancerWorking.Visible = false;
                 lancerWorkingl.Visible = false;
+                btnClose.Visible = false;
+                btnClose.Enabled = false;
             }
 
             string getStatus = myDAL.getStatus(jobID);
@@ -77,6 +85,17 @@ namespace JobDelta
             else
             {
                 btnDownloadDeliverable.Visible = false;
+            }
+
+            if(getStatus == "T")
+            {
+                btnClose.Visible = true;
+                btnClose.Enabled = true;
+            }
+            else
+            {
+                btnClose.Visible = false;
+                btnClose.Enabled=false;
             }
         }
         protected void ProposalGridView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -106,6 +125,14 @@ namespace JobDelta
                 Response.BinaryWrite(fileBytes);
                 Response.End();
             }
+        }
+
+        protected void btnRemove_Click (object sender, EventArgs e)
+        {
+            int jobID = (int)Session["SelectedJobID"];
+            DAL myDAL = new DAL();
+            myDAL.removeJob(jobID);
+            Response.Redirect("C_DashBoard.aspx");
         }
         protected void PostComplaint(object sender, EventArgs e)
         {

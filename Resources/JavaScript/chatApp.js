@@ -24,8 +24,9 @@ pythonProcess.on('close', (code) => {
 });*/
 
 function redirect() {
-    window.location.href = 'http://localhost:5173?uname=rick';
+    window.location.href = 'http://localhost:5173';
 }
+
 
 
 

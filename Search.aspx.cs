@@ -14,5 +14,7 @@ namespace JobDelta
             if ((int)Application["curUserType"] < 0)
                 Response.Redirect("Homepage.aspx");
         }
+
+
     }
 }

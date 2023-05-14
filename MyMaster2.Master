@@ -38,7 +38,7 @@
                           <a href="MyProfile.aspx"><asp:Image ID="ImageControl" runat="server" /></a>
 
                           <div class="dropdown" style="margin-left:7px;">
-                            <a href="javascript:redirect();">Chat</a>
+                            <%--<a href="javascript:redirect();">Chat</a>--%>
                             <a href="HomePage.aspx">Logout</a>
                           </div>
 
