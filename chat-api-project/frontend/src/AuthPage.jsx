@@ -18,9 +18,9 @@ const AuthPage = (props) => {
   return (
     <div className="background">
 
-          <script type="text/javascript">
-              setTimeout(function() {"{"}document.getElementById("chatform").submit();{"}"}, 100);
-          </script>
+          {/*<script type="text/javascript">*/}
+          {/*    setTimeout(function() {"{"}document.getElementById("chatform").submit();{"}"}, 100);*/}
+          {/*</script>*/}
 
       <form id="chatform" onSubmit={onSubmit} className="form-card">
         <div className="form-title">Welcome 👋</div>
