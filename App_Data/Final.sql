@@ -1235,7 +1235,7 @@ GO
 
 
 -----this one was being altered and its name was ViewPostedJobs so i added 2
-create PROCEDURE ViewPostedJobs2
+create PROCEDURE ViewPostedJobs
 	@clientId INT
 AS
 BEGIN
@@ -1591,7 +1591,7 @@ begin
         select @proposalID=proposalID,@proposaldetail = proposaldetail,@approvalstatus = approvalstatus,@applydate = applydate from Proposals where jobID = @jobID and lancerID = @lancerID
     end
 end
-
+go
 
 
 
@@ -2250,13 +2250,14 @@ AS
     RETURN (SELECT jobtitle, jobtype, jobvalue, jobdetail FROM Jobs WHERE clientID = @_userID)
 GO
 
+drop function ViewPostedJobs
 
 
 
 
 
 
-
+go
 create function Q5 (@userID int)
 returns table
 as
@@ -2316,16 +2317,116 @@ GO
 
 
 
+create table Reviews
+(
+	reviewID		int				primary key		identity(1,1),
+	sentby			int				foreign key		references Users (userID),
+	job				int				foreign key		references Jobs (jobID),
+	UName			varchar(25),
+	email			varchar(50),
+	expectation		varchar(250),
+	rating			int,
+	satisfactory	varchar(250),
+	communication	varchar(250),
+	workease		varchar(250),
+	recommend		varchar(250),
+	additional		varchar(250)
+);
+go
+
+-------------------------------------------
+drop procedure Reviews_store
+
+go
+CREATE PROCEDURE Reviews_store
+
+    @sentID int,
+	@job	int,
+    @Username varchar(20),
+    @usemail  varchar(50),
+    @urating   varchar(5),
+    @expec varchar(250),
+    @satisfac varchar(250),
+    @communi varchar(250),
+    @work varchar(250),
+	@recom		varchar(250),
+	@add		varchar(250),
+
+
+    @_ret_val_			int					output
+AS
+BEGIN
+        INSERT INTO Reviews (sentby, job, UName, email, expectation, rating, satisfactory, communication, workease, recommend, additional)
+			
+        VALUES  (@sentID,@job, @Username, @usemail, @expec, @urating, @satisfac, @communi, @work, @recom, @add)
+
+
+        SET		@_ret_val_ = 0
+END
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+alter procedure removeJob
+@jobID INT
+as
+begin
+    if exists (select* from MoneyTransfers where forjob = @jobID)
+    begin
+        UPDATE Users	SET walletmoney += (select amount from MoneyTransfers where forjob = @jobID) WHERE userID = (SELECT srcuser FROM MoneyTransfers WHERE forjob = @jobID)
+        UPDATE Users	SET walletmoney -= (select amount from MoneyTransfers where forjob = @jobID) WHERE userID = (SELECT dstuser FROM MoneyTransfers WHERE forjob = @jobID)
+        delete from MoneyTransfers where forjob = @jobID
+        
+	end
+    if exists (select* from complaints where onJob = @jobID)
+    begin
+		delete from complaints where onJob = @jobID
+	end
+
+    delete from Jobs where jobID = @jobID
+end
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE PROCEDURE		SearchUser
 
 	@_username			varchar(16),
-	@_usertype			int,
 
+	@_usertype			int                 output,
 	@_fullname			varchar(64)			output,
 	@_usergend			char(1)				output,
-	@_user_pic			image				output,
-	@_aboutusr			text				output,
 	@_workaddr			varchar(128)		output,
 	@_phonenum			varchar(14)			output,
 	@_emailadd			varchar(50)			output,
@@ -2335,16 +2436,15 @@ CREATE PROCEDURE		SearchUser
 AS
 	BEGIN
 
-		IF		EXISTS	(SELECT * FROM Users WHERE username=@_username AND usertype=@_usertype)
+		IF		EXISTS	(SELECT * FROM Users WHERE username=@_username)
 			BEGIN
 				SELECT	@_fullname = fullname FROM Users WHERE username=@_username
 				SELECT	@_usergend = gender FROM Users WHERE username=@_username
-				SELECT	@_user_pic = picture FROM Users WHERE username=@_username
-				SELECT	@_aboutusr = aboutuser FROM Users WHERE username=@_username
 				SELECT	@_workaddr = workaddress FROM Users WHERE username=@_username
 				SELECT	@_phonenum = phonenumber FROM Users WHERE username=@_username
 				SELECT	@_emailadd = emailaddress FROM Users WHERE username=@_username
                 SELECT	@_user_ID_ = userID FROM Users WHERE username=@_username
+                SELECT	@_usertype = usertype FROM Users WHERE username=@_username
 				SET		@_ret_val_ = 0
 			END
 		ELSE
@@ -2352,3 +2452,6 @@ AS
 
 	END
 GO
+
+
+select * from Users

@@ -125,18 +125,26 @@ namespace JobDelta
 
         protected void BtnJobPost_Click(object sender, EventArgs e)
         {
+            DAL myDAL = new DAL();
+            int check = 0;
             int ClientID = (int)Application["currentUser"]; 
             string JobTitle = jobTitle.Text;
             string JobType = jobCategory.SelectedValue ;
             decimal JobValue = decimal.Parse(jobBudget.Text);
             string JobDetail = jobdesc.Text;
-            string dueDate = jobDueDate.SelectedDate.ToShortDateString();
-            
+            DateTime dueDate = (DateTime.Parse(jobDueDate.Text));
 
+            if(myDAL.GetUserWalletMoneyById(ClientID) < JobValue)
+            {
+                ERROR.Text = "insufficient funds for this Job";
+                check = 1;
+            }
 
-            DAL myDAL = new DAL();
-            int retval = myDAL.RegisterNewJob(ClientID, JobTitle, JobType, JobValue, JobDetail,dueDate);
-            Response.Redirect("C_DashBoard.aspx");
+            if (check == 0)
+            {      
+                int retval = myDAL.RegisterNewJob(ClientID, JobTitle, JobType, JobValue, JobDetail, dueDate);
+                Response.Redirect("C_DashBoard.aspx");
+            }
 
             //switch (retval)
             //{

@@ -64,7 +64,7 @@
          <br />
          <asp:TextBox CssClass="popup-input" Visible="false" runat="server" ID="proposal" TextMode="MultiLine" Rows="4" Style="width: 450px;" required="true"></asp:TextBox>
          
-        <asp:Button ID="spropose" Visible="false" runat="server" Text="Submit Proposal"  OnClick="SubmitProposal" />
+        <asp:Button ID="spropose" Visible="false" CssClass="sp_button" runat="server" Text="Submit Proposal"  OnClick="SubmitProposal" />
         
 
         <asp:Label ID="lPID" Visible="false" CssClass="popup-label" runat="server" Text="Proposal ID:"></asp:Label>
@@ -93,20 +93,25 @@
         <asp:FileUpload ID="deliverableFileUpload" Visible="false" Enabled="false" runat="server" required="true" />
         <br />
         <br />
-        <asp:Button ID="markCompletedButton" Visible="false" Enabled="false" runat="server" Text="Mark as Completed" OnClick="markCompletedButton_Click"  />
+        <asp:Button ID="markCompletedButton" Visible="false" CssClass="sp_button" Enabled="false" runat="server" Text="Mark as Completed" OnClick="markCompletedButton_Click"  />
 
         <br />
-       <asp:Button Visible="false" ID="btnDownloadDeliverable" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
+       <asp:Button Visible="false" ID="btnDownloadDeliverable" CssClass="sp_button" runat="server" Text="Download Deliverable" OnClick="btnDownloadDeliverable_Click" />
         <br />
         <br />
          &nbsp &nbsp &nbsp<asp:Label ID="lblDetails" runat="server" AssociatedControlID="txtDetails">Post Complaint</asp:Label><br/>
          &nbsp &nbsp &nbsp<asp:TextBox ID="txtDetails" runat="server" TextMode="MultiLine" Width="300px" Height="100px"></asp:TextBox><br/>
-         &nbsp &nbsp &nbsp<asp:Button ID="btnPostComplaint" runat="server" Text="Post Complaint" OnClick="PostComplaint"  />
+         &nbsp &nbsp &nbsp<asp:Button ID="btnPostComplaint" runat="server" CssClass="sp_button" Text="Post Complaint" OnClick="PostComplaint"  />
         
-        &nbsp &nbsp &nbsp<button><a href="Review.aspx">Give Review</a></button>
+
+
+        &nbsp 
+        <br />
+        <br />
+        &nbsp &nbsp<br />
+         <button style="width: 161px"><a class="sp_button" href="Review.aspx">Give Review</a></button>
          <br />
          <br />
-         <button id="BtnReview" type="submit" onclick ="window.location.href='Review.aspx';">Give Review</button>
 
     </form>
 

@@ -273,3 +273,43 @@ hr {
     background-color: #fff;
     color: #f36c21;
 }
+
+
+.popup-if {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+    /* Styles for the popup heading */
+    .popup-if h2 {
+        margin-top: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Styles for the popup message */
+    .popup-if p {
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+
+.popup-if {
+    display: none;
+}
+
+.ERROR_txt{
+    font-size:15px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bold;
+    color:white;
+    background-color:#222;
+    width:70%
+}
