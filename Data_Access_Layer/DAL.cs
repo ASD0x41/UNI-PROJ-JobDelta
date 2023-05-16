@@ -828,6 +828,8 @@ namespace JobDelta.Data_Access_Layer
             return logindetails;
         }
 
+
+
         public string GetUserById(int userId)
         {
             string username = "";
@@ -1741,10 +1743,27 @@ namespace JobDelta.Data_Access_Layer
             return exists;
         }
 
+        public void UpdateUserRating(int userID,int job ,int newRating)
+        {
+            using (SqlConnection connection = new SqlConnection(conString))
+            {
+                string query = "UPDATE Users SET rating = (@newRating + rating) / 2 WHERE userID = @userID";
 
-    ///////////////////////////////////////////////////////////////////
-    //Feedback_Input
-    public int Feedback_Input(int sent, string uname, string uemail, string details, string rate, string uimprove, string ucomplain, string usuggestion)
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newRating", newRating);
+                    command.Parameters.AddWithValue("@userID", userID);
+                    command.Parameters.AddWithValue("@JobId", job);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        ///////////////////////////////////////////////////////////////////
+        //Feedback_Input
+        public int Feedback_Input(int sent, string uname, string uemail, string details, string rate, string uimprove, string ucomplain, string usuggestion)
         {
 
             int retval = -1;

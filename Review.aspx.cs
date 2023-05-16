@@ -34,7 +34,9 @@ namespace JobDelta
 
             DAL myDAL = new DAL();
             int retval = myDAL.Review_Input(x, jobID, uname, uemail, expectation, selectedRating, satistactory, communicate, workease, recomend, additional);
+            int rate = Convert.ToInt32(Rate.Text);
 
+            myDAL.UpdateUserRating(x, jobID, rate);
             switch (retval)
             {
                 case 0:
