@@ -70,9 +70,9 @@ namespace JobDelta
             int skillsValue = 0;
             int communicationValue = 0;
 
-            if (totalJobs != 0)
+            if (totalJobs > 0)
             {
-                projectCompletionValue = (int)(((double)JobsDone / totalJobs) * 100) % 100;
+                projectCompletionValue = (int)(((double)JobsDone / totalJobs) * 100);
             }
 
             if (totalJobs != 0)
@@ -81,9 +81,9 @@ namespace JobDelta
                 skillsValue = (int)(((double)Rating / 5) * 100) % 100;
                 communicationValue = (int)(((double)Rating / 5) * 135) % 100;
             }
-            if (totalJobs != 0)
+            if (JobsActive == 0)
             {
-                availabilityValue = (int)(((double)JobsActive / totalJobs) * 100) % 100;
+                availabilityValue = 100;
             }
 
             string script = "updateProgressBars(" + projectCompletionValue + "," + clientSatisfactionValue + "," + skillsValue + "," + communicationValue + "," + availabilityValue + ");";
