@@ -30,20 +30,6 @@
 
 
 
-                 /*const form = document.querySelector('form');
-                 const accountTypeSelect = document.getElementById('account-type');
-                 const occupationSelect = document.getElementById('occupation');
-                 const searchInput = document.getElementById('search');
-                 const resultsDiv = document.getElementById('results');
-         
-                 form.addEventListener('submit', e => {
-                     e.preventDefault();
-                     const accountType = accountTypeSelect.value;
-                     const occupation = occupationSelect.value;
-                     const searchTerm = searchInput.value;
-                     // Perform search and display results
-                     // You can use an AJAX request to a server-side script to retrieve and display the results dynamically
-                 });*/
              </script>
 
             <div style="margin-left:19%;">
