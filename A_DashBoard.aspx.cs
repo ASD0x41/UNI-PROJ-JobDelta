@@ -24,6 +24,7 @@ namespace JobDelta
 			else if ((int)Application["curUserType"] == 2)
                 Response.Redirect("C_DashBoard.aspx");
 
+
             DAL myDAL = new DAL();
             Commission.Text = myDAL.GetUserWalletMoneyById(1).ToString();
             DataTable dataTable = myDAL.DisplayUsersInfo();
