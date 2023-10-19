@@ -6,7 +6,19 @@ FAST-NUCES-LHR: Database Systems Project (Group)
 
 
 
+
 # JobDelta (*Freelancing Portal*)
+
+● A DBMS based freelancing website to enhance local freelancing community.
+
+● Actively uses SQL, ASP.NET, C#, HTML, JSS, CSS, GIT and more to implement the following functionality.
+
+● Implemented all main features like account creation, client job posting, freelance proposal submission and
+  acceptance, deliverable submission download and much more
+
+
+
+
 ---
 ## Database Systems Lab (CL-2005) Project - BCS-4F (Group A)
 ---
